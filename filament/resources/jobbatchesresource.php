@@ -18,7 +18,7 @@ class JobBatchesResource extends Resource
 
     protected static ?string $model = JobBatch::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-view-list';
+    protected static ?string $navigationIcon = 'heroicon-o-queue-list';
 
     protected static ?string $navigationGroup = 'jobs';
 
