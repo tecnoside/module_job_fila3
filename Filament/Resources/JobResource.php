@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobResource\Pages;
 use Modules\Job\Models\Job;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class JobResource extends Resource
 {
-    use ContextualResource;
+    // use ContextualResource;
     protected static ?string $model = Job::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
@@ -72,7 +72,7 @@ class JobResource extends Resource
         ];
     }
 
-    protected static function getNavigationBadge(): ?string
+    public static function getNavigationBadge(): ?string
     {
         return (string) Job::query()->count();
     }

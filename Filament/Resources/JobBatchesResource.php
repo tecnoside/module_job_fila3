@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobBatchesResource\Pages\ListJobBatches;
 use Modules\Job\Models\JobBatch;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class JobBatchesResource extends Resource
 {
-    use ContextualResource;
+    // use ContextualResource;
 
     protected static ?string $model = JobBatch::class;
 
@@ -50,7 +50,7 @@ class JobBatchesResource extends Resource
         ];
     }
 
-    protected static function getNavigationBadge(): ?string
+    public static function getNavigationBadge(): ?string
     {
         return (string) JobBatch::query()->count();
     }

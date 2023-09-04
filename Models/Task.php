@@ -76,10 +76,10 @@ use Modules\Job\Models\Traits\FrontendSortable;
  */
 class Task extends BaseModel
 {
-    use Notifiable;
     // use HasFrequencies;
     use FrontendSortable;
     use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
