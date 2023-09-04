@@ -17,7 +17,7 @@ class JobResource extends Resource
     // use ContextualResource;
     protected static ?string $model = Job::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
 
     protected static ?string $navigationGroup = 'jobs';
 
