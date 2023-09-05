@@ -14,7 +14,7 @@ use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class JobResource extends Resource
 {
-    // use ContextualResource;
+    // //use ContextualResource;
     protected static ?string $model = Job::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-circle-stack';

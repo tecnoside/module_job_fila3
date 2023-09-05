@@ -25,7 +25,7 @@ use Webmozart\Assert\Assert;
 
 class FailedJobsResource extends Resource
 {
-    // use ContextualResource;
+    // //use ContextualResource;
 
     protected static ?string $model = FailedJob::class;
 
@@ -72,14 +72,14 @@ class FailedJobsResource extends Resource
                 BulkAction::make('retry')
                     ->label('Retry')
                     ->requiresConfirmation()
-                    ->action(function (Collection $records): void {
-                        foreach ($records as $record) {
+                    ->action(function (Collection $collection): void {
+                        foreach ($collection as $record) {
                             // Cannot access property $uuid on mixed.
                             Assert::isInstanceOf($record, FailedJob::class);
                             Artisan::call("queue:retry {$record->uuid}");
                         }
                         Notification::make()
-                            ->title("{$records->count()} jobs have been pushed back onto the queue.")
+                            ->title("{$collection->count()} jobs have been pushed back onto the queue.")
                             ->success()
                             ->send();
                     }),

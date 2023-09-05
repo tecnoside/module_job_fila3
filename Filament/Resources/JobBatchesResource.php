@@ -14,7 +14,7 @@ use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class JobBatchesResource extends Resource
 {
-    // use ContextualResource;
+    // //use ContextualResource;
 
     protected static ?string $model = JobBatch::class;
 
