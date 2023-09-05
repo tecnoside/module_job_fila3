@@ -7,7 +7,7 @@ namespace Modules\Job\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\Task;
 
-class TaskFactory extends Factory
+final class TaskFactory extends Factory
 {
     protected $model = Task::class;
 

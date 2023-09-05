@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-class CreateResultsTable extends XotBaseMigration
+final class CreateResultsTable extends XotBaseMigration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateResultsTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $blueprint): void {
+            static function (Blueprint $blueprint) : void {
                 $blueprint->increments('id');
                 $blueprint->unsignedInteger('task_id');
                 $blueprint->timestamp('ran_at')->useCurrent();
@@ -33,7 +33,7 @@ class CreateResultsTable extends XotBaseMigration
         );
         // -- UPDATE --
         $this->tableUpdate(
-            function (Blueprint $blueprint): void {
+            static function (Blueprint $blueprint) : void {
                 // if (! $this->hasColumn('created_by')) {
                 //     $table->string('created_by')->nullable();
                 //     $table->string('updated_by')->nullable();

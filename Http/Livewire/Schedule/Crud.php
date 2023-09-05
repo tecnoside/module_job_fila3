@@ -18,7 +18,7 @@ use Symfony\Component\Console\Command\Command;
 /**
  * Class Schedule\Crud.
  */
-class Crud extends Component
+final class Crud extends Component
 {
     public bool $create = false;
 
@@ -31,6 +31,7 @@ class Crud extends Component
         if (is_array($res)) {
             return $res;
         }
+        
         throw new Exception('[' . __LINE__ . '][' . __FILE__ . ']');
     }
 
@@ -82,10 +83,10 @@ class Crud extends Component
         }
         */
 
-        return $all_commands->sortBy(function (Command $command): string {
+        return $all_commands->sortBy(static function (Command $command) : string {
             $name = (string) $command->getName();
             if (false === mb_strpos($name, ':')) {
-                $name = ':' . $name;
+                return ':' . $name;
             }
 
             return $name;

@@ -22,12 +22,12 @@ trait FrontendSortable
          */
         $sortDirectionRequest = $request->input('sort_direction', 'asc');
 
-        return $builder->when($sorted, function (Builder $builder) use ($sortByRequest, $sortDirectionRequest): void {
+        return $builder->when($sorted, static function (Builder $builder) use ($sortByRequest, $sortDirectionRequest) : void {
             $builder->orderBy(
                 (string) $sortByRequest,
                 ('desc' == (string) $sortDirectionRequest) ? 'desc' : 'asc'
             );
-        }, function (Builder $builder) use ($defaultSort): void {
+        }, static function (Builder $builder) use ($defaultSort) : void {
             foreach ($defaultSort as $key => $direction) {
                 $builder->orderBy($key, $direction);
             }

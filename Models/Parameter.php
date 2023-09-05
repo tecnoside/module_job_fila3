@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ParameterFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -15,27 +18,27 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string                             $value
  * @property string|null                        $created_by
  * @property string|null                        $updated_by
- * @property \Illuminate\Support\Carbon|null    $created_at
- * @property \Illuminate\Support\Carbon|null    $updated_at
- * @property \Modules\Job\Models\Frequency|null $task
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Frequency|null $task
  *
- * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  query()
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  whereFrequencyId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  whereUpdatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Parameter  whereValue($value)
+ * @method static ParameterFactory factory($count = null, $state = [])
+ * @method static Builder|Parameter newModelQuery()
+ * @method static Builder|Parameter newQuery()
+ * @method static Builder|Parameter query()
+ * @method static Builder|Parameter whereCreatedAt($value)
+ * @method static Builder|Parameter whereCreatedBy($value)
+ * @method static Builder|Parameter whereFrequencyId($value)
+ * @method static Builder|Parameter whereId($value)
+ * @method static Builder|Parameter whereName($value)
+ * @method static Builder|Parameter whereUpdatedAt($value)
+ * @method static Builder|Parameter whereUpdatedBy($value)
+ * @method static Builder|Parameter whereValue($value)
  *
  * @mixin IdeHelperParameter
  * @mixin \Eloquent
  */
-class Parameter extends BaseModel
+final class Parameter extends BaseModel
 {
     // protected $table = 'frequency_parameters';
 

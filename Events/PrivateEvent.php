@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class PrivateEvent implements ShouldBroadcast
+final class PrivateEvent implements ShouldBroadcast
 {
     use Dispatchable;
     use InteractsWithSockets;

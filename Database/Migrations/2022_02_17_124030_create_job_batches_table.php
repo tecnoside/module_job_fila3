@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-class CreateJobBatchesTable extends XotBaseMigration
+final class CreateJobBatchesTable extends XotBaseMigration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateJobBatchesTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $blueprint): void {
+            static function (Blueprint $blueprint) : void {
                 $blueprint->string('id')->primary();
                 $blueprint->string('name');
                 $blueprint->integer('total_jobs');

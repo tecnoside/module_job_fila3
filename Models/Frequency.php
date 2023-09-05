@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Collection;
+use Modules\Job\Database\Factories\FrequencyFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 // use Modules\Job\Models\Traits\HasParameters;
-
 /**
  * Modules\Job\Models\Frequency.
  *
@@ -18,29 +21,29 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string                                                                       $interval
  * @property string|null                                                                  $created_by
  * @property string|null                                                                  $updated_by
- * @property \Illuminate\Support\Carbon|null                                              $created_at
- * @property \Illuminate\Support\Carbon|null                                              $updated_at
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\Parameter> $parameters
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Collection<int, Parameter> $parameters
  * @property int|null                                                                     $parameters_count
- * @property \Modules\Job\Models\Task|null                                                $task
+ * @property Task|null $task
  *
- * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  query()
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  whereInterval($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  whereLabel($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  whereTaskId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency  whereUpdatedBy($value)
+ * @method static FrequencyFactory factory($count = null, $state = [])
+ * @method static Builder|Frequency newModelQuery()
+ * @method static Builder|Frequency newQuery()
+ * @method static Builder|Frequency query()
+ * @method static Builder|Frequency whereCreatedAt($value)
+ * @method static Builder|Frequency whereCreatedBy($value)
+ * @method static Builder|Frequency whereId($value)
+ * @method static Builder|Frequency whereInterval($value)
+ * @method static Builder|Frequency whereLabel($value)
+ * @method static Builder|Frequency whereTaskId($value)
+ * @method static Builder|Frequency whereUpdatedAt($value)
+ * @method static Builder|Frequency whereUpdatedBy($value)
  *
  * @mixin IdeHelperFrequency
  * @mixin \Eloquent
  */
-class Frequency extends BaseModel
+final class Frequency extends BaseModel
 {
     // use HasParameters;
 

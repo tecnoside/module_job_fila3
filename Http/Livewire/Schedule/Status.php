@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Http\Livewire\Schedule;
 
+use App\Console\Kernel;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Events\Dispatcher;
@@ -15,10 +16,12 @@ use Modules\Xot\Actions\GetViewAction;
 /**
  * Class Schedule\Status.
  */
-class Status extends Component
+final class Status extends Component
 {
     public array $form_data = [];
+    
     public string $out = '';
+    
     public string $old_value = '';
 
     public function render(): Renderable
@@ -81,7 +84,8 @@ class Status extends Component
         if (app()->runningInConsole()) {
             return collect([]);
         }
-        new \App\Console\Kernel(app(), new Dispatcher);
+        
+        new Kernel(app(), new Dispatcher);
         $schedule = app(Schedule::class);
 
         return collect($schedule->events());

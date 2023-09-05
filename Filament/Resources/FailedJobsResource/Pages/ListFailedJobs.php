@@ -11,17 +11,17 @@ use Illuminate\Support\Facades\Artisan;
 use Modules\Job\Filament\Resources\FailedJobsResource;
 use Modules\Job\Models\FailedJob;
 
-class ListFailedJobs extends ListRecords
+final class ListFailedJobs extends ListRecords
 {
     protected static string $resource = FailedJobsResource::class;
 
-    public function getActions(): array
+    protected function getActions(): array
     {
         return [
             Action::make('retry_all')
                 ->label('Retry all failed Jobs')
                 ->requiresConfirmation()
-                ->action(function (): void {
+                ->action(static function () : void {
                     Artisan::call('queue:retry all');
                     Notification::make()
                         ->title('All failed jobs have been pushed back onto the queue.')
@@ -33,7 +33,7 @@ class ListFailedJobs extends ListRecords
                 ->label('Delete all failed Jobs')
                 ->requiresConfirmation()
                 ->color('danger')
-                ->action(function (): void {
+                ->action(static function () : void {
                     FailedJob::truncate();
                     Notification::make()
                         ->title('All failed jobs have been removed.')

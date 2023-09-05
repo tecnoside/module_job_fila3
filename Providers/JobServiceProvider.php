@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Providers;
 
+use Modules\Job\Console\Commands\WorkerCheck;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Schema;
 use Modules\Job\Events\Executed;
@@ -11,7 +12,7 @@ use Modules\Job\Events\Executing;
 use Modules\Job\Models\Task;
 use Modules\Xot\Providers\XotBaseServiceProvider;
 
-class JobServiceProvider extends XotBaseServiceProvider
+final class JobServiceProvider extends XotBaseServiceProvider
 {
     public string $module_name = 'job';
 
@@ -42,12 +43,13 @@ class JobServiceProvider extends XotBaseServiceProvider
     {
         $this->commands(
             [
-                \Modules\Job\Console\Commands\WorkerCheck::class,
+                WorkerCheck::class,
                 //    \Modules\Job\Console\Commands\ListSchedule::class,
                 //    \Modules\Job\Console\Commands\TestCommand::class,
             ]
         );
     }
+    
     /*
     public function registerSchedule(Schedule $schedule): void {
         if (Schema::hasTable('tasks')) {

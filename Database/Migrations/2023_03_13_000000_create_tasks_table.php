@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-class CreateTasksTable extends XotBaseMigration
+final class CreateTasksTable extends XotBaseMigration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateTasksTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $blueprint): void {
+            static function (Blueprint $blueprint) : void {
                 $blueprint->increments('id');
                 $blueprint->string('description');
                 $blueprint->string('command');
@@ -30,7 +30,6 @@ class CreateTasksTable extends XotBaseMigration
                 $blueprint->integer('auto_cleanup_num')->default(0);
                 $blueprint->string('auto_cleanup_type', 20)->nullable();
                 $blueprint->boolean('run_on_one_server')->default(false);
-
                 $blueprint->index('is_active', 'tasks_is_active_idx');
                 $blueprint->index('dont_overlap', 'tasks_dont_overlap_idx');
                 $blueprint->index('run_in_maintenance', 'tasks_run_in_maintenance_idx');
@@ -45,7 +44,7 @@ class CreateTasksTable extends XotBaseMigration
         );
         // -- UPDATE --
         $this->tableUpdate(
-            function (Blueprint $blueprint): void {
+            static function (Blueprint $blueprint) : void {
                 // if (! $this->hasColumn('created_by')) {
                 //     $table->string('created_by')->nullable();
                 //     $table->string('updated_by')->nullable();

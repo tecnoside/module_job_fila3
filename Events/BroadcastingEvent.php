@@ -8,7 +8,7 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class BroadcastingEvent extends TaskEvent implements ShouldBroadcast
+final class BroadcastingEvent extends TaskEvent implements ShouldBroadcast
 {
     use InteractsWithSockets;
 

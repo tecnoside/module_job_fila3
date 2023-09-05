@@ -7,6 +7,9 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\JobFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Webmozart\Assert\Assert;
 
 /**
@@ -18,30 +21,30 @@ use Webmozart\Assert\Assert;
  * @property int                             $attempts
  * @property int|null                        $reserved_at
  * @property int                             $available_at
- * @property \Illuminate\Support\Carbon      $created_at
+ * @property Carbon $created_at
  * @property string|null                     $created_by
  * @property string|null                     $updated_by
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $updated_at
  *
- * @method static \Modules\Job\Database\Factories\JobFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Job  newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Job  newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Job  query()
- * @method static \Illuminate\Database\Eloquent\Builder|Job  whereAttempts($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Job  whereAvailableAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Job  whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Job  whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Job  whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Job  wherePayload($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Job  whereQueue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Job  whereReservedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Job  whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Job  whereUpdatedBy($value)
+ * @method static JobFactory factory($count = null, $state = [])
+ * @method static Builder|Job newModelQuery()
+ * @method static Builder|Job newQuery()
+ * @method static Builder|Job query()
+ * @method static Builder|Job whereAttempts($value)
+ * @method static Builder|Job whereAvailableAt($value)
+ * @method static Builder|Job whereCreatedAt($value)
+ * @method static Builder|Job whereCreatedBy($value)
+ * @method static Builder|Job whereId($value)
+ * @method static Builder|Job wherePayload($value)
+ * @method static Builder|Job whereQueue($value)
+ * @method static Builder|Job whereReservedAt($value)
+ * @method static Builder|Job whereUpdatedAt($value)
+ * @method static Builder|Job whereUpdatedBy($value)
  *
  * @mixin IdeHelperJob
  * @mixin \Eloquent
  */
-class Job extends BaseModel
+final class Job extends BaseModel
 {
     protected $fillable = [
         'id',

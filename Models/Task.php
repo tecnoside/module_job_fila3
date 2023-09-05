@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Notifications\DatabaseNotificationCollection;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Database\Eloquent\Builder;
 use Carbon\Carbon;
 use Cron\CronExpression;
 use Exception;
@@ -35,46 +39,46 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property string|null                                                                                                   $updated_by
  * @property \Illuminate\Support\Carbon|null                                                                               $created_at
  * @property \Illuminate\Support\Carbon|null                                                                               $updated_at
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\Frequency>                                  $frequencies
+ * @property Collection<int, Frequency> $frequencies
  * @property int|null                                                                                                      $frequencies_count
  * @property bool                                                                                                          $activated
  * @property float                                                                                                         $average_runtime
- * @property \Modules\Job\Models\Result|null                                                                               $last_result
+ * @property Result|null $last_result
  * @property string                                                                                                        $upcoming
- * @property \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property int|null                                                                                                      $notifications_count
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\Result>                                     $results
+ * @property Collection<int, Result> $results
  * @property int|null                                                                                                      $results_count
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Task newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Task newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Task query()
- * @method static \Illuminate\Database\Eloquent\Builder|Task sortableBy(array $sortableColumns, array $defaultSort = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereAutoCleanupNum($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereAutoCleanupType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereCommand($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereDontOverlap($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereExpression($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereNotificationEmailAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereNotificationPhoneNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereNotificationSlackWebhook($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereParameters($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereRunInBackground($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereRunInMaintenance($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereRunOnOneServer($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereTimezone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereUpdatedBy($value)
+ * @method static Builder|Task newModelQuery()
+ * @method static Builder|Task newQuery()
+ * @method static Builder|Task query()
+ * @method static Builder|Task sortableBy(array $sortableColumns, array $defaultSort = [])
+ * @method static Builder|Task whereAutoCleanupNum($value)
+ * @method static Builder|Task whereAutoCleanupType($value)
+ * @method static Builder|Task whereCommand($value)
+ * @method static Builder|Task whereCreatedAt($value)
+ * @method static Builder|Task whereCreatedBy($value)
+ * @method static Builder|Task whereDescription($value)
+ * @method static Builder|Task whereDontOverlap($value)
+ * @method static Builder|Task whereExpression($value)
+ * @method static Builder|Task whereId($value)
+ * @method static Builder|Task whereIsActive($value)
+ * @method static Builder|Task whereNotificationEmailAddress($value)
+ * @method static Builder|Task whereNotificationPhoneNumber($value)
+ * @method static Builder|Task whereNotificationSlackWebhook($value)
+ * @method static Builder|Task whereParameters($value)
+ * @method static Builder|Task whereRunInBackground($value)
+ * @method static Builder|Task whereRunInMaintenance($value)
+ * @method static Builder|Task whereRunOnOneServer($value)
+ * @method static Builder|Task whereTimezone($value)
+ * @method static Builder|Task whereUpdatedAt($value)
+ * @method static Builder|Task whereUpdatedBy($value)
  *
  * @mixin IdeHelperTask
  * @mixin \Eloquent
  */
-class Task extends BaseModel
+final class Task extends BaseModel
 {
     // use HasFrequencies;
     use FrontendSortable;

@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+use Filament\Pages\Dashboard;
+use Modules\Job\Http\Middleware\FilamentMiddleware;
 
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -57,9 +59,9 @@ return [
 
     'pages' => [
         'namespace' => $contextNs . '\\Pages',
-        'path' => base_path('Modules/' . $moduleName . "/{$contextPath}/Pages"),
+        'path' => base_path('Modules/' . $moduleName . sprintf('/%s/Pages', $contextPath)),
         'register' => [
-            Pages\Dashboard::class,
+            Dashboard::class,
         ],
     ],
 
@@ -75,7 +77,7 @@ return [
 
     'resources' => [
         'namespace' => $contextNs . '\\Resources',
-        'path' => base_path('Modules/' . $moduleName . "/{$contextPath}/Resources"),
+        'path' => base_path('Modules/' . $moduleName . sprintf('/%s/Resources', $contextPath)),
         'register' => [],
     ],
 
@@ -91,7 +93,7 @@ return [
 
     'widgets' => [
         'namespace' => $contextNs . '\\Widgets',
-        'path' => base_path('Modules/' . $moduleName . "/{$contextPath}/Widgets"),
+        'path' => base_path('Modules/' . $moduleName . sprintf('/%s/Widgets', $contextPath)),
         'register' => [
             // Widgets\AccountWidget::class,
             // Widgets\FilamentInfoWidget::class,
@@ -143,7 +145,7 @@ return [
     'middleware' => [
         'auth' => [
             //  Authenticate::class,
-            Modules\Job\Http\Middleware\FilamentMiddleware::class,
+            FilamentMiddleware::class,
         ],
         'base' => [
             EncryptCookies::class,

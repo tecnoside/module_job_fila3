@@ -9,7 +9,7 @@ use Livewire\Component;
 use Modules\Job\Events\PublicEvent;
 use Modules\Xot\Actions\GetViewAction;
 
-class Broad extends Component
+final class Broad extends Component
 {
     /**
      * @var array<string, string>

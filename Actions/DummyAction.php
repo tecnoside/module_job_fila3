@@ -6,7 +6,7 @@ namespace Modules\Job\Actions;
 
 use Spatie\QueueableAction\QueueableAction;
 
-class DummyAction
+final class DummyAction
 {
     use QueueableAction;
 

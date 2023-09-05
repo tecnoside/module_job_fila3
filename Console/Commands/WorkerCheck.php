@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 use function Safe\exec;
 
-class WorkerCheck extends Command
+final class WorkerCheck extends Command
 {
     /**
      * The name and signature of the console command.
@@ -23,7 +23,7 @@ class WorkerCheck extends Command
      */
     protected $signature = 'worker:check';
 
-    protected string $filename = 'queue.pid';
+    private string $filename = 'queue.pid';
 
     /**
      * The console command description.
@@ -62,7 +62,8 @@ class WorkerCheck extends Command
         if (! $pid = $this->getLastQueueListenerPID()) {
             return false;
         }
-        $process_cmd = "ps -p {$pid} -opid=,cmd=";
+        
+        $process_cmd = sprintf('ps -p %s -opid=,cmd=', $pid);
         $this->comment($process_cmd);
         $output = null;
         $process = exec($process_cmd, $output);
@@ -71,6 +72,7 @@ class WorkerCheck extends Command
             // DISABILITATO PER SBLOCCARE MODULE JOB
             // throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
+        
         $this->comment($process);
         // $processIsQueueListener = ! empty($process); // 5.6 - see comments
         $processIsQueueListener = str_contains($process, substr(base_path(), 0, 30));
@@ -140,6 +142,7 @@ class WorkerCheck extends Command
         if (false == $pid) {
             throw new Exception('[' . __LINE__ . '][' . __FILE__ . ']');
         }
+        
         $this->comment($pid);
 
         return $pid;

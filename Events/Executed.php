@@ -7,7 +7,7 @@ namespace Modules\Job\Events;
 use Modules\Job\Models\Task;
 use Modules\Job\Notifications\TaskCompleted;
 
-class Executed extends BroadcastingEvent
+final class Executed extends BroadcastingEvent
 {
     /**
      * Executed constructor.

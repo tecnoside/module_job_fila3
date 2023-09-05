@@ -9,6 +9,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Illuminate\Support\Collection;
+use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\JobBatchFactory;
+use Illuminate\Database\Eloquent\Builder;
 /**
  * Modules\Job\Models\JobBatch.
  *
@@ -18,30 +22,30 @@ namespace Modules\Job\Models;
  * @property int                                 $pending_jobs
  * @property int                                 $failed_jobs
  * @property string                              $failed_job_ids
- * @property \Illuminate\Support\Collection|null $options
- * @property \Illuminate\Support\Carbon|null     $cancelled_at
- * @property \Illuminate\Support\Carbon          $created_at
- * @property \Illuminate\Support\Carbon|null     $finished_at
+ * @property Collection|null $options
+ * @property Carbon|null $cancelled_at
+ * @property Carbon $created_at
+ * @property Carbon|null $finished_at
  *
- * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  query()
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereCancelledAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereFailedJobIds($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereFailedJobs($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereFinishedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereOptions($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  wherePendingJobs($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereTotalJobs($value)
+ * @method static JobBatchFactory factory($count = null, $state = [])
+ * @method static Builder|JobBatch newModelQuery()
+ * @method static Builder|JobBatch newQuery()
+ * @method static Builder|JobBatch query()
+ * @method static Builder|JobBatch whereCancelledAt($value)
+ * @method static Builder|JobBatch whereCreatedAt($value)
+ * @method static Builder|JobBatch whereFailedJobIds($value)
+ * @method static Builder|JobBatch whereFailedJobs($value)
+ * @method static Builder|JobBatch whereFinishedAt($value)
+ * @method static Builder|JobBatch whereId($value)
+ * @method static Builder|JobBatch whereName($value)
+ * @method static Builder|JobBatch whereOptions($value)
+ * @method static Builder|JobBatch wherePendingJobs($value)
+ * @method static Builder|JobBatch whereTotalJobs($value)
  *
  * @mixin IdeHelperJobBatch
  * @mixin \Eloquent
  */
-class JobBatch extends BaseModel
+final class JobBatch extends BaseModel
 {
     /**
      * Indicates if the IDs are auto-incrementing.
@@ -118,7 +122,7 @@ class JobBatch extends BaseModel
      */
     public function finished(): bool
     {
-        return $this->finished_at instanceof \Illuminate\Support\Carbon;
+        return $this->finished_at instanceof Carbon;
     }
 
     /**
@@ -142,6 +146,6 @@ class JobBatch extends BaseModel
      */
     public function cancelled(): bool
     {
-        return $this->cancelled_at instanceof \Illuminate\Support\Carbon;
+        return $this->cancelled_at instanceof Carbon;
     }
 }

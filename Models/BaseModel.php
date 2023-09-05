@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 // use Laravel\Scout\Searchable;
 // ---------- traits
@@ -52,10 +53,12 @@ abstract class BaseModel extends Model
      * @var string[]
      */
     protected $fillable = ['id'];
+    
     /**
      * @var array<string, string>
      */
     protected $casts = ['published_at' => 'datetime', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
+    
     /**
      * @var string
      */
@@ -71,7 +74,7 @@ abstract class BaseModel extends Model
     /**
      * Create a new factory instance for the model.
      *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     * @return Factory
      */
     protected static function newFactory()
     {

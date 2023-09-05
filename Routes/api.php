@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
 
@@ -15,4 +16,4 @@ use Illuminate\Http\Request;
 |
 */
 
-\Illuminate\Support\Facades\Route::middleware('auth:api')->get('/job', fn (Request $request) => $request->user());
+Route::middleware('auth:api')->get('/job', static fn(Request $request) => $request->user());

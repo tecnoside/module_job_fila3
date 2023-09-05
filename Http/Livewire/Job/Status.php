@@ -22,10 +22,12 @@ use function Safe\putenv;
 /**
  * Class RolePermission.
  */
-class Status extends Component
+final class Status extends Component
 {
     public array $form_data = [];
+    
     public string $out = '';
+    
     public string $old_value = '';
 
     public function mount(): void
@@ -42,6 +44,7 @@ class Status extends Component
         if (false == $queue_conn) {
             throw new Exception('[' . __LINE__ . '][' . __FILE__ . ']');
         }
+        
         $this->old_value = $queue_conn;
         $this->form_data['conn'] = $queue_conn;
 
@@ -173,11 +176,12 @@ class Status extends Component
 
     public function dummyAction(): void
     {
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 1000; ++$i) {
             app(DummyAction::class)
                 ->onQueue()
                 ->execute();
         }
+        
         session()->flash('message', '1000 dummy Action');
     }
 }
