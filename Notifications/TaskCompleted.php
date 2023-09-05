@@ -41,7 +41,7 @@ class TaskCompleted extends Notification implements ShouldQueue
         if ($notifiable->notification_phone_number) {
             $channels[] = 'nexmo';
         }
-        if ($notifiable->notification_slack_webhook !== '' && $notifiable->notification_slack_webhook !== '0') {
+        if ('' !== $notifiable->notification_slack_webhook && '0' !== $notifiable->notification_slack_webhook) {
             $channels[] = 'slack';
         }
 

@@ -12,7 +12,6 @@ use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
-use function is_string;
 use function Safe\exec;
 
 class WorkerCheck extends Command
@@ -75,6 +74,7 @@ class WorkerCheck extends Command
         $this->comment($process);
         // $processIsQueueListener = ! empty($process); // 5.6 - see comments
         $processIsQueueListener = str_contains($process, substr(base_path(), 0, 30));
+
         // ..
         return $processIsQueueListener;
     }
@@ -109,17 +109,17 @@ class WorkerCheck extends Command
      *
      * @return string
      * Method Modules\Job\Console\Commands\WorkerCheck::restartQueue() is unused
-    
+
     private function restartQueue() {
         // $command = 'php-cli ' . base_path() . '/artisan queue:listen --timeout=60 --sleep=5 --tries=3 > /dev/null & echo $!'; // 5.1
         // $command = 'php-cli '.base_path().'/artisan queue:work --timeout=60 --sleep=5 --tries=3 > /dev/null & echo //$!'; // 5.6 - see comments
-    
+
         $command = ' /usr/local/bin/php '.base_path().'/artisan queue:restart --timeout=60 --sleep=5 --tries=3 > /dev/null & echo $!';
         // $this->comment($command);
-    
+
         $pid = exec($command);
         $this->comment($pid);
-    
+
         return (string) $pid;
     }
     */
