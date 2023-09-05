@@ -13,13 +13,10 @@ class TaskEvent extends Event
     use Dispatchable;
     use SerializesModels;
 
-    public Task $task;
-
     /**
      * Constructor.
      */
-    public function __construct(Task $task)
+    public function __construct(public Task $task)
     {
-        $this->task = $task;
     }
 }

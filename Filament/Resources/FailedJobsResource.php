@@ -62,7 +62,7 @@ class FailedJobsResource extends Resource
                     ->toggleable()
                     ->wrap()
                     ->limit(200)
-                    ->tooltip(fn (FailedJob $record) => "{$record->failed_at} UUID: {$record->uuid}; Connection: {$record->connection}; Queue: {$record->queue};"),
+                    ->tooltip(fn (FailedJob $failedJob): string => "{$failedJob->failed_at} UUID: {$failedJob->uuid}; Connection: {$failedJob->connection}; Queue: {$failedJob->queue};"),
                 TextColumn::make('uuid')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('connection')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('queue')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
@@ -90,10 +90,10 @@ class FailedJobsResource extends Resource
                 Action::make('retry')
                     ->label('Retry')
                     ->requiresConfirmation()
-                    ->action(function (FailedJob $record): void {
-                        Artisan::call("queue:retry {$record->uuid}");
+                    ->action(function (FailedJob $failedJob): void {
+                        Artisan::call("queue:retry {$failedJob->uuid}");
                         Notification::make()
-                            ->title("The job with uuid '{$record->uuid}' has been pushed back onto the queue.")
+                            ->title("The job with uuid '{$failedJob->uuid}' has been pushed back onto the queue.")
                             ->success()
                             ->send();
                     }),

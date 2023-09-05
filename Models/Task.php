@@ -167,7 +167,7 @@ class Task extends BaseModel
          */
         $avg_duration = $this->results()->avg('duration');
 
-        return floatval($avg_duration);
+        return (float) $avg_duration;
     }
 
     /**

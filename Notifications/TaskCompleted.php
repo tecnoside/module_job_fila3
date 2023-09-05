@@ -17,16 +17,13 @@ class TaskCompleted extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    private string $output;
-
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(string $output)
+    public function __construct(private readonly string $output)
     {
-        $this->output = $output;
     }
 
     /**
@@ -44,7 +41,7 @@ class TaskCompleted extends Notification implements ShouldQueue
         if ($notifiable->notification_phone_number) {
             $channels[] = 'nexmo';
         }
-        if ($notifiable->notification_slack_webhook) {
+        if ($notifiable->notification_slack_webhook !== '' && $notifiable->notification_slack_webhook !== '0') {
             $channels[] = 'slack';
         }
 
@@ -54,12 +51,12 @@ class TaskCompleted extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(Task $notifiable): MailMessage
+    public function toMail(Task $task): MailMessage
     {
         return (new MailMessage)
-            ->subject($notifiable->description)
+            ->subject($task->description)
             ->greeting('Hi,')
-            ->line("{$notifiable->description} just finished running.")
+            ->line("{$task->description} just finished running.")
             ->line($this->output);
     }
 

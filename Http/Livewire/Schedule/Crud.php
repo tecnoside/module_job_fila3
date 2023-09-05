@@ -61,8 +61,8 @@ class Crud extends Component
      */
     public function getCommands(): Collection
     {
-        $command_filter = config('totem.artisan.command_filter');
-        $whitelist = config('totem.artisan.whitelist', true);
+        config('totem.artisan.command_filter');
+        config('totem.artisan.whitelist', true);
         $all_commands = collect(Artisan::all());
 
         /*
@@ -82,8 +82,8 @@ class Crud extends Component
         }
         */
 
-        return $all_commands->sortBy(function (Command $command) {
-            $name = strval($command->getName());
+        return $all_commands->sortBy(function (Command $command): string {
+            $name = (string) $command->getName();
             if (false === mb_strpos($name, ':')) {
                 $name = ':' . $name;
             }

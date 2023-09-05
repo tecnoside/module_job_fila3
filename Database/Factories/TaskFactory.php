@@ -11,7 +11,7 @@ class TaskFactory extends Factory
 {
     protected $model = Task::class;
 
-    public function definition()
+    public function definition(): array
     {
         return [
             'description' => $this->faker->sentence,

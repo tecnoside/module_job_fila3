@@ -34,8 +34,8 @@ class GetTaskCommandsAction
             });
         }
         */
-        return $all_commands->sortBy(function (Command $command) {
-            $name = strval($command->getName());
+        return $all_commands->sortBy(function (Command $command): string {
+            $name = (string) $command->getName();
             if (false === mb_strpos($name, ':')) {
                 $name = ':' . $name;
             }

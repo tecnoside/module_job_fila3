@@ -83,8 +83,7 @@ class Status extends Component
         }
         new \App\Console\Kernel(app(), new Dispatcher);
         $schedule = app(Schedule::class);
-        $scheduledCommands = collect($schedule->events());
 
-        return $scheduledCommands;
+        return collect($schedule->events());
     }
 }

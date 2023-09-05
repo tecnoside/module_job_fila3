@@ -16,17 +16,7 @@ class PublicEvent implements ShouldBroadcast
     use InteractsWithSockets;
     use SerializesModels;
 
-    public string $color;
-
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->color = 'black';
-    }
+    public string $color = 'black';
 
     /**
      * Get the channels the event should broadcast on.

@@ -13,13 +13,6 @@ class DummyAction
     /**
      * Undocumented function.
      */
-    public function __construct()
-    {
-    }
-
-    /**
-     * Undocumented function.
-     */
     public function execute(): void
     {
         // The business logic goes here, this can be executed in an async job.

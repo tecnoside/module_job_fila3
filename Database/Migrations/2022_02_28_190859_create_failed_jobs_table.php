@@ -9,21 +9,19 @@ class CreateFailedJobsTable extends XotBaseMigration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $table) {
-                $table->id();
-                $table->string('uuid')->unique();
-                $table->text('connection');
-                $table->text('queue');
-                $table->longText('payload');
-                $table->longText('exception');
-                $table->timestamp('failed_at')->useCurrent();
+            function (Blueprint $blueprint): void {
+                $blueprint->id();
+                $blueprint->string('uuid')->unique();
+                $blueprint->text('connection');
+                $blueprint->text('queue');
+                $blueprint->longText('payload');
+                $blueprint->longText('exception');
+                $blueprint->timestamp('failed_at')->useCurrent();
             }
         );
     }

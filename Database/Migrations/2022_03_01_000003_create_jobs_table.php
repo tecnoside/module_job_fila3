@@ -9,35 +9,33 @@ class CreateJobsTable extends XotBaseMigration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->string('queue')->index();
-                $table->longText('payload');
-                $table->unsignedTinyInteger('attempts');
-                $table->unsignedInteger('reserved_at')->nullable();
-                $table->unsignedInteger('available_at');
-                $table->unsignedInteger('created_at');
+            function (Blueprint $blueprint): void {
+                $blueprint->bigIncrements('id');
+                $blueprint->string('queue')->index();
+                $blueprint->longText('payload');
+                $blueprint->unsignedTinyInteger('attempts');
+                $blueprint->unsignedInteger('reserved_at')->nullable();
+                $blueprint->unsignedInteger('available_at');
+                $blueprint->unsignedInteger('created_at');
             }
         );
         // -- UPDATE --
         $this->tableUpdate(
-            function (Blueprint $table) {
+            function (Blueprint $blueprint): void {
                 if (! $this->hasColumn('created_by')) {
-                    $table->string('created_by')->nullable();
-                    $table->string('updated_by')->nullable();
+                    $blueprint->string('created_by')->nullable();
+                    $blueprint->string('updated_by')->nullable();
                 }
                 if (! $this->hasColumn('updated_at')) {
-                    $table->timestamp('updated_at')->nullable();
+                    $blueprint->timestamp('updated_at')->nullable();
                 }
                 if (! $this->hasColumn('created_at')) {
-                    $table->timestamp('created_at')->nullable();
+                    $blueprint->timestamp('created_at')->nullable();
                 }
             }
         );

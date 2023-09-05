@@ -31,7 +31,7 @@ class Broad extends Component
         PublicEvent::dispatch();
     }
 
-    public function notifyEvent(): void
+    public function notifyEvent(): never
     {
         session()->flash('message', 'notifyEvent [' . now() . ']');
         dd('fine');

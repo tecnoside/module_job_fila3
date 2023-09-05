@@ -90,7 +90,7 @@ class JobBatch extends BaseModel
      *
      * @return int
      */
-    public function processedJobs()
+    public function processedJobs(): int|float
     {
         return $this->total_jobs - $this->pending_jobs;
     }
@@ -118,7 +118,7 @@ class JobBatch extends BaseModel
      */
     public function finished(): bool
     {
-        return null !== $this->finished_at;
+        return $this->finished_at instanceof \Illuminate\Support\Carbon;
     }
 
     /**
@@ -142,6 +142,6 @@ class JobBatch extends BaseModel
      */
     public function cancelled(): bool
     {
-        return null !== $this->cancelled_at;
+        return $this->cancelled_at instanceof \Illuminate\Support\Carbon;
     }
 }
