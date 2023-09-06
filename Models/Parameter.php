@@ -4,25 +4,25 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Support\Carbon;
-use Modules\Job\Database\Factories\ParameterFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ParameterFactory;
 
 /**
  * Modules\Job\Models\Parameter.
  *
- * @property int                                $id
- * @property int                                $frequency_id
- * @property string                             $name
- * @property string                             $value
- * @property string|null                        $created_by
- * @property string|null                        $updated_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property int            $id
+ * @property int            $frequency_id
+ * @property string         $name
+ * @property string         $value
+ * @property string|null    $created_by
+ * @property string|null    $updated_by
+ * @property Carbon|null    $created_at
+ * @property Carbon|null    $updated_at
  * @property Frequency|null $task
  *
- * @method static ParameterFactory factory($count = null, $state = [])
+ * @method static ParameterFactory  factory($count = null, $state = [])
  * @method static Builder|Parameter newModelQuery()
  * @method static Builder|Parameter newQuery()
  * @method static Builder|Parameter query()
@@ -38,7 +38,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @mixin IdeHelperParameter
  * @mixin \Eloquent
  */
-final class Parameter extends BaseModel
+class Parameter extends BaseModel
 {
     // protected $table = 'frequency_parameters';
 

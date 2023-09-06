@@ -4,30 +4,30 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Collection;
-use Modules\Job\Database\Factories\FrequencyFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\FrequencyFactory;
 
 // use Modules\Job\Models\Traits\HasParameters;
 /**
  * Modules\Job\Models\Frequency.
  *
- * @property int                                                                          $id
- * @property int                                                                          $task_id
- * @property string                                                                       $label
- * @property string                                                                       $interval
- * @property string|null                                                                  $created_by
- * @property string|null                                                                  $updated_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property int                        $id
+ * @property int                        $task_id
+ * @property string                     $label
+ * @property string                     $interval
+ * @property string|null                $created_by
+ * @property string|null                $updated_by
+ * @property Carbon|null                $created_at
+ * @property Carbon|null                $updated_at
  * @property Collection<int, Parameter> $parameters
- * @property int|null                                                                     $parameters_count
- * @property Task|null $task
+ * @property int|null                   $parameters_count
+ * @property Task|null                  $task
  *
- * @method static FrequencyFactory factory($count = null, $state = [])
+ * @method static FrequencyFactory  factory($count = null, $state = [])
  * @method static Builder|Frequency newModelQuery()
  * @method static Builder|Frequency newQuery()
  * @method static Builder|Frequency query()
@@ -43,7 +43,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @mixin IdeHelperFrequency
  * @mixin \Eloquent
  */
-final class Frequency extends BaseModel
+class Frequency extends BaseModel
 {
     // use HasParameters;
 

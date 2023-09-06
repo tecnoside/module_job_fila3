@@ -16,12 +16,12 @@ use Modules\Xot\Actions\GetViewAction;
 /**
  * Class Schedule\Status.
  */
-final class Status extends Component
+class Status extends Component
 {
     public array $form_data = [];
-    
+
     public string $out = '';
-    
+
     public string $old_value = '';
 
     public function render(): Renderable
@@ -84,8 +84,8 @@ final class Status extends Component
         if (app()->runningInConsole()) {
             return collect([]);
         }
-        
-        new Kernel(app(), new Dispatcher);
+
+        new Kernel(app(), new Dispatcher());
         $schedule = app(Schedule::class);
 
         return collect($schedule->events());

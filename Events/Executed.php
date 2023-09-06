@@ -7,12 +7,13 @@ namespace Modules\Job\Events;
 use Modules\Job\Models\Task;
 use Modules\Job\Notifications\TaskCompleted;
 
-final class Executed extends BroadcastingEvent
+class Executed extends BroadcastingEvent
 {
     /**
      * Executed constructor.
      *
-     * @param  float  $started
+     * @param float $started
+     *
      * @return void
      */
     public function __construct(Task $task, $started, string $output)

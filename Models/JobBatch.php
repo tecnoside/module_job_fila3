@@ -9,25 +9,26 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Support\Collection;
-use Illuminate\Support\Carbon;
-use Modules\Job\Database\Factories\JobBatchFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
+use Modules\Job\Database\Factories\JobBatchFactory;
+
 /**
  * Modules\Job\Models\JobBatch.
  *
- * @property string                              $id
- * @property string                              $name
- * @property int                                 $total_jobs
- * @property int                                 $pending_jobs
- * @property int                                 $failed_jobs
- * @property string                              $failed_job_ids
+ * @property string          $id
+ * @property string          $name
+ * @property int             $total_jobs
+ * @property int             $pending_jobs
+ * @property int             $failed_jobs
+ * @property string          $failed_job_ids
  * @property Collection|null $options
- * @property Carbon|null $cancelled_at
- * @property Carbon $created_at
- * @property Carbon|null $finished_at
+ * @property Carbon|null     $cancelled_at
+ * @property Carbon          $created_at
+ * @property Carbon|null     $finished_at
  *
- * @method static JobBatchFactory factory($count = null, $state = [])
+ * @method static JobBatchFactory  factory($count = null, $state = [])
  * @method static Builder|JobBatch newModelQuery()
  * @method static Builder|JobBatch newQuery()
  * @method static Builder|JobBatch query()
@@ -45,7 +46,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @mixin IdeHelperJobBatch
  * @mixin \Eloquent
  */
-final class JobBatch extends BaseModel
+class JobBatch extends BaseModel
 {
     /**
      * Indicates if the IDs are auto-incrementing.

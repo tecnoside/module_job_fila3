@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Http\Livewire\Schedule;
 
-use Exception;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
@@ -18,7 +17,7 @@ use Symfony\Component\Console\Command\Command;
 /**
  * Class Schedule\Crud.
  */
-final class Crud extends Component
+class Crud extends Component
 {
     public bool $create = false;
 
@@ -31,8 +30,8 @@ final class Crud extends Component
         if (is_array($res)) {
             return $res;
         }
-        
-        throw new Exception('[' . __LINE__ . '][' . __FILE__ . ']');
+
+        throw new \Exception('['.__LINE__.']['.__FILE__.']');
     }
 
     public function render(): Renderable
@@ -83,10 +82,10 @@ final class Crud extends Component
         }
         */
 
-        return $all_commands->sortBy(static function (Command $command) : string {
+        return $all_commands->sortBy(static function (Command $command): string {
             $name = (string) $command->getName();
             if (false === mb_strpos($name, ':')) {
-                return ':' . $name;
+                return ':'.$name;
             }
 
             return $name;
@@ -97,6 +96,6 @@ final class Crud extends Component
     {
         app(ExecuteTaskAction::class)->execute($task_id);
 
-        session()->flash('message', 'task [' . $task_id . '] executed at ' . now());
+        session()->flash('message', 'task ['.$task_id.'] executed at '.now());
     }
 }

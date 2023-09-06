@@ -7,7 +7,7 @@ namespace Modules\Job\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\Result;
 
-final class ResultFactory extends Factory
+class ResultFactory extends Factory
 {
     protected $model = Result::class;
 

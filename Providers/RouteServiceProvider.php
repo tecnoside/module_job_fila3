@@ -6,7 +6,7 @@ namespace Modules\Job\Providers;
 
 use Modules\Xot\Providers\XotBaseRouteServiceProvider;
 
-final class RouteServiceProvider extends XotBaseRouteServiceProvider
+class RouteServiceProvider extends XotBaseRouteServiceProvider
 {
     protected string $moduleNamespace = 'Modules\Job\Http\Controllers';
 

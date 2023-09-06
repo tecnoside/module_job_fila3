@@ -13,7 +13,7 @@ use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 use Modules\Job\Models\Task;
 
-final class TaskCompleted extends Notification implements ShouldQueue
+class TaskCompleted extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -29,7 +29,7 @@ final class TaskCompleted extends Notification implements ShouldQueue
     /**
      * Get the notification's delivery channels.
      *
-     * @param  Task  $notifiable
+     * @param Task $notifiable
      */
     // public function via(mixed $notifiable): array {
     public function via($notifiable): array
@@ -38,11 +38,11 @@ final class TaskCompleted extends Notification implements ShouldQueue
         if ($notifiable->notification_email_address) {
             $channels[] = 'mail';
         }
-        
+
         if ($notifiable->notification_phone_number) {
             $channels[] = 'nexmo';
         }
-        
+
         if ('' !== $notifiable->notification_slack_webhook && '0' !== $notifiable->notification_slack_webhook) {
             $channels[] = 'slack';
         }
@@ -55,7 +55,7 @@ final class TaskCompleted extends Notification implements ShouldQueue
      */
     public function toMail(Task $task): MailMessage
     {
-        return (new MailMessage)
+        return (new MailMessage())
             ->subject($task->description)
             ->greeting('Hi,')
             ->line(sprintf('%s just finished running.', $task->description))

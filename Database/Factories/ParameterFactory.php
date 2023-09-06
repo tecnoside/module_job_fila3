@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Job\Database\Factories;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\Parameter;
 
-final class ParameterFactory extends Factory
+class ParameterFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Artisan;
 use Spatie\QueueableAction\QueueableAction;
 use Symfony\Component\Console\Command\Command;
 
-final class GetTaskCommandsAction
+class GetTaskCommandsAction
 {
     use QueueableAction;
 
@@ -34,10 +34,10 @@ final class GetTaskCommandsAction
             });
         }
         */
-        return $all_commands->sortBy(static function (Command $command) : string {
+        return $all_commands->sortBy(static function (Command $command): string {
             $name = (string) $command->getName();
             if (false === mb_strpos($name, ':')) {
-                return ':' . $name;
+                return ':'.$name;
             }
 
             return $name;

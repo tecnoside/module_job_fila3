@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-final class PrivateEvent implements ShouldBroadcast
+class PrivateEvent implements ShouldBroadcast
 {
     use Dispatchable;
     use InteractsWithSockets;
@@ -31,6 +31,6 @@ final class PrivateEvent implements ShouldBroadcast
      */
     public function broadcastOn(): Channel
     {
-        return new PrivateChannel('private.' . auth()->id());
+        return new PrivateChannel('private.'.auth()->id());
     }
 }

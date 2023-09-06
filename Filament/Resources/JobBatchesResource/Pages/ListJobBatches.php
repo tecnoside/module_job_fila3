@@ -10,7 +10,7 @@ use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Facades\Artisan;
 use Modules\Job\Filament\Resources\JobBatchesResource;
 
-final class ListJobBatches extends ListRecords
+class ListJobBatches extends ListRecords
 {
     protected static string $resource = JobBatchesResource::class;
 
@@ -21,7 +21,7 @@ final class ListJobBatches extends ListRecords
                 ->label('Prune all batches')
                 ->requiresConfirmation()
                 ->color('danger')
-                ->action(static function () : void {
+                ->action(static function (): void {
                     Artisan::call('queue:prune-batches');
                     Notification::make()
                         ->title('All batches have been pruned.')

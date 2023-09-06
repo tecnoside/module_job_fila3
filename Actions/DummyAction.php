@@ -6,7 +6,7 @@ namespace Modules\Job\Actions;
 
 use Spatie\QueueableAction\QueueableAction;
 
-final class DummyAction
+class DummyAction
 {
     use QueueableAction;
 
@@ -16,6 +16,6 @@ final class DummyAction
     public function execute(): void
     {
         // The business logic goes here, this can be executed in an async job.
-        echo 'hello' . PHP_EOL;
+        echo 'hello'.PHP_EOL;
     }
 }

@@ -7,8 +7,9 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Modules\Job\Database\Factories\FailedJobFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Modules\Job\Database\Factories\FailedJobFactory;
+
 /**
  * Modules\Job\Models\FailedJob.
  *
@@ -20,7 +21,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @property string $exception
  * @property string $failed_at
  *
- * @method static FailedJobFactory factory($count = null, $state = [])
+ * @method static FailedJobFactory  factory($count = null, $state = [])
  * @method static Builder|FailedJob newModelQuery()
  * @method static Builder|FailedJob newQuery()
  * @method static Builder|FailedJob query()
@@ -35,7 +36,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @mixin IdeHelperFailedJob
  * @mixin \Eloquent
  */
-final class FailedJob extends BaseModel
+class FailedJob extends BaseModel
 {
     protected $fillable = [
         'id',

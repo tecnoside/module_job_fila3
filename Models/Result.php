@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Modules\Camping\Database\Factories\TotemResultFactory;
 
 /**
  * Modules\Job\Models\Result.
  *
- * @property int                             $id
- * @property int                             $task_id
- * @property Carbon $ran_at
- * @property string                          $duration
- * @property string                          $result
- * @property string|null                     $created_by
- * @property string|null                     $updated_by
+ * @property int         $id
+ * @property int         $task_id
+ * @property Carbon      $ran_at
+ * @property string      $duration
+ * @property string      $result
+ * @property string|null $created_by
+ * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property Task|null $task
+ * @property Task|null   $task
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Result newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result newQuery()
@@ -41,7 +41,7 @@ use Modules\Camping\Database\Factories\TotemResultFactory;
  * @mixin IdeHelperResult
  * @mixin \Eloquent
  */
-final class Result extends BaseModel
+class Result extends BaseModel
 {
     use HasFactory;
 

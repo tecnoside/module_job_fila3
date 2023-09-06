@@ -9,7 +9,7 @@ use Modules\Job\Events\Executed;
 use Modules\Job\Models\Task;
 use Spatie\QueueableAction\QueueableAction;
 
-final class ExecuteTaskAction
+class ExecuteTaskAction
 {
     use QueueableAction;
 

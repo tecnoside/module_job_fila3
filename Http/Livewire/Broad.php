@@ -9,7 +9,7 @@ use Livewire\Component;
 use Modules\Job\Events\PublicEvent;
 use Modules\Xot\Actions\GetViewAction;
 
-final class Broad extends Component
+class Broad extends Component
 {
     /**
      * @var array<string, string>
@@ -25,7 +25,7 @@ final class Broad extends Component
 
     public function try(): void
     {
-        session()->flash('message', 'try [' . now() . ']');
+        session()->flash('message', 'try ['.now().']');
         // OrderShipped::dispatch();
         // event(new PublicEvent('test'));
         PublicEvent::dispatch();
@@ -33,7 +33,7 @@ final class Broad extends Component
 
     public function notifyEvent(): never
     {
-        session()->flash('message', 'notifyEvent [' . now() . ']');
+        session()->flash('message', 'notifyEvent ['.now().']');
         dd('fine');
         // $this->showNewOrderNotification = true;
     }

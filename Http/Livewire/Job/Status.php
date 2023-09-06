@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Http\Livewire\Job;
 
-use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
@@ -15,19 +14,20 @@ use Modules\Job\Models\FailedJob as FailedJobModel;
 use Modules\Job\Models\Job as JobModel;
 use Modules\Job\Models\JobBatch as JobBatchModel;
 use Modules\Xot\Actions\GetViewAction;
-use Webmozart\Assert\Assert;
 
 use function Safe\putenv;
+
+use Webmozart\Assert\Assert;
 
 /**
  * Class RolePermission.
  */
-final class Status extends Component
+class Status extends Component
 {
     public array $form_data = [];
-    
+
     public string $out = '';
-    
+
     public string $old_value = '';
 
     public function mount(): void
@@ -37,14 +37,14 @@ final class Status extends Component
         Artisan::call('worker:check');
         $this->out .= Artisan::output();
 
-        $this->out .= '<br/>[' . JobModel::count() . '] Jobs';
-        $this->out .= '<br/>[' . FailedJobModel::count() . '] Failed Jobs';
-        $this->out .= '<br/>[' . JobBatchModel::count() . '] Job Batch';
+        $this->out .= '<br/>['.JobModel::count().'] Jobs';
+        $this->out .= '<br/>['.FailedJobModel::count().'] Failed Jobs';
+        $this->out .= '<br/>['.JobBatchModel::count().'] Job Batch';
         $queue_conn = getenv('QUEUE_CONNECTION');
         if (false == $queue_conn) {
-            throw new Exception('[' . __LINE__ . '][' . __FILE__ . ']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
-        
+
         $this->old_value = $queue_conn;
         $this->form_data['conn'] = $queue_conn;
 
@@ -156,11 +156,11 @@ final class Status extends Component
         $env_file = base_path('.env');
         $env_content = File::get($env_file);
         $new_content = Str::replace(
-            'QUEUE_CONNECTION=' . $this->old_value,
-            'QUEUE_CONNECTION=' . $this->form_data['conn'],
+            'QUEUE_CONNECTION='.$this->old_value,
+            'QUEUE_CONNECTION='.$this->form_data['conn'],
             $env_content
         );
-        putenv('QUEUE_CONNECTION=' . $this->form_data['conn']);
+        putenv('QUEUE_CONNECTION='.$this->form_data['conn']);
         Assert::string($new_content);
         File::put($env_file, $new_content);
         $this->old_value = $this->form_data['conn'];
@@ -169,7 +169,7 @@ final class Status extends Component
     public function artisan(string $cmd): void
     {
         $this->out .= '<hr/>';
-        Artisan::call('queue:' . $cmd);
+        Artisan::call('queue:'.$cmd);
         $this->out .= Artisan::output();
         $this->out .= '<hr/>';
     }
@@ -181,7 +181,7 @@ final class Status extends Component
                 ->onQueue()
                 ->execute();
         }
-        
+
         session()->flash('message', '1000 dummy Action');
     }
 }

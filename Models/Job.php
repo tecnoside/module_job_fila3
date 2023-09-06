@@ -7,26 +7,26 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Job\Database\Factories\JobFactory;
-use Illuminate\Database\Eloquent\Builder;
 use Webmozart\Assert\Assert;
 
 /**
  * Modules\Job\Models\Job.
  *
- * @property int                             $id
- * @property string                          $queue
- * @property array                           $payload
- * @property int                             $attempts
- * @property int|null                        $reserved_at
- * @property int                             $available_at
- * @property Carbon $created_at
- * @property string|null                     $created_by
- * @property string|null                     $updated_by
+ * @property int         $id
+ * @property string      $queue
+ * @property array       $payload
+ * @property int         $attempts
+ * @property int|null    $reserved_at
+ * @property int         $available_at
+ * @property Carbon      $created_at
+ * @property string|null $created_by
+ * @property string|null $updated_by
  * @property Carbon|null $updated_at
  *
- * @method static JobFactory factory($count = null, $state = [])
+ * @method static JobFactory  factory($count = null, $state = [])
  * @method static Builder|Job newModelQuery()
  * @method static Builder|Job newQuery()
  * @method static Builder|Job query()
@@ -44,7 +44,7 @@ use Webmozart\Assert\Assert;
  * @mixin IdeHelperJob
  * @mixin \Eloquent
  */
-final class Job extends BaseModel
+class Job extends BaseModel
 {
     protected $fillable = [
         'id',

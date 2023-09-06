@@ -12,7 +12,7 @@ use Modules\Job\Filament\Resources\JobBatchesResource\Pages\ListJobBatches;
 use Modules\Job\Models\JobBatch;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-final class JobBatchesResource extends Resource
+class JobBatchesResource extends Resource
 {
     // //use ContextualResource;
 

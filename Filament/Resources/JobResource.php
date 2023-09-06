@@ -4,22 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ViewColumn;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Modules\Job\Filament\Resources\JobResource\Pages\ListJobs;
-use Modules\Job\Filament\Resources\JobResource\Pages\CreateJob;
-use Modules\Job\Filament\Resources\JobResource\Pages\EditJob;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
-use Modules\Job\Filament\Resources\JobResource\Pages;
+use Modules\Job\Filament\Resources\JobResource\Pages\CreateJob;
+use Modules\Job\Filament\Resources\JobResource\Pages\EditJob;
+use Modules\Job\Filament\Resources\JobResource\Pages\ListJobs;
 use Modules\Job\Models\Job;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-final class JobResource extends Resource
+class JobResource extends Resource
 {
     // //use ContextualResource;
     protected static ?string $model = Job::class;
