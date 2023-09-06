@@ -4,7 +4,7 @@ on: [push]
 jobs:
     phpinsights:
         runs-on: ubuntu-latest
-        name: PHP Insights checks
+        name: Rector
         steps:
             - uses: actions/checkout@v2
             - uses: shivammathur/setup-php@v2
