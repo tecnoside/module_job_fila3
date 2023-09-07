@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait FrontendSortable
 {
-    public function scopeSortableBy(Builder $builder, array $sortableColumns, array $defaultSort = ['name' => 'asc']): Builder
+    public function scopeSortableBy(Builder $query, array $sortableColumns, array $defaultSort = ['name' => 'asc']): Builder
     {
         $request = request();
         $sorted = $request->has('sort_by') && in_array($request->input('sort_by'), $sortableColumns);
@@ -22,14 +22,14 @@ trait FrontendSortable
          */
         $sortDirectionRequest = $request->input('sort_direction', 'asc');
 
-        return $builder->when($sorted, static function (Builder $builder) use ($sortByRequest, $sortDirectionRequest) : void {
-            $builder->orderBy(
+        return $query->when($sorted, static function (Builder $query) use ($sortByRequest, $sortDirectionRequest): void {
+            $query->orderBy(
                 (string) $sortByRequest,
                 ('desc' == (string) $sortDirectionRequest) ? 'desc' : 'asc'
             );
-        }, static function (Builder $builder) use ($defaultSort) : void {
+        }, static function (Builder $query) use ($defaultSort): void {
             foreach ($defaultSort as $key => $direction) {
-                $builder->orderBy($key, $direction);
+                $query->orderBy($key, $direction);
             }
         });
     }
