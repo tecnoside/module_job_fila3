@@ -53,7 +53,7 @@ class Crud extends Component
 
     public function taskCreate(): void
     {
-        $this->emit('modal.open', 'modal.schedule.create');
+        $this->dispatch('modal.open', 'modal.schedule.create');
     }
 
     /**

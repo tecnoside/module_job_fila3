@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobResource\Pages;
 
-use Filament\Pages\Actions\DeleteAction;
+use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 use Modules\Job\Filament\Resources\JobResource;
 
