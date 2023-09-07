@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobResource\Pages;
 
-use Filament\Pages\Actions\CreateAction;
+use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 use Modules\Job\Filament\Resources\JobResource;
 
