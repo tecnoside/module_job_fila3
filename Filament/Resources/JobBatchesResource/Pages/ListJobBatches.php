@@ -14,7 +14,7 @@ class ListJobBatches extends ListRecords
 {
     protected static string $resource = JobBatchesResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Action::make('prune_batches')
