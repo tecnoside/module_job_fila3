@@ -14,19 +14,19 @@ class CreateParametersTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            static function (Blueprint $blueprint): void {
-                $blueprint->increments('id');
-                $blueprint->unsignedInteger('frequency_id');
-                $blueprint->string('name');
-                $blueprint->string('value');
-                $blueprint->string('created_by')->nullable();
-                $blueprint->string('updated_by')->nullable();
-                $blueprint->timestamps();
+            static function (Blueprint $table): void {
+                $table->increments('id');
+                $table->unsignedInteger('frequency_id');
+                $table->string('name');
+                $table->string('value');
+                $table->string('created_by')->nullable();
+                $table->string('updated_by')->nullable();
+                $table->timestamps();
             }
         );
         // -- UPDATE --
         $this->tableUpdate(
-            static function (Blueprint $blueprint): void {
+            static function (Blueprint $table): void {
                 // if (! $this->hasColumn('created_by')) {
                 //     $table->string('created_by')->nullable();
                 //     $table->string('updated_by')->nullable();

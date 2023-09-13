@@ -14,30 +14,30 @@ class CreateJobsTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            static function (Blueprint $blueprint): void {
-                $blueprint->bigIncrements('id');
-                $blueprint->string('queue')->index();
-                $blueprint->longText('payload');
-                $blueprint->unsignedTinyInteger('attempts');
-                $blueprint->unsignedInteger('reserved_at')->nullable();
-                $blueprint->unsignedInteger('available_at');
-                $blueprint->unsignedInteger('created_at');
+            static function (Blueprint $table): void {
+                $table->bigIncrements('id');
+                $table->string('queue')->index();
+                $table->longText('payload');
+                $table->unsignedTinyInteger('attempts');
+                $table->unsignedInteger('reserved_at')->nullable();
+                $table->unsignedInteger('available_at');
+                $table->unsignedInteger('created_at');
             }
         );
         // -- UPDATE --
         $this->tableUpdate(
-            function (Blueprint $blueprint): void {
+            function (Blueprint $table): void {
                 if (! $this->hasColumn('created_by')) {
-                    $blueprint->string('created_by')->nullable();
-                    $blueprint->string('updated_by')->nullable();
+                    $table->string('created_by')->nullable();
+                    $table->string('updated_by')->nullable();
                 }
 
                 if (! $this->hasColumn('updated_at')) {
-                    $blueprint->timestamp('updated_at')->nullable();
+                    $table->timestamp('updated_at')->nullable();
                 }
 
                 if (! $this->hasColumn('created_at')) {
-                    $blueprint->timestamp('created_at')->nullable();
+                    $table->timestamp('created_at')->nullable();
                 }
             }
         );

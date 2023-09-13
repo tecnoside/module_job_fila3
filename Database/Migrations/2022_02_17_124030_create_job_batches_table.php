@@ -14,17 +14,17 @@ class CreateJobBatchesTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            static function (Blueprint $blueprint): void {
-                $blueprint->string('id')->primary();
-                $blueprint->string('name');
-                $blueprint->integer('total_jobs');
-                $blueprint->integer('pending_jobs');
-                $blueprint->integer('failed_jobs');
-                $blueprint->text('failed_job_ids');
-                $blueprint->mediumText('options')->nullable();
-                $blueprint->integer('cancelled_at')->nullable();
-                $blueprint->integer('created_at');
-                $blueprint->integer('finished_at')->nullable();
+            static function (Blueprint $table): void {
+                $table->string('id')->primary();
+                $table->string('name');
+                $table->integer('total_jobs');
+                $table->integer('pending_jobs');
+                $table->integer('failed_jobs');
+                $table->text('failed_job_ids');
+                $table->mediumText('options')->nullable();
+                $table->integer('cancelled_at')->nullable();
+                $table->integer('created_at');
+                $table->integer('finished_at')->nullable();
             }
         );
     }

@@ -14,23 +14,23 @@ class CreateFrequenciesTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            static function (Blueprint $blueprint): void {
-                $blueprint->increments('id');
-                $blueprint->unsignedInteger('task_id');
-                $blueprint->string('label');
-                $blueprint->string('interval');
+            static function (Blueprint $table): void {
+                $table->increments('id');
+                $table->unsignedInteger('task_id');
+                $table->string('label');
+                $table->string('interval');
                 // $table->index('task_id', 'task_frequencies_task_id_idx');
                 // $table->foreign('task_id', 'task_frequencies_task_id_fk')
                 //     ->references('id')
                 //     ->on(TOTEM_TABLE_PREFIX.'tasks');
-                $blueprint->string('created_by')->nullable();
-                $blueprint->string('updated_by')->nullable();
-                $blueprint->timestamps();
+                $table->string('created_by')->nullable();
+                $table->string('updated_by')->nullable();
+                $table->timestamps();
             }
         );
         // -- UPDATE --
         $this->tableUpdate(
-            static function (Blueprint $blueprint): void {
+            static function (Blueprint $table): void {
                 // if (! $this->hasColumn('created_by')) {
                 //     $table->string('created_by')->nullable();
                 //     $table->string('updated_by')->nullable();
