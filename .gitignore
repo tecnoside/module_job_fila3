@@ -5,3 +5,5 @@ package-lock.json
 /build
 /vendor
 *.cache
+.git-blame-ignore-revs
+.git-rewrite
