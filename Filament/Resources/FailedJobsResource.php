@@ -20,12 +20,11 @@ use Illuminate\Support\Facades\Artisan;
 use InvadersXX\FilamentJsoneditor\Forms\JSONEditor;
 use Modules\Job\Filament\Resources\FailedJobsResource\Pages\ListFailedJobs;
 use Modules\Job\Models\FailedJob;
-use Savannabits\FilamentModules\Concerns\ContextualResource;
 use Webmozart\Assert\Assert;
 
 class FailedJobsResource extends Resource
 {
-    // //use ContextualResource;
+    // //
 
     protected static ?string $model = FailedJob::class;
 

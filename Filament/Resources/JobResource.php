@@ -16,11 +16,10 @@ use Modules\Job\Filament\Resources\JobResource\Pages\CreateJob;
 use Modules\Job\Filament\Resources\JobResource\Pages\EditJob;
 use Modules\Job\Filament\Resources\JobResource\Pages\ListJobs;
 use Modules\Job\Models\Job;
-use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class JobResource extends Resource
 {
-    // //use ContextualResource;
+    // //
     protected static ?string $model = Job::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
