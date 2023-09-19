@@ -140,7 +140,7 @@ class WorkerCheck extends Command
 
         $pid = exec($command);
         if (false == $pid) {
-            throw new \Exception('['.__LINE__.']['.__FILE__.']');
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         $this->comment($pid);

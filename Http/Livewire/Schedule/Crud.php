@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Http\Livewire\Schedule;
 
+use Exception;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
@@ -31,7 +32,7 @@ class Crud extends Component
             return $res;
         }
 
-        throw new \Exception('['.__LINE__.']['.__FILE__.']');
+        throw new Exception('['.__LINE__.']['.__FILE__.']');
     }
 
     public function render(): Renderable
