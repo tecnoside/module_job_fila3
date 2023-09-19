@@ -57,7 +57,7 @@ class Status extends Component
     public function render(): Renderable
     {
         $view = app(GetViewAction::class)->execute();
-
+        
         $acts = [
             /*
             (object) [
