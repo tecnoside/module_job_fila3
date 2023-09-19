@@ -17,6 +17,17 @@
         </x-slot>
     </x-card> --}}
 
+    <div x-data="{ showMessage: true }" x-show="showMessage" x-init="setTimeout(() => showMessage = false, 3000)">
+        @if (session()->has('message'))
+            <div role="alert">
+                <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                  <p>{{ session()->get('message') }}</p>
+                </div>
+            </div>
+        @endif
+    </div>
+    
+
 
     <div class="max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Job Status</h5>
