@@ -14,7 +14,7 @@ class CreateParametersTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            static function (Blueprint $table): void {
+            function (Blueprint $table): void {
                 $table->increments('id');
                 $table->unsignedInteger('frequency_id');
                 $table->string('name');
@@ -26,7 +26,7 @@ class CreateParametersTable extends XotBaseMigration
         );
         // -- UPDATE --
         $this->tableUpdate(
-            static function (Blueprint $table): void {
+            function (Blueprint $table): void {
                 // if (! $this->hasColumn('created_by')) {
                 //     $table->string('created_by')->nullable();
                 //     $table->string('updated_by')->nullable();
