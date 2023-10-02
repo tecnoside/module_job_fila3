@@ -10,11 +10,10 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobBatchesResource\Pages\ListJobBatches;
 use Modules\Job\Models\JobBatch;
-use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class JobBatchesResource extends Resource
 {
-    // use ContextualResource;
+    // //
 
     protected static ?string $model = JobBatch::class;
 

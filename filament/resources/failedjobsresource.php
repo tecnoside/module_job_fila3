@@ -20,12 +20,11 @@ use Illuminate\Support\Facades\Artisan;
 use InvadersXX\FilamentJsoneditor\Forms\JSONEditor;
 use Modules\Job\Filament\Resources\FailedJobsResource\Pages\ListFailedJobs;
 use Modules\Job\Models\FailedJob;
-use Savannabits\FilamentModules\Concerns\ContextualResource;
 use Webmozart\Assert\Assert;
 
 class FailedJobsResource extends Resource
 {
-    // use ContextualResource;
+    // //
 
     protected static ?string $model = FailedJob::class;
 
@@ -62,7 +61,7 @@ class FailedJobsResource extends Resource
                     ->toggleable()
                     ->wrap()
                     ->limit(200)
-                    ->tooltip(fn (FailedJob $failedJob): string => "{$failedJob->failed_at} UUID: {$failedJob->uuid}; Connection: {$failedJob->connection}; Queue: {$failedJob->queue};"),
+                    ->tooltip(static fn (FailedJob $failedJob): string => sprintf('%s UUID: %s; Connection: %s; Queue: %s;', $failedJob->failed_at, $failedJob->uuid, $failedJob->connection, $failedJob->queue)),
                 TextColumn::make('uuid')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('connection')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('queue')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
@@ -72,14 +71,15 @@ class FailedJobsResource extends Resource
                 BulkAction::make('retry')
                     ->label('Retry')
                     ->requiresConfirmation()
-                    ->action(function (Collection $records): void {
-                        foreach ($records as $record) {
+                    ->action(static function (Collection $collection): void {
+                        foreach ($collection as $record) {
                             // Cannot access property $uuid on mixed.
                             Assert::isInstanceOf($record, FailedJob::class);
-                            Artisan::call("queue:retry {$record->uuid}");
+                            Artisan::call(sprintf('queue:retry %s', $record->uuid));
                         }
+
                         Notification::make()
-                            ->title("{$records->count()} jobs have been pushed back onto the queue.")
+                            ->title(sprintf('%d jobs have been pushed back onto the queue.', $collection->count()))
                             ->success()
                             ->send();
                     }),
@@ -90,10 +90,10 @@ class FailedJobsResource extends Resource
                 Action::make('retry')
                     ->label('Retry')
                     ->requiresConfirmation()
-                    ->action(function (FailedJob $failedJob): void {
-                        Artisan::call("queue:retry {$failedJob->uuid}");
+                    ->action(static function (FailedJob $failedJob): void {
+                        Artisan::call(sprintf('queue:retry %s', $failedJob->uuid));
                         Notification::make()
-                            ->title("The job with uuid '{$failedJob->uuid}' has been pushed back onto the queue.")
+                            ->title(sprintf("The job with uuid '%s' has been pushed back onto the queue.", $failedJob->uuid))
                             ->success()
                             ->send();
                     }),

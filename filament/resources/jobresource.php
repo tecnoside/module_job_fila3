@@ -7,14 +7,19 @@ namespace Modules\Job\Filament\Resources;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
-use Modules\Job\Filament\Resources\JobResource\Pages;
+use Modules\Job\Filament\Resources\JobResource\Pages\CreateJob;
+use Modules\Job\Filament\Resources\JobResource\Pages\EditJob;
+use Modules\Job\Filament\Resources\JobResource\Pages\ListJobs;
 use Modules\Job\Models\Job;
-use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class JobResource extends Resource
 {
-    // use ContextualResource;
+    // //
     protected static ?string $model = Job::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
@@ -34,26 +39,26 @@ class JobResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')->sortable()->searchable()->toggleable(),
-                Tables\Columns\TextColumn::make('queue'),
+                TextColumn::make('id')->sortable()->searchable()->toggleable(),
+                TextColumn::make('queue'),
 
                 // Tables\Columns\TextColumn::make('payload'),
-                Tables\Columns\TextColumn::make('attempts'),
-                Tables\Columns\TextColumn::make('reserved_at'),
-                Tables\Columns\TextColumn::make('available_at'),
-                Tables\Columns\TextColumn::make('created_at'),
+                TextColumn::make('attempts'),
+                TextColumn::make('reserved_at'),
+                TextColumn::make('available_at'),
+                TextColumn::make('created_at'),
                 // Tables\Columns\TextColumn::make('created_by'),
                 // Tables\Columns\TextColumn::make('updated_by'),
                 // Tables\Columns\TextColumn::make('updated_at'),
-                Tables\Columns\ViewColumn::make('payload')->view('job::filament.tables.columns.array'),
+                ViewColumn::make('payload')->view('job::filament.tables.columns.array'),
             ])
             ->filters([
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
     }
 
@@ -66,9 +71,9 @@ class JobResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListJobs::route('/'),
-            'create' => Pages\CreateJob::route('/create'),
-            'edit' => Pages\EditJob::route('/{record}/edit'),
+            'index' => ListJobs::route('/'),
+            'create' => CreateJob::route('/create'),
+            'edit' => EditJob::route('/{record}/edit'),
         ];
     }
 
