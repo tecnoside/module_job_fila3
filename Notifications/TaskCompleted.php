@@ -29,7 +29,7 @@ class TaskCompleted extends Notification implements ShouldQueue
     /**
      * Get the notification's delivery channels.
      *
-     * @param Task $notifiable
+     * @param  Task  $notifiable
      */
     // public function via(mixed $notifiable): array {
     public function via($notifiable): array
@@ -55,7 +55,7 @@ class TaskCompleted extends Notification implements ShouldQueue
      */
     public function toMail(Task $task): MailMessage
     {
-        return (new MailMessage())
+        return (new MailMessage)
             ->subject($task->description)
             ->greeting('Hi,')
             ->line(sprintf('%s just finished running.', $task->description))

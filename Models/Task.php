@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Exception;
 use Carbon\Carbon;
 use Cron\CronExpression;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

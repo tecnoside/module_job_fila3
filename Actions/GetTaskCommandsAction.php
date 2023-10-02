@@ -37,7 +37,7 @@ class GetTaskCommandsAction
         return $all_commands->sortBy(static function (Command $command): string {
             $name = (string) $command->getName();
             if (false === mb_strpos($name, ':')) {
-                return ':'.$name;
+                return ':' . $name;
             }
 
             return $name;

@@ -15,10 +15,9 @@ use Modules\Job\Models\FailedJob as FailedJobModel;
 use Modules\Job\Models\Job as JobModel;
 use Modules\Job\Models\JobBatch as JobBatchModel;
 use Modules\Xot\Actions\GetViewAction;
+use Webmozart\Assert\Assert;
 
 use function Safe\putenv;
-
-use Webmozart\Assert\Assert;
 
 /**
  * Class RolePermission.
@@ -38,12 +37,12 @@ class Status extends Component
         Artisan::call('worker:check');
         $this->out .= Artisan::output();
 
-        $this->out .= '<br/>['.JobModel::count().'] Jobs';
-        $this->out .= '<br/>['.FailedJobModel::count().'] Failed Jobs';
-        $this->out .= '<br/>['.JobBatchModel::count().'] Job Batch';
+        $this->out .= '<br/>[' . JobModel::count() . '] Jobs';
+        $this->out .= '<br/>[' . FailedJobModel::count() . '] Failed Jobs';
+        $this->out .= '<br/>[' . JobBatchModel::count() . '] Job Batch';
         $queue_conn = getenv('QUEUE_CONNECTION');
         if (false == $queue_conn) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new Exception('[' . __LINE__ . '][' . __FILE__ . ']');
         }
 
         $this->old_value = $queue_conn;
@@ -58,7 +57,7 @@ class Status extends Component
     public function render(): Renderable
     {
         $view = app(GetViewAction::class)->execute();
-        
+
         $acts = [
             /*
             (object) [
@@ -157,11 +156,11 @@ class Status extends Component
         $env_file = base_path('.env');
         $env_content = File::get($env_file);
         $new_content = Str::replace(
-            'QUEUE_CONNECTION='.$this->old_value,
-            'QUEUE_CONNECTION='.$this->form_data['conn'],
+            'QUEUE_CONNECTION=' . $this->old_value,
+            'QUEUE_CONNECTION=' . $this->form_data['conn'],
             $env_content
         );
-        putenv('QUEUE_CONNECTION='.$this->form_data['conn']);
+        putenv('QUEUE_CONNECTION=' . $this->form_data['conn']);
         Assert::string($new_content);
         File::put($env_file, $new_content);
         $this->old_value = $this->form_data['conn'];
@@ -170,14 +169,14 @@ class Status extends Component
     public function artisan(string $cmd): void
     {
         $this->out .= '<hr/>';
-        Artisan::call('queue:'.$cmd);
+        Artisan::call('queue:' . $cmd);
         $this->out .= Artisan::output();
         $this->out .= '<hr/>';
     }
 
     public function dummyAction(): void
     {
-        for ($i = 0; $i < 1000; ++$i) {
+        for ($i = 0; $i < 1000; $i++) {
             app(DummyAction::class)
                 ->onQueue()
                 ->execute();

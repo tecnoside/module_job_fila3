@@ -12,8 +12,7 @@ class Executed extends BroadcastingEvent
     /**
      * Executed constructor.
      *
-     * @param float $started
-     *
+     * @param  float  $started
      * @return void
      */
     public function __construct(Task $task, $started, string $output)
