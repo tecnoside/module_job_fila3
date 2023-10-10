@@ -8,7 +8,6 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
-use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\DeleteAction;
@@ -21,9 +20,10 @@ use Illuminate\Support\Facades\Artisan;
 use InvadersXX\FilamentJsoneditor\Forms\JSONEditor;
 use Modules\Job\Filament\Resources\FailedJobsResource\Pages\ListFailedJobs;
 use Modules\Job\Models\FailedJob;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 use Webmozart\Assert\Assert;
 
-class FailedJobsResource extends Resource
+class FailedJobsResource extends XotBaseResource
 {
     // //
 
@@ -31,7 +31,7 @@ class FailedJobsResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-exclamation-circle';
 
-    protected static ?string $navigationGroup = 'jobs';
+    // protected static ?string $navigationGroup = 'jobs';
 
     public static function form(Form $form): Form
     {
