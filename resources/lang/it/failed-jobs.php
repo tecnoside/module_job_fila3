@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    //'resources' => 'Risorse',
+    // 'resources' => 'Risorse',
     'pages' => 'Pagine',
     'widgets' => 'Widgets',
     'navigation' => [
