@@ -8,7 +8,7 @@ return [
     'widgets' => 'Widgets',
     'navigation' => [
         'name' => 'Job Batch',
-        'plural' => 'Job Batches',
+        'plural' => 'Job Batch',
         'group' => [
             'name' => 'Jobs',
         ],

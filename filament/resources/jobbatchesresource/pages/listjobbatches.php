@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Resources\JobBatchesResource\Pages;
+namespace Modules\Job\Filament\Resources\JobBatchResource\Pages;
 
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Facades\Artisan;
-use Modules\Job\Filament\Resources\JobBatchesResource;
+use Modules\Job\Filament\Resources\JobBatchResource;
 
 class ListJobBatches extends ListRecords
 {
-    protected static string $resource = JobBatchesResource::class;
+    protected static string $resource = JobBatchResource::class;
 
     protected function getHeaderActions(): array
     {
