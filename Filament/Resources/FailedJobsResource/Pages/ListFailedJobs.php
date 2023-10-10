@@ -8,12 +8,12 @@ use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Facades\Artisan;
-use Modules\Job\Filament\Resources\FailedJobsResource;
+use Modules\Job\Filament\Resources\FailedJobResource;
 use Modules\Job\Models\FailedJob;
 
 class ListFailedJobs extends ListRecords
 {
-    protected static string $resource = FailedJobsResource::class;
+    protected static string $resource = FailedJobResource::class;
 
     protected function getHeaderActions(): array
     {

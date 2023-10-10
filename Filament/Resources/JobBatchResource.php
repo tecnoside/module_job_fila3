@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Modules\Job\Filament\Resources\JobBatchesResource\Pages\ListJobBatches;
 use Modules\Job\Models\JobBatch;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Actions\DeleteAction;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Modules\Job\Filament\Resources\JobBatchResource\Pages\ListJobBatches;
 
-class JobBatchesResource extends XotBaseResource
+class JobBatchResource extends XotBaseResource
 {
     // //
 
