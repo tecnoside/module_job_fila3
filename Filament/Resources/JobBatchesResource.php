@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
-use Filament\Resources\Resource;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobBatchesResource\Pages\ListJobBatches;
 use Modules\Job\Models\JobBatch;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 
-class JobBatchesResource extends Resource
+class JobBatchesResource extends XotBaseResource
 {
     // //
 
-    protected static ?string $model = JobBatch::class;
+    // protected static ?string $model = JobBatch::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-queue-list';
 
-    protected static ?string $navigationGroup = 'jobs';
+    // protected static ?string $navigationGroup = 'jobs';
 
     public static function table(Table $table): Table
     {
