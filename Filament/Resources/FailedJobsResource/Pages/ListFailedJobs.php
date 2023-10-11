@@ -11,10 +11,12 @@ use Illuminate\Support\Facades\Artisan;
 use Modules\Job\Filament\Resources\FailedJobResource;
 use Modules\Job\Models\FailedJob;
 
-class ListFailedJobs extends ListRecords {
+class ListFailedJobs extends ListRecords
+{
     protected static string $resource = FailedJobResource::class;
 
-    protected function getHeaderActions(): array {
+    protected function getHeaderActions(): array
+    {
         return [
             Action::make('retry_all')
                 ->label('Retry all failed Jobs')
