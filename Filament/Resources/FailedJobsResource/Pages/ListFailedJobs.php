@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Resources\FailedJobResource\Pages;
+namespace Modules\Job\Filament\Resources\FailedJobsResource\Pages;
 
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
