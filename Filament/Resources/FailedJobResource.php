@@ -18,7 +18,8 @@ use Filament\Tables\Table;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use InvadersXX\FilamentJsoneditor\Forms\JSONEditor;
-use Modules\Job\Filament\Resources\FailedJobsResource\Pages\ListFailedJobs;
+// use Modules\Job\Filament\Resources\FailedJobsResource\Pages\ListFailedJobs;
+use Modules\Job\Filament\Resources\FailedJobResource\Pages;
 use Modules\Job\Models\FailedJob;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Webmozart\Assert\Assert;
@@ -105,7 +106,7 @@ class FailedJobResource extends XotBaseResource
     public static function getPages(): array
     {
         return [
-            'index' => ListFailedJobs::route('/'),
+            'index' => Pages\ListFailedJobs::route('/'),
         ];
     }
 
