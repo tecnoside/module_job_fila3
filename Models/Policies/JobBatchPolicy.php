@@ -6,9 +6,9 @@ namespace Modules\Job\Models\Policies;
 
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
-use Modules\Xot\Models\Policies\XotBasePolicy;
+use Modules\User\Models\Policies\UserBasePolicy;
 
-class JobBatchPolicy extends XotBasePolicy
+class JobBatchPolicy extends UserBasePolicy
 {
     /**
      * Determine whether the user can view any models.
