@@ -52,15 +52,15 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../User"
+            "url": "../module_user_fila3"
         },
         {
             "type": "path",
-            "url": "../Tenant"
+            "url": "../module_tenant_fila3"
         },
         {
             "type": "path",
-            "url": "../Xot"
+            "url": "../module_xot_fila3"
         }
     ],
     "autoload": {
