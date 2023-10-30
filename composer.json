@@ -29,7 +29,7 @@
         "thecodingmachine/safe": "*"
     },
     "require-dev": {
-        "driftingly/rector-laravel": "^0.26.2",
+        "driftingly/rector-laravel": "*",
         "enlightn/enlightn": "*",
         "laravel/pint": "*",
         "nunomaduro/collision": "*",
@@ -45,7 +45,7 @@
         "rector/phpstan-rules": "^0.7.1",
         "rector/rector": "^0.18.6",
         "spatie/laravel-ray": "*",
-        "symplify/phpstan-rules": "^12.4",
+        "symplify/phpstan-rules": "*",
         "thecodingmachine/phpstan-safe-rule": "^1.2",
         "tightenco/duster": "^2.2",
         "vimeo/psalm": "*"
