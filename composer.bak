@@ -23,7 +23,7 @@
         }
     },
     "require": {
-        "laraxot/module_xot": "dev-master",
+        "laraxot/module_xot_fila3": "dev-master",
 
         "laraxot/module_ui": "dev-master"
     },
