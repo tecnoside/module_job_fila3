@@ -32,7 +32,7 @@ class Crud extends Component
             return $res;
         }
 
-        throw new Exception('[' . __LINE__ . '][' . __FILE__ . ']');
+        throw new Exception('['.__LINE__.']['.__FILE__.']');
     }
 
     public function render(): Renderable
@@ -85,8 +85,8 @@ class Crud extends Component
 
         return $all_commands->sortBy(static function (Command $command): string {
             $name = (string) $command->getName();
-            if (false === mb_strpos($name, ':')) {
-                return ':' . $name;
+            if (mb_strpos($name, ':') === false) {
+                return ':'.$name;
             }
 
             return $name;
@@ -97,6 +97,6 @@ class Crud extends Component
     {
         app(ExecuteTaskAction::class)->execute($task_id);
 
-        session()->flash('message', 'task [' . $task_id . '] executed at ' . now());
+        session()->flash('message', 'task ['.$task_id.'] executed at '.now());
     }
 }

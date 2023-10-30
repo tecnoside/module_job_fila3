@@ -204,7 +204,7 @@ class Task extends BaseModel
     public function autoCleanup(): void
     {
         if ($this->auto_cleanup_num > 0) {
-            if ('results' === $this->auto_cleanup_type) {
+            if ($this->auto_cleanup_type === 'results') {
                 $oldest_id = $this->results()
                     ->orderBy('ran_at', 'desc')
                     ->limit($this->auto_cleanup_num)

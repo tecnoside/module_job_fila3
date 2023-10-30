@@ -18,6 +18,6 @@ class GetTaskFrequenciesAction
             return $res;
         }
 
-        throw new Exception('[' . __LINE__ . '][' . __FILE__ . ']');
+        throw new Exception('['.__LINE__.']['.__FILE__.']');
     }
 }
