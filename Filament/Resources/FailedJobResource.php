@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
+use Modules\Job\Filament\Resources\FailedJobResource\Pages\ListFailedJobs;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -106,7 +107,7 @@ class FailedJobResource extends XotBaseResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListFailedJobs::route('/'),
+            'index' => ListFailedJobs::route('/'),
         ];
     }
 
