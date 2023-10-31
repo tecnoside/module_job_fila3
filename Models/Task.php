@@ -88,7 +88,7 @@ class Task extends BaseModel
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<string>
+     * @var array<int, string>
      */
     protected $fillable = [
         'id',
@@ -110,6 +110,11 @@ class Task extends BaseModel
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+     /**
      * The accessors to append to the model's array form.
      *
      * @var array
