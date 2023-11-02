@@ -26,7 +26,6 @@ use Modules\Job\Database\Factories\FrequencyFactory;
  * @property Collection<int, Parameter> $parameters
  * @property int|null                   $parameters_count
  * @property Task|null                  $task
- *
  * @method static FrequencyFactory  factory($count = null, $state = [])
  * @method static Builder|Frequency newModelQuery()
  * @method static Builder|Frequency newQuery()
@@ -39,7 +38,6 @@ use Modules\Job\Database\Factories\FrequencyFactory;
  * @method static Builder|Frequency whereTaskId($value)
  * @method static Builder|Frequency whereUpdatedAt($value)
  * @method static Builder|Frequency whereUpdatedBy($value)
- *
  * @mixin IdeHelperFrequency
  * @mixin \Eloquent
  */

@@ -21,7 +21,6 @@ use Modules\Job\Database\Factories\ParameterFactory;
  * @property Carbon|null    $created_at
  * @property Carbon|null    $updated_at
  * @property Frequency|null $task
- *
  * @method static ParameterFactory  factory($count = null, $state = [])
  * @method static Builder|Parameter newModelQuery()
  * @method static Builder|Parameter newQuery()
@@ -34,7 +33,6 @@ use Modules\Job\Database\Factories\ParameterFactory;
  * @method static Builder|Parameter whereUpdatedAt($value)
  * @method static Builder|Parameter whereUpdatedBy($value)
  * @method static Builder|Parameter whereValue($value)
- *
  * @mixin IdeHelperParameter
  * @mixin \Eloquent
  */

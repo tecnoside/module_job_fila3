@@ -27,7 +27,6 @@ use Modules\Job\Database\Factories\JobBatchFactory;
  * @property Carbon|null     $cancelled_at
  * @property Carbon          $created_at
  * @property Carbon|null     $finished_at
- *
  * @method static JobBatchFactory  factory($count = null, $state = [])
  * @method static Builder|JobBatch newModelQuery()
  * @method static Builder|JobBatch newQuery()
@@ -42,7 +41,6 @@ use Modules\Job\Database\Factories\JobBatchFactory;
  * @method static Builder|JobBatch whereOptions($value)
  * @method static Builder|JobBatch wherePendingJobs($value)
  * @method static Builder|JobBatch whereTotalJobs($value)
- *
  * @mixin IdeHelperJobBatch
  * @mixin \Eloquent
  */
