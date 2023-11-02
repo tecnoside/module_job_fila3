@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
+use Modules\Job\Filament\Resources\FailedJobResource\Pages\ListFailedJobs;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -18,7 +19,8 @@ use Filament\Tables\Table;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use InvadersXX\FilamentJsoneditor\Forms\JSONEditor;
-use Modules\Job\Filament\Resources\FailedJobsResource\Pages\ListFailedJobs;
+// use Modules\Job\Filament\Resources\FailedJobsResource\Pages\ListFailedJobs;
+use Modules\Job\Filament\Resources\FailedJobResource\Pages;
 use Modules\Job\Models\FailedJob;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Webmozart\Assert\Assert;
