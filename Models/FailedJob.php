@@ -13,14 +13,14 @@ use Modules\Job\Database\Factories\FailedJobFactory;
 /**
  * Modules\Job\Models\FailedJob.
  *
- * @property int    $id
+ * @property int $id
  * @property string $uuid
  * @property string $connection
  * @property string $queue
- * @property array  $payload
+ * @property array $payload
  * @property string $exception
  * @property string $failed_at
- * @method static FailedJobFactory  factory($count = null, $state = [])
+ * @method static \Modules\Job\Database\Factories\FailedJobFactory factory($count = null, $state = [])
  * @method static Builder|FailedJob newModelQuery()
  * @method static Builder|FailedJob newQuery()
  * @method static Builder|FailedJob query()
@@ -31,7 +31,6 @@ use Modules\Job\Database\Factories\FailedJobFactory;
  * @method static Builder|FailedJob wherePayload($value)
  * @method static Builder|FailedJob whereQueue($value)
  * @method static Builder|FailedJob whereUuid($value)
- * @mixin IdeHelperFailedJob
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel
