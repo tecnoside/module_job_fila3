@@ -1,4 +1,4 @@
-<x-modal::bootstrap.modal on-submit="save" :content-padding="false">
+<x-filament::modal on-submit="save" :content-padding="false">
     <x-slot name="title">Add Schedule</x-slot>
 
     <!-- No padding will be applied because the component attribute "content-padding" is set to false -->
@@ -354,7 +354,7 @@
 
 
 
-    <x-flash-message />
+    <x-filament::section />
 
     <x-slot name="buttons">
         <x-filament::button type="submit">
@@ -364,4 +364,4 @@
             Cancel
         </x-filament::button>
     </x-slot>
-</x-modal::bootstrap.modal>
+</x-filament::modal>

@@ -14,9 +14,9 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <x-table.th name="description" />
-                <x-table.th name="average_runtime" />
-                <x-table.th name="last_ran_at" />
+                <th name="description" />
+                <th name="average_runtime" />
+                <th name="last_ran_at" />
                 <th>Next Run</th>
                 <th class="uk-text-center"></th>
             </tr>

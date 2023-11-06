@@ -1,6 +1,6 @@
 <div>
-    {{-- <x-flash-message></x-flash-message>
-    <x-card>
+    {{-- <x-filament::section></x-filament::section>
+    <x-filament::section>
         <x-slot name="title">Job Status</x-slot>
         <x-slot name="txt">
             <pre>{!! $out !!}</pre>
@@ -15,7 +15,7 @@
                 </button>
             @endforeach
         </x-slot>
-    </x-card> --}}
+    </x-filament::section> --}}
 
     <div x-data="{ showMessage: true }" x-show="showMessage" x-init="setTimeout(() => showMessage = false, 3000)">
         @if (session()->has('message'))
