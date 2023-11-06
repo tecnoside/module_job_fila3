@@ -1,6 +1,6 @@
 <div>
-    <x-flash-message></x-flash-message>
-    <x-card>
+    <x-filament::section></x-filament::section>
+    <x-filament::section>
         <x-slot name="title">Schedule Status</x-slot>
         <x-slot name="txt">
             <pre>{!! $out !!}</pre>
@@ -11,6 +11,6 @@
                 </button>
             @endforeach
         </x-slot>
-    </x-card>
+    </x-filament::section>
 
 </div>
