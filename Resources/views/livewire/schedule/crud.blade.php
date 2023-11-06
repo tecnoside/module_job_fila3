@@ -47,9 +47,9 @@
                         button-class="uk-button-link"
                     />
                     --}}
-                        <x-button wire:click="executeTask('{{ $task->id }}')">
+                        <x-filament::button wire:click="executeTask('{{ $task->id }}')">
                             <i class="fa-solid fa-play"></i>
-                        </x-button>
+                        </x-filament::button>
                     </td>
                 </tr>
             @empty
@@ -67,7 +67,7 @@
             <a class="uk-icon-button uk-button-primary uk-hidden@m" uk-icon="icon: plus"
                 href="{{-- route('totem.task.create') --}}"></a>
 
-            <x-button wire:click="taskCreate">New Task</x-button>
+            <x-filament::button wire:click="taskCreate">New Task</x-filament::button>
         </span>
         -
         <span>
