@@ -16,7 +16,7 @@
                     <p class="uk-text-danger">{{ $errors->first('description') }}</p>
                 @endif
             </div>
-            <x-input.group type="text" name="description" placeholder="e.g. Daily Backups" />
+            <x-filament::input type="text" name="description" placeholder="e.g. Daily Backups" />
         </div>
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">

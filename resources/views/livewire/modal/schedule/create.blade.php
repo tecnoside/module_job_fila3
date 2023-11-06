@@ -6,7 +6,7 @@
         <div class="uk-flex uk-flex-between uk-flex-middle">
             <h5 class="uk-card-title uk-margin-remove">{{ $task->exists ? 'Update' : 'Create' }} Task</h5>
         </div>
-        <x-input.group type="text"  name="description" />
+        <x-filament::input type="text"  name="description" />
         {{--
         <div class="uk-grid">
 
@@ -27,7 +27,7 @@
         </div>
         --}}
 
-        <x-input.group type="select" name="command" :options="$command_opts" />
+        <x-filament::input type="select" name="command" :options="$command_opts" />
 
         {{-- interessante ..
         <div class="uk-grid">
@@ -44,7 +44,7 @@
             </div>
         </div>
         --}}
-        <x-input.group type="text" name="parameters" />
+        <x-filament::input type="text" name="parameters" />
         {{--
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
@@ -59,7 +59,7 @@
         --}}
 
         <hr class="uk-divider-icon">
-        <x-input.group type="select" name="timezone" :options="array_combine($timezones,$timezones)" />
+        <x-filament::input type="select" name="timezone" :options="array_combine($timezones,$timezones)" />
 
         {{--
         <div class="uk-grid">
@@ -78,12 +78,12 @@
             </div>
         </div>
         --}}
-        <x-input.group type="radio.options" name="type" :options="['expression'=>'expression','frequency'=>'frequency']" />
+        <x-filament::input type="radio.options" name="type" :options="['expression'=>'expression','frequency'=>'frequency']" />
         @if ($form_data['type']=='expression')
-            <x-input.group type="text" name="expression" />
+            <x-filament::input type="text" name="expression" />
         @endif
         @if ($form_data['type']=='frequency')
-            <x-input.group type="select" name="expression" :options="$frequency_opts"/>
+            <x-filament::input type="select" name="expression" :options="$frequency_opts"/>
         @endif
         {{--
         <task-type inline-template current="{{ old('type', $task->expression ? 'expression' : 'frequency') }}"
@@ -192,7 +192,7 @@
         </task-type>
         --}}
         <hr class="uk-divider-icon">
-        <x-input.group type="email" name="notification_email_address" />
+        <x-filament::input type="email" name="notification_email_address" />
         {{--
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
@@ -210,7 +210,7 @@
             </div>
         </div>
         --}}
-        <x-input.group type="text" name="notification_phone_number" />
+        <x-filament::input type="text" name="notification_phone_number" />
         {{--
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
@@ -228,7 +228,7 @@
             </div>
         </div>
           --}}
-        <x-input.group type="text" name="notification_slack_webhook" />
+        <x-filament::input type="text" name="notification_slack_webhook" />
         {{--
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
@@ -260,7 +260,7 @@
                 </ul>
             </div>
             <div class="uk-width-1-1@s uk-width-2-3@m uk-form-controls-text">
-                <x-input.group type="checkbox.boolean" name="dont_overlap" />
+                <x-filament::input type="checkbox.boolean" name="dont_overlap" />
                 {{--
                 <label class="uk-margin">
                     <input type="hidden" name="dont_overlap" id="dont_overlap" value="0"
@@ -270,7 +270,7 @@
                     Don't Overlap
                 </label>
                 --}}
-                <x-input.group type="checkbox.boolean" name="run_in_maintenance" />
+                <x-filament::input type="checkbox.boolean" name="run_in_maintenance" />
                 {{--
                 <div class="uk-margin">
                     <label class="uk-margin">
@@ -282,7 +282,7 @@
                     </label>
                 </div>
                 --}}
-                <x-input.group type="checkbox.boolean" name="run_on_one_server" />
+                <x-filament::input type="checkbox.boolean" name="run_on_one_server" />
                 {{--
                 <div class="uk-margin">
                     <label class="uk-margin">
@@ -294,7 +294,7 @@
                     </label>
                 </div>
                 --}}
-                <x-input.group type="checkbox.boolean" name="run_in_background" />
+                <x-filament::input type="checkbox.boolean" name="run_in_background" />
                 {{--
                 <div class="uk-margin">
                     <label class="uk-margin">
@@ -317,8 +317,8 @@
                         limit or age. Set non-zero value to enable.</li>
                 </ul>
             </div>
-            <x-input.group type="number" name="auto_cleanup_num"  />
-            <x-input.group type="radio.options" name="auto_cleanup_type" :options="['days'=>'days','results'=>'results']" />
+            <x-filament::input type="number" name="auto_cleanup_num"  />
+            <x-filament::input type="radio.options" name="auto_cleanup_type" :options="['days'=>'days','results'=>'results']" />
             {{--
             <div class="uk-width-1-1@s uk-width-2-3@m uk-form-controls-text">
                 <label class="uk-margin">
@@ -357,11 +357,11 @@
     <x-flash-message />
 
     <x-slot name="buttons">
-        <x-button type="submit">
+        <x-filament::button type="submit">
             Save
-        </x-button>
-        <x-button type="button" wire:click="$emit('modal.close')">
+        </x-filament::button>
+        <x-filament::button type="button" wire:click="$emit('modal.close')">
             Cancel
-        </x-button>
+        </x-filament::button>
     </x-slot>
 </x-modal::bootstrap.modal>
