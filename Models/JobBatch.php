@@ -12,7 +12,6 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
-use Modules\Job\Database\Factories\JobBatchFactory;
 
 /**
  * Modules\Job\Models\JobBatch.
@@ -27,6 +26,7 @@ use Modules\Job\Database\Factories\JobBatchFactory;
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
+ *
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
  * @method static Builder|JobBatch newModelQuery()
  * @method static Builder|JobBatch newQuery()
@@ -41,6 +41,7 @@ use Modules\Job\Database\Factories\JobBatchFactory;
  * @method static Builder|JobBatch whereOptions($value)
  * @method static Builder|JobBatch wherePendingJobs($value)
  * @method static Builder|JobBatch whereTotalJobs($value)
+ *
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel

@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
-use Modules\Job\Database\Factories\FrequencyFactory;
 
 // use Modules\Job\Models\Traits\HasParameters;
 /**
@@ -26,6 +25,7 @@ use Modules\Job\Database\Factories\FrequencyFactory;
  * @property-read Collection<int, \Modules\Job\Models\Parameter> $parameters
  * @property-read int|null $parameters_count
  * @property-read \Modules\Job\Models\Task|null $task
+ *
  * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
  * @method static Builder|Frequency newModelQuery()
  * @method static Builder|Frequency newQuery()
@@ -38,6 +38,7 @@ use Modules\Job\Database\Factories\FrequencyFactory;
  * @method static Builder|Frequency whereTaskId($value)
  * @method static Builder|Frequency whereUpdatedAt($value)
  * @method static Builder|Frequency whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class Frequency extends BaseModel

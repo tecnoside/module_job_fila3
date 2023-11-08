@@ -7,7 +7,6 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
-use Modules\Job\Database\Factories\ParameterFactory;
 
 /**
  * Modules\Job\Models\Parameter.
@@ -21,6 +20,7 @@ use Modules\Job\Database\Factories\ParameterFactory;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read \Modules\Job\Models\Frequency|null $task
+ *
  * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
  * @method static Builder|Parameter newModelQuery()
  * @method static Builder|Parameter newQuery()
@@ -33,6 +33,7 @@ use Modules\Job\Database\Factories\ParameterFactory;
  * @method static Builder|Parameter whereUpdatedAt($value)
  * @method static Builder|Parameter whereUpdatedBy($value)
  * @method static Builder|Parameter whereValue($value)
+ *
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel

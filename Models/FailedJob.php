@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Job\Database\Factories\FailedJobFactory;
 
 /**
  * Modules\Job\Models\FailedJob.
@@ -20,6 +19,7 @@ use Modules\Job\Database\Factories\FailedJobFactory;
  * @property array $payload
  * @property string $exception
  * @property string $failed_at
+ *
  * @method static \Modules\Job\Database\Factories\FailedJobFactory factory($count = null, $state = [])
  * @method static Builder|FailedJob newModelQuery()
  * @method static Builder|FailedJob newQuery()
@@ -31,6 +31,7 @@ use Modules\Job\Database\Factories\FailedJobFactory;
  * @method static Builder|FailedJob wherePayload($value)
  * @method static Builder|FailedJob whereQueue($value)
  * @method static Builder|FailedJob whereUuid($value)
+ *
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel
