@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\Builder;
  * @property array $payload
  * @property string $exception
  * @property string $failed_at
- *
  * @method static \Modules\Job\Database\Factories\FailedJobFactory factory($count = null, $state = [])
  * @method static Builder|FailedJob newModelQuery()
  * @method static Builder|FailedJob newQuery()
@@ -31,7 +30,6 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedJob wherePayload($value)
  * @method static Builder|FailedJob whereQueue($value)
  * @method static Builder|FailedJob whereUuid($value)
- *
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel
