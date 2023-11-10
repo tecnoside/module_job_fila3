@@ -14,7 +14,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
 /**
- * Modules\Job\Models\JobBatch.
+ * Modules\Job\Models\JobBatch
  *
  * @property string $id
  * @property string $name

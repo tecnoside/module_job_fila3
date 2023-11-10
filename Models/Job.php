@@ -12,7 +12,7 @@ use Illuminate\Support\Carbon;
 use Webmozart\Assert\Assert;
 
 /**
- * Modules\Job\Models\Job.
+ * Modules\Job\Models\Job
  *
  * @property int $id
  * @property string $queue

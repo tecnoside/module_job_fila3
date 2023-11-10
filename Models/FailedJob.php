@@ -10,7 +10,7 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * Modules\Job\Models\FailedJob.
+ * Modules\Job\Models\FailedJob
  *
  * @property int $id
  * @property string $uuid

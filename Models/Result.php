@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Modules\Camping\Database\Factories\TotemResultFactory;
 
 /**
- * Modules\Job\Models\Result.
+ * Modules\Job\Models\Result
  *
  * @property int $id
  * @property int $task_id

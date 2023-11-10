@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
- * Modules\Job\Models\Parameter.
+ * Modules\Job\Models\Parameter
  *
  * @property int $id
  * @property int $frequency_id

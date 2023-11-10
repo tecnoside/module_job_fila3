@@ -12,7 +12,7 @@ use Illuminate\Support\Carbon;
 
 // use Modules\Job\Models\Traits\HasParameters;
 /**
- * Modules\Job\Models\Frequency.
+ * Modules\Job\Models\Frequency
  *
  * @property int $id
  * @property int $task_id

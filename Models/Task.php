@@ -17,7 +17,7 @@ use Illuminate\Notifications\Notifiable;
 use Modules\Job\Models\Traits\FrontendSortable;
 
 /**
- * Modules\Job\Models\Task.
+ * Modules\Job\Models\Task
  *
  * @property int $id
  * @property string $description
