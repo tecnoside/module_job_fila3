@@ -51,12 +51,14 @@ class JobBatch extends BaseModel
      * @var bool
      */
     public $incrementing = false;
-/**
+
+    /**
      * The "type" of the primary key ID.
      *
      * @var string
      */
     protected $keyType = 'string';
+
     protected $fillable = [
         'id',
         'name',
@@ -69,7 +71,8 @@ class JobBatch extends BaseModel
         'created_at',
         'finished_at',
     ];
-/**
+
+    /**
      * The attributes that should be cast.
      *
      * @see https://philo.dev/laravel-batches-and-real-time-progress-with-livewire/
