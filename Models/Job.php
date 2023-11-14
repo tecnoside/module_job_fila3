@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ---.
  */
@@ -51,15 +52,12 @@ class Job extends BaseModel
         'available_at',
         'created_at',
     ];
-
     protected $casts = [
         'payload' => 'array',
     ];
-
     public function getTable(): string
     {
         Assert::string($res = config('queue.connections.database.table'));
-
         return $res;
     }
 }

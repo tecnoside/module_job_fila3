@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ---.
  *
@@ -50,14 +51,12 @@ class JobBatch extends BaseModel
      * @var bool
      */
     public $incrementing = false;
-
-    /**
+/**
      * The "type" of the primary key ID.
      *
      * @var string
      */
     protected $keyType = 'string';
-
     protected $fillable = [
         'id',
         'name',
@@ -70,8 +69,7 @@ class JobBatch extends BaseModel
         'created_at',
         'finished_at',
     ];
-
-    /**
+/**
      * The attributes that should be cast.
      *
      * @see https://philo.dev/laravel-batches-and-real-time-progress-with-livewire/
@@ -85,8 +83,7 @@ class JobBatch extends BaseModel
         'cancelled_at' => 'datetime',
         'finished_at' => 'datetime',
     ];
-
-    /**
+/**
      * Get the total number of jobs that have been processed by the batch thus far.
      *
      * @return int
@@ -102,7 +99,6 @@ class JobBatch extends BaseModel
     public function progress(): int
     {
         $progress = $this->total_jobs > 0 ? round(($this->processedJobs() / $this->total_jobs) * 100) : 0;
-
         return (int) $progress;
     }
 
