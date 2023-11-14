@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /**
  * @see https://gist.github.com/ivanvermeyen/b72061c5d70c61e86875
  * @see https://gist.github.com/BenCavens/810758e74718a981c4cd2d2cf532407e
