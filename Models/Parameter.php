@@ -20,8 +20,8 @@ use Illuminate\Support\Carbon;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Frequency|null $task
- * @method static ParameterFactory factory($count = null, $state = [])
+ * @property-read \Modules\Job\Models\Frequency|null $task
+ * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
  * @method static Builder|Parameter newModelQuery()
  * @method static Builder|Parameter newQuery()
  * @method static Builder|Parameter query()

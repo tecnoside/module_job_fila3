@@ -28,7 +28,7 @@ use Illuminate\Support\Collection;
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
- * @method static JobBatchFactory factory($count = null, $state = [])
+ * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
  * @method static Builder|JobBatch newModelQuery()
  * @method static Builder|JobBatch newQuery()
  * @method static Builder|JobBatch query()

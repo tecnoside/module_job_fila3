@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @property array $payload
  * @property string $exception
  * @property string $failed_at
- * @method static FailedJobFactory factory($count = null, $state = [])
+ * @method static \Modules\Job\Database\Factories\FailedJobFactory factory($count = null, $state = [])
  * @method static Builder|FailedJob newModelQuery()
  * @method static Builder|FailedJob newQuery()
  * @method static Builder|FailedJob query()

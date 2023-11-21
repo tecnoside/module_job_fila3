@@ -26,7 +26,7 @@ use Webmozart\Assert\Assert;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
- * @method static JobFactory factory($count = null, $state = [])
+ * @method static \Modules\Job\Database\Factories\JobFactory factory($count = null, $state = [])
  * @method static Builder|Job newModelQuery()
  * @method static Builder|Job newQuery()
  * @method static Builder|Job query()

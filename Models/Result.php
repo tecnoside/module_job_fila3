@@ -23,7 +23,7 @@ use Modules\Camping\Database\Factories\TotemResultFactory;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Task|null $task
+ * @property-read \Modules\Job\Models\Task|null $task
  * @method static \Illuminate\Database\Eloquent\Builder|Result newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result query()
