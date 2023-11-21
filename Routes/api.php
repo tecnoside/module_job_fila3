@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 /*
-Route::middleware('auth:api')->get('/job', static fn(Request $request) => $request->user());
+Route::middleware('auth:api')->get('/job', fn(Request $request) => $request->user());
 */

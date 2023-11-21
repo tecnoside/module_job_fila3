@@ -74,7 +74,7 @@ class FailedJobResource extends XotBaseResource
                 BulkAction::make('retry')
                     ->label('Retry')
                     ->requiresConfirmation()
-                    ->action(static function (Collection $collection) : void {
+                    ->action(function (Collection $collection) : void {
                         foreach ($collection as $record) {
                             // Cannot access property $uuid on mixed.
                             Assert::isInstanceOf($record, FailedJob::class);
@@ -92,7 +92,7 @@ class FailedJobResource extends XotBaseResource
                 Action::make('retry')
                     ->label('Retry')
                     ->requiresConfirmation()
-                    ->action(static function (FailedJob $failedJob): void {
+                    ->action(function (FailedJob $failedJob): void {
                         Artisan::call(sprintf('queue:retry %s', $failedJob->uuid));
                         Notification::make()
                             ->title(sprintf("The job with uuid '%s' has been pushed back onto the queue.", $failedJob->uuid))
