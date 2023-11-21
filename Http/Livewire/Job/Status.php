@@ -176,7 +176,7 @@ class Status extends Component
 
     public function dummyAction(): void
     {
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 1000; ++$i) {
             app(DummyAction::class)
                 ->onQueue()
                 ->execute();

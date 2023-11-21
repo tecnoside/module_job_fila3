@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Modules\Job\Database\Factories\FrequencyFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -22,10 +23,10 @@ use Illuminate\Support\Carbon;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Collection<int, \Modules\Job\Models\Parameter> $parameters
+ * @property-read Collection<int, Parameter> $parameters
  * @property-read int|null $parameters_count
- * @property-read \Modules\Job\Models\Task|null $task
- * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
+ * @property-read Task|null $task
+ * @method static FrequencyFactory factory($count = null, $state = [])
  * @method static Builder|Frequency newModelQuery()
  * @method static Builder|Frequency newQuery()
  * @method static Builder|Frequency query()

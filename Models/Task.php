@@ -39,15 +39,15 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property string|null $updated_by
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read Collection<int, \Modules\Job\Models\Frequency> $frequencies
+ * @property-read Collection<int, Frequency> $frequencies
  * @property-read int|null $frequencies_count
  * @property-read bool $activated
  * @property-read float $average_runtime
- * @property-read \Modules\Job\Models\Result|null $last_result
+ * @property-read Result|null $last_result
  * @property-read string $upcoming
  * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
- * @property-read Collection<int, \Modules\Job\Models\Result> $results
+ * @property-read Collection<int, Result> $results
  * @property-read int|null $results_count
  * @method static Builder|Task newModelQuery()
  * @method static Builder|Task newQuery()
