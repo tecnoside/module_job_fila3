@@ -63,7 +63,7 @@ class FailedJobResource extends XotBaseResource
                     ->toggleable()
                     ->wrap()
                     ->limit(200)
-                    ->tooltip(static fn (FailedJob $failedJob): string => sprintf('%s UUID: %s; Connection: %s; Queue: %s;', $failedJob->failed_at, $failedJob->uuid, $failedJob->connection, $failedJob->queue)),
+                    ->tooltip(fn (FailedJob $failedJob): string => sprintf('%s UUID: %s; Connection: %s; Queue: %s;', $failedJob->failed_at, $failedJob->uuid, $failedJob->connection, $failedJob->queue)),
                 TextColumn::make('uuid')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('connection')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('queue')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
@@ -74,7 +74,7 @@ class FailedJobResource extends XotBaseResource
                 BulkAction::make('retry')
                     ->label('Retry')
                     ->requiresConfirmation()
-                    ->action(function (Collection $collection) : void {
+                    ->action(function (Collection $collection): void {
                         foreach ($collection as $record) {
                             // Cannot access property $uuid on mixed.
                             Assert::isInstanceOf($record, FailedJob::class);
