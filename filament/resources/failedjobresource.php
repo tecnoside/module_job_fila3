@@ -63,7 +63,7 @@ class FailedJobResource extends XotBaseResource
                     ->toggleable()
                     ->wrap()
                     ->limit(200)
-                    ->tooltip(static fn (FailedJob $failedJob): string => sprintf('%s UUID: %s; Connection: %s; Queue: %s;', $failedJob->failed_at, $failedJob->uuid, $failedJob->connection, $failedJob->queue)),
+                    ->tooltip(fn (FailedJob $failedJob): string => sprintf('%s UUID: %s; Connection: %s; Queue: %s;', $failedJob->failed_at, $failedJob->uuid, $failedJob->connection, $failedJob->queue)),
                 TextColumn::make('uuid')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('connection')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('queue')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
@@ -80,7 +80,6 @@ class FailedJobResource extends XotBaseResource
                             Assert::isInstanceOf($record, FailedJob::class);
                             Artisan::call(sprintf('queue:retry %s', $record->uuid));
                         }
-
                         Notification::make()
                             ->title(sprintf('%d jobs have been pushed back onto the queue.', $collection->count()))
                             ->success()
@@ -93,7 +92,7 @@ class FailedJobResource extends XotBaseResource
                 Action::make('retry')
                     ->label('Retry')
                     ->requiresConfirmation()
-                    ->action(static function (FailedJob $failedJob): void {
+                    ->action(function (FailedJob $failedJob): void {
                         Artisan::call(sprintf('queue:retry %s', $failedJob->uuid));
                         Notification::make()
                             ->title(sprintf("The job with uuid '%s' has been pushed back onto the queue.", $failedJob->uuid))
