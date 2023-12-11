@@ -31,9 +31,10 @@
     "require-dev": {
         "driftingly/rector-laravel": "*",
         "enlightn/enlightn": "*",
+        "larastan/larastan": "*",
         "laravel/pint": "*",
         "nunomaduro/collision": "*",
-        "larastan/larastan": "*",
+        "nunomaduro/larastan": "*",
         "nunomaduro/phpinsights": "*",
         "orchestra/testbench": "*",
         "pestphp/pest": "*",
