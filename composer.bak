@@ -25,7 +25,7 @@
     "require": {
         "laraxot/module_xot_fila3": "dev-master",
 
-        "laraxot/module_ui": "dev-master"
+        "laraxot/module_ui_fila3": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
