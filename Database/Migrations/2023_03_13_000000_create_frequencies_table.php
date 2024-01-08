@@ -14,7 +14,7 @@ class CreateFrequenciesTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $table) : void {
+            function (Blueprint $table): void {
                 $table->increments('id');
                 $table->unsignedInteger('task_id');
                 $table->string('label');
@@ -30,7 +30,7 @@ class CreateFrequenciesTable extends XotBaseMigration
         );
         // -- UPDATE --
         $this->tableUpdate(
-            function (Blueprint $table) : void {
+            function (Blueprint $table): void {
                 // if (! $this->hasColumn('created_by')) {
                 //     $table->string('created_by')->nullable();
                 //     $table->string('updated_by')->nullable();

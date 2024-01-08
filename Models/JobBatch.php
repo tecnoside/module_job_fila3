@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Modules\Job\Database\Factories\JobBatchFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -28,6 +27,7 @@ use Illuminate\Support\Collection;
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
+ *
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
  * @method static Builder|JobBatch newModelQuery()
  * @method static Builder|JobBatch newQuery()
@@ -42,6 +42,7 @@ use Illuminate\Support\Collection;
  * @method static Builder|JobBatch whereOptions($value)
  * @method static Builder|JobBatch wherePendingJobs($value)
  * @method static Builder|JobBatch whereTotalJobs($value)
+ *
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel
@@ -88,7 +89,7 @@ class JobBatch extends BaseModel
         'finished_at' => 'datetime',
     ];
 
-/**
+    /**
      * Get the total number of jobs that have been processed by the batch thus far.
      *
      * @return int
@@ -104,6 +105,7 @@ class JobBatch extends BaseModel
     public function progress(): int
     {
         $progress = $this->total_jobs > 0 ? round(($this->processedJobs() / $this->total_jobs) * 100) : 0;
+
         return (int) $progress;
     }
 
