@@ -14,15 +14,7 @@ class CreateTasksTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-<<<<<<< HEAD
-<<<<<<< HEAD
             function (Blueprint $table): void {
-=======
-            function (Blueprint $table) : void {
->>>>>>> 090be5b (first)
-=======
-            function (Blueprint $table) : void {
->>>>>>> dev
                 $table->increments('id');
                 $table->string('description');
                 $table->string('command');
@@ -52,15 +44,7 @@ class CreateTasksTable extends XotBaseMigration
         );
         // -- UPDATE --
         $this->tableUpdate(
-<<<<<<< HEAD
-<<<<<<< HEAD
             function (Blueprint $table): void {
-=======
-            function (Blueprint $table) : void {
->>>>>>> 090be5b (first)
-=======
-            function (Blueprint $table) : void {
->>>>>>> dev
                 // if (! $this->hasColumn('created_by')) {
                 //     $table->string('created_by')->nullable();
                 //     $table->string('updated_by')->nullable();

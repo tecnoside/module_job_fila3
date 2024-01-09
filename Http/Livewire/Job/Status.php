@@ -176,15 +176,7 @@ class Status extends Component
 
     public function dummyAction(): void
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        for ($i = 0; $i < 1000; $i++) {
-=======
         for ($i = 0; $i < 1000; ++$i) {
->>>>>>> 090be5b (first)
-=======
-        for ($i = 0; $i < 1000; ++$i) {
->>>>>>> dev
             app(DummyAction::class)
                 ->onQueue()
                 ->execute();

@@ -55,15 +55,7 @@ class TaskCompleted extends Notification implements ShouldQueue
      */
     public function toMail(Task $task): MailMessage
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return (new MailMessage)
-=======
         return (new MailMessage())
->>>>>>> 090be5b (first)
-=======
-        return (new MailMessage())
->>>>>>> dev
             ->subject($task->description)
             ->greeting('Hi,')
             ->line(sprintf('%s just finished running.', $task->description))

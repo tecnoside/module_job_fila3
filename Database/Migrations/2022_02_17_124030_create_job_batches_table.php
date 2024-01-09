@@ -14,15 +14,7 @@ class CreateJobBatchesTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-<<<<<<< HEAD
-<<<<<<< HEAD
             function (Blueprint $table): void {
-=======
-            function (Blueprint $table) : void {
->>>>>>> 090be5b (first)
-=======
-            function (Blueprint $table) : void {
->>>>>>> dev
                 $table->string('id')->primary();
                 $table->string('name');
                 $table->integer('total_jobs');
