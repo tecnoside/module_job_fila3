@@ -6,7 +6,10 @@ return [
     'name' => 'Job',
     'icon' => 'heroicon-o-briefcase',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'navigation_sort' => 1,
 =======
 >>>>>>> 090be5b (first)
+=======
+>>>>>>> dev
 ];

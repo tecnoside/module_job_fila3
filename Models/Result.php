@@ -25,9 +25,12 @@ use Modules\Camping\Database\Factories\TotemResultFactory;
  * @property Carbon|null $updated_at
  * @property-read \Modules\Job\Models\Task|null $task
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
 >>>>>>> 090be5b (first)
+=======
+>>>>>>> dev
  * @method static \Illuminate\Database\Eloquent\Builder|Result newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result query()
@@ -41,9 +44,12 @@ use Modules\Camping\Database\Factories\TotemResultFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedBy($value)
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
 >>>>>>> 090be5b (first)
+=======
+>>>>>>> dev
  * @mixin \Eloquent
  */
 class Result extends BaseModel

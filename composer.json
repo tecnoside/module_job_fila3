@@ -1,9 +1,13 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "name": "laraxot/module_job_fila3",
 =======
     "name": "laraxot/module_job_fila",
 >>>>>>> 090be5b (first)
+=======
+    "name": "laraxot/module_job_fila",
+>>>>>>> dev
     "description": "job module enables efficient background task execution. It lets you offload resource-heavy processes, like sending emails or data processing, improving app performance. Through simple job definition and dispatching, you can enhance user experience while tasks run seamlessly in the background.",
     "keywords": [
         "laraxot",
@@ -19,18 +23,24 @@
         "user experience"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "homepage": "https://github.com/laraxot/module_job_fila3.git",
     "license": "MIT",
     "authors": [{
         "name": "Marco Sottana",
         "email": "marco.sottana@gmail.com",
 =======
+=======
+>>>>>>> dev
     "homepage": "https://github.com/laraxot/module_job_fila",
     "license": "MIT",
     "authors": [{
         "name": ":author_name",
         "email": "author@domain.com",
+<<<<<<< HEAD
 >>>>>>> 090be5b (first)
+=======
+>>>>>>> dev
         "role": "Developer"
     }],
     "require": {
@@ -47,10 +57,14 @@
         "laravel/pint": "*",
         "nunomaduro/collision": "*",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "larastan/larastan": "*",
 =======
         "nunomaduro/larastan": "*",
 >>>>>>> 090be5b (first)
+=======
+        "nunomaduro/larastan": "*",
+>>>>>>> dev
         "nunomaduro/phpinsights": "*",
         "orchestra/testbench": "*",
         "pestphp/pest": "*",

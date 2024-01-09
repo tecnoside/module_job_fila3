@@ -9,9 +9,13 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Modules\Job\Database\Factories\FailedJobFactory;
 >>>>>>> 090be5b (first)
+=======
+use Modules\Job\Database\Factories\FailedJobFactory;
+>>>>>>> dev
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -22,9 +26,12 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedJob newQuery()
  * @method static Builder|FailedJob query()
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
 >>>>>>> 090be5b (first)
+=======
+>>>>>>> dev
  * @property int $id
  * @property string $uuid
  * @property string $connection
@@ -33,9 +40,12 @@ use Illuminate\Database\Eloquent\Builder;
  * @property string $exception
  * @property string $failed_at
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
 >>>>>>> 090be5b (first)
+=======
+>>>>>>> dev
  * @method static Builder|FailedJob whereConnection($value)
  * @method static Builder|FailedJob whereException($value)
  * @method static Builder|FailedJob whereFailedAt($value)
@@ -44,9 +54,12 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedJob whereQueue($value)
  * @method static Builder|FailedJob whereUuid($value)
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
 >>>>>>> 090be5b (first)
+=======
+>>>>>>> dev
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel

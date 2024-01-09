@@ -50,9 +50,12 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property-read Collection<int, \Modules\Job\Models\Result> $results
  * @property-read int|null $results_count
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
 >>>>>>> 090be5b (first)
+=======
+>>>>>>> dev
  * @method static Builder|Task newModelQuery()
  * @method static Builder|Task newQuery()
  * @method static Builder|Task query()
@@ -78,9 +81,12 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @method static Builder|Task whereUpdatedAt($value)
  * @method static Builder|Task whereUpdatedBy($value)
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
 >>>>>>> 090be5b (first)
+=======
+>>>>>>> dev
  * @mixin \Eloquent
  */
 class Task extends BaseModel
