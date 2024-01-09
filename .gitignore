@@ -25,4 +25,7 @@ package-lock.json
 .php-cs-fixer.cache
 package-lock.json
 .git-rewrite/
+<<<<<<< HEAD
 .php-cs-fixer.cache
+=======
+>>>>>>> 090be5b (first)

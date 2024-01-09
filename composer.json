@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "name": "laraxot/module_job_fila3",
+=======
+    "name": "laraxot/module_job_fila",
+>>>>>>> 090be5b (first)
     "description": "job module enables efficient background task execution. It lets you offload resource-heavy processes, like sending emails or data processing, improving app performance. Through simple job definition and dispatching, you can enhance user experience while tasks run seamlessly in the background.",
     "keywords": [
         "laraxot",
@@ -14,11 +18,19 @@
         "data processing",
         "user experience"
     ],
+<<<<<<< HEAD
     "homepage": "https://github.com/laraxot/module_job_fila3.git",
     "license": "MIT",
     "authors": [{
         "name": "Marco Sottana",
         "email": "marco.sottana@gmail.com",
+=======
+    "homepage": "https://github.com/laraxot/module_job_fila",
+    "license": "MIT",
+    "authors": [{
+        "name": ":author_name",
+        "email": "author@domain.com",
+>>>>>>> 090be5b (first)
         "role": "Developer"
     }],
     "require": {
@@ -34,7 +46,11 @@
         "larastan/larastan": "*",
         "laravel/pint": "*",
         "nunomaduro/collision": "*",
+<<<<<<< HEAD
         "larastan/larastan": "*",
+=======
+        "nunomaduro/larastan": "*",
+>>>>>>> 090be5b (first)
         "nunomaduro/phpinsights": "*",
         "orchestra/testbench": "*",
         "pestphp/pest": "*",

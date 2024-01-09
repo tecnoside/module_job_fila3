@@ -85,7 +85,11 @@ class Status extends Component
             return collect([]);
         }
 
+<<<<<<< HEAD
         new Kernel(app(), new Dispatcher);
+=======
+        new Kernel(app(), new Dispatcher());
+>>>>>>> 090be5b (first)
         $schedule = app(Schedule::class);
 
         return collect($schedule->events());

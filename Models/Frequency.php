@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
+=======
+use Modules\Job\Database\Factories\FrequencyFactory;
+>>>>>>> 090be5b (first)
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,7 +29,10 @@ use Illuminate\Support\Carbon;
  * @property-read Collection<int, \Modules\Job\Models\Parameter> $parameters
  * @property-read int|null $parameters_count
  * @property-read \Modules\Job\Models\Task|null $task
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 090be5b (first)
  * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
  * @method static Builder|Frequency newModelQuery()
  * @method static Builder|Frequency newQuery()
@@ -38,7 +45,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Frequency whereTaskId($value)
  * @method static Builder|Frequency whereUpdatedAt($value)
  * @method static Builder|Frequency whereUpdatedBy($value)
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 090be5b (first)
  * @mixin \Eloquent
  */
 class Frequency extends BaseModel

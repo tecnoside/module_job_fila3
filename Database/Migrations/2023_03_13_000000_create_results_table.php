@@ -14,7 +14,11 @@ class CreateResultsTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
+<<<<<<< HEAD
             function (Blueprint $table): void {
+=======
+            function (Blueprint $table) : void {
+>>>>>>> 090be5b (first)
                 $table->increments('id');
                 $table->unsignedInteger('task_id');
                 $table->timestamp('ran_at')->useCurrent();
@@ -33,7 +37,11 @@ class CreateResultsTable extends XotBaseMigration
         );
         // -- UPDATE --
         $this->tableUpdate(
+<<<<<<< HEAD
             function (Blueprint $table): void {
+=======
+            function (Blueprint $table) : void {
+>>>>>>> 090be5b (first)
                 // if (! $this->hasColumn('created_by')) {
                 //     $table->string('created_by')->nullable();
                 //     $table->string('updated_by')->nullable();

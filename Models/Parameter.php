@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
+=======
+use Modules\Job\Database\Factories\ParameterFactory;
+>>>>>>> 090be5b (first)
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
@@ -20,7 +24,10 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read \Modules\Job\Models\Frequency|null $task
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 090be5b (first)
  * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
  * @method static Builder|Parameter newModelQuery()
  * @method static Builder|Parameter newQuery()
@@ -33,7 +40,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Parameter whereUpdatedAt($value)
  * @method static Builder|Parameter whereUpdatedBy($value)
  * @method static Builder|Parameter whereValue($value)
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 090be5b (first)
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel

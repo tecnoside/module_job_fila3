@@ -14,7 +14,11 @@ class CreateFailedJobsTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
+<<<<<<< HEAD
             function (Blueprint $table): void {
+=======
+            function (Blueprint $table) : void {
+>>>>>>> 090be5b (first)
                 $table->uuid('id')->primary();
                 $table->string('uuid')->unique();
                 $table->text('connection');
