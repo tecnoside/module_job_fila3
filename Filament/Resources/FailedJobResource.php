@@ -17,7 +17,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
-use InvadersXX\FilamentJsoneditor\Forms\JSONEditor;
+// use InvadersXX\FilamentJsoneditor\Forms\JSONEditor;
 use Modules\Job\Filament\Resources\FailedJobResource\Pages\ListFailedJobs;
 // use Modules\Job\Filament\Resources\FailedJobsResource\Pages\ListFailedJobs;
 use Modules\Job\Models\FailedJob;
@@ -46,7 +46,7 @@ class FailedJobResource extends XotBaseResource
 
                 // make text a little bit smaller because often a complete Stack Trace is shown:
                 TextArea::make('exception')->disabled()->columnSpan(4)->extraInputAttributes(['style' => 'font-size: 80%;']),
-                JSONEditor::make('payload')->disabled()->columnSpan(4),
+                // JSONEditor::make('payload')->disabled()->columnSpan(4),
             ])->columns(4);
     }
 
