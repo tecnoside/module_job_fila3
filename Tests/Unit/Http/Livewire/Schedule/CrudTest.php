@@ -1,6 +1,8 @@
 <?php
 
-namespace Modules\Job\Http\Tests\Unit\Livewire\Schedule;
+declare(strict_types=1);
+
+namespace Modules\Job\Tests\Unit\Http\Livewire\Schedule;
 
 use Modules\Job\Http\Livewire\Schedule\Crud;
 use Tests\TestCase;
@@ -14,20 +16,14 @@ final class CrudTest extends TestCase
 {
     private Crud $crud;
 
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp(): void
     {
         parent::setUp();
 
-        /** @todo Correctly instantiate tested object to use it. */
+        /* @todo Correctly instantiate tested object to use it. */
         $this->crud = new Crud();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -37,31 +33,31 @@ final class CrudTest extends TestCase
 
     public function testGetFrequencies(): void
     {
-        /** @todo This test is incomplete. */
+        /* @todo This test is incomplete. */
         self::markTestIncomplete();
     }
 
     public function testRender(): void
     {
-        /** @todo This test is incomplete. */
+        /* @todo This test is incomplete. */
         self::markTestIncomplete();
     }
 
     public function testTaskCreate(): void
     {
-        /** @todo This test is incomplete. */
+        /* @todo This test is incomplete. */
         self::markTestIncomplete();
     }
 
     public function testGetCommands(): void
     {
-        /** @todo This test is incomplete. */
+        /* @todo This test is incomplete. */
         self::markTestIncomplete();
     }
 
     public function testExecuteTask(): void
     {
-        /** @todo This test is incomplete. */
+        /* @todo This test is incomplete. */
         self::markTestIncomplete();
     }
 }
