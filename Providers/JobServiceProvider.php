@@ -1,4 +1,7 @@
 <?php
+/**
+ * @see https://github.com/mooxphp/jobs/blob/main/src/JobManagerProvider.php
+ */
 
 declare(strict_types=1);
 
@@ -11,6 +14,14 @@ use Modules\Job\Events\Executed;
 use Modules\Job\Events\Executing;
 use Modules\Job\Models\Task;
 use Modules\Xot\Providers\XotBaseServiceProvider;
+use Illuminate\Contracts\Queue\Job as JobContract;
+use Illuminate\Queue\Events\JobExceptionOccurred;
+use Illuminate\Queue\Events\JobFailed;
+use Illuminate\Queue\Events\JobProcessed;
+use Illuminate\Queue\Events\JobProcessing;
+use Illuminate\Support\Facades\Queue;
+use Illuminate\Support\ServiceProvider;
+use Modules\Job\Models\JobManager;
 
 class JobServiceProvider extends XotBaseServiceProvider
 {
@@ -22,7 +33,7 @@ class JobServiceProvider extends XotBaseServiceProvider
 
     public function bootCallback(): void
     {
-        $this->registerCommands();
+        //$this->registerCommands();
         /*
         $this->app->resolving(Schedule::class, function ($schedule) {
             dddx($schedule);
@@ -37,18 +48,39 @@ class JobServiceProvider extends XotBaseServiceProvider
         //    echo $e->getMessage();
         // }
         // });
+        $this->registerQueue();
     }
 
-    public function registerCommands(): void
-    {
-        $this->commands(
-            [
-                WorkerCheck::class,
+    public function registerQueue():void {
+         /*
+        Queue::before(static function (JobProcessing $event) {
+            self::jobStarted($event->job);
+        });
+
+        Queue::after(static function (JobProcessed $event) {
+            self::jobFinished($event->job);
+        });
+
+        Queue::failing(static function (JobFailed $event) {
+            self::jobFinished($event->job, true, $event->exception);
+        });
+
+        Queue::exceptionOccurred(static function (JobExceptionOccurred $event) {
+            self::jobFinished($event->job, true, $event->exception);
+        });
+        */
+    }
+
+    //public function registerCommands(): void
+   // {
+   //     $this->commands(
+    //        [
+    //            WorkerCheck::class,
                 //    \Modules\Job\Console\Commands\ListSchedule::class,
                 //    \Modules\Job\Console\Commands\TestCommand::class,
-            ]
-        );
-    }
+    //        ]
+    //    );
+    //}
 
     /*
     public function registerSchedule(Schedule $schedule): void {
