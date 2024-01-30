@@ -1,4 +1,7 @@
 <?php
+/**
+ * @see https://gitlab.com/amvisor/filament-failed-jobs/-/blob/master/src/Resources/JobBatchesResource/Pages/ListJobBatches.php?ref_type=heads
+ */
 
 declare(strict_types=1);
 

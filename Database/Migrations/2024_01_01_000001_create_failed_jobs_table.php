@@ -15,13 +15,22 @@ class CreateFailedJobsTable extends XotBaseMigration
         // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table): void {
-                $table->uuid('id')->primary();
+                //$table->uuid('id')->primary();
+                $table->id();
                 $table->string('uuid')->unique();
                 $table->text('connection');
                 $table->text('queue');
                 $table->longText('payload');
                 $table->longText('exception');
                 $table->timestamp('failed_at')->useCurrent();
+            }
+        );
+        // -- UPDATE --
+        $this->tableUpdate(
+            function (Blueprint $table): void {
+                if (! $this->hasColumn('uuid')) {
+                    $table->string('uuid')->nullable();
+                }
             }
         );
     }
