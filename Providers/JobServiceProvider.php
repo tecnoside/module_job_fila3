@@ -8,20 +8,16 @@ declare(strict_types=1);
 namespace Modules\Job\Providers;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Facades\Schema;
-use Modules\Job\Console\Commands\WorkerCheck;
-use Modules\Job\Events\Executed;
-use Modules\Job\Events\Executing;
-use Modules\Job\Models\Task;
-use Modules\Xot\Providers\XotBaseServiceProvider;
-use Illuminate\Contracts\Queue\Job as JobContract;
 use Illuminate\Queue\Events\JobExceptionOccurred;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Queue\Events\JobProcessing;
 use Illuminate\Support\Facades\Queue;
-use Illuminate\Support\ServiceProvider;
-use Modules\Job\Models\JobManager;
+use Illuminate\Support\Facades\Schema;
+use Modules\Job\Events\Executed;
+use Modules\Job\Events\Executing;
+use Modules\Job\Models\Task;
+use Modules\Xot\Providers\XotBaseServiceProvider;
 
 class JobServiceProvider extends XotBaseServiceProvider
 {
@@ -33,7 +29,6 @@ class JobServiceProvider extends XotBaseServiceProvider
 
     public function bootCallback(): void
     {
-        //$this->registerCommands();
         /*
         $this->app->resolving(Schedule::class, function ($schedule) {
             dddx($schedule);
@@ -51,36 +46,26 @@ class JobServiceProvider extends XotBaseServiceProvider
         $this->registerQueue();
     }
 
-    public function registerQueue():void {
-         /*
+    public function registerQueue(): void
+    {
+        /*
         Queue::before(static function (JobProcessing $event) {
-            self::jobStarted($event->job);
+           self::jobStarted($event->job);
         });
 
         Queue::after(static function (JobProcessed $event) {
-            self::jobFinished($event->job);
+           self::jobFinished($event->job);
         });
 
         Queue::failing(static function (JobFailed $event) {
-            self::jobFinished($event->job, true, $event->exception);
+           self::jobFinished($event->job, true, $event->exception);
         });
 
         Queue::exceptionOccurred(static function (JobExceptionOccurred $event) {
-            self::jobFinished($event->job, true, $event->exception);
+           self::jobFinished($event->job, true, $event->exception);
         });
         */
     }
-
-    //public function registerCommands(): void
-   // {
-   //     $this->commands(
-    //        [
-    //            WorkerCheck::class,
-                //    \Modules\Job\Console\Commands\ListSchedule::class,
-                //    \Modules\Job\Console\Commands\TestCommand::class,
-    //        ]
-    //    );
-    //}
 
     /*
     public function registerSchedule(Schedule $schedule): void {
