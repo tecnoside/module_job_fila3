@@ -11,9 +11,8 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
-use Modules\Job\Filament\Resources\JobResource\Pages\CreateJob;
-use Modules\Job\Filament\Resources\JobResource\Pages\EditJob;
-use Modules\Job\Filament\Resources\JobResource\Pages\ListJobs;
+use Modules\Job\Filament\Resources\JobResource\Widgets;
+use Modules\Job\Filament\Resources\JobResource\Pages;
 use Modules\Job\Models\Job;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -71,9 +70,16 @@ class JobResource extends XotBaseResource
     public static function getPages(): array
     {
         return [
-            'index' => ListJobs::route('/'),
-            'create' => CreateJob::route('/create'),
-            'edit' => EditJob::route('/{record}/edit'),
+            'index' => Pages\ListJobs::route('/'),
+            'create' => Pages\CreateJob::route('/create'),
+            'edit' => Pages\EditJob::route('/{record}/edit'),
+        ];
+    }
+
+     public static function getWidgets(): array
+    {
+        return [
+            Widgets\JobStatsOverview::class,
         ];
     }
 
