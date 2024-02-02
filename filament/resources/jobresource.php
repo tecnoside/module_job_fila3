@@ -30,14 +30,17 @@ class JobResource extends XotBaseResource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-            ]);
+            ->schema(
+                [
+                ]
+            );
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
+            ->columns(
+                [
                 TextColumn::make('id')->sortable()->searchable()->toggleable(),
                 TextColumn::make('queue'),
 
@@ -50,15 +53,22 @@ class JobResource extends XotBaseResource
                 // Tables\Columns\TextColumn::make('updated_by'),
                 // Tables\Columns\TextColumn::make('updated_at'),
                 ViewColumn::make('payload')->view('job::filament.tables.columns.array'),
-            ])
-            ->filters([
-            ])
-            ->actions([
+                ]
+            )
+            ->filters(
+                [
+                ]
+            )
+            ->actions(
+                [
                 EditAction::make(),
-            ])
-            ->bulkActions([
+                ]
+            )
+            ->bulkActions(
+                [
                 DeleteBulkAction::make(),
-            ]);
+                ]
+            );
     }
 
     public static function getRelations(): array
@@ -76,10 +86,10 @@ class JobResource extends XotBaseResource
         ];
     }
 
-     public static function getWidgets(): array
+    public static function getWidgets(): array
     {
         return [
-            Widgets\JobStatsOverview::class,
+           Widgets\JobStatsOverview::class,
         ];
     }
 

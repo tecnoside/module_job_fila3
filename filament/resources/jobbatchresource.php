@@ -28,7 +28,8 @@ class JobBatchResource extends XotBaseResource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
+            ->columns(
+                [
                 TextColumn::make('created_at')->dateTime()->sortable()->searchable()->toggleable(),
                 TextColumn::make('id')->sortable()->searchable()->toggleable(),
                 TextColumn::make('name')->sortable()->searchable()->toggleable(),
@@ -39,10 +40,13 @@ class JobBatchResource extends XotBaseResource
                 TextColumn::make('pending_jobs')->sortable()->searchable()->toggleable(),
                 TextColumn::make('failed_jobs')->sortable()->searchable()->toggleable(),
                 TextColumn::make('failed_job_ids')->sortable()->searchable()->toggleable(),
-            ])
-            ->actions([
+                ]
+            )
+            ->actions(
+                [
                 DeleteAction::make('Delete'),
-            ])
+                ]
+            )
             ->defaultSort('created_at', 'desc');
     }
 
