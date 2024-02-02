@@ -1,5 +1,10 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * ---.
+ */
+
 namespace Modules\Job\Filament\Resources\JobsWaitingResource\Widgets;
 
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
