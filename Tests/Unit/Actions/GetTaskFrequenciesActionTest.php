@@ -21,7 +21,11 @@ final class GetTaskFrequenciesActionTest extends TestCase
     {
         parent::setUp();
 
-        /** @todo Correctly instantiate tested object to use it. */
+        /**
+* 
+         *
+ * @todo Correctly instantiate tested object to use it. 
+*/
         $this->getTaskFrequenciesAction = new GetTaskFrequenciesAction();
     }
 
@@ -37,7 +41,11 @@ final class GetTaskFrequenciesActionTest extends TestCase
 
     public function testExecute(): void
     {
-        /** @todo This test is incomplete. */
+        /**
+* 
+         *
+ * @todo This test is incomplete. 
+*/
         self::markTestIncomplete();
     }
 }

@@ -21,7 +21,11 @@ final class JobTest extends TestCase
     {
         parent::setUp();
 
-        /** @todo Correctly instantiate tested object to use it. */
+        /**
+* 
+         *
+ * @todo Correctly instantiate tested object to use it. 
+*/
         $this->job = new Job();
     }
 
@@ -37,7 +41,11 @@ final class JobTest extends TestCase
 
     public function testGetTable(): void
     {
-        /** @todo This test is incomplete. */
+        /**
+* 
+         *
+ * @todo This test is incomplete. 
+*/
         self::markTestIncomplete();
     }
 }

@@ -24,13 +24,15 @@ class ListJobBatches extends ListRecords
                 ->label('Prune all batches')
                 ->requiresConfirmation()
                 ->color('danger')
-                ->action(function (): void {
-                    Artisan::call('queue:prune-batches');
-                    Notification::make()
-                        ->title('All batches have been pruned.')
-                        ->success()
-                        ->send();
-                }),
+                ->action(
+                    function (): void {
+                        Artisan::call('queue:prune-batches');
+                        Notification::make()
+                            ->title('All batches have been pruned.')
+                            ->success()
+                            ->send();
+                    }
+                ),
         ];
     }
 }

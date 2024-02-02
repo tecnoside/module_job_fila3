@@ -23,15 +23,18 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 use Modules\Job\Filament\Resources\JobsWaitingResource\Pages\ListJobsWaiting;
 use Modules\Job\Filament\Resources\JobsWaitingResource\Widgets\JobsWaitingOverview;
 
-class JobsWaitingResource extends XotBaseResource {
+class JobsWaitingResource extends XotBaseResource
+{
 
     protected static ?string $model = Job::class;
     protected static ?string $navigationIcon = 'heroicon-o-pause';
     protected static bool $shouldRegisterNavigation=true;
 
-    public static function form(Form $form): Form {
+    public static function form(Form $form): Form
+    {
         return $form
-            ->schema([
+            ->schema(
+                [
                 TextInput::make('job_id')
                     ->required()
                     ->maxLength(255),
@@ -47,23 +50,28 @@ class JobsWaitingResource extends XotBaseResource {
                     ->required(),
                 Textarea::make('exception_message')
                     ->maxLength(65535),
-            ]);
+                ]
+            );
     }
 
-    public static function table(Table $table): Table {
+    public static function table(Table $table): Table
+    {
         return $table
-            ->columns([
+            ->columns(
+                [
                 TextColumn::make('status')
                     ->badge()
                     ->label(__('jobs::translations.status'))
                     ->sortable()
                     ->formatStateUsing(fn (string $state): string => __("jobs::translations.{$state}"))
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(
+                        fn (string $state): string => match ($state) {
                         'running' => 'primary',
                         'waiting' => 'success',
                         'failed' => 'danger',
                         default => 'secondary',
-                    }),
+                        }
+                    ),
                 TextColumn::make('display_name')
                     ->label(__('jobs::translations.name'))
                     ->sortable(),
@@ -81,25 +89,31 @@ class JobsWaitingResource extends XotBaseResource {
                     ->label(__('jobs::translations.created_at'))
                     ->since()
                     ->sortable(),
-            ])
+                ]
+            )
             ->defaultSort('id', 'asc')
-            ->bulkActions([
+            ->bulkActions(
+                [
                 DeleteBulkAction::make(),
-            ]);
+                ]
+            );
     }
 
-    public static function getRelations(): array {
+    public static function getRelations(): array
+    {
         return [
         ];
     }
 
-    public static function getPages(): array {
+    public static function getPages(): array
+    {
         return [
             'index' => ListJobsWaiting::route('/'),
         ];
     }
 
-    public static function getWidgets(): array {
+    public static function getWidgets(): array
+    {
         return [
             JobsWaitingOverview::class,
         ];

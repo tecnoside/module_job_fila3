@@ -34,13 +34,15 @@ class GetTaskCommandsAction
             });
         }
         */
-        return $all_commands->sortBy(function (Command $command): string {
-            $name = (string) $command->getName();
-            if (mb_strpos($name, ':') === false) {
-                return ':'.$name;
-            }
+        return $all_commands->sortBy(
+            function (Command $command): string {
+                $name = (string) $command->getName();
+                if (mb_strpos($name, ':') === false) {
+                    return ':'.$name;
+                }
 
-            return $name;
-        });
+                return $name;
+            }
+        );
     }
 }

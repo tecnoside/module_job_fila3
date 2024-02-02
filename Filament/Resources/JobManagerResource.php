@@ -29,7 +29,8 @@ class JobManagerResource extends XotBaseResource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
+            ->schema(
+                [
                 TextInput::make('job_id')
                     ->required()
                     ->maxLength(255),
@@ -45,7 +46,8 @@ class JobManagerResource extends XotBaseResource
                     ->required(),
                 Textarea::make('exception_message')
                     ->maxLength(65535),
-            ]);
+                ]
+            );
     }
 
     public static function table(Table $table): Table
@@ -53,18 +55,21 @@ class JobManagerResource extends XotBaseResource
         return $table
             ->poll('5s')
             ->deferLoading()
-            ->columns([
+            ->columns(
+                [
                 TextColumn::make('status')
                     ->badge()
                     ->label(__('jobs::translations.status'))
                     ->sortable()
                     ->formatStateUsing(fn (string $state): string => __("jobs::translations.{$state}"))
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(
+                        fn (string $state): string => match ($state) {
                         'running' => 'primary',
                         'succeeded' => 'success',
                         'failed' => 'danger',
                         default => 'secondary',
-                    }),
+                        }
+                    ),
                 TextColumn::make('name')
                     ->label(__('jobs::translations.name'))
                     ->sortable(),
@@ -80,11 +85,14 @@ class JobManagerResource extends XotBaseResource
                     ->label(__('jobs::translations.started_at'))
                     ->since()
                     ->sortable(),
-            ])
+                ]
+            )
             ->defaultSort('id', 'desc')
-            ->bulkActions([
+            ->bulkActions(
+                [
                 DeleteBulkAction::make(),
-            ]);
+                ]
+            );
     }
 
     public static function getRelations(): array

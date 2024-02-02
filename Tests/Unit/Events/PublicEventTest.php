@@ -21,7 +21,11 @@ final class PublicEventTest extends TestCase
     {
         parent::setUp();
 
-        /** @todo Correctly instantiate tested object to use it. */
+        /**
+* 
+         *
+ * @todo Correctly instantiate tested object to use it. 
+*/
         $this->publicEvent = new PublicEvent();
     }
 
@@ -37,7 +41,11 @@ final class PublicEventTest extends TestCase
 
     public function testBroadcastOn(): void
     {
-        /** @todo This test is incomplete. */
+        /**
+* 
+         *
+ * @todo This test is incomplete. 
+*/
         self::markTestIncomplete();
     }
 }

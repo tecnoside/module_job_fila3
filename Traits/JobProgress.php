@@ -22,9 +22,11 @@ trait JobProgress
             return;
         }
 
-        $monitor->update([
+        $monitor->update(
+            [
             'progress' => $progress,
-        ]);
+            ]
+        );
 
         $this->progressLastUpdated = time();
     }

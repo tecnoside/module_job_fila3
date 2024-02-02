@@ -83,14 +83,16 @@ class Crud extends Component
         }
         */
 
-        return $all_commands->sortBy(function (Command $command): string {
-            $name = (string) $command->getName();
-            if (mb_strpos($name, ':') === false) {
-                return ':'.$name;
-            }
+        return $all_commands->sortBy(
+            function (Command $command): string {
+                $name = (string) $command->getName();
+                if (mb_strpos($name, ':') === false) {
+                    return ':'.$name;
+                }
 
-            return $name;
-        });
+                return $name;
+            }
+        );
     }
 
     public function executeTask(string $task_id): void

@@ -24,25 +24,29 @@ class ListFailedJobs extends ListRecords
             Action::make('retry_all')
                 ->label('Retry all failed Jobs')
                 ->requiresConfirmation()
-                ->action(function (): void {
-                    Artisan::call('queue:retry all');
-                    Notification::make()
-                        ->title('All failed jobs have been pushed back onto the queue.')
-                        ->success()
-                        ->send();
-                }),
+                ->action(
+                    function (): void {
+                        Artisan::call('queue:retry all');
+                        Notification::make()
+                            ->title('All failed jobs have been pushed back onto the queue.')
+                            ->success()
+                            ->send();
+                    }
+                ),
 
             Action::make('delete_all')
                 ->label('Delete all failed Jobs')
                 ->requiresConfirmation()
                 ->color('danger')
-                ->action(function (): void {
-                    FailedJob::truncate();
-                    Notification::make()
-                        ->title('All failed jobs have been removed.')
-                        ->success()
-                        ->send();
-                }),
+                ->action(
+                    function (): void {
+                        FailedJob::truncate();
+                        Notification::make()
+                            ->title('All failed jobs have been removed.')
+                            ->success()
+                            ->send();
+                    }
+                ),
         ];
     }
 }

@@ -21,7 +21,11 @@ final class BroadcastingEventTest extends TestCase
     {
         parent::setUp();
 
-        /** @todo Correctly instantiate tested object to use it. */
+        /**
+* 
+         *
+ * @todo Correctly instantiate tested object to use it. 
+*/
         $this->broadcastingEvent = new BroadcastingEvent();
     }
 
@@ -37,13 +41,21 @@ final class BroadcastingEventTest extends TestCase
 
     public function testBroadcastOn(): void
     {
-        /** @todo This test is incomplete. */
+        /**
+* 
+         *
+ * @todo This test is incomplete. 
+*/
         self::markTestIncomplete();
     }
 
     public function testBroadcastWhen(): void
     {
-        /** @todo This test is incomplete. */
+        /**
+* 
+         *
+ * @todo This test is incomplete. 
+*/
         self::markTestIncomplete();
     }
 }

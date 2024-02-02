@@ -21,7 +21,11 @@ final class GetTaskCommandsActionTest extends TestCase
     {
         parent::setUp();
 
-        /** @todo Correctly instantiate tested object to use it. */
+        /**
+* 
+         *
+ * @todo Correctly instantiate tested object to use it. 
+*/
         $this->getTaskCommandsAction = new GetTaskCommandsAction();
     }
 
@@ -37,7 +41,11 @@ final class GetTaskCommandsActionTest extends TestCase
 
     public function testExecute(): void
     {
-        /** @todo This test is incomplete. */
+        /**
+* 
+         *
+ * @todo This test is incomplete. 
+*/
         self::markTestIncomplete();
     }
 }
