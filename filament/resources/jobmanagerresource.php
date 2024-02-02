@@ -1,29 +1,24 @@
 <?php
+
+declare(strict_types=1);
 /**
  * @see https://github.com/mooxphp/jobs/tree/main
  */
 
 namespace Modules\Job\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Tables;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Filament\Resources\Resource;
-use App\Models\App\Models\JobManager;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Xot\Filament\Resources\XotBaseResource;
-use Modules\Job\Filament\Resources\JobManagerResource\Pages;
-use Modules\Job\Filament\Resources\JobManagerResource\Widgets;
-use Modules\Job\Filament\Resources\JobManagerResource\RelationManagers;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Form;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
-use Illuminate\Support\Str;
+use Filament\Tables\Table;
+use Modules\Job\Filament\Resources\JobManagerResource\Pages;
+use Modules\Job\Filament\Resources\JobManagerResource\Widgets;
+use Modules\Job\Models\JobManager;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class JobManagerResource extends XotBaseResource
 {
@@ -95,7 +90,6 @@ class JobManagerResource extends XotBaseResource
     public static function getRelations(): array
     {
         return [
-            //
         ];
     }
 
@@ -108,7 +102,7 @@ class JobManagerResource extends XotBaseResource
         ];
     }
 
-     public static function getWidgets(): array
+    public static function getWidgets(): array
     {
         return [
             Widgets\JobStatsOverview::class,
