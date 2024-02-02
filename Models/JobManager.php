@@ -1,19 +1,35 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Models;
 
 use Illuminate\Contracts\Queue\Job as JobContract;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Prunable;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * Modules\Job\Models\JobManager.
+ *
+ * @property string          $id
+ * @property string          $name
+ * @property bool            $failed
+ * @property int             $total_jobs
+ * @property int             $pending_jobs
+ * @property int             $failed_jobs
+ * @property string          $failed_job_ids
+ * @property Collection|null $options
+ * @property Carbon|null     $cancelled_at
+ * @property Carbon          $created_at
+ * @property Carbon|null     $finished_at
+ */
 class JobManager extends BaseModel
 {
-    //use HasFactory, Prunable;
+    // use HasFactory, Prunable;
 
-    //protected $table = 'job_manager';
+    // protected $table = 'job_manager';
 
     protected $fillable = [
         'job_id',
@@ -61,7 +77,7 @@ class JobManager extends BaseModel
             return true;
         }
 
-        return $this->finished_at !== null;
+        return null !== $this->finished_at;
     }
 
     public function hasFailed(): bool
