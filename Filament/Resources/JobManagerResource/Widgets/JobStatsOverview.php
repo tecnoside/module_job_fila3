@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * ---.
+ */
+
+declare(strict_types=1);
+
 namespace Modules\Job\Filament\Resources\JobManagerResource\Widgets;
 
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -37,6 +43,5 @@ class JobStatsOverview extends BaseWidget
             Stat::make(__('jobs::translations.execution_time'), $totalTime),
             Stat::make(__('jobs::translations.average_time'), $averageTime),
         ];
-
     }
 }
