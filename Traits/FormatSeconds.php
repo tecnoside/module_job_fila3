@@ -1,5 +1,10 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * ---.
+ */
+
 namespace Modules\Job\Traits;
 
 trait FormatSeconds
@@ -29,7 +34,7 @@ trait FormatSeconds
             $formattedSeconds .= "$minutes m ";
         }
 
-        if ($days == 0) {
+        if (0 == $days) {
             if ($seconds > 0 or $minutes > 0 or $hours > 0) {
                 $formattedSeconds .= "$seconds s";
             }
