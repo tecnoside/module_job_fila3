@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Modules\Job\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
-
 use Modules\Job\Models\JobsWaiting;
 
-class JobsWaitingFactory extends Factory {
+class JobsWaitingFactory extends Factory
+{
     /**
      * The name of the factory's corresponding model.
      *
@@ -22,17 +21,16 @@ class JobsWaitingFactory extends Factory {
      *
      * @return array
      */
-    public function definition() {
-
-
+    public function definition()
+    {
         return [
-            'id' => $this->faker->randomNumber,
+            // 'id' => $this->faker->number(1,5),
             'queue' => $this->faker->word,
             'payload' => $this->faker->text,
             'attempts' => $this->faker->boolean,
-            'reserved_at' => $this->faker->randomNumber,
-            'available_at' => $this->faker->randomNumber,
-            'created_at' => $this->faker->randomNumber
+            // 'reserved_at' => $this->faker->randomNumber,
+            // 'available_at' => $this->faker->randomNumber,
+            // 'created_at' => $this->faker->randomNumber
         ];
     }
 }
