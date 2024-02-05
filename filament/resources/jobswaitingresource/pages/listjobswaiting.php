@@ -15,7 +15,7 @@ class ListJobsWaiting extends ListRecords
 {
     public static string $resource = JobsWaitingResource::class;
 
-    public function getActions(): array
+    public function getHeaderActions(): array
     {
         return [];
     }
