@@ -6,7 +6,6 @@ namespace Modules\Job\Models;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
-use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,38 +16,39 @@ use Illuminate\Notifications\Notifiable;
 use Modules\Job\Models\Traits\FrontendSortable;
 
 /**
- * Modules\Job\Models\Task
+ * Modules\Job\Models\Task.
  *
- * @property int $id
- * @property string $description
- * @property string $command
- * @property string|null $parameters
- * @property string|null $expression
- * @property string $timezone
- * @property int $is_active
- * @property int $dont_overlap
- * @property int $run_in_maintenance
- * @property string|null $notification_email_address
- * @property string|null $notification_phone_number
- * @property string $notification_slack_webhook
- * @property int $auto_cleanup_num
- * @property string|null $auto_cleanup_type
- * @property int $run_on_one_server
- * @property int $run_in_background
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read Collection<int, \Modules\Job\Models\Frequency> $frequencies
- * @property-read int|null $frequencies_count
- * @property-read bool $activated
- * @property-read float $average_runtime
- * @property-read \Modules\Job\Models\Result|null $last_result
- * @property-read string $upcoming
- * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
- * @property-read int|null $notifications_count
- * @property-read Collection<int, \Modules\Job\Models\Result> $results
- * @property-read int|null $results_count
+ * @property int                                                       $id
+ * @property string                                                    $description
+ * @property string                                                    $command
+ * @property string|null                                               $parameters
+ * @property string|null                                               $expression
+ * @property string                                                    $timezone
+ * @property int                                                       $is_active
+ * @property int                                                       $dont_overlap
+ * @property int                                                       $run_in_maintenance
+ * @property string|null                                               $notification_email_address
+ * @property string|null                                               $notification_phone_number
+ * @property string                                                    $notification_slack_webhook
+ * @property int                                                       $auto_cleanup_num
+ * @property string|null                                               $auto_cleanup_type
+ * @property int                                                       $run_on_one_server
+ * @property int                                                       $run_in_background
+ * @property string|null                                               $created_by
+ * @property string|null                                               $updated_by
+ * @property \Illuminate\Support\Carbon|null                           $created_at
+ * @property \Illuminate\Support\Carbon|null                           $updated_at
+ * @property Collection<int, \Modules\Job\Models\Frequency>            $frequencies
+ * @property int|null                                                  $frequencies_count
+ * @property bool                                                      $activated
+ * @property float                                                     $average_runtime
+ * @property \Modules\Job\Models\Result|null                           $last_result
+ * @property string                                                    $upcoming
+ * @property DatabaseNotificationCollection<int, DatabaseNotification> $notifications
+ * @property int|null                                                  $notifications_count
+ * @property Collection<int, \Modules\Job\Models\Result>               $results
+ * @property int|null                                                  $results_count
+ *
  * @method static Builder|Task newModelQuery()
  * @method static Builder|Task newQuery()
  * @method static Builder|Task query()
@@ -73,6 +73,7 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @method static Builder|Task whereTimezone($value)
  * @method static Builder|Task whereUpdatedAt($value)
  * @method static Builder|Task whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class Task extends BaseModel
@@ -114,7 +115,7 @@ class Task extends BaseModel
     /**
      * The accessors to append to the model's array form.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $appends = [
         'activated',
@@ -134,7 +135,7 @@ class Task extends BaseModel
     /**
      * Upcoming Accessor.
      *
-     * @throws Exception
+     * @throws \Exception
      */
     public function getUpcomingAttribute(): string
     {
@@ -206,7 +207,7 @@ class Task extends BaseModel
     public function autoCleanup(): void
     {
         if ($this->auto_cleanup_num > 0) {
-            if ($this->auto_cleanup_type === 'results') {
+            if ('results' === $this->auto_cleanup_type) {
                 $oldest_id = $this->results()
                     ->orderBy('ran_at', 'desc')
                     ->limit($this->auto_cleanup_num)
