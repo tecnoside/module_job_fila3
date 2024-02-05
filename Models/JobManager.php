@@ -24,10 +24,12 @@ use Illuminate\Support\Facades\Hash;
  * @property Carbon|null     $cancelled_at
  * @property Carbon          $created_at
  * @property Carbon|null     $finished_at
+ *
  * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager query()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  query()
+ *
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel
@@ -105,7 +107,9 @@ class JobManager extends BaseModel
     public function prunable()
     {
         if (config('jobs.pruning.activate')) {
-            return static::where('created_at', '<=', now()->subDays(config('jobs.pruning.retention_days')));
+            $retention_days = config('jobs.pruning.retention_days');
+
+            return static::where('created_at', '<=', now()->subDays($retention_days));
         }
 
         return static::query();
