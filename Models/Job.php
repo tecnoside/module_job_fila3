@@ -93,6 +93,9 @@ class Job extends BaseModel
     public function getDisplayNameAttribute(): ?string
     {
         $payload = json_decode($this->attributes['payload'], true);
+        if(!is_array($payload)){
+            return null;
+        }
 
         return $payload['displayName'] ?? null;
     }

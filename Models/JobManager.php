@@ -108,6 +108,9 @@ class JobManager extends BaseModel
     {
         if (config('jobs.pruning.activate')) {
             $retention_days = config('jobs.pruning.retention_days');
+            if(!is_integer($retention_days)){
+                $retention_days=365;
+            }
 
             return static::where('created_at', '<=', now()->subDays($retention_days));
         }
