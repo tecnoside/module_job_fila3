@@ -12,8 +12,6 @@ class FailedJobPolicy extends UserBasePolicy
 {
     /**
      * Determine whether the user can view any models.
-     *
-     * @return false
      */
     public function viewAny(User $user): bool
     {
@@ -30,8 +28,6 @@ class FailedJobPolicy extends UserBasePolicy
 
     /**
      * Determine whether the user can create models.
-     *
-     * @return true
      */
     public function create(User $user): bool
     {

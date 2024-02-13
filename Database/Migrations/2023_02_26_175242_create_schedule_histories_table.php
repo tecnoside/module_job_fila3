@@ -1,9 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use \Illuminate\Support\Facades\Config;
+declare(strict_types=1);
+
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 class CreateScheduleHistoriesTable extends XotBaseMigration
@@ -15,23 +14,23 @@ class CreateScheduleHistoriesTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $table): void {
-            $table->id();
-            $table->unsignedBigInteger('schedule_id');
-            $table->string('command');
-            $table->text('params')->nullable();
-            $table->text('output');
-            $table->text('options')->nullable();
-            $table->timestamps();
-            /*
-            $table->foreign('schedule_id')
-                ->references('id')
-                ->on(Config::get('filament-database-schedule.table.schedules', 'schedules'));
-            */
-            $table->integer('schedule_id')->nullable();
+            static function (Blueprint $table): void {
+                $table->id();
+                $table->unsignedBigInteger('schedule_id');
+                $table->string('command');
+                $table->text('params')->nullable();
+                $table->text('output');
+                $table->text('options')->nullable();
+                $table->timestamps();
+                /*
+                            $table->foreign('schedule_id')
+                                ->references('id')
+                                ->on(Config::get('filament-database-schedule.table.schedules', 'schedules'));
+                            */
+                $table->integer('schedule_id')->nullable();
             }
         );
-         // -- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table): void {
                 // if (! $this->hasColumn('created_by')) {
@@ -41,8 +40,5 @@ class CreateScheduleHistoriesTable extends XotBaseMigration
                 $this->updateTimestamps(table: $table, hasSoftDeletes: true);
             }
         );
-
     }
-
-    
 }

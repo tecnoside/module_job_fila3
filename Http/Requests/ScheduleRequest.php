@@ -1,17 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 class ScheduleRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,12 +18,12 @@ class ScheduleRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'command' => 'required',
             'command_custom' => 'nullable|string|required_if:command,custom',
-            'expression' => "required|cron",
+            'expression' => 'required|cron',
             'webhook_before' => 'nullable|url',
             'webhook_after' => 'nullable|url',
             'email_output' => 'requiredIf:sendmail_error,1|requiredIf:sendmail_success,1|nullable|email',
@@ -36,7 +33,26 @@ class ScheduleRequest extends FormRequest
         ];
     }
 
-    protected function prepareForValidation()
+    public function attributes()
+    {
+        return [
+            'command' => strtolower(trans('schedule::schedule.fields.command')),
+            'arguments' => strtolower(trans('schedule::schedule.fields.arguments')),
+            'options' => strtolower(trans('schedule::schedule.fields.options')),
+            'expression' => strtolower(trans('schedule::schedule.fields.expression')),
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'groups.regex' => trans('schedule::schedule.validation.regex'),
+            'expression.cron' => trans('schedule::schedule.validation.cron'),
+            'environments.regex' => trans('schedule::schedule.validation.regex'),
+        ];
+    }
+
+    protected function prepareForValidation(): void
     {
         $fields = [
             'params' => [],
@@ -48,29 +64,10 @@ class ScheduleRequest extends FormRequest
             'even_in_maintenance_mode' => false,
             'without_overlapping' => false,
             'on_one_server' => false,
-            'run_in_background' => false
+            'run_in_background' => false,
         ];
         foreach ($fields as $field => $defaultValue) {
             $this->merge([$field => $this->input($field) ?? $defaultValue]);
         }
-    }
-
-    public function attributes()
-    {
-        return [
-            'command' => strtolower(trans('schedule::schedule.fields.command')),
-            'arguments' => strtolower(trans('schedule::schedule.fields.arguments')),
-            'options' => strtolower(trans('schedule::schedule.fields.options')),
-            'expression' => strtolower(trans('schedule::schedule.fields.expression'))
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'groups.regex' => trans('schedule::schedule.validation.regex'),
-            'expression.cron' => trans('schedule::schedule.validation.cron'),
-            'environments.regex' => trans('schedule::schedule.validation.regex'),
-        ];
     }
 }

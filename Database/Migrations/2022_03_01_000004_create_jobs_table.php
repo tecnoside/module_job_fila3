@@ -14,7 +14,7 @@ class CreateJobsTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $table): void {
+            static function (Blueprint $table): void {
                 $table->bigIncrements('id');
                 $table->string('queue')->index();
                 $table->longText('payload');

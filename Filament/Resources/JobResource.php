@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 use Filament\Forms\Form;
-use Filament\Tables;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
-use Modules\Job\Filament\Resources\JobResource\Widgets;
 use Modules\Job\Filament\Resources\JobResource\Pages;
+use Modules\Job\Filament\Resources\JobResource\Widgets;
 use Modules\Job\Models\Job;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -41,18 +40,18 @@ class JobResource extends XotBaseResource
         return $table
             ->columns(
                 [
-                TextColumn::make('id')->sortable()->searchable()->toggleable(),
-                TextColumn::make('queue'),
+                    TextColumn::make('id')->sortable()->searchable()->toggleable(),
+                    TextColumn::make('queue'),
 
                 // Tables\Columns\TextColumn::make('payload'),
-                TextColumn::make('attempts'),
-                TextColumn::make('reserved_at'),
-                TextColumn::make('available_at'),
-                TextColumn::make('created_at'),
+                    TextColumn::make('attempts'),
+                    TextColumn::make('reserved_at'),
+                    TextColumn::make('available_at'),
+                    TextColumn::make('created_at'),
                 // Tables\Columns\TextColumn::make('created_by'),
                 // Tables\Columns\TextColumn::make('updated_by'),
                 // Tables\Columns\TextColumn::make('updated_at'),
-                ViewColumn::make('payload')->view('job::filament.tables.columns.array'),
+                    ViewColumn::make('payload')->view('job::filament.tables.columns.array'),
                 ]
             )
             ->filters(
@@ -61,12 +60,12 @@ class JobResource extends XotBaseResource
             )
             ->actions(
                 [
-                EditAction::make(),
+                    EditAction::make(),
                 ]
             )
             ->bulkActions(
                 [
-                DeleteBulkAction::make(),
+                    DeleteBulkAction::make(),
                 ]
             );
     }
@@ -89,7 +88,7 @@ class JobResource extends XotBaseResource
     public static function getWidgets(): array
     {
         return [
-           Widgets\JobStatsOverview::class,
+            Widgets\JobStatsOverview::class,
         ];
     }
 

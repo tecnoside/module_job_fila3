@@ -12,10 +12,9 @@ class Executed extends BroadcastingEvent
     /**
      * Executed constructor.
      *
-     * @param  float $started
      * @return void
      */
-    public function __construct(Task $task, $started, string $output)
+    public function __construct(Task $task, float $started, string $output)
     {
         parent::__construct($task);
 
@@ -23,8 +22,8 @@ class Executed extends BroadcastingEvent
 
         $task->results()->create(
             [
-            'duration' => $time_elapsed_secs * 1000,
-            'result' => $output,
+                'duration' => $time_elapsed_secs * 1000,
+                'result' => $output,
             ]
         );
 

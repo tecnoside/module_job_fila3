@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Job\Http\Livewire\Schedule;
 
 use Exception;
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
@@ -84,7 +83,7 @@ class Crud extends Component
         */
 
         return $all_commands->sortBy(
-            function (Command $command): string {
+            static function (Command $command): string {
                 $name = (string) $command->getName();
                 if (mb_strpos($name, ':') === false) {
                     return ':'.$name;

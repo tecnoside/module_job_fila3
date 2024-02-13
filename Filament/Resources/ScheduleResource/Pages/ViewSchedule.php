@@ -1,35 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
 use Filament\Forms;
-use Filament\Tables;
-use Livewire\Attributes\Url;
-use Filament\Resources\Pages\Page;
-use Illuminate\Support\HtmlString;
-use Filament\Tables\Contracts\HasTable;
 use Filament\Resources\Concerns\HasTabs;
-use Illuminate\Database\Eloquent\Builder;
-
 use Filament\Resources\Pages\Concerns\HasRelationManagers;
 use Filament\Resources\Pages\Concerns\InteractsWithRecord;
-use Modules\Job\Models\ScheduleHistory;
-use Modules\Job\Filament\Columns\ScheduleOptions;
-use Modules\Job\Filament\Columns\ScheduleArguments;
+use Filament\Resources\Pages\Page;
+use Filament\Tables;
+use Filament\Tables\Contracts\HasTable;
+use Illuminate\Support\HtmlString;
+use Livewire\Attributes\Url;
 use Modules\Job\Filament\Resources\ScheduleResource;
 
 class ViewSchedule extends Page implements HasTable
 {
-
-    protected static string $resource = ScheduleResource::class;
-    protected static string $view = 'filament-panels::resources.pages.list-records';
     use InteractsWithRecord;
     use HasRelationManagers;
     use HasTabs;
-
-    #[Url]
-    public ?string $activeTab = null;
-
     use Forms\Concerns\InteractsWithForms;
     use Tables\Concerns\InteractsWithTable {
         makeTable as makeBaseTable;
@@ -37,23 +27,26 @@ class ViewSchedule extends Page implements HasTable
     use Tables\Concerns\InteractsWithTable {
         makeTable as makeBaseTable;
     }
-    protected function getActions(): array
-    {
-        return [];
-    }
+    #[Url]
+    public ?string $activeTab = null;
+    protected static string $resource = ScheduleResource::class;
+    protected static string $view = 'filament-panels::resources.pages.list-records';
 
     public function getTitle(): string
     {
         return __('job::schedule.resource.history');
     }
-
+    protected function getActions(): array
+    {
+        return [];
+    }
 
     /*
      * Undocumented function
      *
      * @param string $record
      * @return void
-     
+
     public function mount($record): void
     {
         static::authorizeResourceAccess();
@@ -85,25 +78,23 @@ class ViewSchedule extends Page implements HasTable
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('job::schedule.fields.expression'))
-                    ->formatStateUsing(function ($state, $record) {
-                        if($state == $record->created_at){
-                            return "Processing...";
-                        }else{
-                            return $state->diffInSeconds($record->created_at) . " seconds";
+                    ->formatStateUsing(static function ($state, $record) {
+                        if ($state === $record->created_at) {
+                            return 'Processing...';
                         }
+                        return $state->diffInSeconds($record->created_at) . ' seconds';
                     }),
                 Tables\Columns\TextColumn::make('output')
-                    ->label("Output lines")
-                    ->formatStateUsing(function ($state) {
-                        return (count(explode("<br />", nl2br($state))) - 1) . " rows of output";
+                    ->label('Output lines')
+                    ->formatStateUsing(static function ($state) {
+                        return (count(explode('<br />', nl2br($state))) - 1) . ' rows of output';
                     }),
             ]), Tables\Columns\Layout\Panel::make([
 
-                Tables\Columns\TextColumn::make('output')->extraAttributes(["class" => "!max-w-max"], true)
-                    ->formatStateUsing(function ($state) {
+                Tables\Columns\TextColumn::make('output')->extraAttributes(['class' => '!max-w-max'], true)
+                    ->formatStateUsing(static function ($state) {
                         return new HtmlString(nl2br($state));
                     }),
-
 
             ])->collapsible()
             //->collapsed(config('job::history_collapsed'))

@@ -9,27 +9,23 @@ namespace Modules\Job\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class TestJobCommand extends Command {
+class TestJobCommand extends Command
+{
     /**
      * The name and signature of the console command.
-     *
-     * @var string
      */
-    protected $signature = 'schedule:test-job';
+    protected string $signature = 'schedule:test-job';
 
     /**
      * The console command description.
-     *
-     * @var string
      */
-    protected $description = 'Command that display a friendly message that is intented to test a job.';
+    protected string $description = 'Command that display a friendly message that is intented to test a job.';
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
-    public function handle() {
+    public function handle(): int
+    {
         $this->info('Hello the test worked.');
         \Log::info('Hello the test worked.');
 

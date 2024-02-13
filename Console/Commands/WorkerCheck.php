@@ -12,26 +12,21 @@ namespace Modules\Job\Console\Commands;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
-
 use function Safe\exec;
 
 class WorkerCheck extends Command
 {
     /**
      * The name and signature of the console command.
-     *
-     * @var string
      */
-    protected $signature = 'worker:check';
-
-    private string $filename = 'queue.pid';
+    protected string $signature = 'worker:check';
 
     /**
      * The console command description.
-     *
-     * @var string
      */
-    protected $description = 'Ensure that the queue listener is running.';
+    protected string $description = 'Ensure that the queue listener is running.';
+
+    private string $filename = 'queue.pid';
 
     /**
      * Create a new command instance.
@@ -69,25 +64,20 @@ class WorkerCheck extends Command
         $output = null;
         $process = exec($process_cmd, $output);
         // $processIsQueueListener = str_contains($process, 'queue:listen'); // 5.1
-        if ($process == false) {
+        if ($process === false) {
             // DISABILITATO PER SBLOCCARE MODULE JOB
             // throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         $this->comment($process);
         // $processIsQueueListener = ! empty($process); // 5.6 - see comments
-        $processIsQueueListener = str_contains($process, substr(base_path(), 0, 30));
-
-        // ..
-        return $processIsQueueListener;
+        return str_contains($process, substr(base_path(), 0, 30));
     }
 
     /**
      * Get any existing queue listener PID.
-     *
-     * @return string|bool|null
      */
-    private function getLastQueueListenerPID()
+    private function getLastQueueListenerPID(): string|bool|null
     {
         if (! Storage::disk('cache')->exists($this->filename)) {
             return false;
@@ -140,7 +130,7 @@ class WorkerCheck extends Command
         // dd($command);
 
         $pid = exec($command);
-        if ($pid == false) {
+        if ($pid === false) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
 

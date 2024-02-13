@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 use Carbon\Carbon;
-use Cron\CronExpression;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -88,7 +87,7 @@ class Task extends BaseModel
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+    protected array $fillable = [
         'id',
         'description',
         'command',
@@ -117,7 +116,7 @@ class Task extends BaseModel
      *
      * @var array<int, string>
      */
-    protected $appends = [
+    protected array $appends = [
         'activated',
         'upcoming',
         'last_result',
@@ -207,7 +206,7 @@ class Task extends BaseModel
     public function autoCleanup(): void
     {
         if ($this->auto_cleanup_num > 0) {
-            if ('results' === $this->auto_cleanup_type) {
+            if ($this->auto_cleanup_type === 'results') {
                 $oldest_id = $this->results()
                     ->orderBy('ran_at', 'desc')
                     ->limit($this->auto_cleanup_num)

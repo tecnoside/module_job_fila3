@@ -1,18 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Models;
 
-use Modules\Job\Enums\Status;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Console\Scheduling\ManagesFrequencies;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
+use Modules\Job\Enums\Status;
 
 /**
  * Modules\Job\Models\Result
+ *
  * @property Status $status
  * @property array $options
  * */
@@ -20,12 +21,11 @@ class Schedule extends BaseModel
 {
     use ManagesFrequencies;
     use SoftDeletes;
-
     /*
-     * The database table used by the model.
-     *
-     * @var string
-     */
+         * The database table used by the model.
+         *
+         * @var string
+         */
     //protected $table;
 
     protected $fillable = [
@@ -50,14 +50,12 @@ class Schedule extends BaseModel
         'log_filename',
         'environments',
     ];
-
     protected $attributes = [
         'expression' => '* * * * *',
         'params' => '{}',
         'options' => '{}',
         'options_with_value' => '{}',
     ];
-
     protected $casts = [
         'params' => 'array',
         'options' => 'array',
@@ -65,32 +63,31 @@ class Schedule extends BaseModel
         'environments' => 'array',
         'status' => Status::class,
     ];
-
     /*
-     * Creates a new instance of the model.
-     *
-     * @param array $attributes
-     * @return void
-     
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
+         * Creates a new instance of the model.
+         *
+         * @param array $attributes
+         * @return void
 
-        $this->table = Config::get('filament-database-schedule.table.schedules', 'schedules');
-    }
-    */
+        public function __construct(array $attributes = [])
+        {
+            parent::__construct($attributes);
 
-    public function histories():HasMany
+            $this->table = Config::get('filament-database-schedule.table.schedules', 'schedules');
+        }
+        */
+
+    public function histories(): HasMany
     {
         return $this->hasMany(ScheduleHistory::class, 'schedule_id', 'id');
     }
 
-    public function scopeInactive(Builder $query):Builder
+    public function scopeInactive(Builder $query): Builder
     {
         return $query->where('status', Status::Inactive);
     }
 
-    public function scopeActive(Builder $query):Builder
+    public function scopeActive(Builder $query): Builder
     {
         return $query->where('status', Status::Active);
     }
@@ -98,15 +95,14 @@ class Schedule extends BaseModel
     public function getArguments(): array
     {
         $arguments = [];
-
         foreach (($this->params ?? []) as $argument => $value) {
             if (empty($value['value'])) {
                 continue;
             }
-            if (isset($value["type"]) && $value['type'] === 'function') {
+            if (isset($value['type']) && $value['type'] === 'function') {
                 eval('$arguments[$argument] = (string) ' . $value['value']);
             } else {
-                $arguments[$value['name']??$argument] = $value['value'];
+                $arguments[$value['name'] ?? $argument] = $value['value'];
             }
         }
 
@@ -116,27 +112,19 @@ class Schedule extends BaseModel
     public function getOptions(): array
     {
         $options = collect($this->options ?? []);
-
         $options_with_value = $this->options_with_value ?? [];
-        if (!empty($options_with_value))
-        $options = $options->merge($options_with_value);
-        return $options->map(function ($value, $key) {
-
-                if (is_array($value)) {
-                    return "--" . ($value['name']??$key) . "=" . $value['value'];
-                } else {
-                    return "--$value";
-                }
-
+        if (! empty($options_with_value)) {
+            $options = $options->merge($options_with_value);
+        }
+        return $options->map(static function ($value, $key) {
+            if (is_array($value)) {
+                return '--' . ($value['name'] ?? $key) . '=' . $value['value'];
+            }
+            return "--{$value}";
         })->toArray();
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return Collection
-     */
-    public static function getEnvironments()
+    public static function getEnvironments(): Collection
     {
         return static::whereNotNull('environments')
             ->groupBy('environments')

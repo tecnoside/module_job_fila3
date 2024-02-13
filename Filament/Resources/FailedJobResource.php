@@ -42,14 +42,14 @@ class FailedJobResource extends XotBaseResource
         return $form
             ->schema(
                 [
-                TextInput::make('uuid')->disabled()->columnSpan(4),
-                TextInput::make('failed_at')->disabled(),
-                TextInput::make('id')->disabled(),
-                TextInput::make('connection')->disabled(),
-                TextInput::make('queue')->disabled(),
+                    TextInput::make('uuid')->disabled()->columnSpan(4),
+                    TextInput::make('failed_at')->disabled(),
+                    TextInput::make('id')->disabled(),
+                    TextInput::make('connection')->disabled(),
+                    TextInput::make('queue')->disabled(),
 
                 // make text a little bit smaller because often a complete Stack Trace is shown:
-                TextArea::make('exception')->disabled()->columnSpan(4)->extraInputAttributes(['style' => 'font-size: 80%;']),
+                    TextArea::make('exception')->disabled()->columnSpan(4)->extraInputAttributes(['style' => 'font-size: 80%;']),
                 // JSONEditor::make('payload')->disabled()->columnSpan(4),
                 ]
             )->columns(4);
@@ -61,58 +61,58 @@ class FailedJobResource extends XotBaseResource
             ->defaultSort('id', 'desc')
             ->columns(
                 [
-                TextColumn::make('id')->sortable()->searchable()->toggleable(),
-                TextColumn::make('failed_at')->sortable()->searchable(false)->toggleable(),
-                TextColumn::make('exception')
-                    ->sortable()
-                    ->searchable()
-                    ->toggleable()
-                    ->wrap()
-                    ->limit(200)
-                    ->tooltip(fn (FailedJob $failedJob): string => sprintf('%s UUID: %s; Connection: %s; Queue: %s;', $failedJob->failed_at, $failedJob->uuid, $failedJob->connection, $failedJob->queue)),
-                TextColumn::make('uuid')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('connection')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('queue')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
+                    TextColumn::make('id')->sortable()->searchable()->toggleable(),
+                    TextColumn::make('failed_at')->sortable()->searchable(false)->toggleable(),
+                    TextColumn::make('exception')
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable()
+                        ->wrap()
+                        ->limit(200)
+                        ->tooltip(static fn (FailedJob $failedJob): string => sprintf('%s UUID: %s; Connection: %s; Queue: %s;', $failedJob->failed_at, $failedJob->uuid, $failedJob->connection, $failedJob->queue)),
+                    TextColumn::make('uuid')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
+                    TextColumn::make('connection')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
+                    TextColumn::make('queue')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
                 ]
             )
             ->filters([])
             ->bulkActions(
                 [
-                DeleteBulkAction::make(),
-                BulkAction::make('retry')
-                    ->label('Retry')
-                    ->requiresConfirmation()
-                    ->action(
-                        function (Collection $collection): void {
-                            foreach ($collection as $record) {
-                                // Cannot access property $uuid on mixed.
-                                Assert::isInstanceOf($record, FailedJob::class);
-                                Artisan::call(sprintf('queue:retry %s', $record->uuid));
+                    DeleteBulkAction::make(),
+                    BulkAction::make('retry')
+                        ->label('Retry')
+                        ->requiresConfirmation()
+                        ->action(
+                            static function (Collection $collection): void {
+                                foreach ($collection as $record) {
+                                    // Cannot access property $uuid on mixed.
+                                    Assert::isInstanceOf($record, FailedJob::class);
+                                    Artisan::call(sprintf('queue:retry %s', $record->uuid));
+                                }
+                                Notification::make()
+                                    ->title(sprintf('%d jobs have been pushed back onto the queue.', $collection->count()))
+                                    ->success()
+                                    ->send();
                             }
-                            Notification::make()
-                                ->title(sprintf('%d jobs have been pushed back onto the queue.', $collection->count()))
-                                ->success()
-                                ->send();
-                        }
-                    ),
+                        ),
                 ]
             )
             ->actions(
                 [
-                DeleteAction::make('Delete'),
-                ViewAction::make('View'),
-                Action::make('retry')
-                    ->label('Retry')
-                    ->requiresConfirmation()
-                    ->action(
-                        function (FailedJob $failedJob): void {
-                            Artisan::call(sprintf('queue:retry %s', $failedJob->uuid));
-                            Notification::make()
-                                ->title(sprintf("The job with uuid '%s' has been pushed back onto the queue.", $failedJob->uuid))
-                                ->success()
-                                ->send();
-                        }
-                    ),
+                    DeleteAction::make('Delete'),
+                    ViewAction::make('View'),
+                    Action::make('retry')
+                        ->label('Retry')
+                        ->requiresConfirmation()
+                        ->action(
+                            static function (FailedJob $failedJob): void {
+                                Artisan::call(sprintf('queue:retry %s', $failedJob->uuid));
+                                Notification::make()
+                                    ->title(sprintf("The job with uuid '%s' has been pushed back onto the queue.", $failedJob->uuid))
+                                    ->success()
+                                    ->send();
+                            }
+                        ),
                 ]
             );
     }

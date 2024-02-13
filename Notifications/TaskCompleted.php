@@ -7,9 +7,6 @@ namespace Modules\Job\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Messages\NexmoMessage;
-use Illuminate\Notifications\Messages\SlackAttachment;
-use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 use Modules\Job\Models\Task;
 
@@ -28,11 +25,9 @@ class TaskCompleted extends Notification implements ShouldQueue
 
     /**
      * Get the notification's delivery channels.
-     *
-     * @param Task  $notifiable
      */
     // public function via(mixed $notifiable): array {
-    public function via($notifiable): array
+    public function via(Task $notifiable): array
     {
         $channels = [];
         if ($notifiable->notification_email_address) {

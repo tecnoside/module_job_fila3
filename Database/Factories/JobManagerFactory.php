@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Modules\Job\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
-
 use Modules\Job\Models\JobManager;
 
-class JobManagerFactory extends Factory {
+class JobManagerFactory extends Factory
+{
     /**
      * The name of the factory's corresponding model.
      *
@@ -22,11 +21,10 @@ class JobManagerFactory extends Factory {
      *
      * @return array
      */
-    public function definition() {
-
-
+    public function definition(): array
+    {
         return [
-            
+
         ];
     }
 }

@@ -17,10 +17,8 @@ interface TaskInterface
 
     /**
      * Returns a task by its primary key.
-     *
-     * @return Task
      */
-    public function find(Task|int $id);
+    public function find(Task|int $id): Task;
 
     /**
      * Returns all tasks.

@@ -1,51 +1,46 @@
 <?php
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Schema;
+declare(strict_types=1);
+
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 class CreateScheduleTable extends XotBaseMigration
 {
-     /**
+    /**
      * Run the migrations.
      */
     public function up(): void
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $table): void {
-            $table->id();
-            $table->string('command');
-            $table->string('command_custom')->nullable()->default(null);
-
-            $table->text('params')->nullable();
-            $table->string('expression');
-            $table->string('environments')->nullable();
-            $table->text('options')->nullable();
-            $table->text('options_with_value')->nullable();
-            $table->string('log_filename')->nullable();
-
-            $table->boolean('even_in_maintenance_mode')->default(false);
-            $table->boolean('without_overlapping')->default(false);
-            $table->boolean('on_one_server')->default(false);
-
-            $table->string('webhook_before')->nullable();
-            $table->string('webhook_after')->nullable();
-            $table->string('email_output')->nullable();
-            $table->boolean('sendmail_error')->default(false);
-            $table->boolean('log_success')->default(true);
-            $table->boolean('log_error')->default(true);
-            $table->boolean('status')->default(true);
-            $table->boolean('run_in_background')->default(false);
-            $table->boolean('sendmail_success')->default(false);
-
-            $table->timestamps();
-            $table->softDeletes();
-        }
+            static function (Blueprint $table): void {
+                $table->id();
+                $table->string('command');
+                $table->string('command_custom')->nullable()->default(null);
+                $table->text('params')->nullable();
+                $table->string('expression');
+                $table->string('environments')->nullable();
+                $table->text('options')->nullable();
+                $table->text('options_with_value')->nullable();
+                $table->string('log_filename')->nullable();
+                $table->boolean('even_in_maintenance_mode')->default(false);
+                $table->boolean('without_overlapping')->default(false);
+                $table->boolean('on_one_server')->default(false);
+                $table->string('webhook_before')->nullable();
+                $table->string('webhook_after')->nullable();
+                $table->string('email_output')->nullable();
+                $table->boolean('sendmail_error')->default(false);
+                $table->boolean('log_success')->default(true);
+                $table->boolean('log_error')->default(true);
+                $table->boolean('status')->default(true);
+                $table->boolean('run_in_background')->default(false);
+                $table->boolean('sendmail_success')->default(false);
+                $table->timestamps();
+                $table->softDeletes();
+            }
         );
-         // -- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table): void {
                 // if (! $this->hasColumn('created_by')) {
@@ -56,6 +51,4 @@ class CreateScheduleTable extends XotBaseMigration
             }
         );
     }
-
-    
 }
