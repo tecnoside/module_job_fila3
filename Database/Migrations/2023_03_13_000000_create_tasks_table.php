@@ -49,6 +49,7 @@ class CreateTasksTable extends XotBaseMigration
                 //     $table->string('created_by')->nullable();
                 //     $table->string('updated_by')->nullable();
                 // }
+                $this->updateTimestamps(table: $table, hasSoftDeletes: true);
             }
         );
     }

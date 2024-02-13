@@ -6,3 +6,11 @@ https://github.com/robersonfaria/laravel-database-schedule
 
 
 
+https://filamentphp.com/plugins/husam-tariq-database-schedule
+
+
+https://filamentphp.com/plugins/mvenghaus-schedule-monitor
+
+
+
+
