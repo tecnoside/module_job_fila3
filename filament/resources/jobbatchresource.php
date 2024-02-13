@@ -30,21 +30,21 @@ class JobBatchResource extends XotBaseResource
         return $table
             ->columns(
                 [
-                TextColumn::make('created_at')->dateTime()->sortable()->searchable()->toggleable(),
-                TextColumn::make('id')->sortable()->searchable()->toggleable(),
-                TextColumn::make('name')->sortable()->searchable()->toggleable(),
-                TextColumn::make('cancelled_at')->dateTime()->sortable()->searchable()->toggleable(),
-                TextColumn::make('failed_at')->dateTime()->sortable()->searchable()->toggleable(),
-                TextColumn::make('finished_at')->dateTime()->sortable()->searchable()->toggleable(),
-                TextColumn::make('total_jobs')->sortable()->searchable()->toggleable(),
-                TextColumn::make('pending_jobs')->sortable()->searchable()->toggleable(),
-                TextColumn::make('failed_jobs')->sortable()->searchable()->toggleable(),
-                TextColumn::make('failed_job_ids')->sortable()->searchable()->toggleable(),
+                    TextColumn::make('created_at')->dateTime()->sortable()->searchable()->toggleable(),
+                    TextColumn::make('id')->sortable()->searchable()->toggleable(),
+                    TextColumn::make('name')->sortable()->searchable()->toggleable(),
+                    TextColumn::make('cancelled_at')->dateTime()->sortable()->searchable()->toggleable(),
+                    TextColumn::make('failed_at')->dateTime()->sortable()->searchable()->toggleable(),
+                    TextColumn::make('finished_at')->dateTime()->sortable()->searchable()->toggleable(),
+                    TextColumn::make('total_jobs')->sortable()->searchable()->toggleable(),
+                    TextColumn::make('pending_jobs')->sortable()->searchable()->toggleable(),
+                    TextColumn::make('failed_jobs')->sortable()->searchable()->toggleable(),
+                    TextColumn::make('failed_job_ids')->sortable()->searchable()->toggleable(),
                 ]
             )
             ->actions(
                 [
-                DeleteAction::make('Delete'),
+                    DeleteAction::make('Delete'),
                 ]
             )
             ->defaultSort('created_at', 'desc');

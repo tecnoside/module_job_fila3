@@ -3,6 +3,7 @@
 /**
  * --.
  */
+
 declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobManagerResource\Pages;

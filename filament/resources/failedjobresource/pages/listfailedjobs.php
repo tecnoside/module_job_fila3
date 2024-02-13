@@ -25,7 +25,7 @@ class ListFailedJobs extends ListRecords
                 ->label('Retry all failed Jobs')
                 ->requiresConfirmation()
                 ->action(
-                    function (): void {
+                    static function (): void {
                         Artisan::call('queue:retry all');
                         Notification::make()
                             ->title('All failed jobs have been pushed back onto the queue.')
@@ -39,7 +39,7 @@ class ListFailedJobs extends ListRecords
                 ->requiresConfirmation()
                 ->color('danger')
                 ->action(
-                    function (): void {
+                    static function (): void {
                         FailedJob::truncate();
                         Notification::make()
                             ->title('All failed jobs have been removed.')
