@@ -27,6 +27,7 @@ use Illuminate\Support\Collection;
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
+ *
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
  * @method static Builder|JobBatch newModelQuery()
  * @method static Builder|JobBatch newQuery()
@@ -41,23 +42,20 @@ use Illuminate\Support\Collection;
  * @method static Builder|JobBatch whereOptions($value)
  * @method static Builder|JobBatch wherePendingJobs($value)
  * @method static Builder|JobBatch whereTotalJobs($value)
+ *
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel
 {
     /**
      * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
      */
-    public $incrementing = false;
+    public bool $incrementing = false;
 
     /**
      * The "type" of the primary key ID.
-     *
-     * @var string
      */
-    protected $keyType = 'string';
+    protected string $keyType = 'string';
 
     protected $fillable = [
         'id',
@@ -79,7 +77,7 @@ class JobBatch extends BaseModel
      *
      * @var array<string, string>
      */
-    protected $casts = [
+    protected array $casts = [
         'options' => 'collection',
         'failed_jobs' => 'integer',
         'created_at' => 'datetime',
@@ -102,7 +100,7 @@ class JobBatch extends BaseModel
      */
     public function progress(): int
     {
-        $progress = $this->total_jobs > 0 ? round(($this->processedJobs() / $this->total_jobs) * 100) : 0;
+        $progress = $this->total_jobs > 0 ? round($this->processedJobs() / $this->total_jobs * 100) : 0;
 
         return (int) $progress;
     }

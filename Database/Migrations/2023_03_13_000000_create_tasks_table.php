@@ -14,7 +14,7 @@ class CreateTasksTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $table): void {
+            static function (Blueprint $table): void {
                 $table->increments('id');
                 $table->string('description');
                 $table->string('command');

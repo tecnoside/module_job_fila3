@@ -15,9 +15,8 @@ use Modules\Job\Models\FailedJob as FailedJobModel;
 use Modules\Job\Models\Job as JobModel;
 use Modules\Job\Models\JobBatch as JobBatchModel;
 use Modules\Xot\Actions\GetViewAction;
-use Webmozart\Assert\Assert;
-
 use function Safe\putenv;
+use Webmozart\Assert\Assert;
 
 /**
  * Class RolePermission.
@@ -41,7 +40,7 @@ class Status extends Component
         $this->out .= '<br/>['.FailedJobModel::count().'] Failed Jobs';
         $this->out .= '<br/>['.JobBatchModel::count().'] Job Batch';
         $queue_conn = getenv('QUEUE_CONNECTION');
-        if ($queue_conn == false) {
+        if ($queue_conn === false) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
 

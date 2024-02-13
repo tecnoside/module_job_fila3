@@ -1,12 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
-
-use Illuminate\Support\Str;
-use Modules\Job\Models\Schedule;
 use Modules\Job\Filament\Resources\ScheduleResource;
-
-
+use Modules\Job\Models\Schedule;
 
 return [
     'name' => 'Job',
@@ -17,14 +14,13 @@ return [
      */
     'table' => [
         'schedules' => 'schedules',
-        'schedule_histories' => 'schedule_histories'
+        'schedule_histories' => 'schedule_histories',
     ],
     'model' => Schedule::class,
 
     'timezone' => env('FILAMENT_SCHEDULE_TIMEZONE', config('app.timezone')),
 
-    'resources' =>
-    [
+    'resources' => [
         ScheduleResource::class,
     ],
 
@@ -35,7 +31,7 @@ return [
         'store' => env('FILAMENT_SCHEDULE_CACHE_DRIVER', 'file'),
         //'key' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_schedule_'),
         'key' => env('REDIS_PREFIX', '_database_schedule_'),
-        'enabled' => env('FILAMENT_SCHEDULE_CACHE_ENABLE', !config('app.debug')),
+        'enabled' => env('FILAMENT_SCHEDULE_CACHE_ENABLE', ! config('app.debug')),
     ],
 
     /**
@@ -49,7 +45,7 @@ return [
     /**
      * Resource navigation icon
      */
-    "navigation_icon" => 'heroicon-o-rectangle-stack',
+    'navigation_icon' => 'heroicon-o-rectangle-stack',
 
     /**
      * When opening history, is output collapsed
@@ -100,21 +96,20 @@ return [
             'queue:*',
             'schedule:*',
             'view:*',
-            'phpunit:*'
+            'phpunit:*',
         ],
         /**
          * Alternatively, you can set the "show_supported_only" parameter to true to only allow commands
          * that are in the supported list.
          */
-        "show_supported_only" => false,
-        "supported" => [
+        'show_supported_only' => false,
+        'supported' => [
             //ex."erp:*"
         ],
     ],
 
-
     'tool-help-cron-expression' => [
         'enable' => true,
-        'url' => 'https://crontab.cronhub.io/'
-    ]
+        'url' => 'https://crontab.cronhub.io/',
+    ],
 ];

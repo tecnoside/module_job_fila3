@@ -22,9 +22,11 @@ use Illuminate\Support\Carbon;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ *
  * @property-read Collection<int, \Modules\Job\Models\Parameter> $parameters
  * @property-read int|null $parameters_count
  * @property-read \Modules\Job\Models\Task|null $task
+ *
  * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
  * @method static Builder|Frequency newModelQuery()
  * @method static Builder|Frequency newQuery()
@@ -37,6 +39,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Frequency whereTaskId($value)
  * @method static Builder|Frequency whereUpdatedAt($value)
  * @method static Builder|Frequency whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class Frequency extends BaseModel

@@ -6,8 +6,6 @@ namespace Modules\Job\Models;
 
 use Illuminate\Contracts\Queue\Job as JobContract;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Prunable;
 use Illuminate\Support\Facades\Hash;
 
 /**
@@ -84,7 +82,7 @@ class JobManager extends BaseModel
             return true;
         }
 
-        return null !== $this->finished_at;
+        return $this->finished_at !== null;
     }
 
     public function hasFailed(): bool
@@ -101,15 +99,12 @@ class JobManager extends BaseModel
         return ! $this->hasFailed();
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function prunable()
+    public function prunable(): \Illuminate\Database\Eloquent\Builder
     {
         if (config('jobs.pruning.activate')) {
             $retention_days = config('jobs.pruning.retention_days');
-            if(!is_integer($retention_days)){
-                $retention_days=365;
+            if (! is_integer($retention_days)) {
+                $retention_days = 365;
             }
 
             return static::where('created_at', '<=', now()->subDays($retention_days));

@@ -8,12 +8,14 @@ use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 
-enum Status: string implements HasIcon, HasColor, HasLabel {
+enum Status: string implements HasIcon, HasColor, HasLabel
+{
     case Active = 'active';
     case Inactive = 'inactive';
     case Trashed = 'trashed';
 
-    public function getColor(): string|array|null {
+    public function getColor(): string|array|null
+    {
         return match ($this) {
             self::Active => 'success',
             self::Inactive => 'warning',
@@ -21,7 +23,8 @@ enum Status: string implements HasIcon, HasColor, HasLabel {
         };
     }
 
-    public function getIcon(): ?string {
+    public function getIcon(): ?string
+    {
         return match ($this) {
             self::Active => 'heroicon-o-check-circle',
             self::Inactive => 'heroicon-o-document',
@@ -29,7 +32,8 @@ enum Status: string implements HasIcon, HasColor, HasLabel {
         };
     }
 
-    public function getLabel(): ?string {
+    public function getLabel(): ?string
+    {
         return match ($this) {
             self::Active => __('job::schedule.status.active'),
             self::Inactive => __('job::schedule.status.inactive'),

@@ -25,7 +25,7 @@ class ListJobBatches extends ListRecords
                 ->requiresConfirmation()
                 ->color('danger')
                 ->action(
-                    function (): void {
+                    static function (): void {
                         Artisan::call('queue:prune-batches');
                         Notification::make()
                             ->title('All batches have been pruned.')

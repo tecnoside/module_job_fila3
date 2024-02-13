@@ -1,17 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
-use Modules\Job\Filament\Resources\ScheduleResource;
 use Filament\Actions;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Validation\ValidationException;
+use Modules\Job\Filament\Resources\ScheduleResource;
 
 class EditSchedule extends EditRecord
 {
     protected static string $resource = ScheduleResource::class;
-
     protected function getActions(): array
     {
         return [
@@ -31,6 +32,4 @@ class EditSchedule extends EditRecord
     {
         return $this->getResource()::getUrl('index');
     }
-
-
 }

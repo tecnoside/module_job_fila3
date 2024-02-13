@@ -14,7 +14,7 @@ class CreateJobManagerTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $table): void {
+            static function (Blueprint $table): void {
                 $table->id();
                 $table->string('job_id')->index();
                 $table->string('name')->nullable();
@@ -30,7 +30,7 @@ class CreateJobManagerTable extends XotBaseMigration
         );
         // -- UPDATE --
         $this->tableUpdate(
-            function (Blueprint $table): void {
+            static function (Blueprint $table): void {
                 //if (! $this->hasColumn('uuid')) {
                 //    $table->string('uuid')->nullable();
                 //}

@@ -1,17 +1,17 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * @see HusamTariq\FilamentDatabaseSchedule
  */
 
 namespace Modules\Job\Models;
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ScheduleHistory extends BaseModel
 {
-
     /*
      * The database table used by the model.
      *
@@ -25,18 +25,16 @@ class ScheduleHistory extends BaseModel
         'output',
         'options',
     ];
-
     protected $casts = [
         'params' => 'array',
         'options' => 'array',
     ];
-
     /*
-     * Creates a new instance of the model.
-     *
-     * @param array $attributes
-     * @return void
-     */
+         * Creates a new instance of the model.
+         *
+         * @param array $attributes
+         * @return void
+         */
     /*
     public function __construct(array $attributes = [])
     {
@@ -47,7 +45,7 @@ class ScheduleHistory extends BaseModel
 
     */
 
-    public function command():BelongsTo
+    public function command(): BelongsTo
     {
         return $this->belongsTo(Schedule::class, 'schedule_id', 'id');
     }

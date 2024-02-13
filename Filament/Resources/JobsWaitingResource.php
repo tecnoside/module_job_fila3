@@ -5,51 +5,48 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Resources;;
+namespace Modules\Job\Filament\Resources;
 
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Illuminate\Support\Str;
-use Modules\Job\Models\Job;
-use Filament\Resources\Resource;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Textarea;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Form;
 //use Modules\Job\JobsWaitingPlugin;
 use Filament\Tables\Actions\DeleteBulkAction;
-use Modules\Xot\Filament\Resources\XotBaseResource;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobsWaitingResource\Pages\ListJobsWaiting;
 use Modules\Job\Filament\Resources\JobsWaitingResource\Widgets\JobsWaitingOverview;
+use Modules\Job\Models\Job;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class JobsWaitingResource extends XotBaseResource
 {
-
     protected static ?string $model = Job::class;
     protected static ?string $navigationIcon = 'heroicon-o-pause';
-    protected static bool $shouldRegisterNavigation=true;
+    protected static bool $shouldRegisterNavigation = true;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema(
                 [
-                TextInput::make('job_id')
-                    ->required()
-                    ->maxLength(255),
-                TextInput::make('name')
-                    ->maxLength(255),
-                TextInput::make('queue')
-                    ->maxLength(255),
-                DateTimePicker::make('started_at'),
-                DateTimePicker::make('finished_at'),
-                Toggle::make('failed')
-                    ->required(),
-                TextInput::make('attempt')
-                    ->required(),
-                Textarea::make('exception_message')
-                    ->maxLength(65535),
+                    TextInput::make('job_id')
+                        ->required()
+                        ->maxLength(255),
+                    TextInput::make('name')
+                        ->maxLength(255),
+                    TextInput::make('queue')
+                        ->maxLength(255),
+                    DateTimePicker::make('started_at'),
+                    DateTimePicker::make('finished_at'),
+                    Toggle::make('failed')
+                        ->required(),
+                    TextInput::make('attempt')
+                        ->required(),
+                    Textarea::make('exception_message')
+                        ->maxLength(65535),
                 ]
             );
     }
@@ -59,42 +56,42 @@ class JobsWaitingResource extends XotBaseResource
         return $table
             ->columns(
                 [
-                TextColumn::make('status')
-                    ->badge()
-                    ->label(__('jobs::translations.status'))
-                    ->sortable()
-                    ->formatStateUsing(fn (string $state): string => __("jobs::translations.{$state}"))
-                    ->color(
-                        fn (string $state): string => match ($state) {
-                        'running' => 'primary',
-                        'waiting' => 'success',
-                        'failed' => 'danger',
-                        default => 'secondary',
-                        }
-                    ),
-                TextColumn::make('display_name')
-                    ->label(__('jobs::translations.name'))
-                    ->sortable(),
-                TextColumn::make('queue')
-                    ->label(__('jobs::translations.queue'))
-                    ->sortable(),
-                TextColumn::make('attempts')
-                    ->label(__('jobs::translations.attempts'))
-                    ->sortable(),
-                TextColumn::make('reserved_at')
-                    ->label(__('jobs::translations.reserved_at'))
-                    ->since()
-                    ->sortable(),
-                TextColumn::make('created_at')
-                    ->label(__('jobs::translations.created_at'))
-                    ->since()
-                    ->sortable(),
+                    TextColumn::make('status')
+                        ->badge()
+                        ->label(__('jobs::translations.status'))
+                        ->sortable()
+                        ->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
+                        ->color(
+                            static fn (string $state): string => match ($state) {
+                                'running' => 'primary',
+                                'waiting' => 'success',
+                                'failed' => 'danger',
+                                default => 'secondary',
+                            }
+                        ),
+                    TextColumn::make('display_name')
+                        ->label(__('jobs::translations.name'))
+                        ->sortable(),
+                    TextColumn::make('queue')
+                        ->label(__('jobs::translations.queue'))
+                        ->sortable(),
+                    TextColumn::make('attempts')
+                        ->label(__('jobs::translations.attempts'))
+                        ->sortable(),
+                    TextColumn::make('reserved_at')
+                        ->label(__('jobs::translations.reserved_at'))
+                        ->since()
+                        ->sortable(),
+                    TextColumn::make('created_at')
+                        ->label(__('jobs::translations.created_at'))
+                        ->since()
+                        ->sortable(),
                 ]
             )
             ->defaultSort('id', 'asc')
             ->bulkActions(
                 [
-                DeleteBulkAction::make(),
+                    DeleteBulkAction::make(),
                 ]
             );
     }
@@ -158,6 +155,4 @@ class JobsWaitingResource extends XotBaseResource
         return Str::title(static::getPluralModelLabel());
     }
     */
-    
-    
 }

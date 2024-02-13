@@ -11,9 +11,7 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Carbon;
-
 use function Safe\json_decode;
-
 use Webmozart\Assert\Assert;
 
 /**
@@ -83,9 +81,8 @@ class Job extends BaseModel
             get: function () {
                 if ($this->reserved_at) {
                     return 'running';
-                } else {
-                    return 'waiting';
                 }
+                return 'waiting';
             },
         );
     }
@@ -93,7 +90,7 @@ class Job extends BaseModel
     public function getDisplayNameAttribute(): ?string
     {
         $payload = json_decode($this->attributes['payload'], true);
-        if(!is_array($payload)){
+        if (! is_array($payload)) {
             return null;
         }
 
