@@ -20,8 +20,9 @@ class ScheduleClearCacheCommand extends Command
 
     /**
      * The console command description.
-     */
-    protected string $description = 'Clears the cache of the scheduler.';
+     * @var string
+*/
+    protected $description = 'Clears the cache of the scheduler.';
 
     /**
      * Execute the console command.
