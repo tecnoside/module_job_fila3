@@ -13,8 +13,9 @@ class PhpUnitTestJobCommand extends Command
 {
     /**
      * The name and signature of the console command.
-     */
-    protected string $signature = 'phpunit:test {argument} {argumentWithDefault=Default value} {optionalArgument?}';
+    * @var string
+ */
+    protected $signature = 'phpunit:test {argument} {argumentWithDefault=Default value} {optionalArgument?}';
 
     /**
      * The console command description.
