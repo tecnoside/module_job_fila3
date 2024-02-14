@@ -77,7 +77,7 @@ class JobBatch extends BaseModel
      *
      * @var array<string, string>
      */
-    protected array $casts = [
+    protected $casts = [
         'options' => 'collection',
         'failed_jobs' => 'integer',
         'created_at' => 'datetime',
