@@ -66,10 +66,10 @@ class WorkerCheck extends Command
         $output = null;
         $process = exec($process_cmd, $output);
         // $processIsQueueListener = str_contains($process, 'queue:listen'); // 5.1
-        if ($process === false) {
+        //if ($process === false) {
             // DISABILITATO PER SBLOCCARE MODULE JOB
             // throw new Exception('['.__LINE__.']['.__FILE__.']');
-        }
+        //}
 
         $this->comment($process);
         // $processIsQueueListener = ! empty($process); // 5.6 - see comments
@@ -132,7 +132,7 @@ class WorkerCheck extends Command
         // dd($command);
 
         $pid = exec($command);
-        if ($pid === false) {
+        if ($pid == false) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
 
