@@ -16,8 +16,9 @@ class Broad extends Component
      */
     /**
      * @var array<string, string>
-     */
-    protected array $listeners = ['echo:public,PublicEvent' => 'notifyEvent'];
+     * @var array
+*/
+    protected $listeners = ['echo:public,PublicEvent' => 'notifyEvent'];
 
     public function render(): Renderable
     {
