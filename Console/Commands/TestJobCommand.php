@@ -19,8 +19,9 @@ class TestJobCommand extends Command
 
     /**
      * The console command description.
-     */
-    protected string $description = 'Command that display a friendly message that is intented to test a job.';
+     * @var string
+*/
+    protected $description = 'Command that display a friendly message that is intented to test a job.';
 
     /**
      * Execute the console command.

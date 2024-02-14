@@ -19,8 +19,9 @@ class PhpUnitTestJobCommand extends Command
 
     /**
      * The console command description.
-     */
-    protected string $description = 'Command for testing the phpunit feature.';
+     * @var string
+*/
+    protected $description = 'Command for testing the phpunit feature.';
 
     /**
      * Execute the console command.

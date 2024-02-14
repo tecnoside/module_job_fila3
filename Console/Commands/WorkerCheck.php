@@ -24,8 +24,9 @@ class WorkerCheck extends Command
 
     /**
      * The console command description.
-     */
-    protected string $description = 'Ensure that the queue listener is running.';
+     * @var string
+*/
+    protected $description = 'Ensure that the queue listener is running.';
 
     private string $filename = 'queue.pid';
 
