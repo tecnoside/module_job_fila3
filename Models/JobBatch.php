@@ -58,7 +58,10 @@ public $incrementing = false;
     /**
      * The "type" of the primary key ID.
      */
-    protected string $keyType = 'string';
+    /**
+* @var string
+*/
+protected $keyType = 'string';
 
     protected $fillable = [
         'id',
