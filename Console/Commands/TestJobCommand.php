@@ -13,8 +13,9 @@ class TestJobCommand extends Command
 {
     /**
      * The name and signature of the console command.
-     */
-    protected string $signature = 'schedule:test-job';
+    * @var string
+ */
+    protected $signature = 'schedule:test-job';
 
     /**
      * The console command description.
