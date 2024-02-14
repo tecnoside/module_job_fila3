@@ -18,9 +18,14 @@ class WorkerCheck extends Command
 {
     /**
      * The name and signature of the console command.
+<<<<<<< HEAD
     * @var string
  */
     protected $signature = 'worker:check';
+=======
+     */
+    protected string $signature = 'worker:check';
+>>>>>>> 6469dcd (up)
 
     /**
      * The console command description.
