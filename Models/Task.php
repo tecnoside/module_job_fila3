@@ -87,7 +87,7 @@ class Task extends BaseModel
      *
      * @var array<int, string>
      */
-    protected array $fillable = [
+    protected $fillable = [
         'id',
         'description',
         'command',
@@ -116,7 +116,7 @@ class Task extends BaseModel
      *
      * @var array<int, string>
      */
-    protected array $appends = [
+    protected $appends = [
         'activated',
         'upcoming',
         'last_result',
