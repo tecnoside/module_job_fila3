@@ -16,7 +16,19 @@ use Modules\Job\Enums\Status;
  *
  * @property Status $status
  * @property array $options
- * */
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
+ * @property-read int|null $histories_count
+ * @method static Builder|Schedule active()
+ * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
+ * @method static Builder|Schedule inactive()
+ * @method static Builder|Schedule newModelQuery()
+ * @method static Builder|Schedule newQuery()
+ * @method static Builder|Schedule onlyTrashed()
+ * @method static Builder|Schedule query()
+ * @method static Builder|Schedule withTrashed()
+ * @method static Builder|Schedule withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Schedule extends BaseModel
 {
     use ManagesFrequencies;
