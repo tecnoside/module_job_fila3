@@ -46,7 +46,7 @@ class CommandService
      * @param Command $command
      * @return array
      */
-    private static function getArguments($command): array
+    protected static function getArguments($command): array
     {
         $arguments =[];
         foreach ($command->getDefinition()->getArguments() as $argument) {
@@ -60,7 +60,7 @@ class CommandService
         return $arguments;
     }
 
-    
+
 
     /**
      * Undocumented function
@@ -68,7 +68,7 @@ class CommandService
      * @param Command $command
      * @return array
      */
-    private static function getOptions($command): array
+    protected static function getOptions($command): array
     {
         $options = [
             'withValue' => [],
