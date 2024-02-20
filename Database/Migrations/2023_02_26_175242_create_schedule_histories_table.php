@@ -16,7 +16,7 @@ class CreateScheduleHistoriesTable extends XotBaseMigration
         $this->tableCreate(
             static function (Blueprint $table): void {
                 $table->id();
-                $table->unsignedBigInteger('schedule_id');
+                // $table->unsignedBigInteger('schedule_id');
                 $table->string('command');
                 $table->text('params')->nullable();
                 $table->text('output');
