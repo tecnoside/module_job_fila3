@@ -13,7 +13,7 @@ use Modules\Job\Filament\Resources\ScheduleResource;
 class EditSchedule extends EditRecord
 {
     protected static string $resource = ScheduleResource::class;
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

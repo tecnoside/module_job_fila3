@@ -12,7 +12,7 @@ use Modules\Job\Filament\Resources\ScheduleResource;
 class ListSchedules extends ListRecords
 {
     protected static string $resource = ScheduleResource::class;
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),

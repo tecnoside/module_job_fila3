@@ -36,7 +36,7 @@ class ViewSchedule extends Page implements HasTable
     {
         return __('job::schedule.resource.history');
     }
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [];
     }
