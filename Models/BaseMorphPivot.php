@@ -39,9 +39,7 @@ protected $perPage = 30;
 
     protected $connection = 'mysql'; // this will use the specified database connection
 
-    /**
-     * @var array
-     */
+    /** @var array */
     /**
      * The accessors to append to the model's array form.
      *
