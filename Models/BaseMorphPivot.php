@@ -54,9 +54,7 @@ protected $perPage = 30;
 */
 protected $primaryKey = 'id';
 
-    /**
-     * @var array<string>
-     */
+    /** @var array<string> */
     protected $fillable = [
         'id',
         'post_id', 'post_type',
