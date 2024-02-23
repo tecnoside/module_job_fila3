@@ -36,9 +36,7 @@ abstract class BaseModel extends Model
     /** @var bool */
     public $timestamps = true;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     protected $perPage = 30;
 
     /** @var string */
@@ -60,7 +58,7 @@ abstract class BaseModel extends Model
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var  array<int, string> */
+    /** @var array<int, string> */
     protected $hidden = [
         // 'password'
     ];
