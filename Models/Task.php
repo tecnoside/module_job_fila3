@@ -82,11 +82,7 @@ class Task extends BaseModel
     use HasFactory;
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    /** @var array<int, string> */
     protected $fillable = [
         'id',
         'description',
