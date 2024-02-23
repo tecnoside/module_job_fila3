@@ -169,7 +169,7 @@ class ScheduleResource extends XotBaseResource
                             ->sortable()
                             ->toggleable(isToggledHiddenByDefault: false),
                         Tables\Columns\TextColumn::make('created_at')->label(__('job::schedule.fields.created_at'))->searchable()->sortable()
-                            ->dateTime()->wrap()->toggleable(isToggledHiddenByDefault: true),
+                            ->dateTime(config('app.date_format'))->wrap()->toggleable(isToggledHiddenByDefault: true),
                         Tables\Columns\TextColumn::make('updated_at')->getStateUsing(fn ($record) => $record->created_at == $record->updated_at ? __('job::schedule.fields.never') : $record->updated_at)
                             ->wrap()->formatStateUsing(static function (Column $column, $state): ?string {
                                 $format ??= Table::$defaultDateTimeDisplayFormat;

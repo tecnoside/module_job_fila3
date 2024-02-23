@@ -36,6 +36,7 @@ class ViewSchedule extends Page implements HasTable
     {
         return __('job::schedule.resource.history');
     }
+
     protected function getHeaderActions(): array
     {
         return [];
@@ -75,29 +76,28 @@ class ViewSchedule extends Page implements HasTable
                 Tables\Columns\TextColumn::make('command')->label(__('job::schedule.fields.command')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('job::schedule.fields.expression'))
-                    ->dateTime(),
+                    ->dateTime(config('app.date_format')),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('job::schedule.fields.expression'))
                     ->formatStateUsing(static function ($state, $record) {
                         if ($state === $record->created_at) {
                             return 'Processing...';
                         }
-                        return $state->diffInSeconds($record->created_at) . ' seconds';
+
+                        return $state->diffInSeconds($record->created_at).' seconds';
                     }),
                 Tables\Columns\TextColumn::make('output')
                     ->label('Output lines')
                     ->formatStateUsing(static function ($state) {
-                        return (count(explode('<br />', nl2br($state))) - 1) . ' rows of output';
+                        return (count(explode('<br />', nl2br($state))) - 1).' rows of output';
                     }),
             ]), Tables\Columns\Layout\Panel::make([
-
                 Tables\Columns\TextColumn::make('output')->extraAttributes(['class' => '!max-w-max'], true)
                     ->formatStateUsing(static function ($state) {
                         return new HtmlString(nl2br($state));
                     }),
-
             ])->collapsible()
-            //->collapsed(config('job::history_collapsed'))
+            // ->collapsed(config('job::history_collapsed'))
             ,
         ];
     }
