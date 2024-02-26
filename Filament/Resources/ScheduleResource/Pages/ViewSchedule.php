@@ -14,6 +14,7 @@ use Filament\Tables\Contracts\HasTable;
 use Illuminate\Support\HtmlString;
 use Livewire\Attributes\Url;
 use Modules\Job\Filament\Resources\ScheduleResource;
+use Webmozart\Assert\Assert;
 
 class ViewSchedule extends Page implements HasTable
 {
@@ -71,12 +72,14 @@ class ViewSchedule extends Page implements HasTable
 
     protected function getTableColumns(): array
     {
+        $date_format = Assert::string(config('app.date_format'));
+
         return [
             Tables\Columns\Layout\Split::make([
                 Tables\Columns\TextColumn::make('command')->label(__('job::schedule.fields.command')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('job::schedule.fields.expression'))
-                    ->dateTime(config('app.date_format')),
+                    ->dateTime($date_format),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('job::schedule.fields.expression'))
                     ->formatStateUsing(static function ($state, $record) {

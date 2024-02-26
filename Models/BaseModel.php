@@ -45,9 +45,7 @@ abstract class BaseModel extends Model
     /** @var array<string> */
     protected $fillable = ['id'];
 
-    /**
-     * @var array<string, string>
-     */
+    /** @var array<string, string> */
     protected $casts = [
         'published_at' => 'datetime',
         'created_at' => 'datetime',

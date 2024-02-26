@@ -11,11 +11,9 @@ use Modules\Xot\Actions\GetViewAction;
 
 class Broad extends Component
 {
-    /**
-     * @var array<string, string>
-     */
+    /** @var array<string, string> */
     protected $listeners = [
-        'echo:public,PublicEvent' => 'notifyEvent'
+        'echo:public,PublicEvent' => 'notifyEvent',
     ];
 
     public function render(): Renderable
