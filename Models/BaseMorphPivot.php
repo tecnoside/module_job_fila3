@@ -23,31 +23,25 @@ abstract class BaseMorphPivot extends MorphPivot
      */
     public static $snakeAttributes = true;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $incrementing = true;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $timestamps = true;
 
     /** @var int */
     protected $perPage = 30;
 
+    /** @var string */
     protected $connection = 'mysql'; // this will use the specified database connection
 
-    /** @var array */
     /** @var array<int, string> */
     protected $appends = [];
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<string> */
+    /** @var array<int, string> */
     protected $fillable = [
         'id',
         'post_id', 'post_type',
