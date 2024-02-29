@@ -11,19 +11,21 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * Modules\Job\Models\FailedJob
+ * Modules\Job\Models\FailedJob.
  *
  * @method static \Modules\Job\Database\Factories\FailedJobFactory factory($count = null, $state = [])
- * @method static Builder|FailedJob newModelQuery()
- * @method static Builder|FailedJob newQuery()
- * @method static Builder|FailedJob query()
- * @property int $id
+ * @method static Builder|FailedJob                                newModelQuery()
+ * @method static Builder|FailedJob                                newQuery()
+ * @method static Builder|FailedJob                                query()
+ *
+ * @property int    $id
  * @property string $uuid
  * @property string $connection
  * @property string $queue
- * @property array $payload
+ * @property array  $payload
  * @property string $exception
  * @property string $failed_at
+ *
  * @method static Builder|FailedJob whereConnection($value)
  * @method static Builder|FailedJob whereException($value)
  * @method static Builder|FailedJob whereFailedAt($value)
@@ -31,6 +33,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedJob wherePayload($value)
  * @method static Builder|FailedJob whereQueue($value)
  * @method static Builder|FailedJob whereUuid($value)
+ *
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel
@@ -46,6 +49,10 @@ class FailedJob extends BaseModel
     ];
 
     protected $casts = [
+        'updated_by' => 'string',
+        'created_by' => 'string',
+        'deleted_by' => 'string',
+
         'payload' => 'array',
     ];
 }

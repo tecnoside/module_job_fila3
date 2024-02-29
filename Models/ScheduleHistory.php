@@ -11,13 +11,15 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Modules\Job\Models\ScheduleHistory
+ * Modules\Job\Models\ScheduleHistory.
  *
- * @property-read \Modules\Job\Models\Schedule|null $command
+ * @property \Modules\Job\Models\Schedule|null $command
+ *
  * @method static \Modules\Job\Database\Factories\ScheduleHistoryFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  query()
+ *
  * @mixin \Eloquent
  */
 class ScheduleHistory extends BaseModel
@@ -27,7 +29,7 @@ class ScheduleHistory extends BaseModel
      *
      * @var string
      */
-    //protected $table;
+    // protected $table;
 
     protected $fillable = [
         'command',
@@ -36,6 +38,10 @@ class ScheduleHistory extends BaseModel
         'options',
     ];
     protected $casts = [
+        'updated_by' => 'string',
+        'created_by' => 'string',
+        'deleted_by' => 'string',
+
         'params' => 'array',
         'options' => 'array',
     ];

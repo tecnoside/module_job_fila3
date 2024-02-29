@@ -22,11 +22,14 @@ use Illuminate\Support\Facades\Hash;
  * @property Carbon|null     $cancelled_at
  * @property Carbon          $created_at
  * @property Carbon|null     $finished_at
+ *
  * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager  newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager  query()
- * @property-read mixed $status
+ *
+ * @property mixed $status
+ *
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel
@@ -48,6 +51,10 @@ class JobManager extends BaseModel
     ];
 
     protected $casts = [
+        'updated_by' => 'string',
+        'created_by' => 'string',
+        'deleted_by' => 'string',
+
         'failed' => 'bool',
         'started_at' => 'datetime',
         'finished_at' => 'datetime',
@@ -81,7 +88,7 @@ class JobManager extends BaseModel
             return true;
         }
 
-        return $this->finished_at !== null;
+        return null !== $this->finished_at;
     }
 
     public function hasFailed(): bool

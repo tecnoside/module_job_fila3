@@ -12,21 +12,23 @@ use Illuminate\Support\Collection;
 use Modules\Job\Enums\Status;
 
 /**
- * Modules\Job\Models\Result
+ * Modules\Job\Models\Result.
  *
- * @property Status $status
- * @property array $options
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
- * @property-read int|null $histories_count
- * @method static Builder|Schedule active()
+ * @property Status                                                                             $status
+ * @property array                                                                              $options
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
+ * @property int|null                                                                           $histories_count
+ *
+ * @method static Builder|Schedule                                active()
  * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
- * @method static Builder|Schedule inactive()
- * @method static Builder|Schedule newModelQuery()
- * @method static Builder|Schedule newQuery()
- * @method static Builder|Schedule onlyTrashed()
- * @method static Builder|Schedule query()
- * @method static Builder|Schedule withTrashed()
- * @method static Builder|Schedule withoutTrashed()
+ * @method static Builder|Schedule                                inactive()
+ * @method static Builder|Schedule                                newModelQuery()
+ * @method static Builder|Schedule                                newQuery()
+ * @method static Builder|Schedule                                onlyTrashed()
+ * @method static Builder|Schedule                                query()
+ * @method static Builder|Schedule                                withTrashed()
+ * @method static Builder|Schedule                                withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class Schedule extends BaseModel
@@ -38,7 +40,7 @@ class Schedule extends BaseModel
          *
          * @var string
          */
-    //protected $table;
+    // protected $table;
 
     protected $fillable = [
         'command',
@@ -69,6 +71,10 @@ class Schedule extends BaseModel
         'options_with_value' => '{}',
     ];
     protected $casts = [
+        'updated_by' => 'string',
+        'created_by' => 'string',
+        'deleted_by' => 'string',
+
         'params' => 'array',
         'options' => 'array',
         'options_with_value' => 'array',
@@ -111,8 +117,8 @@ class Schedule extends BaseModel
             if (empty($value['value'])) {
                 continue;
             }
-            if (isset($value['type']) && $value['type'] === 'function') {
-                eval('$arguments[$argument] = (string) ' . $value['value']);
+            if (isset($value['type']) && 'function' === $value['type']) {
+                eval('$arguments[$argument] = (string) '.$value['value']);
             } else {
                 $arguments[$value['name'] ?? $argument] = $value['value'];
             }
@@ -128,10 +134,12 @@ class Schedule extends BaseModel
         if (! empty($options_with_value)) {
             $options = $options->merge($options_with_value);
         }
+
         return $options->map(static function ($value, $key) {
             if (is_array($value)) {
-                return '--' . ($value['name'] ?? $key) . '=' . $value['value'];
+                return '--'.($value['name'] ?? $key).'='.$value['value'];
             }
+
             return "--{$value}";
         })->toArray();
     }
