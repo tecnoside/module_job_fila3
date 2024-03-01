@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Pages;
 
-use Modules\Xot\Filament\Pages\XotBasePage;
+use Filament\Resources\Pages\Page;
+use Modules\Xot\Filament\Traits\NavigationLabelTrait;
 
-class JobMonitor extends XotBasePage
+class JobMonitor extends Page
 {
+    use NavigationLabelTrait;
     protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
 
     protected static string $view = 'job::filament.pages.job-monitor';
