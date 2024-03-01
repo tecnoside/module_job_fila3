@@ -14,6 +14,7 @@ use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobBatchResource\Pages\ListJobBatches;
 use Modules\Job\Models\JobBatch;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Webmozart\Assert\Assert;
 
 class JobBatchResource extends XotBaseResource
 {
@@ -27,19 +28,55 @@ class JobBatchResource extends XotBaseResource
 
     public static function table(Table $table): Table
     {
+        Assert::string($date_format = config('app.date_format'));
+
         return $table
             ->columns(
                 [
-                    TextColumn::make('created_at')->dateTime()->sortable()->searchable()->toggleable(),
-                    TextColumn::make('id')->sortable()->searchable()->toggleable(),
-                    TextColumn::make('name')->sortable()->searchable()->toggleable(),
-                    TextColumn::make('cancelled_at')->dateTime()->sortable()->searchable()->toggleable(),
-                    TextColumn::make('failed_at')->dateTime()->sortable()->searchable()->toggleable(),
-                    TextColumn::make('finished_at')->dateTime()->sortable()->searchable()->toggleable(),
-                    TextColumn::make('total_jobs')->sortable()->searchable()->toggleable(),
-                    TextColumn::make('pending_jobs')->sortable()->searchable()->toggleable(),
-                    TextColumn::make('failed_jobs')->sortable()->searchable()->toggleable(),
-                    TextColumn::make('failed_job_ids')->sortable()->searchable()->toggleable(),
+                    TextColumn::make('created_at')
+                        ->dateTime($date_format)
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable(),
+                    TextColumn::make('id')
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable(),
+                    TextColumn::make('name')
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable(),
+                    TextColumn::make('cancelled_at')
+                        ->dateTime($date_format)
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable(),
+                    TextColumn::make('failed_at')
+                        ->dateTime($date_format)
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable(),
+                    TextColumn::make('finished_at')
+                        ->dateTime($date_format)
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable(),
+                    TextColumn::make('total_jobs')
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable(),
+                    TextColumn::make('pending_jobs')
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable(),
+                    TextColumn::make('failed_jobs')
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable(),
+                    TextColumn::make('failed_job_ids')
+                        ->sortable()
+                        ->searchable()
+                        ->toggleable(),
                 ]
             )
             ->actions(
@@ -59,6 +96,7 @@ class JobBatchResource extends XotBaseResource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) JobBatch::query()->count();
+        return (string) JobBatch::query()
+->count();
     }
 }
