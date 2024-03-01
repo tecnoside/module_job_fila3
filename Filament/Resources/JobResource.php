@@ -43,14 +43,14 @@ class JobResource extends XotBaseResource
                     TextColumn::make('id')->sortable()->searchable()->toggleable(),
                     TextColumn::make('queue'),
 
-                // Tables\Columns\TextColumn::make('payload'),
+                    // Tables\Columns\TextColumn::make('payload'),
                     TextColumn::make('attempts'),
                     TextColumn::make('reserved_at'),
                     TextColumn::make('available_at'),
                     TextColumn::make('created_at'),
-                // Tables\Columns\TextColumn::make('created_by'),
-                // Tables\Columns\TextColumn::make('updated_by'),
-                // Tables\Columns\TextColumn::make('updated_at'),
+                    // Tables\Columns\TextColumn::make('created_by'),
+                    // Tables\Columns\TextColumn::make('updated_by'),
+                    // Tables\Columns\TextColumn::make('updated_at'),
                     ViewColumn::make('payload')->view('job::filament.tables.columns.array'),
                 ]
             )
@@ -81,6 +81,7 @@ class JobResource extends XotBaseResource
         return [
             'index' => Pages\ListJobs::route('/'),
             'create' => Pages\CreateJob::route('/create'),
+            'board' => Pages\BoardJobs::route('/board'),
             'edit' => Pages\EditJob::route('/{record}/edit'),
         ];
     }

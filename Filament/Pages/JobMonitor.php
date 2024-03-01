@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Pages;
 
-use Filament\Resources\Pages\Page;
+use Filament\Pages\Page;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
 
 class JobMonitor extends Page

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Http\Livewire\Job;
 
-use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
@@ -15,7 +14,9 @@ use Modules\Job\Models\FailedJob as FailedJobModel;
 use Modules\Job\Models\Job as JobModel;
 use Modules\Job\Models\JobBatch as JobBatchModel;
 use Modules\Xot\Actions\GetViewAction;
+
 use function Safe\putenv;
+
 use Webmozart\Assert\Assert;
 
 /**
@@ -40,8 +41,8 @@ class Status extends Component
         $this->out .= '<br/>['.FailedJobModel::count().'] Failed Jobs';
         $this->out .= '<br/>['.JobBatchModel::count().'] Job Batch';
         $queue_conn = getenv('QUEUE_CONNECTION');
-        if ($queue_conn === false) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+        if (false === $queue_conn) {
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         $this->old_value = $queue_conn;
@@ -144,7 +145,7 @@ class Status extends Component
     public function updatedFormData(string $value, string $key): void
     {
         // dddx([$value,$key,$this->form_data]);
-        if ($key === 'conn') {
+        if ('conn' === $key) {
             // putenv ("QUEUE_CONNECTION=".$value);
             $this->saveEnv();
         }
