@@ -12,7 +12,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
-//use Modules\Job\JobsWaitingPlugin;
+// use Modules\Job\JobsWaitingPlugin;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -114,6 +114,11 @@ class JobsWaitingResource extends XotBaseResource
         return [
             JobsWaitingOverview::class,
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return number_format(static::getModel()::count());
     }
 
     /*

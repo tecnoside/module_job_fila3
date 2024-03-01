@@ -234,4 +234,9 @@ class ScheduleResource extends XotBaseResource
             'view' => Pages\ViewSchedule::route('/{record}'),
         ];
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return number_format(static::getModel()::count());
+    }
 }
