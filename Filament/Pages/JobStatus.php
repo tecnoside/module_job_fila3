@@ -8,6 +8,7 @@ use Filament\Pages\Page;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Process;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
+use function Safe\mb_convert_encoding;
 
 class JobStatus extends Page
 {
