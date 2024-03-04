@@ -20,7 +20,7 @@ class JobStatus extends Page
 
     public string $out = '';
 
-    public function zibibbo()
+    public function zibibbo(): void
     {
         $result = Process::run('dir');
         $this->out = '';
