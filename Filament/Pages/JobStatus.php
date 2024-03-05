@@ -8,7 +8,10 @@ use Filament\Pages\Page;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Process;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
+
 use function Safe\mb_convert_encoding;
+
+use Webmozart\Assert\Assert;
 
 class JobStatus extends Page
 {
@@ -24,9 +27,10 @@ class JobStatus extends Page
     {
         $result = Process::run('dir');
         $this->out = '';
-        $this->out .= mb_convert_encoding($result->output(), 'UTF-8');
-
-        $this->out .= mb_convert_encoding($result->errorOutput(), 'UTF-8');
+        Assert::string($output = mb_convert_encoding($result->output(), 'UTF-8'));
+        $this->out .= $output;
+        Assert::string($errorOutput = mb_convert_encoding($result->errorOutput(), 'UTF-8'));
+        $this->out .= $errorOutput;
         $this->out .= now();
     }
 
