@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Tests\Unit\Http\Livewire;
 
 use Modules\Job\Http\Livewire\Broad;
@@ -22,9 +24,9 @@ final class BroadTest extends TestCase
         parent::setUp();
 
         /**
-* 
+*
          *
- * @todo Correctly instantiate tested object to use it. 
+ * @todo Correctly instantiate tested object to use it.
 */
         $this->broad = new Broad();
     }
@@ -42,9 +44,9 @@ final class BroadTest extends TestCase
     public function testRender(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -52,9 +54,9 @@ final class BroadTest extends TestCase
     public function testTry(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -62,9 +64,9 @@ final class BroadTest extends TestCase
     public function testNotifyEvent(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }

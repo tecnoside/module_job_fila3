@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Tests\Unit\Models\Traits;
 
 use Modules\Job\Models\Traits\FrontendSortable;
@@ -22,9 +24,9 @@ final class FrontendSortableTest extends TestCase
         parent::setUp();
 
         /**
-* 
+*
          *
- * @todo Correctly instantiate tested object to use it. 
+ * @todo Correctly instantiate tested object to use it.
 */
         $this->frontendSortable = $this->getMockBuilder(FrontendSortable::class)
             ->setConstructorArgs([])
@@ -44,9 +46,9 @@ final class FrontendSortableTest extends TestCase
     public function testScopeSortableBy(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }

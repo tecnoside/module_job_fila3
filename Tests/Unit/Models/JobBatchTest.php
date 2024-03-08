@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Modules\Job\Models;
 
 use Modules\Job\Models\JobBatch;
@@ -22,9 +24,9 @@ final class JobBatchTest extends TestCase
         parent::setUp();
 
         /**
-* 
+*
          *
- * @todo Correctly instantiate tested object to use it. 
+ * @todo Correctly instantiate tested object to use it.
 */
         $this->jobBatch = new JobBatch();
     }
@@ -42,9 +44,9 @@ final class JobBatchTest extends TestCase
     public function testProcessedJobs(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -52,9 +54,9 @@ final class JobBatchTest extends TestCase
     public function testProgress(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -62,9 +64,9 @@ final class JobBatchTest extends TestCase
     public function testHasPendingJobs(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -72,9 +74,9 @@ final class JobBatchTest extends TestCase
     public function testFinished(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -82,9 +84,9 @@ final class JobBatchTest extends TestCase
     public function testHasFailures(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -92,9 +94,9 @@ final class JobBatchTest extends TestCase
     public function testFailed(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -102,9 +104,9 @@ final class JobBatchTest extends TestCase
     public function testCancelled(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }

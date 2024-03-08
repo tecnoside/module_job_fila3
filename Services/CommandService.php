@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Services;
 
 use App\Console\Kernel;

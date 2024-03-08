@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Tests\Unit\Database\Factories;
 
 use Modules\Job\Database\Factories\TaskFactory;
@@ -22,9 +24,9 @@ final class TaskFactoryTest extends TestCase
         parent::setUp();
 
         /**
-* 
+*
          *
- * @todo Correctly instantiate tested object to use it. 
+ * @todo Correctly instantiate tested object to use it.
 */
         $this->taskFactory = new TaskFactory();
     }
@@ -42,9 +44,9 @@ final class TaskFactoryTest extends TestCase
     public function testDefinition(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }

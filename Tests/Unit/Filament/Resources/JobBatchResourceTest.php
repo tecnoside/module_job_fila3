@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Tests\Unit\Filament\Resources;
 
 use Modules\Job\Filament\Resources\JobBatchResource;
@@ -22,9 +24,9 @@ final class JobBatchResourceTest extends TestCase
         parent::setUp();
 
         /**
-* 
+*
          *
- * @todo Correctly instantiate tested object to use it. 
+ * @todo Correctly instantiate tested object to use it.
 */
         $this->jobBatchResource = new JobBatchResource();
     }
@@ -42,9 +44,9 @@ final class JobBatchResourceTest extends TestCase
     public function testTable(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -52,9 +54,9 @@ final class JobBatchResourceTest extends TestCase
     public function testGetPages(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -62,9 +64,9 @@ final class JobBatchResourceTest extends TestCase
     public function testGetNavigationBadge(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }

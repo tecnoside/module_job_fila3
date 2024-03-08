@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Modules\Job\Models;
 
 use Modules\Job\Models\Frequency;
@@ -22,9 +24,9 @@ final class FrequencyTest extends TestCase
         parent::setUp();
 
         /**
-* 
+*
          *
- * @todo Correctly instantiate tested object to use it. 
+ * @todo Correctly instantiate tested object to use it.
 */
         $this->frequency = new Frequency();
     }
@@ -42,9 +44,9 @@ final class FrequencyTest extends TestCase
     public function testTask(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -52,9 +54,9 @@ final class FrequencyTest extends TestCase
     public function testParameters(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }

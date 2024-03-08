@@ -1,4 +1,4 @@
-<?php
+trict_types=1);
 
 namespace Database\Factories;
 
@@ -20,5 +20,3 @@ class TotemUserFactory extends Factory
             'password'       => $password ?: $password = bcrypt('secret'),
             'remember_token' => Str::random(10),
         ];
-    }
-}

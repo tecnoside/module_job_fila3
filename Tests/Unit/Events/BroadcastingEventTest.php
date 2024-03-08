@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Modules\Job\Events;
 
 use Modules\Job\Events\BroadcastingEvent;
@@ -22,9 +24,9 @@ final class BroadcastingEventTest extends TestCase
         parent::setUp();
 
         /**
-* 
+*
          *
- * @todo Correctly instantiate tested object to use it. 
+ * @todo Correctly instantiate tested object to use it.
 */
         $this->broadcastingEvent = new BroadcastingEvent();
     }
@@ -42,9 +44,9 @@ final class BroadcastingEventTest extends TestCase
     public function testBroadcastOn(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }
@@ -52,9 +54,9 @@ final class BroadcastingEventTest extends TestCase
     public function testBroadcastWhen(): void
     {
         /**
-* 
+*
          *
- * @todo This test is incomplete. 
+ * @todo This test is incomplete.
 */
         self::markTestIncomplete();
     }

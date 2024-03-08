@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * @see HusamTariq\FilamentDatabaseSchedule
  */
@@ -6,13 +9,13 @@
 namespace Modules\Job\Observers;
 
 use Modules\Job\Enums\Status;
-use Modules\Job\Services\ScheduleService;
 use Modules\Job\Models\Schedule;
+use Modules\Job\Services\ScheduleService;
 
 class ScheduleObserver
 {
     /**
-     * Undocumented function
+     * Undocumented function.
      *
      * @return void
      */
@@ -22,9 +25,8 @@ class ScheduleObserver
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
-     * @param Schedule $schedule
      * @return void
      */
     public function updated(Schedule $schedule)
@@ -33,23 +35,20 @@ class ScheduleObserver
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
-     * @param Schedule $schedule
      * @return void
      */
     public function deleted(Schedule $schedule)
     {
-
         $schedule->status = Status::Trashed;
         $schedule->saveQuietly();
         $this->clearCache();
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
-     * @param Schedule $schedule
      * @return void
      */
     public function restored(Schedule $schedule)
@@ -59,9 +58,8 @@ class ScheduleObserver
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
-     * @param Schedule $schedule
      * @return void
      */
     public function saved(Schedule $schedule)
@@ -70,7 +68,7 @@ class ScheduleObserver
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
      * @return void
      */
