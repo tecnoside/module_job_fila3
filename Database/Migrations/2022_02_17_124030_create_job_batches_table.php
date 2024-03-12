@@ -27,5 +27,11 @@ class CreateJobBatchesTable extends XotBaseMigration
                 $table->integer('finished_at')->nullable();
             }
         );
+        // -- UPDATE --
+        $this->tableUpdate(
+            function (Blueprint $table): void {
+                $this->updateTimestamps($table,true);
+            }
+        );
     }
 }

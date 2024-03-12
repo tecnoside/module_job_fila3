@@ -15,7 +15,6 @@ class CreateFailedJobsTable extends XotBaseMigration
         // -- CREATE --
         $this->tableCreate(
             static function (Blueprint $table): void {
-                //$table->uuid('id')->primary();
                 $table->id();
                 $table->string('uuid')->unique();
                 $table->text('connection');
@@ -31,6 +30,7 @@ class CreateFailedJobsTable extends XotBaseMigration
                 if (! $this->hasColumn('uuid')) {
                     $table->string('uuid')->nullable();
                 }
+                $this->updateTimestamps($table,true);
             }
         );
     }
