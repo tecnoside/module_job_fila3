@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Modules\Job\Tests\Feature\Console\Commands;
 
 use Modules\Job\Console\Commands\WorkerCheck;
@@ -40,9 +38,9 @@ final class WorkerCheckTest extends TestCase
     public function testHandle(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $this->artisan('worker:check')
             ->expectsOutput('Some expected output')

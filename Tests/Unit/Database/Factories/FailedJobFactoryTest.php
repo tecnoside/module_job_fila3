@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Modules\Job\Tests\Unit\Database\Factories;
 
 use Modules\Job\Database\Factories\FailedJobFactory;
@@ -24,9 +22,9 @@ final class FailedJobFactoryTest extends TestCase
         parent::setUp();
 
         /**
-*
+* 
          *
- * @todo Correctly instantiate tested object to use it.
+ * @todo Correctly instantiate tested object to use it. 
 */
         $this->failedJobFactory = new FailedJobFactory();
     }
@@ -44,9 +42,9 @@ final class FailedJobFactoryTest extends TestCase
     public function testDefinition(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Tests\Unit\Modules\Job\Models;
 
 use Modules\Job\Models\Task;
@@ -24,9 +22,9 @@ final class TaskTest extends TestCase
         parent::setUp();
 
         /**
-*
+* 
          *
- * @todo Correctly instantiate tested object to use it.
+ * @todo Correctly instantiate tested object to use it. 
 */
         $this->task = new Task();
     }
@@ -44,9 +42,9 @@ final class TaskTest extends TestCase
     public function testGetActivatedAttribute(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -54,9 +52,9 @@ final class TaskTest extends TestCase
     public function testGetUpcomingAttribute(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -64,9 +62,9 @@ final class TaskTest extends TestCase
     public function testFrequencies(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -74,9 +72,9 @@ final class TaskTest extends TestCase
     public function testResults(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -84,9 +82,9 @@ final class TaskTest extends TestCase
     public function testGetLastResultAttribute(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -94,9 +92,9 @@ final class TaskTest extends TestCase
     public function testGetAverageRuntimeAttribute(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -104,9 +102,9 @@ final class TaskTest extends TestCase
     public function testRouteNotificationForMail(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -114,9 +112,9 @@ final class TaskTest extends TestCase
     public function testRouteNotificationForNexmo(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -124,9 +122,9 @@ final class TaskTest extends TestCase
     public function testRouteNotificationForSlack(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -134,9 +132,9 @@ final class TaskTest extends TestCase
     public function testAutoCleanup(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }

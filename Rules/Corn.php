@@ -1,6 +1,4 @@
 <?php
-
-declare(strict_types=1);
 /**
  * @see HusamTariq\FilamentDatabaseSchedule
  */
@@ -8,6 +6,7 @@ declare(strict_types=1);
 namespace Modules\Job\Rules;
 
 use Cron\CronExpression;
+use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 
 class Corn implements ValidationRule
@@ -15,18 +14,17 @@ class Corn implements ValidationRule
     /**
      * Run the validation rule.
      */
-    public function validate(string $attribute, mixed $value, \Closure $fail): void
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if (! is_string($value)) {
-            $msg = 'value is not a string ['.__LINE__.']['.__FILE__.']';
+        if(!is_string($value)){
+            $msg='value is not a string ['.__LINE__.']['.__FILE__.']';
             $fail($msg);
-
-            return;
+            return ;
         }
-        if (! CronExpression::isValidExpression($value)) {
-            $msg = trans('job::schedule.validation.cron');
-            if (! is_string($msg)) {
-                $msg = 'WIP ['.__LINE__.']['.__FILE__.']';
+        if (!CronExpression::isValidExpression($value)) {
+            $msg=trans('job::schedule.validation.cron');
+            if(!is_string($msg)){
+                $msg='WIP ['.__LINE__.']['.__FILE__.']';
             }
             $fail($msg);
         }

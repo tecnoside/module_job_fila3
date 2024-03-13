@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Tests\Unit\Modules\Job\Providers;
 
 use Modules\Job\Providers\JobServiceProvider;
@@ -24,9 +22,9 @@ final class JobServiceProviderTest extends TestCase
         parent::setUp();
 
         /**
-*
+* 
          *
- * @todo Correctly instantiate tested object to use it.
+ * @todo Correctly instantiate tested object to use it. 
 */
         $this->jobServiceProvider = new JobServiceProvider();
     }
@@ -44,9 +42,9 @@ final class JobServiceProviderTest extends TestCase
     public function testBootCallback(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -54,9 +52,9 @@ final class JobServiceProviderTest extends TestCase
     public function testRegisterCommands(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }

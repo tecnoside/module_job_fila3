@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Modules\Job\Tests\Unit\Models\Policies;
 
 use App\User;
@@ -29,9 +27,9 @@ final class JobBatchPolicyTest extends TestCase
         parent::setUp();
 
         /**
-*
+* 
          *
- * @todo Correctly instantiate tested object to use it.
+ * @todo Correctly instantiate tested object to use it. 
 */
         $this->jobBatchPolicy = new JobBatchPolicy();
         $this->user = new User();
@@ -52,9 +50,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testViewAnyWhenUnauthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::assertFalse($this->user->can('viewAny', [JobBatchPolicy::class]));
     }
@@ -62,9 +60,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testViewAnyWhenAuthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::assertTrue($this->user->can('viewAny', [JobBatchPolicy::class]));
     }
@@ -72,9 +70,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testViewWhenUnauthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $team = Mockery::mock(Team::class);
 
@@ -84,9 +82,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testViewWhenAuthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $team = Mockery::mock(Team::class);
 
@@ -96,9 +94,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testCreateWhenUnauthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::assertFalse($this->user->can('create', [JobBatchPolicy::class]));
     }
@@ -106,9 +104,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testCreateWhenAuthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::assertTrue($this->user->can('create', [JobBatchPolicy::class]));
     }
@@ -116,9 +114,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testUpdateWhenUnauthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::assertFalse($this->user->can('update', [JobBatchPolicy::class]));
     }
@@ -126,9 +124,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testUpdateWhenAuthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::assertTrue($this->user->can('update', [JobBatchPolicy::class]));
     }
@@ -136,9 +134,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testAddTeamMemberWhenUnauthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $team = Mockery::mock(Team::class);
 
@@ -148,9 +146,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testAddTeamMemberWhenAuthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $team = Mockery::mock(Team::class);
 
@@ -160,9 +158,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testUpdateTeamMemberWhenUnauthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $team = Mockery::mock(Team::class);
 
@@ -172,9 +170,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testUpdateTeamMemberWhenAuthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $team = Mockery::mock(Team::class);
 
@@ -184,9 +182,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testRemoveTeamMemberWhenUnauthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $team = Mockery::mock(Team::class);
 
@@ -196,9 +194,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testRemoveTeamMemberWhenAuthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $team = Mockery::mock(Team::class);
 
@@ -208,9 +206,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testDeleteWhenUnauthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $team = Mockery::mock(Team::class);
 
@@ -220,9 +218,9 @@ final class JobBatchPolicyTest extends TestCase
     public function testDeleteWhenAuthorized(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         $team = Mockery::mock(Team::class);
 

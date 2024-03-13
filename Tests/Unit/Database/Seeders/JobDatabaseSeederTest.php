@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Modules\Job\Tests\Unit\Database\Seeders;
 
 use Modules\Job\Database\Seeders\JobDatabaseSeeder;
@@ -24,9 +22,9 @@ final class JobDatabaseSeederTest extends TestCase
         parent::setUp();
 
         /**
-*
+* 
          *
- * @todo Correctly instantiate tested object to use it.
+ * @todo Correctly instantiate tested object to use it. 
 */
         $this->jobDatabaseSeeder = new JobDatabaseSeeder();
     }
@@ -44,9 +42,9 @@ final class JobDatabaseSeederTest extends TestCase
     public function testRun(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }

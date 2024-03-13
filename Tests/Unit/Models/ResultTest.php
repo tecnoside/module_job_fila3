@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Tests\Unit\Modules\Job\Models;
 
 use Modules\Job\Models\Result;
@@ -24,9 +22,9 @@ final class ResultTest extends TestCase
         parent::setUp();
 
         /**
-*
+* 
          *
- * @todo Correctly instantiate tested object to use it.
+ * @todo Correctly instantiate tested object to use it. 
 */
         $this->result = new Result();
     }
@@ -44,9 +42,9 @@ final class ResultTest extends TestCase
     public function testTask(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -54,9 +52,9 @@ final class ResultTest extends TestCase
     public function testGetLastRun(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
@@ -64,9 +62,9 @@ final class ResultTest extends TestCase
     public function testGetAverageRunTime(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }

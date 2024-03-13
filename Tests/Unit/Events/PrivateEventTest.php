@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Tests\Unit\Modules\Job\Events;
 
 use Modules\Job\Events\PrivateEvent;
@@ -43,9 +41,9 @@ final class PrivateEventTest extends TestCase
     public function testBroadcastOn(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }

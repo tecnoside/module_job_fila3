@@ -27,7 +27,6 @@ class CreateJobsTable extends XotBaseMigration
         // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table): void {
-                /*
                 if (! $this->hasColumn('created_by')) {
                     $table->string('created_by')->nullable();
                     $table->string('updated_by')->nullable();
@@ -40,8 +39,6 @@ class CreateJobsTable extends XotBaseMigration
                 if (! $this->hasColumn('created_at')) {
                     $table->timestamp('created_at')->nullable();
                 }
-                */
-                $this->updateTimestamps($table,true);
             }
         );
     }

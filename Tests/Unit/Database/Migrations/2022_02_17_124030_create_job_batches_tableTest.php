@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Tests\Unit;
 
 use CreateJobBatchesTable;
@@ -24,9 +22,9 @@ final class CreateJobBatchesTableTest extends TestCase
         parent::setUp();
 
         /**
-*
+* 
          *
- * @todo Correctly instantiate tested object to use it.
+ * @todo Correctly instantiate tested object to use it. 
 */
         $this->createJobBatchesTable = new CreateJobBatchesTable();
     }
@@ -44,9 +42,9 @@ final class CreateJobBatchesTableTest extends TestCase
     public function testUp(): void
     {
         /**
-*
+* 
          *
- * @todo This test is incomplete.
+ * @todo This test is incomplete. 
 */
         self::markTestIncomplete();
     }
