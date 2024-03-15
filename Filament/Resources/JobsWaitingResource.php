@@ -58,9 +58,9 @@ class JobsWaitingResource extends XotBaseResource
                 [
                     TextColumn::make('status')
                         ->badge()
-                        ->label(__('jobs::translations.status'))
+                        ->label(static::trans('fields.status'))
                         ->sortable()
-                        ->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
+                        //->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
                         ->color(
                             static fn (string $state): string => match ($state) {
                                 'running' => 'primary',
@@ -70,20 +70,20 @@ class JobsWaitingResource extends XotBaseResource
                             }
                         ),
                     TextColumn::make('display_name')
-                        ->label(__('jobs::translations.name'))
+                        ->label(static::trans('fields.display_name'))
                         ->sortable(),
                     TextColumn::make('queue')
-                        ->label(__('jobs::translations.queue'))
+                        ->label(static::trans('fields.queue'))
                         ->sortable(),
                     TextColumn::make('attempts')
-                        ->label(__('jobs::translations.attempts'))
+                        ->label(static::trans('fields.attempts'))
                         ->sortable(),
                     TextColumn::make('reserved_at')
-                        ->label(__('jobs::translations.reserved_at'))
+                        ->label(static::trans('fields.reserved_at'))
                         ->since()
                         ->sortable(),
                     TextColumn::make('created_at')
-                        ->label(__('jobs::translations.created_at'))
+                        ->label(static::trans('fields.created_at'))
                         ->since()
                         ->sortable(),
                 ]
