@@ -36,6 +36,7 @@
         "nunomaduro/collision": "*",
         "nunomaduro/larastan": "*",
         "nunomaduro/phpinsights": "*",
+        "orchestra/pest-plugin-testbench": "*",
         "orchestra/testbench": "*",
         "pestphp/pest": "*",
         "pestphp/pest-plugin-arch": "*",
