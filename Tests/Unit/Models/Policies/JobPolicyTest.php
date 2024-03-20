@@ -2,11 +2,11 @@
 
 namespace Modules\Job\Tests\Unit\Models\Policies;
 
-use App\User;
 use Mockery;
-use Modules\Job\Models\Policies\JobPolicy;
-use Modules\User\Models\Team;
 use Tests\TestCase;
+use Modules\User\Models\Team;
+use Modules\User\Models\User;
+use Modules\Job\Models\Policies\JobPolicy;
 
 /**
  * Class JobPolicyTest.
