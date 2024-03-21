@@ -16,6 +16,15 @@ use function Safe\json_decode;
 
 use Webmozart\Assert\Assert;
 
+/**
+ * 
+ *
+ * @method static \Modules\Job\Database\Factories\ExportFactory factory($count = null, $state = [])
+ * @method static Builder|Export newModelQuery()
+ * @method static Builder|Export newQuery()
+ * @method static Builder|Export query()
+ * @mixin \Eloquent
+ */
 class Export extends BaseModel
 {
     protected $fillable = [

@@ -16,6 +16,15 @@ use function Safe\json_decode;
 
 use Webmozart\Assert\Assert;
 
+/**
+ * 
+ *
+ * @method static \Modules\Job\Database\Factories\FailedImportRowFactory factory($count = null, $state = [])
+ * @method static Builder|FailedImportRow newModelQuery()
+ * @method static Builder|FailedImportRow newQuery()
+ * @method static Builder|FailedImportRow query()
+ * @mixin \Eloquent
+ */
 class FailedImportRow extends BaseModel
 {
     protected $fillable = [

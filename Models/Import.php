@@ -16,6 +16,15 @@ use function Safe\json_decode;
 
 use Webmozart\Assert\Assert;
 
+/**
+ * 
+ *
+ * @method static \Modules\Job\Database\Factories\ImportFactory factory($count = null, $state = [])
+ * @method static Builder|Import newModelQuery()
+ * @method static Builder|Import newQuery()
+ * @method static Builder|Import query()
+ * @mixin \Eloquent
+ */
 class Import extends BaseModel
 {
     protected $fillable = [
