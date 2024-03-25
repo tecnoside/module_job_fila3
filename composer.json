@@ -39,7 +39,7 @@
         "nunomaduro/larastan": "*",
         "nunomaduro/phpinsights": "*",
         "orchestra/pest-plugin-testbench": "*",
-        "orchestra/testbench": "*",
+        "orchestra/testbench": "^8.22",
         "pestphp/pest": "*",
         "pestphp/pest-plugin-arch": "*",
         "pestphp/pest-plugin-laravel": "*",
