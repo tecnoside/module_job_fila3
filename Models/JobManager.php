@@ -22,18 +22,21 @@ use Illuminate\Support\Facades\Hash;
  * @property Carbon|null     $cancelled_at
  * @property Carbon          $created_at
  * @property Carbon|null     $finished_at
+ *
  * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager  newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager  query()
- * @property mixed $status
- * @property string $job_id
- * @property string|null $queue
+ *
+ * @property mixed                           $status
+ * @property string                          $job_id
+ * @property string|null                     $queue
  * @property \Illuminate\Support\Carbon|null $started_at
- * @property int $attempt
- * @property int|null $progress
- * @property string|null $exception_message
+ * @property int                             $attempt
+ * @property int|null                        $progress
+ * @property string|null                     $exception_message
  * @property \Illuminate\Support\Carbon|null $updated_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereAttempt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereExceptionMessage($value)
@@ -46,6 +49,7 @@ use Illuminate\Support\Facades\Hash;
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereQueue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereStartedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel
@@ -66,15 +70,18 @@ class JobManager extends BaseModel
         'exception_message',
     ];
 
-    protected $casts = [
-        'updated_by' => 'string',
-        'created_by' => 'string',
-        'deleted_by' => 'string',
+    protected function casts(): array
+    {
+        return [
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
 
-        'failed' => 'bool',
-        'started_at' => 'datetime',
-        'finished_at' => 'datetime',
-    ];
+            'failed' => 'bool',
+            'started_at' => 'datetime',
+            'finished_at' => 'datetime',
+        ];
+    }
 
     public function status(): Attribute
     {

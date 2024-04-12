@@ -27,6 +27,7 @@ use Illuminate\Support\Collection;
  * @property Carbon|null     $cancelled_at
  * @property Carbon          $created_at
  * @property Carbon|null     $finished_at
+ *
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
  * @method static Builder|JobBatch                                newModelQuery()
  * @method static Builder|JobBatch                                newQuery()
@@ -41,6 +42,7 @@ use Illuminate\Support\Collection;
  * @method static Builder|JobBatch                                whereOptions($value)
  * @method static Builder|JobBatch                                wherePendingJobs($value)
  * @method static Builder|JobBatch                                whereTotalJobs($value)
+ *
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel
@@ -81,17 +83,20 @@ class JobBatch extends BaseModel
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'updated_by' => 'string',
-        'created_by' => 'string',
-        'deleted_by' => 'string',
+    protected function casts(): array
+    {
+        return [
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
 
-        'options' => 'collection',
-        'failed_jobs' => 'integer',
-        'created_at' => 'datetime',
-        'cancelled_at' => 'datetime',
-        'finished_at' => 'datetime',
-    ];
+            'options' => 'collection',
+            'failed_jobs' => 'integer',
+            'created_at' => 'datetime',
+            'cancelled_at' => 'datetime',
+            'finished_at' => 'datetime',
+        ];
+    }
 
     /**
      * Get the total number of jobs that have been processed by the batch thus far.

@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\DB;
  * @property Carbon|null                   $created_at
  * @property Carbon|null                   $updated_at
  * @property \Modules\Job\Models\Task|null $task
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Result newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result query()
@@ -35,6 +36,7 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class Result extends BaseModel
@@ -48,13 +50,16 @@ class Result extends BaseModel
         'result',
     ];
 
-    protected $casts = [
-        'updated_by' => 'string',
-        'created_by' => 'string',
-        'deleted_by' => 'string',
+    protected function casts(): array
+    {
+        return [
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
 
-        'ran_at' => 'datetime',
-    ];
+            'ran_at' => 'datetime',
+        ];
+    }
 
     public function task(): BelongsTo
     {

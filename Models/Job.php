@@ -29,6 +29,7 @@ use Webmozart\Assert\Assert;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
+ *
  * @method static \Modules\Job\Database\Factories\JobFactory factory($count = null, $state = [])
  * @method static Builder|Job                                newModelQuery()
  * @method static Builder|Job                                newQuery()
@@ -43,8 +44,10 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Job                                whereReservedAt($value)
  * @method static Builder|Job                                whereUpdatedAt($value)
  * @method static Builder|Job                                whereUpdatedBy($value)
+ *
  * @property mixed $display_name
  * @property mixed $status
+ *
  * @mixin \Eloquent
  */
 class Job extends BaseModel
@@ -59,18 +62,21 @@ class Job extends BaseModel
         'created_at',
     ];
 
-    protected $casts = [
-        'updated_by' => 'string',
-        'created_by' => 'string',
-        'deleted_by' => 'string',
+    protected function casts(): array
+    {
+        return [
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
 
-        'payload' => 'array',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        // 'updated_at' => 'datetime:Y-m-d H:00',
-        // 'created_at' => 'datetime:Y-m-d',
-        // 'created_at' => 'datetime:d/m/Y H:i'
-    ];
+            'payload' => 'array',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            // 'updated_at' => 'datetime:Y-m-d H:00',
+            // 'created_at' => 'datetime:Y-m-d',
+            // 'created_at' => 'datetime:d/m/Y H:i'
+        ];
+    }
 
     public function getTable(): string
     {
