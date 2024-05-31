@@ -55,7 +55,7 @@ class FailedImportRow extends BaseModel
 
             'updated_by' => 'string',
             'created_by' => 'string',
-            'deleted_by' => 'string', ,
+            'deleted_by' => 'string',
 
             'payload' => 'array',
             'completed_at' => 'datetime',
