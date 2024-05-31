@@ -18,6 +18,7 @@ use Modules\Job\Events\Executed;
 use Modules\Job\Events\Executing;
 use Modules\Job\Models\Task;
 use Modules\Xot\Providers\XotBaseServiceProvider;
+use Filament\Actions\Imports\Models\Import;
 
 class JobServiceProvider extends XotBaseServiceProvider
 {
@@ -43,6 +44,7 @@ class JobServiceProvider extends XotBaseServiceProvider
         //    echo $e->getMessage();
         // }
         // });
+        Import::polymorphicUserRelationship();
         $this->registerQueue();
     }
 
