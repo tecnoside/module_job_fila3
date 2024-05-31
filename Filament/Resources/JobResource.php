@@ -93,8 +93,13 @@ class JobResource extends XotBaseResource
         ];
     }
 
+    //public static function getNavigationBadge(): ?string
+    //{
+    //    return (string) Job::query()->count();
+    //}
+
     public static function getNavigationBadge(): ?string
     {
-        return (string) Job::query()->count();
+        return number_format(static::getModel()::count());
     }
 }

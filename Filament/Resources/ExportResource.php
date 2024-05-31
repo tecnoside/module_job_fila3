@@ -55,4 +55,9 @@ class ExportResource extends XotBaseResource
             'edit' => Pages\EditExport::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return number_format(static::getModel()::count());
+    }
 }
