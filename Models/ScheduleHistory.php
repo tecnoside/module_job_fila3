@@ -13,11 +13,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * Modules\Job\Models\ScheduleHistory.
  *
- * @property \Modules\Job\Models\Schedule|null $command
+ * @property Schedule|null $command
+ *
  * @method static \Modules\Job\Database\Factories\ScheduleHistoryFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  query()
+ *
  * @property int                             $id
  * @property array|null                      $params
  * @property string                          $output
@@ -29,6 +31,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string|null                     $created_by
  * @property string|null                     $deleted_at
  * @property string|null                     $deleted_by
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereCommand($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereCreatedBy($value)
@@ -41,6 +44,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereScheduleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class ScheduleHistory extends BaseModel
@@ -62,6 +66,10 @@ class ScheduleHistory extends BaseModel
     protected function casts(): array
     {
         return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
