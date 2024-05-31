@@ -13,6 +13,7 @@ enum Status: string implements HasIcon, HasColor, HasLabel
     case Active = 'active';
     case Inactive = 'inactive';
     case Trashed = 'trashed';
+    case One = '1';
 
     public function getColor(): string|array|null
     {
@@ -20,6 +21,7 @@ enum Status: string implements HasIcon, HasColor, HasLabel
             self::Active => 'success',
             self::Inactive => 'warning',
             self::Trashed => 'danger',
+            self::One => 'danger',
         };
     }
 
@@ -29,6 +31,7 @@ enum Status: string implements HasIcon, HasColor, HasLabel
             self::Active => 'heroicon-o-check-circle',
             self::Inactive => 'heroicon-o-document',
             self::Trashed => 'heroicon-o-x-circle',
+            self::One => 'heroicon-o-x-circle',
         };
     }
 
@@ -38,6 +41,7 @@ enum Status: string implements HasIcon, HasColor, HasLabel
             self::Active => __('job::schedule.status.active'),
             self::Inactive => __('job::schedule.status.inactive'),
             self::Trashed => __('job::schedule.status.trashed'),
+            self::One => __('job::schedule.status.one'),
         };
     }
 }

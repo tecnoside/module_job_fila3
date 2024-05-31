@@ -89,12 +89,10 @@ class Schedule extends BaseModel
 {
     use ManagesFrequencies;
     use SoftDeletes;
-    /*
-         * The database table used by the model.
-         *
-         * @var string
-         */
-    // protected $table;
+
+    public const STATUS_INACTIVE = 0;
+    public const STATUS_ACTIVE = 1;
+    public const STATUS_TRASHED = 2;
 
     protected $fillable = [
         'command',
