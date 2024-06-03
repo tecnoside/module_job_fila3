@@ -28,7 +28,7 @@ class JobBatchResource extends XotBaseResource
 
     public static function table(Table $table): Table
     {
-        Assert::string($date_format = config('app.date_format'));
+        Assert::string($date_format = config('app.date_format'), '['.__LINE__.']['.__FILE__.']');
 
         return $table
             ->columns(
