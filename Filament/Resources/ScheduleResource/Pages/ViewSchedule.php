@@ -72,7 +72,7 @@ class ViewSchedule extends Page implements HasTable
 
     protected function getTableColumns(): array
     {
-        $date_format = Assert::string(config('app.date_format'));
+        $date_format = Assert::string(config('app.date_format'), '['.__LINE__.']['.__FILE__.']');
 
         return [
             Tables\Columns\Layout\Split::make([

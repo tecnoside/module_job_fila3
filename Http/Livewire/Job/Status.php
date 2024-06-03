@@ -161,7 +161,7 @@ class Status extends Component
             $env_content
         );
         putenv('QUEUE_CONNECTION='.$this->form_data['conn']);
-        Assert::string($new_content);
+        Assert::string($new_content, '['.__LINE__.']['.__FILE__.']');
         File::put($env_file, $new_content);
         $this->old_value = $this->form_data['conn'];
     }

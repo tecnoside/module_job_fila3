@@ -20,7 +20,7 @@ class ScheduleService
 
     public function __construct()
     {
-        Assert::string($modelClass = config('job::model'));
+        Assert::string($modelClass = config('job::model'), '['.__LINE__.']['.__FILE__.']');
         $this->model = app($modelClass);
     }
 
@@ -40,8 +40,8 @@ class ScheduleService
 
     public function clearCache(): void
     {
-        Assert::string($store = config('job::cache.store'));
-        Assert::string($key = config('job::cache.key'));
+        Assert::string($store = config('job::cache.store'), '['.__LINE__.']['.__FILE__.']');
+        Assert::string($key = config('job::cache.key'), '['.__LINE__.']['.__FILE__.']');
 
         Cache::store($store)->forget($key);
     }
@@ -53,8 +53,8 @@ class ScheduleService
      */
     private function getFromCache()
     {
-        Assert::string($store = config('job::cache.store'));
-        Assert::string($key = config('job::cache.key'));
+        Assert::string($store = config('job::cache.store'), '['.__LINE__.']['.__FILE__.']');
+        Assert::string($key = config('job::cache.key'), '['.__LINE__.']['.__FILE__.']');
 
         return Cache::store($store)->rememberForever($key, function () {
             return $this->model->active()->get();
