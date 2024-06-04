@@ -124,6 +124,6 @@ class FailedJobResource extends XotBaseResource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) FailedJob::query()->count();
+        return number_format(static::getModel()::count());
     }
 }

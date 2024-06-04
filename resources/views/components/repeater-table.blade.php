@@ -123,7 +123,7 @@
                                                     {{ __('forms::components.repeater.buttons.move_item.label') }}
                                                 </span>
 
-                                                <x-heroicon-s-switch-vertical class="w-5 h-5 md:!w-4 md:!h-4" />
+                                                <x-heroicon-o-arrows-up-down class="w-5 h-5 md:!w-4 md:!h-4" />
                                             </button>
                                         @endunless
 
@@ -139,7 +139,7 @@
                                                     {{ __('forms::components.repeater.buttons.clone_item.label') }}
                                                 </span>
 
-                                                <x-heroicon-s-duplicate class="w-5 h-5 md:!w-4 md:!h-4" />
+                                                <x-heroicon-o-document-duplicate class="w-5 h-5 md:!w-4 md:!h-4" />
                                             </button>
                                         @endunless
 
@@ -182,11 +182,11 @@
 
 @if (!$isItemCreationDisabled)
     <div class="relative flex justify-center">
-        <x-forms::button
+        <x-filament::button
             :wire:click="'dispatchFormEvent(\'repeater::createItem\', \'' . $getStatePath() . '\')'"
             size="sm" type="button">
             {{ $getCreateItemButtonLabel() }}
-        </x-forms::button>
+        </x-filament::button>
     </div>
 @endif
 </div>

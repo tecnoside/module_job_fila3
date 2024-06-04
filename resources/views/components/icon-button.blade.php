@@ -103,11 +103,11 @@
             x-bind:class="{ 'opacity-70 cursor-wait': isUploadingFile }"
         @endunless
         x-bind:disabled="isUploadingFile" x-init="form = $el.closest('form')
-        
+
         form?.addEventListener('file-upload-started', () => {
             isUploadingFile = true
         })
-        
+
         form?.addEventListener('file-upload-finished', () => {
             isUploadingFile = false
         })" {{ $attributes->class($buttonClasses) }}>
@@ -118,8 +118,10 @@
             @endif
 
             @if ($hasLoadingIndicator)
-                <x-filament-support::loading-indicator x-cloak wire:loading.delay :wire:target="$loadingIndicatorTarget"
+
+                <x-filament::loading-indicator x-cloak wire:loading.delay :wire:target="$loadingIndicatorTarget"
                     :class="$iconClasses" />
+
             @endif
         @endif
 
@@ -132,7 +134,7 @@
             @endif
 
             @if ($hasLoadingIndicator)
-                <x-filament-support::loading-indicator x-cloak wire:loading.delay :wire:target="$loadingIndicatorTarget"
+                <x-filament::loading-indicator x-cloak wire:loading.delay :wire:target="$loadingIndicatorTarget"
                     :class="$iconClasses" />
             @endif
         @endif
