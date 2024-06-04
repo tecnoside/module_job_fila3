@@ -96,7 +96,6 @@ class JobBatchResource extends XotBaseResource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) JobBatch::query()
-->count();
+        return number_format(static::getModel()::count());
     }
 }

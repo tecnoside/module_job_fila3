@@ -24,22 +24,8 @@ class ImportResource extends XotBaseResource
             ]);
     }
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-            ])
-            ->filters([
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
-    }
+    
+    
 
     public static function getRelations(): array
     {
@@ -54,5 +40,10 @@ class ImportResource extends XotBaseResource
             'create' => Pages\CreateImport::route('/create'),
             'edit' => Pages\EditImport::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return number_format(static::getModel()::count());
     }
 }
