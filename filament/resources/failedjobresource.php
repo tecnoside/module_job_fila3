@@ -29,10 +29,8 @@ use Webmozart\Assert\Assert;
 
 class FailedJobResource extends XotBaseResource
 {
-    // //
 
     protected static ?string $model = FailedJob::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-exclamation-circle';
 
     // protected static ?string $navigationGroup = 'jobs';
