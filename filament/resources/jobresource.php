@@ -5,11 +5,6 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 use Filament\Forms\Form;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ViewColumn;
-use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobResource\Pages;
 use Modules\Job\Filament\Resources\JobResource\Widgets;
 use Modules\Job\Models\Job;
@@ -31,41 +26,6 @@ class JobResource extends XotBaseResource
         return $form
             ->schema(
                 [
-                ]
-            );
-    }
-
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns(
-                [
-                    TextColumn::make('id')->sortable()->searchable()->toggleable(),
-                    TextColumn::make('queue'),
-
-                    // Tables\Columns\TextColumn::make('payload'),
-                    TextColumn::make('attempts'),
-                    TextColumn::make('reserved_at'),
-                    TextColumn::make('available_at'),
-                    TextColumn::make('created_at'),
-                    // Tables\Columns\TextColumn::make('created_by'),
-                    // Tables\Columns\TextColumn::make('updated_by'),
-                    // Tables\Columns\TextColumn::make('updated_at'),
-                    ViewColumn::make('payload')->view('job::filament.tables.columns.array'),
-                ]
-            )
-            ->filters(
-                [
-                ]
-            )
-            ->actions(
-                [
-                    EditAction::make(),
-                ]
-            )
-            ->bulkActions(
-                [
-                    DeleteBulkAction::make(),
                 ]
             );
     }
@@ -93,10 +53,10 @@ class JobResource extends XotBaseResource
         ];
     }
 
-    //public static function getNavigationBadge(): ?string
-    //{
+    // public static function getNavigationBadge(): ?string
+    // {
     //    return (string) Job::query()->count();
-    //}
+    // }
 
     public static function getNavigationBadge(): ?string
     {
