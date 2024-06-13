@@ -25,10 +25,12 @@
         "php": "^8.2",
         "filament/filament": "^3.2",
         "invaders-xx/filament-jsoneditor": "*",
-        "laraxot/module_user_fila3": "*",
-        "laraxot/module_xot_fila3": "*",
         "mhmiton/laravel-modules-livewire": "*",
         "thecodingmachine/safe": "*"
+    },
+    "require_comment":{
+        "laraxot/module_user_fila3": "*",
+        "laraxot/module_xot_fila3": "*"
     },
     "require-dev": {
         "driftingly/rector-laravel": "*",
@@ -36,7 +38,6 @@
         "larastan/larastan": "*",
         "laravel/pint": "*",
         "nunomaduro/collision": "*",
-        "larastan/larastan": "*",
         "nunomaduro/phpinsights": "*",
         "orchestra/pest-plugin-testbench": "*",
         "orchestra/testbench": "*",
@@ -45,7 +46,6 @@
         "pestphp/pest-plugin-laravel": "*",
         "phpstan/phpstan-deprecation-rules": "*",
         "phpstan/phpstan-phpunit": "*",
-        
         "rector/rector": "*",
         "spatie/laravel-ray": "*",
         "symplify/phpstan-rules": "*",
