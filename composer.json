@@ -32,7 +32,7 @@
         "laraxot/module_user_fila3": "*",
         "laraxot/module_xot_fila3": "*"
     },
-    "require-dev": {
+    "require-dev_comment": {
         "driftingly/rector-laravel": "*",
         "enlightn/enlightn": "*",
         "larastan/larastan": "*",

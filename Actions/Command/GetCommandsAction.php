@@ -24,7 +24,7 @@ class GetCommandsAction
         //    $commandsKeys = preg_grep("/^$exclude/", $commandsKeys, PREG_GREP_INVERT);
         // }
         if (null == $commandsKeys) {
-            return collect([]);
+            return CommandData::collection([]);
         }
 
         $commands = $commands
