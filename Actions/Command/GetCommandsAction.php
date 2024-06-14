@@ -8,6 +8,7 @@ use App\Console\Kernel;
 use Modules\Job\Datas\CommandData;
 use Spatie\LaravelData\DataCollection;
 use Spatie\QueueableAction\QueueableAction;
+use Webmozart\Assert\Assert;
 
 class GetCommandsAction
 {
@@ -26,6 +27,7 @@ class GetCommandsAction
         if (null == $commandsKeys) {
             return CommandData::collection([]);
         }
+        Assert::isArray($commandsKeys, '['.__LINE__.']['.__FILE__.']');
 
         $commands = $commands
             ->only($commandsKeys)

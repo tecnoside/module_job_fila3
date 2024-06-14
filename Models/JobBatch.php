@@ -50,17 +50,13 @@ class JobBatch extends BaseModel
     /**
      * Indicates if the IDs are auto-incrementing.
      */
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $incrementing = false;
 
     /**
      * The "type" of the primary key ID.
      */
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $keyType = 'string';
 
     protected $fillable = [
