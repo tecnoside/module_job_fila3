@@ -103,7 +103,7 @@ class ScheduleResource extends XotBaseResource
                     ->schema([
                         Hidden::make('name'),
                         TextInput::make('value')
-                            ->label(fn (Get $get) => ucfirst((string) $get('name')))
+                            ->label(fn (Get $get) => $get('name'))
                             ->required(fn (Get $get) => $get('required')),
                     ])
                     ->addable(false)
@@ -116,7 +116,7 @@ class ScheduleResource extends XotBaseResource
                         Hidden::make('type')
                                 ->default('string'),
                         TextInput::make('value')
-                            ->label(fn (Get $get) => ucfirst((string) $get('name')))
+                            ->label(fn (Get $get) => $get('name'))
                             ->required(fn (Get $get) => $get('required')),
                     ])
                     ->addable(false)

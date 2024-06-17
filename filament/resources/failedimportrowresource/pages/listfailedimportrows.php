@@ -6,11 +6,10 @@ namespace Modules\Job\Filament\Resources\FailedImportRowResource\Pages;
 
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
-use Modules\Job\Filament\Resources\FailedImportRowResource;
 use Filament\Tables;
-use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
-use Modules\Job\Filament\Resources\ImportResource;
+use Filament\Tables\Table;
+use Modules\Job\Filament\Resources\FailedImportRowResource;
 
 class ListFailedImportRows extends ListRecords
 {
@@ -23,38 +22,40 @@ class ListFailedImportRows extends ListRecords
         ];
     }
 
-    public function getTableColumns():array{
+    public function getTableColumns(): array
+    {
         return [
             TextColumn::make('id'),
             TextColumn::make('data'),
             TextColumn::make('import_id'),
             TextColumn::make('validation_error'),
-            //$table->timestamps();
+            // $table->timestamps();
         ];
     }
 
-    public function getTableFilters():array{
+    public function getTableFilters(): array
+    {
         return [
-
         ];
     }
 
-    public function getTableActions():array{
+    public function getTableActions(): array
+    {
         return [
             Tables\Actions\EditAction::make(),
         ];
     }
 
-    public function getTableBulkActions():array{
+    public function getTableBulkActions(): array
+    {
         return [
-            Tables\Actions\BulkActionGroup::make([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]),
+            // Tables\Actions\BulkActionGroup::make([
+            Tables\Actions\DeleteBulkAction::make(),
+            // ]),
         ];
     }
 
-
-    public  function table(Table $table): Table
+    public function table(Table $table): Table
     {
         return $table
             ->columns($this->getTableColumns())
