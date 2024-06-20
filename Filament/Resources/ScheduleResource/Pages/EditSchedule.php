@@ -16,7 +16,9 @@ use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 class EditSchedule extends EditRecord
 {
     use NavigationPageLabelTrait;
+
     protected static string $resource = ScheduleResource::class;
+
     public Collection $commands;
 
     protected function getHeaderActions(): array

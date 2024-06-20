@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 use Filament\Forms\Form;
-use Filament\Tables;
-use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\FailedImportRowResource\Pages;
 use Modules\Job\Models\FailedImportRow;
 use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -23,8 +21,6 @@ class FailedImportRowResource extends XotBaseResource
             ->schema([
             ]);
     }
-
-   
 
     public static function getRelations(): array
     {

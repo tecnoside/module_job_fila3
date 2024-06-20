@@ -11,30 +11,30 @@ use Illuminate\Support\Facades\Hash;
 /**
  * Modules\Job\Models\JobManager.
  *
- * @property string          $id
- * @property string          $name
- * @property bool            $failed
- * @property int             $total_jobs
- * @property int             $pending_jobs
- * @property int             $failed_jobs
- * @property string          $failed_job_ids
+ * @property string $id
+ * @property string $name
+ * @property bool $failed
+ * @property int $total_jobs
+ * @property int $pending_jobs
+ * @property int $failed_jobs
+ * @property string $failed_job_ids
  * @property Collection|null $options
- * @property Carbon|null     $cancelled_at
- * @property Carbon          $created_at
- * @property Carbon|null     $finished_at
+ * @property Carbon|null $cancelled_at
+ * @property Carbon $created_at
+ * @property Carbon|null $finished_at
  *
  * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager  newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager  newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager  query()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager query()
  *
- * @property mixed                           $status
- * @property string                          $job_id
- * @property string|null                     $queue
+ * @property mixed $status
+ * @property string $job_id
+ * @property string|null $queue
  * @property \Illuminate\Support\Carbon|null $started_at
- * @property int                             $attempt
- * @property int|null                        $progress
- * @property string|null                     $exception_message
+ * @property int $attempt
+ * @property int|null $progress
+ * @property string|null $exception_message
  * @property \Illuminate\Support\Carbon|null $updated_at
  *
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereAttempt($value)
@@ -115,7 +115,7 @@ class JobManager extends BaseModel
             return true;
         }
 
-        return null !== $this->finished_at;
+        return $this->finished_at !== null;
     }
 
     public function hasFailed(): bool
@@ -136,7 +136,7 @@ class JobManager extends BaseModel
     {
         if (config('jobs.pruning.activate')) {
             $retention_days = config('jobs.pruning.retention_days');
-            if (! is_integer($retention_days)) {
+            if (! is_int($retention_days)) {
                 $retention_days = 365;
             }
 

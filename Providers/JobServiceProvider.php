@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Providers;
 
+use Filament\Actions\Imports\Models\Import;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Queue\Events\JobExceptionOccurred;
 use Illuminate\Queue\Events\JobFailed;
@@ -18,7 +19,6 @@ use Modules\Job\Events\Executed;
 use Modules\Job\Events\Executing;
 use Modules\Job\Models\Task;
 use Modules\Xot\Providers\XotBaseServiceProvider;
-use Filament\Actions\Imports\Models\Import;
 
 class JobServiceProvider extends XotBaseServiceProvider
 {

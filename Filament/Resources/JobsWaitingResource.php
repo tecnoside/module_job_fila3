@@ -24,7 +24,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class JobsWaitingResource extends XotBaseResource
 {
     protected static ?string $model = Job::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-pause';
+
     protected static bool $shouldRegisterNavigation = true;
 
     public static function form(Form $form): Form

@@ -12,20 +12,23 @@ namespace Modules\Job\Console\Commands;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+
 use function Safe\exec;
 
 class WorkerCheck extends Command
 {
     /**
      * The name and signature of the console command.
-    * @var string
- */
+     *
+     * @var string
+     */
     protected $signature = 'worker:check';
 
     /**
      * The console command description.
+     *
      * @var string
-*/
+     */
     protected $description = 'Ensure that the queue listener is running.';
 
     private string $filename = 'queue.pid';
@@ -67,11 +70,12 @@ class WorkerCheck extends Command
         $process = exec($process_cmd, $output);
         // $processIsQueueListener = str_contains($process, 'queue:listen'); // 5.1
         //if ($process === false) {
-            // DISABILITATO PER SBLOCCARE MODULE JOB
-            // throw new Exception('['.__LINE__.']['.__FILE__.']');
+        // DISABILITATO PER SBLOCCARE MODULE JOB
+        // throw new Exception('['.__LINE__.']['.__FILE__.']');
         //}
 
         $this->comment($process);
+
         // $processIsQueueListener = ! empty($process); // 5.6 - see comments
         return str_contains($process, substr(base_path(), 0, 30));
     }

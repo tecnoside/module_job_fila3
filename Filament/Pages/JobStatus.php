@@ -8,10 +8,9 @@ use Filament\Pages\Page;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Process;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
+use Webmozart\Assert\Assert;
 
 use function Safe\mb_convert_encoding;
-
-use Webmozart\Assert\Assert;
 
 class JobStatus extends Page
 {

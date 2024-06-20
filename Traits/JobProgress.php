@@ -24,7 +24,7 @@ trait JobProgress
 
         $monitor->update(
             [
-            'progress' => $progress,
+                'progress' => $progress,
             ]
         );
 

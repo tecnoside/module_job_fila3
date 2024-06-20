@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Modules\Job\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
-
 use Modules\Job\Models\ScheduleHistory;
 
-class ScheduleHistoryFactory extends Factory {
+class ScheduleHistoryFactory extends Factory
+{
     /**
      * The name of the factory's corresponding model.
      *
@@ -22,11 +21,11 @@ class ScheduleHistoryFactory extends Factory {
      *
      * @return array
      */
-    public function definition() {
-
+    public function definition()
+    {
 
         return [
-            
+
         ];
     }
 }

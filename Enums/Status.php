@@ -8,7 +8,7 @@ use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 
-enum Status: string implements HasIcon, HasColor, HasLabel
+enum Status: string implements HasColor, HasIcon, HasLabel
 {
     case Active = 'active';
     case Inactive = 'inactive';

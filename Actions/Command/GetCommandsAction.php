@@ -24,7 +24,7 @@ class GetCommandsAction
         // foreach (config('filament-database-schedule.commands.exclude') as $exclude) {
         //    $commandsKeys = preg_grep("/^$exclude/", $commandsKeys, PREG_GREP_INVERT);
         // }
-        if (null == $commandsKeys) {
+        if ($commandsKeys == null) {
             return CommandData::collection([]);
         }
         Assert::isArray($commandsKeys, '['.__LINE__.']['.__FILE__.']');

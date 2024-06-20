@@ -2,14 +2,12 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 class CreateImportsTable extends XotBaseMigration
 {
-     /**
+    /**
      * Run the migrations.
      */
     public function up(): void
@@ -17,32 +15,30 @@ class CreateImportsTable extends XotBaseMigration
         // -- CREATE --
         $this->tableCreate(
             static function (Blueprint $table): void {
-            $table->id();
-            $table->timestamp('completed_at')->nullable();
-            $table->string('file_name');
-            $table->string('file_path');
-            $table->string('importer');
-            $table->unsignedInteger('processed_rows')->default(0);
-            $table->unsignedInteger('total_rows');
-            $table->unsignedInteger('successful_rows')->default(0);
-            //$table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            //$table->string('user_id',36)->nullable()->index();
-            $table->nullableUuidMorphs('user');
-            $table->timestamps();
+                $table->id();
+                $table->timestamp('completed_at')->nullable();
+                $table->string('file_name');
+                $table->string('file_path');
+                $table->string('importer');
+                $table->unsignedInteger('processed_rows')->default(0);
+                $table->unsignedInteger('total_rows');
+                $table->unsignedInteger('successful_rows')->default(0);
+                //$table->foreignId('user_id')->constrained()->cascadeOnDelete();
+                //$table->string('user_id',36)->nullable()->index();
+                $table->nullableUuidMorphs('user');
+                $table->timestamps();
             }
         );
-         // -- UPDATE --
-         $this->tableUpdate(
+        // -- UPDATE --
+        $this->tableUpdate(
             function (Blueprint $table): void {
-                
+
                 if (! $this->hasColumn('user_type')) {
-                    $table->string('user_type',36)->nullable()->index();
+                    $table->string('user_type', 36)->nullable()->index();
                 }
-                
-                $this->updateTimestamps($table,true);
+
+                $this->updateTimestamps($table, true);
             }
         );
     }
-
-   
-};
+}
