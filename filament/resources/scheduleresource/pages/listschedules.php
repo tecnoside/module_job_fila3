@@ -20,6 +20,7 @@ use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 class ListSchedules extends ListRecords
 {
     use NavigationPageLabelTrait;
+
     protected static string $resource = ScheduleResource::class;
 
     protected function getHeaderActions(): array
@@ -41,7 +42,7 @@ class ListSchedules extends ListRecords
         return [
             Tables\Columns\TextColumn::make('command')
                 ->getStateUsing(function ($record) {
-                    if ('custom' == $record->command) {
+                    if ($record->command == 'custom') {
                         return $record->command_custom;
                     }
 
@@ -172,13 +173,12 @@ class ListSchedules extends ListRecords
             ->columns($this->getTableColumns())
             ->filters($this->getTableFilters())
             ->actions($this->getTableActions())
-            ->bulkActions($this->getTableBulkActions())
-            /*
-            ->defaultSort(
-                config('filament-database-schedule.default_ordering'),
-                config('filament-database-schedule.default_ordering_direction')
-            )
-            */
-        ;
+            ->bulkActions($this->getTableBulkActions());
+        /*
+        ->defaultSort(
+            config('filament-database-schedule.default_ordering'),
+            config('filament-database-schedule.default_ordering_direction')
+        )
+        */
     }
 }

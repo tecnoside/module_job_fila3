@@ -18,19 +18,22 @@ use Webmozart\Assert\Assert;
 
 class ViewSchedule extends Page implements HasTable
 {
-    use InteractsWithRecord;
+    use Forms\Concerns\InteractsWithForms;
     use HasRelationManagers;
     use HasTabs;
-    use Forms\Concerns\InteractsWithForms;
+    use InteractsWithRecord;
     use Tables\Concerns\InteractsWithTable {
         makeTable as makeBaseTable;
     }
     use Tables\Concerns\InteractsWithTable {
         makeTable as makeBaseTable;
     }
+
     #[Url]
     public ?string $activeTab = null;
+
     protected static string $resource = ScheduleResource::class;
+
     protected static string $view = 'filament-panels::resources.pages.list-records';
 
     public function getTitle(): string

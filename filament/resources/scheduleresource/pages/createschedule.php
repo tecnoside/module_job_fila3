@@ -15,6 +15,7 @@ use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 class CreateSchedule extends CreateRecord
 {
     use NavigationPageLabelTrait;
+
     protected static string $resource = ScheduleResource::class;
 
     public Collection $commands;

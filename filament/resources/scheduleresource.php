@@ -35,7 +35,9 @@ use Webmozart\Assert\Assert;
 class ScheduleResource extends XotBaseResource
 {
     protected static ?string $model = Schedule::class;
+
     protected static bool $shouldRegisterNavigation = true;
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     /** @var DataCollection<CommandData> */
@@ -72,7 +74,7 @@ class ScheduleResource extends XotBaseResource
         return [
             Card::make([
                 Select::make('command')
-                 ->label(static::trans('fields.command'))
+                    ->label(static::trans('fields.command'))
                     /*
                     ->options(
                         fn () => config('filament-database-schedule.commands.enable_custom') ?
@@ -98,7 +100,7 @@ class ScheduleResource extends XotBaseResource
                     ->placeholder(static::trans('messages.custom-command-here'))
                     ->label(static::trans('messages.custom'))
                     ->required()
-                    ->visible(fn (Get $get) => 'custom' === $get('command') && config('filament-database-schedule.commands.enable_custom')),
+                    ->visible(fn (Get $get) => $get('command') === 'custom' && config('filament-database-schedule.commands.enable_custom')),
                 Repeater::make('params')
                     ->schema([
                         Hidden::make('name'),
@@ -114,7 +116,7 @@ class ScheduleResource extends XotBaseResource
                     ->schema([
                         Hidden::make('name'),
                         Hidden::make('type')
-                                ->default('string'),
+                            ->default('string'),
                         TextInput::make('value')
                             ->label(fn (Get $get) => $get('name'))
                             ->required(fn (Get $get) => $get('required')),
@@ -137,10 +139,10 @@ class ScheduleResource extends XotBaseResource
                 */
                 TextInput::make('expression')
                     ->placeholder('* * * * *')
-                    ->rules([new Corn()])
+                    ->rules([new Corn])
                     ->label(static::trans('fields.expression'))
                     ->required()
-                 ->helperText(fn () => config('filament-database-schedule.tool-help-cron-expression.enable') ? new HtmlString(" <a href='".config('filament-database-schedule.tool-help-cron-expression.url')."' target='_blank'>".static::trans('messages.help-cron-expression').' </a>') : null),
+                    ->helperText(fn () => config('filament-database-schedule.tool-help-cron-expression.enable') ? new HtmlString(" <a href='".config('filament-database-schedule.tool-help-cron-expression.url')."' target='_blank'>".static::trans('messages.help-cron-expression').' </a>') : null),
                 TagsInput::make('environments')
                     ->placeholder(null)
                     ->label(static::trans('fields.environments')),
@@ -172,7 +174,7 @@ class ScheduleResource extends XotBaseResource
                 Toggle::make('run_in_background')
                     ->label(static::trans('fields.run_in_background')),
             ])
-                 ->inlineLabel(false),
+                ->inlineLabel(false),
         ];
     }
 }
