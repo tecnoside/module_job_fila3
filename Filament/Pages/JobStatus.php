@@ -7,10 +7,12 @@ namespace Modules\Job\Filament\Pages;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Process;
+use Modules\Job\Filament\Widgets\ClockWidget;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
-use Webmozart\Assert\Assert;
 
 use function Safe\mb_convert_encoding;
+
+use Webmozart\Assert\Assert;
 
 class JobStatus extends Page
 {
@@ -21,6 +23,13 @@ class JobStatus extends Page
     protected static string $view = 'job::filament.pages.job-status';
 
     public string $out = '';
+
+    public function getHeaderWidgets(): array
+    {
+        return [
+            ClockWidget::make(),
+        ];
+    }
 
     public function zibibbo(): void
     {
@@ -128,6 +137,11 @@ class JobStatus extends Page
             (object) [
                 'name' => 'worker:check',
                 'label' => 'Ensure that the queue listener is running.',
+            ],
+
+            (object) [
+                'name' => 'route:list',
+                'label' => 'Route list',
             ],
         ];
 
