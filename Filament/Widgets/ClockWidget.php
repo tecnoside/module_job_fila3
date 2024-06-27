@@ -12,15 +12,15 @@ use Filament\Widgets\Widget;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Process;
-use Symfony\Component\Console\Output\StreamOutput;
-
 use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\Console\Output\StreamOutput;
 
 use function Safe\fopen;
 
 class ClockWidget extends Widget
 {
     protected static string $view = 'job::filament.widgets.clock-widget';
+
     /** @var string */
     public $time = '---';
 
@@ -80,7 +80,7 @@ class ClockWidget extends Widget
         };
         */
         $resource = fopen('php://stdout', 'w');
-        if($resource === false) {
+        if ($resource === false) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
         $output = new StreamOutput($resource);
@@ -90,7 +90,6 @@ class ClockWidget extends Widget
 
         dddx($output);
 
-        return;
         // dddx($output);
         // dddx($output->fetch());
         /*
