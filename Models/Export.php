@@ -11,6 +11,11 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
+<<<<<<< HEAD
+=======
+ * 
+ *
+>>>>>>> 374f31b (up)
  * @method static \Modules\Job\Database\Factories\ExportFactory factory($count = null, $state = [])
  * @method static Builder|Export                                newModelQuery()
  * @method static Builder|Export                                newQuery()
