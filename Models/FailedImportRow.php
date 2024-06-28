@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-<<<<<<< HEAD
 
 /**
  * @method static \Modules\Job\Database\Factories\FailedImportRowFactory factory($count = null, $state = [])
@@ -35,22 +34,6 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedImportRow whereUpdatedBy($value)
  * @method static Builder|FailedImportRow whereValidationError($value)
  *
-=======
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Support\Carbon;
-
-use function Safe\json_decode;
-
-use Webmozart\Assert\Assert;
-
-/**
- * 
- *
- * @method static \Modules\Job\Database\Factories\FailedImportRowFactory factory($count = null, $state = [])
- * @method static Builder|FailedImportRow newModelQuery()
- * @method static Builder|FailedImportRow newQuery()
- * @method static Builder|FailedImportRow query()
->>>>>>> 21140ac (first)
  * @mixin \Eloquent
  */
 class FailedImportRow extends BaseModel
@@ -62,7 +45,6 @@ class FailedImportRow extends BaseModel
         'validation_error',
     ];
 
-<<<<<<< HEAD
     protected function casts(): array
     {
         return [
@@ -83,20 +65,3 @@ class FailedImportRow extends BaseModel
         ];
     }
 }
-=======
-    protected $casts = [
-        'data' => 'json',
-        'updated_by' => 'string',
-        'created_by' => 'string',
-        'deleted_by' => 'string',
-
-        'payload' => 'array',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'completed_at' => 'datetime',
-        // 'updated_at' => 'datetime:Y-m-d H:00',
-        // 'created_at' => 'datetime:Y-m-d',
-        // 'created_at' => 'datetime:d/m/Y H:i'
-    ];
-}
->>>>>>> 21140ac (first)

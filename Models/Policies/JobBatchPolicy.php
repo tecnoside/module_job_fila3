@@ -13,11 +13,7 @@ class JobBatchPolicy extends UserBasePolicy
     /**
      * Determine whether the user can view any models.
      */
-<<<<<<< HEAD
     public function viewAny(\Modules\Xot\Contracts\UserContract $user): bool
-=======
-    public function viewAny(User $user): bool
->>>>>>> 21140ac (first)
     {
         return false;
     }

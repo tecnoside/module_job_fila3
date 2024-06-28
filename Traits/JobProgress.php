@@ -24,11 +24,7 @@ trait JobProgress
 
         $monitor->update(
             [
-<<<<<<< HEAD
                 'progress' => $progress,
-=======
-            'progress' => $progress,
->>>>>>> 21140ac (first)
             ]
         );
 

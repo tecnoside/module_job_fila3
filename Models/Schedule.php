@@ -18,10 +18,7 @@ use Modules\Job\Enums\Status;
  * @property array                                                                              $options
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
  * @property int|null                                                                           $histories_count
-<<<<<<< HEAD
  *
-=======
->>>>>>> 21140ac (first)
  * @method static Builder|Schedule                                active()
  * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
  * @method static Builder|Schedule                                inactive()
@@ -31,7 +28,6 @@ use Modules\Job\Enums\Status;
  * @method static Builder|Schedule                                query()
  * @method static Builder|Schedule                                withTrashed()
  * @method static Builder|Schedule                                withoutTrashed()
-<<<<<<< HEAD
  *
  * @property int                             $id
  * @property string                          $command
@@ -59,33 +55,6 @@ use Modules\Job\Enums\Status;
  * @property string|null                     $created_by
  * @property string|null                     $deleted_by
  *
-=======
- * @property int $id
- * @property string $command
- * @property string|null $command_custom
- * @property array|null $params
- * @property string $expression
- * @property array|null $environments
- * @property array|null $options_with_value
- * @property string|null $log_filename
- * @property int $even_in_maintenance_mode
- * @property int $without_overlapping
- * @property int $on_one_server
- * @property string|null $webhook_before
- * @property string|null $webhook_after
- * @property string|null $email_output
- * @property int $sendmail_error
- * @property int $log_success
- * @property int $log_error
- * @property int $run_in_background
- * @property int $sendmail_success
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_by
->>>>>>> 21140ac (first)
  * @method static Builder|Schedule whereCommand($value)
  * @method static Builder|Schedule whereCommandCustom($value)
  * @method static Builder|Schedule whereCreatedAt($value)
@@ -113,31 +82,19 @@ use Modules\Job\Enums\Status;
  * @method static Builder|Schedule whereWebhookAfter($value)
  * @method static Builder|Schedule whereWebhookBefore($value)
  * @method static Builder|Schedule whereWithoutOverlapping($value)
-<<<<<<< HEAD
  *
-=======
->>>>>>> 21140ac (first)
  * @mixin \Eloquent
  */
 class Schedule extends BaseModel
 {
     use ManagesFrequencies;
     use SoftDeletes;
-<<<<<<< HEAD
 
     public const STATUS_INACTIVE = 0;
 
     public const STATUS_ACTIVE = 1;
 
     public const STATUS_TRASHED = 2;
-=======
-    /*
-         * The database table used by the model.
-         *
-         * @var string
-         */
-    // protected $table;
->>>>>>> 21140ac (first)
 
     protected $fillable = [
         'command',
@@ -167,7 +124,6 @@ class Schedule extends BaseModel
         'options' => '{}',
         'options_with_value' => '{}',
     ];
-<<<<<<< HEAD
 
     protected function casts(): array
     {
@@ -187,19 +143,6 @@ class Schedule extends BaseModel
             'status' => Status::class,
         ];
     }
-=======
-    protected $casts = [
-        'updated_by' => 'string',
-        'created_by' => 'string',
-        'deleted_by' => 'string',
-
-        'params' => 'array',
-        'options' => 'array',
-        'options_with_value' => 'array',
-        'environments' => 'array',
-        'status' => Status::class,
-    ];
->>>>>>> 21140ac (first)
     /*
          * Creates a new instance of the model.
          *

@@ -51,8 +51,4 @@ class CreateScheduleTable extends XotBaseMigration
             }
         );
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 21140ac (first)

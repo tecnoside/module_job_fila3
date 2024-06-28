@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\DB;
 /**
  * Modules\Job\Models\Result.
  *
-<<<<<<< HEAD
  * @property int         $id
  * @property int         $task_id
  * @property Carbon      $ran_at
@@ -25,18 +24,6 @@ use Illuminate\Support\Facades\DB;
  * @property Carbon|null $updated_at
  * @property Task|null   $task
  *
-=======
- * @property int                           $id
- * @property int                           $task_id
- * @property Carbon                        $ran_at
- * @property string                        $duration
- * @property string                        $result
- * @property string|null                   $created_by
- * @property string|null                   $updated_by
- * @property Carbon|null                   $created_at
- * @property Carbon|null                   $updated_at
- * @property \Modules\Job\Models\Task|null $task
->>>>>>> 21140ac (first)
  * @method static \Illuminate\Database\Eloquent\Builder|Result newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result query()
@@ -49,10 +36,7 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedBy($value)
-<<<<<<< HEAD
  *
-=======
->>>>>>> 21140ac (first)
  * @mixin \Eloquent
  */
 class Result extends BaseModel
@@ -66,7 +50,6 @@ class Result extends BaseModel
         'result',
     ];
 
-<<<<<<< HEAD
     protected function casts(): array
     {
         return [
@@ -81,15 +64,6 @@ class Result extends BaseModel
             'ran_at' => 'datetime',
         ];
     }
-=======
-    protected $casts = [
-        'updated_by' => 'string',
-        'created_by' => 'string',
-        'deleted_by' => 'string',
-
-        'ran_at' => 'datetime',
-    ];
->>>>>>> 21140ac (first)
 
     public function task(): BelongsTo
     {

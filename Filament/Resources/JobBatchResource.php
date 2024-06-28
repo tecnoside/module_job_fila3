@@ -28,11 +28,7 @@ class JobBatchResource extends XotBaseResource
 
     public static function table(Table $table): Table
     {
-<<<<<<< HEAD
         Assert::string($date_format = config('app.date_format'), '['.__LINE__.']['.__FILE__.']');
-=======
-        Assert::string($date_format = config('app.date_format'));
->>>>>>> 21140ac (first)
 
         return $table
             ->columns(
@@ -100,11 +96,6 @@ class JobBatchResource extends XotBaseResource
 
     public static function getNavigationBadge(): ?string
     {
-<<<<<<< HEAD
         return number_format(static::getModel()::count());
-=======
-        return (string) JobBatch::query()
-->count();
->>>>>>> 21140ac (first)
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\FailedImportRowResource\Pages;
@@ -11,13 +10,6 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\FailedImportRowResource;
-=======
-namespace Modules\Job\Filament\Resources\FailedImportRowResource\Pages;
-
-use Modules\Job\Filament\Resources\FailedImportRowResource;
-use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
->>>>>>> 21140ac (first)
 
 class ListFailedImportRows extends ListRecords
 {
@@ -29,7 +21,6 @@ class ListFailedImportRows extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
-<<<<<<< HEAD
 
     public function getTableColumns(): array
     {
@@ -72,6 +63,4 @@ class ListFailedImportRows extends ListRecords
             ->actions($this->getTableActions())
             ->bulkActions($this->getTableBulkActions());
     }
-=======
->>>>>>> 21140ac (first)
 }

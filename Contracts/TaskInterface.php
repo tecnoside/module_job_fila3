@@ -6,17 +6,12 @@ namespace Modules\Job\Contracts;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\Task;
 
 /**
  * @phpstan-require-extends Model
  */
-=======
-use Modules\Job\Models\Task;
-
->>>>>>> 21140ac (first)
 interface TaskInterface
 {
     /**

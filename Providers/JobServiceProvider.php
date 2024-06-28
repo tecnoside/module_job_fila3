@@ -7,10 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Providers;
 
-<<<<<<< HEAD
 use Filament\Actions\Imports\Models\Import;
-=======
->>>>>>> 21140ac (first)
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Queue\Events\JobExceptionOccurred;
 use Illuminate\Queue\Events\JobFailed;
@@ -47,10 +44,7 @@ class JobServiceProvider extends XotBaseServiceProvider
         //    echo $e->getMessage();
         // }
         // });
-<<<<<<< HEAD
         Import::polymorphicUserRelationship();
-=======
->>>>>>> 21140ac (first)
         $this->registerQueue();
     }
 

@@ -18,35 +18,22 @@ use Webmozart\Assert\Assert;
 
 class ViewSchedule extends Page implements HasTable
 {
-<<<<<<< HEAD
     use Forms\Concerns\InteractsWithForms;
     use HasRelationManagers;
     use HasTabs;
     use InteractsWithRecord;
-=======
-    use InteractsWithRecord;
-    use HasRelationManagers;
-    use HasTabs;
-    use Forms\Concerns\InteractsWithForms;
->>>>>>> 21140ac (first)
     use Tables\Concerns\InteractsWithTable {
         makeTable as makeBaseTable;
     }
     use Tables\Concerns\InteractsWithTable {
         makeTable as makeBaseTable;
     }
-<<<<<<< HEAD
 
     #[Url]
     public ?string $activeTab = null;
 
     protected static string $resource = ScheduleResource::class;
 
-=======
-    #[Url]
-    public ?string $activeTab = null;
-    protected static string $resource = ScheduleResource::class;
->>>>>>> 21140ac (first)
     protected static string $view = 'filament-panels::resources.pages.list-records';
 
     public function getTitle(): string
@@ -88,11 +75,7 @@ class ViewSchedule extends Page implements HasTable
 
     protected function getTableColumns(): array
     {
-<<<<<<< HEAD
         $date_format = Assert::string(config('app.date_format'), '['.__LINE__.']['.__FILE__.']');
-=======
-        $date_format = Assert::string(config('app.date_format'));
->>>>>>> 21140ac (first)
 
         return [
             Tables\Columns\Layout\Split::make([

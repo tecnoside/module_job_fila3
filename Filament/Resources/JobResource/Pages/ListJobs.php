@@ -6,14 +6,11 @@ namespace Modules\Job\Filament\Resources\JobResource\Pages;
 
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
-<<<<<<< HEAD
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
-=======
->>>>>>> 21140ac (first)
 use Modules\Job\Filament\Resources\JobResource;
 
 class ListJobs extends ListRecords
@@ -26,7 +23,6 @@ class ListJobs extends ListRecords
             CreateAction::make(),
         ];
     }
-<<<<<<< HEAD
 
     public function getTableColumns(): array
     {
@@ -73,6 +69,4 @@ class ListJobs extends ListRecords
             ->actions($this->getTableActions())
             ->bulkActions($this->getTableBulkActions());
     }
-=======
->>>>>>> 21140ac (first)
 }

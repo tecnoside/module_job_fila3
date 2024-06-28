@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
-<<<<<<< HEAD
  * Modules\Job\Models\Parameter.
  *
  * @property int            $id
@@ -35,31 +34,6 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Parameter                                whereUpdatedBy($value)
  * @method static Builder|Parameter                                whereValue($value)
  *
-=======
- * Modules\Job\Models\Parameter
- *
- * @property int $id
- * @property int $frequency_id
- * @property string $name
- * @property string $value
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property-read \Modules\Job\Models\Frequency|null $task
- * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
- * @method static Builder|Parameter newModelQuery()
- * @method static Builder|Parameter newQuery()
- * @method static Builder|Parameter query()
- * @method static Builder|Parameter whereCreatedAt($value)
- * @method static Builder|Parameter whereCreatedBy($value)
- * @method static Builder|Parameter whereFrequencyId($value)
- * @method static Builder|Parameter whereId($value)
- * @method static Builder|Parameter whereName($value)
- * @method static Builder|Parameter whereUpdatedAt($value)
- * @method static Builder|Parameter whereUpdatedBy($value)
- * @method static Builder|Parameter whereValue($value)
->>>>>>> 21140ac (first)
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel

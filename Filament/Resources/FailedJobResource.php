@@ -29,11 +29,6 @@ use Webmozart\Assert\Assert;
 
 class FailedJobResource extends XotBaseResource
 {
-<<<<<<< HEAD
-=======
-    // //
-
->>>>>>> 21140ac (first)
     protected static ?string $model = FailedJob::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-exclamation-circle';
@@ -51,15 +46,9 @@ class FailedJobResource extends XotBaseResource
                     TextInput::make('connection')->disabled(),
                     TextInput::make('queue')->disabled(),
 
-<<<<<<< HEAD
                     // make text a little bit smaller because often a complete Stack Trace is shown:
                     Textarea::make('exception')->disabled()->columnSpan(4)->extraInputAttributes(['style' => 'font-size: 80%;']),
                     // JSONEditor::make('payload')->disabled()->columnSpan(4),
-=======
-                // make text a little bit smaller because often a complete Stack Trace is shown:
-                    TextArea::make('exception')->disabled()->columnSpan(4)->extraInputAttributes(['style' => 'font-size: 80%;']),
-                // JSONEditor::make('payload')->disabled()->columnSpan(4),
->>>>>>> 21140ac (first)
                 ]
             )->columns(4);
     }
@@ -95,11 +84,7 @@ class FailedJobResource extends XotBaseResource
                             static function (Collection $collection): void {
                                 foreach ($collection as $record) {
                                     // Cannot access property $uuid on mixed.
-<<<<<<< HEAD
                                     Assert::isInstanceOf($record, FailedJob::class, '['.__LINE__.']['.__FILE__.']');
-=======
-                                    Assert::isInstanceOf($record, FailedJob::class);
->>>>>>> 21140ac (first)
                                     Artisan::call(sprintf('queue:retry %s', $record->uuid));
                                 }
                                 Notification::make()
@@ -139,10 +124,6 @@ class FailedJobResource extends XotBaseResource
 
     public static function getNavigationBadge(): ?string
     {
-<<<<<<< HEAD
         return number_format(static::getModel()::count());
-=======
-        return (string) FailedJob::query()->count();
->>>>>>> 21140ac (first)
     }
 }

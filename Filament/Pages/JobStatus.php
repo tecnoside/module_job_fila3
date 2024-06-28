@@ -7,10 +7,7 @@ namespace Modules\Job\Filament\Pages;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Process;
-<<<<<<< HEAD
 use Modules\Job\Filament\Widgets\ClockWidget;
-=======
->>>>>>> 21140ac (first)
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
 
 use function Safe\mb_convert_encoding;
@@ -27,7 +24,6 @@ class JobStatus extends Page
 
     public string $out = '';
 
-<<<<<<< HEAD
     public function getHeaderWidgets(): array
     {
         return [
@@ -35,21 +31,13 @@ class JobStatus extends Page
         ];
     }
 
-=======
->>>>>>> 21140ac (first)
     public function zibibbo(): void
     {
         $result = Process::run('dir');
         $this->out = '';
-<<<<<<< HEAD
         Assert::string($output = mb_convert_encoding($result->output(), 'UTF-8'), '['.__LINE__.']['.__FILE__.']');
         $this->out .= $output;
         Assert::string($errorOutput = mb_convert_encoding($result->errorOutput(), 'UTF-8'), '['.__LINE__.']['.__FILE__.']');
-=======
-        Assert::string($output = mb_convert_encoding($result->output(), 'UTF-8'));
-        $this->out .= $output;
-        Assert::string($errorOutput = mb_convert_encoding($result->errorOutput(), 'UTF-8'));
->>>>>>> 21140ac (first)
         $this->out .= $errorOutput;
         $this->out .= now();
     }
@@ -150,14 +138,11 @@ class JobStatus extends Page
                 'name' => 'worker:check',
                 'label' => 'Ensure that the queue listener is running.',
             ],
-<<<<<<< HEAD
 
             (object) [
                 'name' => 'route:list',
                 'label' => 'Route list',
             ],
-=======
->>>>>>> 21140ac (first)
         ];
 
         return $acts;

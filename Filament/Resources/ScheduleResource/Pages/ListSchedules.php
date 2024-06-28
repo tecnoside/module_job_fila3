@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
-<<<<<<< HEAD
 use Carbon\Carbon;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
@@ -24,16 +23,6 @@ class ListSchedules extends ListRecords
 
     protected static string $resource = ScheduleResource::class;
 
-=======
-use Closure;
-use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
-use Modules\Job\Filament\Resources\ScheduleResource;
-
-class ListSchedules extends ListRecords
-{
-    protected static string $resource = ScheduleResource::class;
->>>>>>> 21140ac (first)
     protected function getHeaderActions(): array
     {
         return [
@@ -41,17 +30,12 @@ class ListSchedules extends ListRecords
         ];
     }
 
-<<<<<<< HEAD
     protected function getTableRecordUrlUsing(): ?\Closure
-=======
-    protected function getTableRecordUrlUsing(): ?Closure
->>>>>>> 21140ac (first)
     {
         return static function (): ?string {
             return null;
         };
     }
-<<<<<<< HEAD
 
     public function getTableColumns(): array
     {
@@ -198,6 +182,3 @@ class ListSchedules extends ListRecords
         */
     }
 }
-=======
-}
->>>>>>> 21140ac (first)

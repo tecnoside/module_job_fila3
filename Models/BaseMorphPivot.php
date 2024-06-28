@@ -50,7 +50,6 @@ abstract class BaseMorphPivot extends MorphPivot
         'note',
     ];
 
-<<<<<<< HEAD
     protected function casts(): array
     {
         return [
@@ -64,11 +63,3 @@ abstract class BaseMorphPivot extends MorphPivot
         ];
     }
 }
-=======
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
-    ];
-}
->>>>>>> 21140ac (first)

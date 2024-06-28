@@ -9,7 +9,6 @@ use Webmozart\Assert\Assert;
 
 class ScheduleArguments extends TextColumn
 {
-<<<<<<< HEAD
     protected string $view = 'job::filament.columns.schedule-arguments';
 
     protected bool $withValue = true;
@@ -18,13 +17,6 @@ class ScheduleArguments extends TextColumn
     {
         $this->withValue = $withValue;
 
-=======
-    protected string $view = 'filament-database-schedule::columns.schedule-arguments';
-    protected bool $withValue = true;
-    public function withValue(bool $withValue = true): static
-    {
-        $this->withValue = $withValue;
->>>>>>> 21140ac (first)
         return $this;
     }
 
@@ -35,10 +27,7 @@ class ScheduleArguments extends TextColumn
             if ($this->withValue) {
                 return collect($tags)->filter(static fn ($value) => ! empty($value['value']))->map(static fn ($value, $key) => ($value['name'] ?? $key).'='.$value['value'])->toArray();
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> 21140ac (first)
             return collect($tags)->map(static fn ($value, $key) => $key.'='.$value)->toArray();
         }
 
@@ -46,7 +35,6 @@ class ScheduleArguments extends TextColumn
             return [];
         }
 
-<<<<<<< HEAD
         Assert::string($tags, '['.__LINE__.']['.__FILE__.']');
         $tags = explode($separator, $tags);
         if (1 === count($tags) && blank($tags[0])) {
@@ -56,13 +44,3 @@ class ScheduleArguments extends TextColumn
         return $tags;
     }
 }
-=======
-        Assert::string($tags);
-        $tags = explode($separator, $tags);
-        if (count($tags) === 1 && blank($tags[0])) {
-            $tags = [];
-        }
-        return $tags;
-    }
-}
->>>>>>> 21140ac (first)

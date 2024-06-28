@@ -15,11 +15,6 @@ class ScheduleRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-<<<<<<< HEAD
-=======
-     *
-     * @return array
->>>>>>> 21140ac (first)
      */
     public function rules(): array
     {
@@ -73,8 +68,4 @@ class ScheduleRequest extends FormRequest
             $this->merge([$field => $this->input($field) ?? $defaultValue]);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 21140ac (first)

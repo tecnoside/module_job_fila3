@@ -24,13 +24,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class JobsWaitingResource extends XotBaseResource
 {
     protected static ?string $model = Job::class;
-<<<<<<< HEAD
 
     protected static ?string $navigationIcon = 'heroicon-o-pause';
 
-=======
-    protected static ?string $navigationIcon = 'heroicon-o-pause';
->>>>>>> 21140ac (first)
     protected static bool $shouldRegisterNavigation = true;
 
     public static function form(Form $form): Form
@@ -66,11 +62,7 @@ class JobsWaitingResource extends XotBaseResource
                         ->badge()
                         ->label(static::trans('fields.status'))
                         ->sortable()
-<<<<<<< HEAD
                         // ->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
-=======
-                        //->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
->>>>>>> 21140ac (first)
                         ->color(
                             static fn (string $state): string => match ($state) {
                                 'running' => 'primary',

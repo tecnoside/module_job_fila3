@@ -13,30 +13,22 @@ return [
             'name' => 'schedule',
         ],
     ],
-<<<<<<< HEAD
     'resource' => [
         'single' => 'Schedule',
         'plural' => 'Schedules',
         'navigation' => 'Settings',
         'history' => 'Show run history',
     ],
-=======
->>>>>>> 21140ac (first)
     'fields' => [
         'name' => 'Nome',
         'guard_name' => 'Guard',
         'permissions' => 'Permessi',
-<<<<<<< HEAD
-=======
-        'updated_at' => 'Aggiornato il',
->>>>>>> 21140ac (first)
         'first_name' => 'Nome',
         'last_name' => 'Cognome',
         'select_all' => [
             'name' => 'Seleziona Tutti',
             'message' => '',
         ],
-<<<<<<< HEAD
         'command' => 'Command',
         'arguments' => 'Arguments',
         'options' => 'Options',
@@ -91,8 +83,6 @@ return [
     'validation' => [
         'cron' => 'The field must be filled in the cron expression format.',
         'regex' => __('validation.alpha_dash').' Comma is also allowed.',
-=======
->>>>>>> 21140ac (first)
     ],
     'actions' => [
         'import' => [

@@ -14,26 +14,16 @@ class ScheduleClearCacheCommand extends Command
 {
     /**
      * The name and signature of the console command.
-<<<<<<< HEAD
      *
      * @var string
      */
-=======
-    * @var string
- */
->>>>>>> 21140ac (first)
     protected $signature = 'schedule:clear-cache';
 
     /**
      * The console command description.
-<<<<<<< HEAD
      *
      * @var string
      */
-=======
-     * @var string
-*/
->>>>>>> 21140ac (first)
     protected $description = 'Clears the cache of the scheduler.';
 
     /**
@@ -46,8 +36,4 @@ class ScheduleClearCacheCommand extends Command
 
         return 0;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 21140ac (first)

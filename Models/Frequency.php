@@ -12,7 +12,6 @@ use Illuminate\Support\Carbon;
 
 // use Modules\Job\Models\Traits\HasParameters;
 /**
-<<<<<<< HEAD
  * Modules\Job\Models\Frequency.
  *
  * @property int                                            $id
@@ -40,33 +39,6 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Frequency                                whereUpdatedAt($value)
  * @method static Builder|Frequency                                whereUpdatedBy($value)
  *
-=======
- * Modules\Job\Models\Frequency
- *
- * @property int $id
- * @property int $task_id
- * @property string $label
- * @property string $interval
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property-read Collection<int, \Modules\Job\Models\Parameter> $parameters
- * @property-read int|null $parameters_count
- * @property-read \Modules\Job\Models\Task|null $task
- * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
- * @method static Builder|Frequency newModelQuery()
- * @method static Builder|Frequency newQuery()
- * @method static Builder|Frequency query()
- * @method static Builder|Frequency whereCreatedAt($value)
- * @method static Builder|Frequency whereCreatedBy($value)
- * @method static Builder|Frequency whereId($value)
- * @method static Builder|Frequency whereInterval($value)
- * @method static Builder|Frequency whereLabel($value)
- * @method static Builder|Frequency whereTaskId($value)
- * @method static Builder|Frequency whereUpdatedAt($value)
- * @method static Builder|Frequency whereUpdatedBy($value)
->>>>>>> 21140ac (first)
  * @mixin \Eloquent
  */
 class Frequency extends BaseModel
