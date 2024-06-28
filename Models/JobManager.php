@@ -73,6 +73,7 @@ class JobManager extends BaseModel
     protected function casts(): array
     {
         return [
+<<<<<<< HEAD
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
@@ -84,6 +85,17 @@ class JobManager extends BaseModel
             'failed' => 'bool',
             'started_at' => 'datetime',
             'finished_at' => 'datetime',
+=======
+
+        'updated_by' => 'string',
+        'created_by' => 'string',
+        'deleted_by' => 'string',
+
+        'failed' => 'bool',
+        'started_at' => 'datetime',
+        'finished_at' => 'datetime',
+
+>>>>>>> 5ad7826 (up)
         ];
     }
 

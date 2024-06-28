@@ -44,6 +44,7 @@ abstract class BaseModel extends Model
     /** @var array<int, string> */
     protected $fillable = ['id'];
 
+<<<<<<< HEAD
     /** @return array<string, string> */
     protected function casts(): array
     {
@@ -56,6 +57,18 @@ abstract class BaseModel extends Model
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
+=======
+    /** @var array<string, string> */
+    protected function casts(): array
+    {
+        return [
+
+        'published_at' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
+
+>>>>>>> 5ad7826 (up)
         ];
     }
 

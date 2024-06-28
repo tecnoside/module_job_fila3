@@ -51,6 +51,7 @@ class FailedJob extends BaseModel
     protected function casts(): array
     {
         return [
+<<<<<<< HEAD
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
@@ -60,6 +61,15 @@ class FailedJob extends BaseModel
             'deleted_by' => 'string',
 
             'payload' => 'array',
+=======
+
+        'updated_by' => 'string',
+        'created_by' => 'string',
+        'deleted_by' => 'string',
+
+        'payload' => 'array',
+
+>>>>>>> 5ad7826 (up)
         ];
     }
 }
