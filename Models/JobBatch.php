@@ -4,6 +4,7 @@
  * ---.
  *
  * @see https://philo.dev/laravel-batches-and-real-time-progress-with-livewire/
+ * @see https://philo.dev/laravel-batches-and-real-time-progress-with-livewire/
  */
 
 declare(strict_types=1);
@@ -47,15 +48,9 @@ use Illuminate\Support\Collection;
  */
 class JobBatch extends BaseModel
 {
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     */
     /** @var bool */
     public $incrementing = false;
 
-    /**
-     * The "type" of the primary key ID.
-     */
     /** @var string */
     protected $keyType = 'string';
 
@@ -72,17 +67,7 @@ class JobBatch extends BaseModel
         'finished_at',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @see https://philo.dev/laravel-batches-and-real-time-progress-with-livewire/
-     *
-<<<<<<< HEAD
-     * @return array<string, string>
-     */
-=======
-     * @return array<string, string> */
->>>>>>> c67f14d (up)
+    /**  @return array<string, string>  */
     protected function casts(): array
     {
         return [
