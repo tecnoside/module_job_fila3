@@ -77,8 +77,12 @@ class JobBatch extends BaseModel
      *
      * @see https://philo.dev/laravel-batches-and-real-time-progress-with-livewire/
      *
+<<<<<<< HEAD
      * @return array<string, string>
      */
+=======
+     * @return array<string, string> */
+>>>>>>> c67f14d (up)
     protected function casts(): array
     {
         return [
