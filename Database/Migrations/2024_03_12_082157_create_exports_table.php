@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
@@ -21,9 +23,9 @@ class CreateExportsTable extends XotBaseMigration
                 $table->unsignedInteger('processed_rows')->default(0);
                 $table->unsignedInteger('total_rows');
                 $table->unsignedInteger('successful_rows')->default(0);
-                //$table->foreignId('user_id')->constrained()->cascadeOnDelete();
+                // $table->foreignId('user_id')->constrained()->cascadeOnDelete();
                 $table->string('user_id', 36)->nullable()->index();
-                //$table->timestamps();
+                // $table->timestamps();
             }
         );
         // -- UPDATE --

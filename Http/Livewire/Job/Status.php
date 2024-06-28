@@ -14,9 +14,10 @@ use Modules\Job\Models\FailedJob as FailedJobModel;
 use Modules\Job\Models\Job as JobModel;
 use Modules\Job\Models\JobBatch as JobBatchModel;
 use Modules\Xot\Actions\GetViewAction;
-use Webmozart\Assert\Assert;
 
 use function Safe\putenv;
+
+use Webmozart\Assert\Assert;
 
 /**
  * Class RolePermission.
@@ -40,7 +41,7 @@ class Status extends Component
         $this->out .= '<br/>['.FailedJobModel::count().'] Failed Jobs';
         $this->out .= '<br/>['.JobBatchModel::count().'] Job Batch';
         $queue_conn = getenv('QUEUE_CONNECTION');
-        if ($queue_conn === false) {
+        if (false === $queue_conn) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 
@@ -144,7 +145,7 @@ class Status extends Component
     public function updatedFormData(string $value, string $key): void
     {
         // dddx([$value,$key,$this->form_data]);
-        if ($key === 'conn') {
+        if ('conn' === $key) {
             // putenv ("QUEUE_CONNECTION=".$value);
             $this->saveEnv();
         }
@@ -175,7 +176,7 @@ class Status extends Component
 
     public function dummyAction(): void
     {
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 1000; ++$i) {
             app(DummyAction::class)
                 ->onQueue()
                 ->execute();

@@ -7,9 +7,10 @@ namespace Modules\Job\Services;
 use App\Console\Kernel;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use Webmozart\Assert\Assert;
 
 use function Safe\preg_grep;
+
+use Webmozart\Assert\Assert;
 
 class CommandService
 {
@@ -46,7 +47,7 @@ class CommandService
     /**
      * Undocumented function.
      *
-     * @param  Command  $command
+     * @param Command $command
      */
     protected static function getArguments($command): array
     {
@@ -65,7 +66,7 @@ class CommandService
     /**
      * Undocumented function.
      *
-     * @param  Command  $command
+     * @param Command $command
      */
     protected static function getOptions($command): array
     {

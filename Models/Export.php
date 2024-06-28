@@ -12,25 +12,25 @@ use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @method static \Modules\Job\Database\Factories\ExportFactory factory($count = null, $state = [])
- * @method static Builder|Export newModelQuery()
- * @method static Builder|Export newQuery()
- * @method static Builder|Export query()
+ * @method static Builder|Export                                newModelQuery()
+ * @method static Builder|Export                                newQuery()
+ * @method static Builder|Export                                query()
  *
- * @property int $id
+ * @property int                             $id
  * @property \Illuminate\Support\Carbon|null $completed_at
- * @property string $file_disk
- * @property string|null $file_name
- * @property string $exporter
- * @property int $processed_rows
- * @property int $total_rows
- * @property int $successful_rows
- * @property string|null $user_id
+ * @property string                          $file_disk
+ * @property string|null                     $file_name
+ * @property string                          $exporter
+ * @property int                             $processed_rows
+ * @property int                             $total_rows
+ * @property int                             $successful_rows
+ * @property string|null                     $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_at
- * @property string|null $deleted_by
+ * @property string|null                     $updated_by
+ * @property string|null                     $created_by
+ * @property string|null                     $deleted_at
+ * @property string|null                     $deleted_by
  *
  * @method static Builder|Export whereCompletedAt($value)
  * @method static Builder|Export whereCreatedAt($value)

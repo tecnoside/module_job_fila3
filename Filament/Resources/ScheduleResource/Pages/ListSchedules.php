@@ -42,7 +42,7 @@ class ListSchedules extends ListRecords
         return [
             Tables\Columns\TextColumn::make('command')
                 ->getStateUsing(function ($record) {
-                    if ($record->command == 'custom') {
+                    if ('custom' == $record->command) {
                         return $record->command_custom;
                     }
 
