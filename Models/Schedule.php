@@ -118,6 +118,7 @@ class Schedule extends BaseModel
         'log_filename',
         'environments',
     ];
+
     protected $attributes = [
         'expression' => '* * * * *',
         'params' => '{}',
