@@ -62,7 +62,6 @@ class ScheduleHistory extends BaseModel
         'output',
         'options',
     ];
-<<<<<<< HEAD
 
     protected function casts(): array
     {
@@ -77,19 +76,6 @@ class ScheduleHistory extends BaseModel
 
             'params' => 'array',
             'options' => 'array',
-=======
-    protected function casts(): array
-    {
-        return [
-
-        'updated_by' => 'string',
-        'created_by' => 'string',
-        'deleted_by' => 'string',
-
-        'params' => 'array',
-        'options' => 'array',
-
->>>>>>> 5ad7826 (up)
         ];
     }
     /*

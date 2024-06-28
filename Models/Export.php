@@ -11,11 +11,6 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
-<<<<<<< HEAD
-=======
- *
- *
->>>>>>> 5ad7826 (up)
  * @method static \Modules\Job\Database\Factories\ExportFactory factory($count = null, $state = [])
  * @method static Builder|Export                                newModelQuery()
  * @method static Builder|Export                                newQuery()
@@ -72,7 +67,6 @@ class Export extends BaseModel
     protected function casts(): array
     {
         return [
-<<<<<<< HEAD
             'data' => 'json',
             'updated_by' => 'string',
             'created_by' => 'string',
@@ -85,22 +79,6 @@ class Export extends BaseModel
             // 'updated_at' => 'datetime:Y-m-d H:00',
             // 'created_at' => 'datetime:Y-m-d',
             // 'created_at' => 'datetime:d/m/Y H:i'
-=======
-
-        'data' => 'json',
-        'updated_by' => 'string',
-        'created_by' => 'string',
-        'deleted_by' => 'string',
-
-        'payload' => 'array',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'completed_at' => 'datetime',
-        // 'updated_at' => 'datetime:Y-m-d H:00',
-        // 'created_at' => 'datetime:Y-m-d',
-        // 'created_at' => 'datetime:d/m/Y H:i'
-
->>>>>>> 5ad7826 (up)
         ];
     }
 }

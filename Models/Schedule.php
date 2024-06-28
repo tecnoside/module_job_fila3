@@ -124,7 +124,6 @@ class Schedule extends BaseModel
         'options' => '{}',
         'options_with_value' => '{}',
     ];
-<<<<<<< HEAD
 
     protected function casts(): array
     {
@@ -142,22 +141,6 @@ class Schedule extends BaseModel
             'options_with_value' => 'array',
             'environments' => 'array',
             'status' => Status::class,
-=======
-    protected function casts(): array
-    {
-        return [
-
-        'updated_by' => 'string',
-        'created_by' => 'string',
-        'deleted_by' => 'string',
-
-        'params' => 'array',
-        'options' => 'array',
-        'options_with_value' => 'array',
-        'environments' => 'array',
-        'status' => Status::class,
-
->>>>>>> 5ad7826 (up)
         ];
     }
     /*

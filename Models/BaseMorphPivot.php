@@ -53,7 +53,6 @@ abstract class BaseMorphPivot extends MorphPivot
     protected function casts(): array
     {
         return [
-<<<<<<< HEAD
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
@@ -61,13 +60,6 @@ abstract class BaseMorphPivot extends MorphPivot
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
-=======
-
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
-
->>>>>>> 5ad7826 (up)
         ];
     }
 }
