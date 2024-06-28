@@ -5,6 +5,11 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 use Filament\Forms\Form;
+<<<<<<< HEAD
+=======
+use Filament\Tables;
+use Filament\Tables\Table;
+>>>>>>> 21140ac (first)
 use Modules\Job\Filament\Resources\ImportResource\Pages;
 use Modules\Job\Models\Import;
 use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -22,6 +27,26 @@ class ImportResource extends XotBaseResource
             ]);
     }
 
+<<<<<<< HEAD
+=======
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+            ])
+            ->filters([
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ]);
+    }
+
+>>>>>>> 21140ac (first)
     public static function getRelations(): array
     {
         return [
@@ -36,9 +61,12 @@ class ImportResource extends XotBaseResource
             'edit' => Pages\EditImport::route('/{record}/edit'),
         ];
     }
+<<<<<<< HEAD
 
     public static function getNavigationBadge(): ?string
     {
         return number_format(static::getModel()::count());
     }
+=======
+>>>>>>> 21140ac (first)
 }

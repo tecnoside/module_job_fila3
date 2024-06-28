@@ -15,4 +15,8 @@ class Repeater extends ComponentsRepeater
             'uuid' => $uuid,
         ]);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 21140ac (first)

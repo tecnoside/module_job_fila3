@@ -81,7 +81,11 @@ class JobManagerResource extends XotBaseResource
                         ->label(__('jobs::translations.progress'))
                         ->formatStateUsing(static fn (string $state) => "{$state}%")
                         ->sortable(),
+<<<<<<< HEAD
                     // ProgressColumn::make('progress')->label(__('jobs::translations.progress'))->color('warning'),
+=======
+                // ProgressColumn::make('progress')->label(__('jobs::translations.progress'))->color('warning'),
+>>>>>>> 21140ac (first)
                     TextColumn::make('started_at')
                         ->label(__('jobs::translations.started_at'))
                         ->since()

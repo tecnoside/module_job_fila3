@@ -25,6 +25,7 @@
         "php": "^8.2",
         "filament/filament": "^3.2",
         "invaders-xx/filament-jsoneditor": "*",
+<<<<<<< HEAD
         "mhmiton/laravel-modules-livewire": "*",
         "thecodingmachine/safe": "*"
     },
@@ -33,20 +34,40 @@
         "laraxot/module_xot_fila3": "*"
     },
     "require-dev_comment": {
+=======
+        "laraxot/module_user_fila3": "*",
+        "laraxot/module_xot_fila3": "*",
+        "mhmiton/laravel-modules-livewire": "*",
+        "thecodingmachine/safe": "*"
+    },
+    "require-dev": {
+>>>>>>> 21140ac (first)
         "driftingly/rector-laravel": "*",
         "enlightn/enlightn": "*",
         "larastan/larastan": "*",
         "laravel/pint": "*",
         "nunomaduro/collision": "*",
+<<<<<<< HEAD
         "nunomaduro/phpinsights": "*",
         "orchestra/pest-plugin-testbench": "*",
         "orchestra/testbench": "*",
+=======
+        "nunomaduro/larastan": "*",
+        "nunomaduro/phpinsights": "*",
+        "orchestra/pest-plugin-testbench": "*",
+        "orchestra/testbench": "^8.22",
+>>>>>>> 21140ac (first)
         "pestphp/pest": "*",
         "pestphp/pest-plugin-arch": "*",
         "pestphp/pest-plugin-laravel": "*",
         "phpstan/phpstan-deprecation-rules": "*",
         "phpstan/phpstan-phpunit": "*",
+<<<<<<< HEAD
         "rector/rector": "*",
+=======
+        "psalm/plugin-laravel": "*",
+        "rector/rector": "^0.18.6",
+>>>>>>> 21140ac (first)
         "spatie/laravel-ray": "*",
         "symplify/phpstan-rules": "*",
         "thecodingmachine/phpstan-safe-rule": "*",

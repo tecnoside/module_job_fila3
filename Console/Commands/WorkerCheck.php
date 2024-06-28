@@ -12,23 +12,36 @@ namespace Modules\Job\Console\Commands;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21140ac (first)
 use function Safe\exec;
 
 class WorkerCheck extends Command
 {
     /**
      * The name and signature of the console command.
+<<<<<<< HEAD
      *
      * @var string
      */
+=======
+    * @var string
+ */
+>>>>>>> 21140ac (first)
     protected $signature = 'worker:check';
 
     /**
      * The console command description.
+<<<<<<< HEAD
      *
      * @var string
      */
+=======
+     * @var string
+*/
+>>>>>>> 21140ac (first)
     protected $description = 'Ensure that the queue listener is running.';
 
     private string $filename = 'queue.pid';
@@ -69,6 +82,7 @@ class WorkerCheck extends Command
         $output = null;
         $process = exec($process_cmd, $output);
         // $processIsQueueListener = str_contains($process, 'queue:listen'); // 5.1
+<<<<<<< HEAD
         // if ($process === false) {
         // DISABILITATO PER SBLOCCARE MODULE JOB
         // throw new Exception('['.__LINE__.']['.__FILE__.']');
@@ -76,6 +90,14 @@ class WorkerCheck extends Command
 
         $this->comment($process);
 
+=======
+        //if ($process === false) {
+            // DISABILITATO PER SBLOCCARE MODULE JOB
+            // throw new Exception('['.__LINE__.']['.__FILE__.']');
+        //}
+
+        $this->comment($process);
+>>>>>>> 21140ac (first)
         // $processIsQueueListener = ! empty($process); // 5.6 - see comments
         return str_contains($process, substr(base_path(), 0, 30));
     }
@@ -136,12 +158,21 @@ class WorkerCheck extends Command
         // dd($command);
 
         $pid = exec($command);
+<<<<<<< HEAD
         if (false == $pid) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
+=======
+        if ($pid == false) {
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
+>>>>>>> 21140ac (first)
         }
 
         $this->comment($pid);
 
         return $pid;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 21140ac (first)

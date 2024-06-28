@@ -18,10 +18,19 @@ class JobManagerFactory extends Factory
 
     /**
      * Define the model's default state.
+<<<<<<< HEAD
+=======
+     *
+     * @return array
+>>>>>>> 21140ac (first)
      */
     public function definition(): array
     {
         return [
+<<<<<<< HEAD
+=======
+
+>>>>>>> 21140ac (first)
         ];
     }
 }

@@ -13,12 +13,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * Modules\Job\Models\ScheduleHistory.
  *
+<<<<<<< HEAD
  * @property Schedule|null $command
  *
+=======
+ * @property \Modules\Job\Models\Schedule|null $command
+>>>>>>> 21140ac (first)
  * @method static \Modules\Job\Database\Factories\ScheduleHistoryFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  query()
+<<<<<<< HEAD
  *
  * @property int                             $id
  * @property array|null                      $params
@@ -32,6 +37,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string|null                     $deleted_at
  * @property string|null                     $deleted_by
  *
+=======
+ * @property int $id
+ * @property array|null $params
+ * @property string $output
+ * @property array|null $options
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $schedule_id
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property string|null $deleted_at
+ * @property string|null $deleted_by
+>>>>>>> 21140ac (first)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereCommand($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereCreatedBy($value)
@@ -44,7 +62,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereScheduleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereUpdatedBy($value)
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 21140ac (first)
  * @mixin \Eloquent
  */
 class ScheduleHistory extends BaseModel
@@ -62,6 +83,7 @@ class ScheduleHistory extends BaseModel
         'output',
         'options',
     ];
+<<<<<<< HEAD
 
     protected function casts(): array
     {
@@ -78,6 +100,16 @@ class ScheduleHistory extends BaseModel
             'options' => 'array',
         ];
     }
+=======
+    protected $casts = [
+        'updated_by' => 'string',
+        'created_by' => 'string',
+        'deleted_by' => 'string',
+
+        'params' => 'array',
+        'options' => 'array',
+    ];
+>>>>>>> 21140ac (first)
     /*
          * Creates a new instance of the model.
          *

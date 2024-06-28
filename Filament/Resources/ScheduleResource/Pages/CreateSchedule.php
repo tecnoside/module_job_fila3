@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
+<<<<<<< HEAD
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\CreateRecord;
@@ -20,6 +21,16 @@ class CreateSchedule extends CreateRecord
 
     public Collection $commands;
 
+=======
+use Filament\Notifications\Notification;
+use Filament\Resources\Pages\CreateRecord;
+use Illuminate\Validation\ValidationException;
+use Modules\Job\Filament\Resources\ScheduleResource;
+
+class CreateSchedule extends CreateRecord
+{
+    protected static string $resource = ScheduleResource::class;
+>>>>>>> 21140ac (first)
     protected function onValidationError(ValidationException $exception): void
     {
         Notification::make()
@@ -32,6 +43,7 @@ class CreateSchedule extends CreateRecord
     {
         return $this->getResource()::getUrl('index');
     }
+<<<<<<< HEAD
 
     public function getformSchema(): array
     {
@@ -44,3 +56,6 @@ class CreateSchedule extends CreateRecord
             ->schema($this->getFormSchema());
     }
 }
+=======
+}
+>>>>>>> 21140ac (first)

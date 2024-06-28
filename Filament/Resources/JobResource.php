@@ -5,6 +5,14 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 use Filament\Forms\Form;
+<<<<<<< HEAD
+=======
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ViewColumn;
+use Filament\Tables\Table;
+>>>>>>> 21140ac (first)
 use Modules\Job\Filament\Resources\JobResource\Pages;
 use Modules\Job\Filament\Resources\JobResource\Widgets;
 use Modules\Job\Models\Job;
@@ -30,6 +38,44 @@ class JobResource extends XotBaseResource
             );
     }
 
+<<<<<<< HEAD
+=======
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns(
+                [
+                    TextColumn::make('id')->sortable()->searchable()->toggleable(),
+                    TextColumn::make('queue'),
+
+                    // Tables\Columns\TextColumn::make('payload'),
+                    TextColumn::make('attempts'),
+                    TextColumn::make('reserved_at'),
+                    TextColumn::make('available_at'),
+                    TextColumn::make('created_at'),
+                    // Tables\Columns\TextColumn::make('created_by'),
+                    // Tables\Columns\TextColumn::make('updated_by'),
+                    // Tables\Columns\TextColumn::make('updated_at'),
+                    ViewColumn::make('payload')->view('job::filament.tables.columns.array'),
+                ]
+            )
+            ->filters(
+                [
+                ]
+            )
+            ->actions(
+                [
+                    EditAction::make(),
+                ]
+            )
+            ->bulkActions(
+                [
+                    DeleteBulkAction::make(),
+                ]
+            );
+    }
+
+>>>>>>> 21140ac (first)
     public static function getRelations(): array
     {
         return [
@@ -53,6 +99,7 @@ class JobResource extends XotBaseResource
         ];
     }
 
+<<<<<<< HEAD
     // public static function getNavigationBadge(): ?string
     // {
     //    return (string) Job::query()->count();
@@ -61,5 +108,10 @@ class JobResource extends XotBaseResource
     public static function getNavigationBadge(): ?string
     {
         return number_format(static::getModel()::count());
+=======
+    public static function getNavigationBadge(): ?string
+    {
+        return (string) Job::query()->count();
+>>>>>>> 21140ac (first)
     }
 }

@@ -44,6 +44,7 @@ abstract class BaseModel extends Model
     /** @var array<int, string> */
     protected $fillable = ['id'];
 
+<<<<<<< HEAD
     /** @return array<string, string> */
     protected function casts(): array
     {
@@ -58,6 +59,15 @@ abstract class BaseModel extends Model
             'deleted_by' => 'string',
         ];
     }
+=======
+    /** @var array<string, string> */
+    protected $casts = [
+        'published_at' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
+    ];
+>>>>>>> 21140ac (first)
 
     /** @var string */
     protected $primaryKey = 'id';

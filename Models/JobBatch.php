@@ -27,7 +27,10 @@ use Illuminate\Support\Collection;
  * @property Carbon|null     $cancelled_at
  * @property Carbon          $created_at
  * @property Carbon|null     $finished_at
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 21140ac (first)
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
  * @method static Builder|JobBatch                                newModelQuery()
  * @method static Builder|JobBatch                                newQuery()
@@ -42,7 +45,10 @@ use Illuminate\Support\Collection;
  * @method static Builder|JobBatch                                whereOptions($value)
  * @method static Builder|JobBatch                                wherePendingJobs($value)
  * @method static Builder|JobBatch                                whereTotalJobs($value)
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 21140ac (first)
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel
@@ -50,13 +56,25 @@ class JobBatch extends BaseModel
     /**
      * Indicates if the IDs are auto-incrementing.
      */
+<<<<<<< HEAD
     /** @var bool */
+=======
+    /**
+     * @var bool
+     */
+>>>>>>> 21140ac (first)
     public $incrementing = false;
 
     /**
      * The "type" of the primary key ID.
      */
+<<<<<<< HEAD
     /** @var string */
+=======
+    /**
+     * @var string
+     */
+>>>>>>> 21140ac (first)
     protected $keyType = 'string';
 
     protected $fillable = [
@@ -77,6 +95,7 @@ class JobBatch extends BaseModel
      *
      * @see https://philo.dev/laravel-batches-and-real-time-progress-with-livewire/
      *
+<<<<<<< HEAD
      * @return array<string, string>
      */
     protected function casts(): array
@@ -96,6 +115,21 @@ class JobBatch extends BaseModel
             'finished_at' => 'datetime',
         ];
     }
+=======
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'updated_by' => 'string',
+        'created_by' => 'string',
+        'deleted_by' => 'string',
+
+        'options' => 'collection',
+        'failed_jobs' => 'integer',
+        'created_at' => 'datetime',
+        'cancelled_at' => 'datetime',
+        'finished_at' => 'datetime',
+    ];
+>>>>>>> 21140ac (first)
 
     /**
      * Get the total number of jobs that have been processed by the batch thus far.

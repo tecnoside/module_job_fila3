@@ -9,11 +9,17 @@ use Filament\Tables\Columns\TextColumn;
 class ScheduleOptions extends TextColumn
 {
     protected bool $withValue = true;
+<<<<<<< HEAD
 
     public function withValue(bool $withValue = true): static
     {
         $this->withValue = $withValue;
 
+=======
+    public function withValue(bool $withValue = true): static
+    {
+        $this->withValue = $withValue;
+>>>>>>> 21140ac (first)
         return $this;
     }
 
@@ -31,4 +37,8 @@ class ScheduleOptions extends TextColumn
         */
         return [];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 21140ac (first)

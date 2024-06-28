@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
 use Filament\Actions;
+<<<<<<< HEAD
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
@@ -21,6 +22,16 @@ class EditSchedule extends EditRecord
 
     public Collection $commands;
 
+=======
+use Filament\Notifications\Notification;
+use Filament\Resources\Pages\EditRecord;
+use Illuminate\Validation\ValidationException;
+use Modules\Job\Filament\Resources\ScheduleResource;
+
+class EditSchedule extends EditRecord
+{
+    protected static string $resource = ScheduleResource::class;
+>>>>>>> 21140ac (first)
     protected function getHeaderActions(): array
     {
         return [
@@ -40,6 +51,7 @@ class EditSchedule extends EditRecord
     {
         return $this->getResource()::getUrl('index');
     }
+<<<<<<< HEAD
 
     public function getformSchema(): array
     {
@@ -52,3 +64,6 @@ class EditSchedule extends EditRecord
             ->schema($this->getFormSchema());
     }
 }
+=======
+}
+>>>>>>> 21140ac (first)

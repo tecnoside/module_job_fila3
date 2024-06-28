@@ -17,7 +17,10 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedJob                                newModelQuery()
  * @method static Builder|FailedJob                                newQuery()
  * @method static Builder|FailedJob                                query()
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 21140ac (first)
  * @property int    $id
  * @property string $uuid
  * @property string $connection
@@ -25,7 +28,10 @@ use Illuminate\Database\Eloquent\Builder;
  * @property array  $payload
  * @property string $exception
  * @property string $failed_at
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 21140ac (first)
  * @method static Builder|FailedJob whereConnection($value)
  * @method static Builder|FailedJob whereException($value)
  * @method static Builder|FailedJob whereFailedAt($value)
@@ -33,7 +39,10 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedJob wherePayload($value)
  * @method static Builder|FailedJob whereQueue($value)
  * @method static Builder|FailedJob whereUuid($value)
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 21140ac (first)
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel
@@ -48,6 +57,7 @@ class FailedJob extends BaseModel
         'failed_at',
     ];
 
+<<<<<<< HEAD
     protected function casts(): array
     {
         return [
@@ -62,4 +72,13 @@ class FailedJob extends BaseModel
             'payload' => 'array',
         ];
     }
+=======
+    protected $casts = [
+        'updated_by' => 'string',
+        'created_by' => 'string',
+        'deleted_by' => 'string',
+
+        'payload' => 'array',
+    ];
+>>>>>>> 21140ac (first)
 }

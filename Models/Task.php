@@ -41,13 +41,20 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property int|null                                                  $frequencies_count
  * @property bool                                                      $activated
  * @property float                                                     $average_runtime
+<<<<<<< HEAD
  * @property Result|null                                               $last_result
+=======
+ * @property \Modules\Job\Models\Result|null                           $last_result
+>>>>>>> 21140ac (first)
  * @property string                                                    $upcoming
  * @property DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property int|null                                                  $notifications_count
  * @property Collection<int, \Modules\Job\Models\Result>               $results
  * @property int|null                                                  $results_count
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 21140ac (first)
  * @method static Builder|Task newModelQuery()
  * @method static Builder|Task newQuery()
  * @method static Builder|Task query()
@@ -72,6 +79,7 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @method static Builder|Task whereTimezone($value)
  * @method static Builder|Task whereUpdatedAt($value)
  * @method static Builder|Task whereUpdatedBy($value)
+<<<<<<< HEAD
  *
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property string|null                     $deleted_by
@@ -79,6 +87,8 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @method static Builder|Task whereDeletedAt($value)
  * @method static Builder|Task whereDeletedBy($value)
  *
+=======
+>>>>>>> 21140ac (first)
  * @mixin \Eloquent
  */
 class Task extends BaseModel
