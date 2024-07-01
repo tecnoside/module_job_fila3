@@ -14,29 +14,31 @@ use Illuminate\Support\Carbon;
 /**
  * Modules\Job\Models\Frequency.
  *
- * @property int $id
- * @property int $task_id
- * @property string $label
- * @property string $interval
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property int                                            $id
+ * @property int                                            $task_id
+ * @property string                                         $label
+ * @property string                                         $interval
+ * @property string|null                                    $created_by
+ * @property string|null                                    $updated_by
+ * @property Carbon|null                                    $created_at
+ * @property Carbon|null                                    $updated_at
  * @property Collection<int, \Modules\Job\Models\Parameter> $parameters
- * @property int|null $parameters_count
- * @property Task|null $task
+ * @property int|null                                       $parameters_count
+ * @property Task|null                                      $task
+ *
  * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
- * @method static Builder|Frequency newModelQuery()
- * @method static Builder|Frequency newQuery()
- * @method static Builder|Frequency query()
- * @method static Builder|Frequency whereCreatedAt($value)
- * @method static Builder|Frequency whereCreatedBy($value)
- * @method static Builder|Frequency whereId($value)
- * @method static Builder|Frequency whereInterval($value)
- * @method static Builder|Frequency whereLabel($value)
- * @method static Builder|Frequency whereTaskId($value)
- * @method static Builder|Frequency whereUpdatedAt($value)
- * @method static Builder|Frequency whereUpdatedBy($value)
+ * @method static Builder|Frequency                                newModelQuery()
+ * @method static Builder|Frequency                                newQuery()
+ * @method static Builder|Frequency                                query()
+ * @method static Builder|Frequency                                whereCreatedAt($value)
+ * @method static Builder|Frequency                                whereCreatedBy($value)
+ * @method static Builder|Frequency                                whereId($value)
+ * @method static Builder|Frequency                                whereInterval($value)
+ * @method static Builder|Frequency                                whereLabel($value)
+ * @method static Builder|Frequency                                whereTaskId($value)
+ * @method static Builder|Frequency                                whereUpdatedAt($value)
+ * @method static Builder|Frequency                                whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class Frequency extends BaseModel
