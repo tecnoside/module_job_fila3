@@ -62,7 +62,7 @@ class JobsWaitingResource extends XotBaseResource
                         ->badge()
                         ->label(static::trans('fields.status'))
                         ->sortable()
-                        //->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
+                        // ->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
                         ->color(
                             static fn (string $state): string => match ($state) {
                                 'running' => 'primary',
