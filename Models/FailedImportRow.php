@@ -12,18 +12,18 @@ use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @method static \Modules\Job\Database\Factories\FailedImportRowFactory factory($count = null, $state = [])
- * @method static Builder|FailedImportRow                                newModelQuery()
- * @method static Builder|FailedImportRow                                newQuery()
- * @method static Builder|FailedImportRow                                query()
+ * @method static Builder|FailedImportRow newModelQuery()
+ * @method static Builder|FailedImportRow newQuery()
+ * @method static Builder|FailedImportRow query()
  *
- * @property int                             $id
- * @property array                           $data
- * @property int                             $import_id
- * @property string|null                     $validation_error
+ * @property int $id
+ * @property array $data
+ * @property int $import_id
+ * @property string|null $validation_error
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null                     $updated_by
- * @property string|null                     $created_by
+ * @property string|null $updated_by
+ * @property string|null $created_by
  *
  * @method static Builder|FailedImportRow whereCreatedAt($value)
  * @method static Builder|FailedImportRow whereCreatedBy($value)

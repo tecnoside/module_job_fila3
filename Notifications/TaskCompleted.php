@@ -19,9 +19,7 @@ class TaskCompleted extends Notification implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(private readonly string $output)
-    {
-    }
+    public function __construct(private readonly string $output) {}
 
     /**
      * Get the notification's delivery channels.
@@ -38,7 +36,7 @@ class TaskCompleted extends Notification implements ShouldQueue
             $channels[] = 'nexmo';
         }
 
-        if ('' !== $notifiable->notification_slack_webhook && '0' !== $notifiable->notification_slack_webhook) {
+        if ($notifiable->notification_slack_webhook !== '' && $notifiable->notification_slack_webhook !== '0') {
             $channels[] = 'slack';
         }
 
@@ -50,7 +48,7 @@ class TaskCompleted extends Notification implements ShouldQueue
      */
     public function toMail(Task $task): MailMessage
     {
-        return (new MailMessage())
+        return (new MailMessage)
             ->subject($task->description)
             ->greeting('Hi,')
             ->line(sprintf('%s just finished running.', $task->description))
