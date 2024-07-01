@@ -136,7 +136,7 @@ class WorkerCheck extends Command
         // dd($command);
 
         $pid = exec($command);
-        if (false == $pid) {
+        if ($pid == false) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 

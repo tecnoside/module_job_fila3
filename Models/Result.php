@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\DB;
 /**
  * Modules\Job\Models\Result.
  *
- * @property int         $id
- * @property int         $task_id
- * @property Carbon      $ran_at
- * @property string      $duration
- * @property string      $result
+ * @property int $id
+ * @property int $task_id
+ * @property Carbon $ran_at
+ * @property string $duration
+ * @property string $result
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property Task|null   $task
+ * @property Task|null $task
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Result newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result newQuery()
