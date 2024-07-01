@@ -20,7 +20,6 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Frequency|null $task
- *
  * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
  * @method static Builder|Parameter newModelQuery()
  * @method static Builder|Parameter newQuery()
@@ -33,7 +32,6 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Parameter whereUpdatedAt($value)
  * @method static Builder|Parameter whereUpdatedBy($value)
  * @method static Builder|Parameter whereValue($value)
- *
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel
