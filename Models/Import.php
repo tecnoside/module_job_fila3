@@ -11,27 +11,27 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * 
- *
  * @method static \Modules\Job\Database\Factories\ImportFactory factory($count = null, $state = [])
- * @method static Builder|Import newModelQuery()
- * @method static Builder|Import newQuery()
- * @method static Builder|Import query()
- * @property int $id
+ * @method static Builder|Import                                newModelQuery()
+ * @method static Builder|Import                                newQuery()
+ * @method static Builder|Import                                query()
+ *
+ * @property int                             $id
  * @property \Illuminate\Support\Carbon|null $completed_at
- * @property string $file_name
- * @property string $file_path
- * @property string $importer
- * @property int $processed_rows
- * @property int $total_rows
- * @property int $successful_rows
- * @property string|null $user_id
+ * @property string                          $file_name
+ * @property string                          $file_path
+ * @property string                          $importer
+ * @property int                             $processed_rows
+ * @property int                             $total_rows
+ * @property int                             $successful_rows
+ * @property string|null                     $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_at
- * @property string|null $deleted_by
+ * @property string|null                     $updated_by
+ * @property string|null                     $created_by
+ * @property string|null                     $deleted_at
+ * @property string|null                     $deleted_by
+ *
  * @method static Builder|Import whereCompletedAt($value)
  * @method static Builder|Import whereCreatedAt($value)
  * @method static Builder|Import whereCreatedBy($value)
@@ -47,8 +47,11 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|Import whereUpdatedAt($value)
  * @method static Builder|Import whereUpdatedBy($value)
  * @method static Builder|Import whereUserId($value)
+ *
  * @property string|null $user_type
+ *
  * @method static Builder|Import whereUserType($value)
+ *
  * @mixin \Eloquent
  */
 class Import extends BaseModel
