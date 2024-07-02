@@ -28,7 +28,6 @@ use Illuminate\Support\Collection;
  * @property Carbon|null     $cancelled_at
  * @property Carbon          $created_at
  * @property Carbon|null     $finished_at
- *
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
  * @method static Builder|JobBatch                                newModelQuery()
  * @method static Builder|JobBatch                                newQuery()
@@ -43,7 +42,6 @@ use Illuminate\Support\Collection;
  * @method static Builder|JobBatch                                whereOptions($value)
  * @method static Builder|JobBatch                                wherePendingJobs($value)
  * @method static Builder|JobBatch                                whereTotalJobs($value)
- *
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel

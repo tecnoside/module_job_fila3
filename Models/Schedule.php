@@ -18,7 +18,6 @@ use Modules\Job\Enums\Status;
  * @property array                                                                              $options
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
  * @property int|null                                                                           $histories_count
- *
  * @method static Builder|Schedule                                active()
  * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
  * @method static Builder|Schedule                                inactive()
@@ -28,7 +27,6 @@ use Modules\Job\Enums\Status;
  * @method static Builder|Schedule                                query()
  * @method static Builder|Schedule                                withTrashed()
  * @method static Builder|Schedule                                withoutTrashed()
- *
  * @property int                             $id
  * @property string                          $command
  * @property string|null                     $command_custom
@@ -54,7 +52,6 @@ use Modules\Job\Enums\Status;
  * @property string|null                     $updated_by
  * @property string|null                     $created_by
  * @property string|null                     $deleted_by
- *
  * @method static Builder|Schedule whereCommand($value)
  * @method static Builder|Schedule whereCommandCustom($value)
  * @method static Builder|Schedule whereCreatedAt($value)
@@ -82,7 +79,6 @@ use Modules\Job\Enums\Status;
  * @method static Builder|Schedule whereWebhookAfter($value)
  * @method static Builder|Schedule whereWebhookBefore($value)
  * @method static Builder|Schedule whereWithoutOverlapping($value)
- *
  * @mixin \Eloquent
  */
 class Schedule extends BaseModel
