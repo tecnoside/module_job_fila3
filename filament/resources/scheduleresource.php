@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
-use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
