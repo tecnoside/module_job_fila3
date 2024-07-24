@@ -1,1 +1,1 @@
-[[{"l":"module_job"}]]
+[[{"l":"Module Job","p":["Modulo dedicato alla gestione delle operazione in Queue"]},{"l":"Aggiungere Modulo nella base del progetto","p":["Dentro la cartella laravel/Modules"]},{"l":"Verificare che il modulo sia attivo","p":["in caso abilitarlo"]},{"l":"Eseguire le migrazioni"}]]
