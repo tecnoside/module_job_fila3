@@ -17,9 +17,9 @@ use function Safe\fopen;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\StreamOutput;
 
-class ClockWidget extends Widget
+class QueueListenWidget extends Widget
 {
-    protected static string $view = 'job::filament.widgets.clock-widget';
+    protected static string $view = 'job::filament.widgets.queue-listen';
 
     /** @var string */
     public $time = '---';
@@ -37,7 +37,7 @@ class ClockWidget extends Widget
     {
         $this->time = '';
         $process = Process::path(base_path())
-            ->start('php artisan queue:listen --timeout=0');
+            ->start('php artisan queue:listen');
         while ($process->running()) {
             // ...
             $this->stream(
