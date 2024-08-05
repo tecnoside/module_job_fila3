@@ -10,10 +10,21 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\FailedImportRowResource;
+use Modules\UI\Enums\TableLayoutEnum;
+use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 
 class ListFailedImportRows extends ListRecords
 {
     protected static string $resource = FailedImportRowResource::class;
+
+    public TableLayoutEnum $layoutView = TableLayoutEnum::GRID;
+
+    protected function getTableHeaderActions(): array
+    {
+        return [
+            TableLayoutToggleTableAction::make(),
+        ];
+    }
 
     protected function getHeaderActions(): array
     {

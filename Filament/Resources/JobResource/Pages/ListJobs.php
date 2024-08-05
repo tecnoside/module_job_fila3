@@ -12,10 +12,21 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobResource;
+use Modules\UI\Enums\TableLayoutEnum;
+use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 
 class ListJobs extends ListRecords
 {
     protected static string $resource = JobResource::class;
+
+    public TableLayoutEnum $layoutView = TableLayoutEnum::GRID;
+
+    protected function getTableHeaderActions(): array
+    {
+        return [
+            TableLayoutToggleTableAction::make(),
+        ];
+    }
 
     protected function getHeaderActions(): array
     {

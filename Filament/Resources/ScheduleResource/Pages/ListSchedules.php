@@ -15,6 +15,8 @@ use Modules\Job\Filament\Columns\ScheduleArguments;
 use Modules\Job\Filament\Columns\ScheduleOptions;
 use Modules\Job\Filament\Resources\ScheduleResource;
 use Modules\Job\Models\Schedule;
+use Modules\UI\Enums\TableLayoutEnum;
+use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 
 class ListSchedules extends ListRecords
@@ -22,6 +24,15 @@ class ListSchedules extends ListRecords
     use NavigationPageLabelTrait;
 
     protected static string $resource = ScheduleResource::class;
+
+    public TableLayoutEnum $layoutView = TableLayoutEnum::GRID;
+
+    protected function getTableHeaderActions(): array
+    {
+        return [
+            TableLayoutToggleTableAction::make(),
+        ];
+    }
 
     protected function getHeaderActions(): array
     {
@@ -42,7 +53,7 @@ class ListSchedules extends ListRecords
         return [
             Tables\Columns\TextColumn::make('command')
                 ->getStateUsing(function ($record) {
-                    if ($record->command == 'custom') {
+                    if ('custom' == $record->command) {
                         return $record->command_custom;
                     }
 
