@@ -10,21 +10,10 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\ImportResource;
-use Modules\UI\Enums\TableLayoutEnum;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 
 class ListImports extends ListRecords
 {
     protected static string $resource = ImportResource::class;
-
-    public TableLayoutEnum $layoutView = TableLayoutEnum::GRID;
-
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            TableLayoutToggleTableAction::make(),
-        ];
-    }
 
     protected function getHeaderActions(): array
     {
