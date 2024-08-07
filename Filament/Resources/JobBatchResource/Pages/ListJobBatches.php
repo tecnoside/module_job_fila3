@@ -12,21 +12,10 @@ use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Facades\Artisan;
 use Modules\Job\Filament\Resources\JobBatchResource;
-use Modules\UI\Enums\TableLayoutEnum;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 
 class ListJobBatches extends ListRecords
 {
     protected static string $resource = JobBatchResource::class;
-
-    public TableLayoutEnum $layoutView = TableLayoutEnum::GRID;
-
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            TableLayoutToggleTableAction::make(),
-        ];
-    }
 
     protected function getHeaderActions(): array
     {
