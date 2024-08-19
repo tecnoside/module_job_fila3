@@ -11,11 +11,10 @@ use Filament\Widgets\Widget;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Process;
-
-use function Safe\fopen;
-
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\StreamOutput;
+
+use function Safe\fopen;
 
 class ClockWidget extends Widget
 {
@@ -82,7 +81,7 @@ class ClockWidget extends Widget
         };
         */
         $resource = fopen('php://stdout', 'w');
-        if (false === $resource) {
+        if ($resource === false) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         $output = new StreamOutput($resource);
