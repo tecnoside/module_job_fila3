@@ -26,3 +26,5 @@ package-lock.json
 package-lock.json
 .git-rewrite/
 node_modules
+node_modules
+vendor
