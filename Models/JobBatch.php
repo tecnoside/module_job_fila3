@@ -18,30 +18,32 @@ use Illuminate\Support\Collection;
 /**
  * Modules\Job\Models\JobBatch.
  *
- * @property string          $id
- * @property string          $name
- * @property int             $total_jobs
- * @property int             $pending_jobs
- * @property int             $failed_jobs
- * @property string          $failed_job_ids
+ * @property string $id
+ * @property string $name
+ * @property int $total_jobs
+ * @property int $pending_jobs
+ * @property int $failed_jobs
+ * @property string $failed_job_ids
  * @property Collection|null $options
- * @property Carbon|null     $cancelled_at
- * @property Carbon          $created_at
- * @property Carbon|null     $finished_at
+ * @property Carbon|null $cancelled_at
+ * @property Carbon $created_at
+ * @property Carbon|null $finished_at
+ *
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
- * @method static Builder|JobBatch                                newModelQuery()
- * @method static Builder|JobBatch                                newQuery()
- * @method static Builder|JobBatch                                query()
- * @method static Builder|JobBatch                                whereCancelledAt($value)
- * @method static Builder|JobBatch                                whereCreatedAt($value)
- * @method static Builder|JobBatch                                whereFailedJobIds($value)
- * @method static Builder|JobBatch                                whereFailedJobs($value)
- * @method static Builder|JobBatch                                whereFinishedAt($value)
- * @method static Builder|JobBatch                                whereId($value)
- * @method static Builder|JobBatch                                whereName($value)
- * @method static Builder|JobBatch                                whereOptions($value)
- * @method static Builder|JobBatch                                wherePendingJobs($value)
- * @method static Builder|JobBatch                                whereTotalJobs($value)
+ * @method static Builder|JobBatch newModelQuery()
+ * @method static Builder|JobBatch newQuery()
+ * @method static Builder|JobBatch query()
+ * @method static Builder|JobBatch whereCancelledAt($value)
+ * @method static Builder|JobBatch whereCreatedAt($value)
+ * @method static Builder|JobBatch whereFailedJobIds($value)
+ * @method static Builder|JobBatch whereFailedJobs($value)
+ * @method static Builder|JobBatch whereFinishedAt($value)
+ * @method static Builder|JobBatch whereId($value)
+ * @method static Builder|JobBatch whereName($value)
+ * @method static Builder|JobBatch whereOptions($value)
+ * @method static Builder|JobBatch wherePendingJobs($value)
+ * @method static Builder|JobBatch whereTotalJobs($value)
+ *
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel
