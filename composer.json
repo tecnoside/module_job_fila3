@@ -91,7 +91,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Job\\Providers\\JobServiceProvider"
+                "Modules\\Job\\Providers\\JobServiceProvider",
+                "Modules\\Job\\Providers\\Filament\\AdminPanelProvider"
             ],
             "aliases": {
 
