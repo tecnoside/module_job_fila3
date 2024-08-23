@@ -5,8 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-class CreateJobManagerTable extends XotBaseMigration
-{
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -31,10 +30,10 @@ class CreateJobManagerTable extends XotBaseMigration
         // -- UPDATE --
         $this->tableUpdate(
             static function (Blueprint $table): void {
-                //if (! $this->hasColumn('uuid')) {
+                // if (! $this->hasColumn('uuid')) {
                 //    $table->string('uuid')->nullable();
-                //}
+                // }
             }
         );
     }
-}
+};

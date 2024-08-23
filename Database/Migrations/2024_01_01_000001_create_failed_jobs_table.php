@@ -5,8 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-class CreateFailedJobsTable extends XotBaseMigration
-{
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -15,7 +14,7 @@ class CreateFailedJobsTable extends XotBaseMigration
         // -- CREATE --
         $this->tableCreate(
             static function (Blueprint $table): void {
-                //$table->uuid('id')->primary();
+                // $table->uuid('id')->primary();
                 $table->id();
                 $table->string('uuid')->unique();
                 $table->text('connection');
@@ -34,4 +33,4 @@ class CreateFailedJobsTable extends XotBaseMigration
             }
         );
     }
-}
+};
