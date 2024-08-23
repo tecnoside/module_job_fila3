@@ -11,11 +11,12 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
+ * 
+ *
  * @method static \Modules\Job\Database\Factories\FailedImportRowFactory factory($count = null, $state = [])
  * @method static Builder|FailedImportRow newModelQuery()
  * @method static Builder|FailedImportRow newQuery()
  * @method static Builder|FailedImportRow query()
- *
  * @property int $id
  * @property array $data
  * @property int $import_id
@@ -24,7 +25,6 @@ use Illuminate\Database\Eloquent\Builder;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
- *
  * @method static Builder|FailedImportRow whereCreatedAt($value)
  * @method static Builder|FailedImportRow whereCreatedBy($value)
  * @method static Builder|FailedImportRow whereData($value)
@@ -33,10 +33,8 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedImportRow whereUpdatedAt($value)
  * @method static Builder|FailedImportRow whereUpdatedBy($value)
  * @method static Builder|FailedImportRow whereValidationError($value)
- *
  * @property-read \Modules\Fixcity\Models\Profile|null $creator
  * @property-read \Modules\Fixcity\Models\Profile|null $updater
- *
  * @mixin \Eloquent
  */
 class FailedImportRow extends BaseModel
