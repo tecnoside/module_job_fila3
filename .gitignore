@@ -26,14 +26,8 @@ package-lock.json
 package-lock.json
 .git-rewrite/
 node_modules
-<<<<<<< HEAD
-build/
-node_modules
-=======
-node_modules
 vendor
 .php-cs-fixer.cache
 .git-blame-ignore-revs
 vendor/
 build/
->>>>>>> 33c82ed8100619736a6548b79885944e2cbc5d1f
