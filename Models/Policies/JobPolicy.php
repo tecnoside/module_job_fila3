@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models\Policies;
 
-use Modules\User\Models\Policies\UserBasePolicy;
 use Modules\User\Models\Team;
 use Modules\Xot\Contracts\UserContract;
+use Modules\User\Models\Policies\UserBasePolicy;
+
 
 class JobPolicy extends UserBasePolicy
 {
