@@ -88,7 +88,7 @@ class Task extends BaseModel
     use HasFactory;
     use Notifiable;
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'id',
         'description',
@@ -113,7 +113,7 @@ class Task extends BaseModel
      *
      * @var array
      */
-    /** @var array<int, string> */
+     /** @var list<string> */
     protected $appends = [
         'activated',
         'upcoming',
