@@ -44,8 +44,8 @@ use function Safe\json_decode;
  * @method static Builder|Job whereUpdatedBy($value)
  * @property mixed $display_name
  * @property mixed $status
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class Job extends BaseModel

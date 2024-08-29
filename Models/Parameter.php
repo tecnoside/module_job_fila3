@@ -32,8 +32,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Parameter whereUpdatedAt($value)
  * @method static Builder|Parameter whereUpdatedBy($value)
  * @method static Builder|Parameter whereValue($value)
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel

@@ -31,8 +31,8 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedJob wherePayload($value)
  * @method static Builder|FailedJob whereQueue($value)
  * @method static Builder|FailedJob whereUuid($value)
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel

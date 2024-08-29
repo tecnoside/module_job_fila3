@@ -37,8 +37,8 @@ namespace Modules\Job\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|JobsWaiting whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobsWaiting whereUpdatedBy($value)
  * @property mixed $status
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class JobsWaiting extends Job {}

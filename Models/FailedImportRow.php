@@ -33,8 +33,8 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedImportRow whereUpdatedAt($value)
  * @method static Builder|FailedImportRow whereUpdatedBy($value)
  * @method static Builder|FailedImportRow whereValidationError($value)
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class FailedImportRow extends BaseModel

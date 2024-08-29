@@ -75,8 +75,8 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property string|null $deleted_by
  * @method static Builder|Task whereDeletedAt($value)
  * @method static Builder|Task whereDeletedBy($value)
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class Task extends BaseModel

@@ -49,8 +49,8 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|Import whereUserId($value)
  * @property string|null $user_type
  * @method static Builder|Import whereUserType($value)
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class Import extends BaseModel

@@ -37,8 +37,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Frequency whereTaskId($value)
  * @method static Builder|Frequency whereUpdatedAt($value)
  * @method static Builder|Frequency whereUpdatedBy($value)
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class Frequency extends BaseModel

@@ -46,8 +46,8 @@ use Illuminate\Support\Facades\Hash;
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereQueue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereStartedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereUpdatedAt($value)
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel

@@ -47,8 +47,8 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|Export whereUpdatedAt($value)
  * @method static Builder|Export whereUpdatedBy($value)
  * @method static Builder|Export whereUserId($value)
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class Export extends BaseModel

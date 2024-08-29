@@ -42,8 +42,8 @@ use Illuminate\Support\Collection;
  * @method static Builder|JobBatch whereOptions($value)
  * @method static Builder|JobBatch wherePendingJobs($value)
  * @method static Builder|JobBatch whereTotalJobs($value)
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel

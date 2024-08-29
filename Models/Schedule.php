@@ -79,8 +79,8 @@ use Modules\Job\Enums\Status;
  * @method static Builder|Schedule whereWebhookAfter($value)
  * @method static Builder|Schedule whereWebhookBefore($value)
  * @method static Builder|Schedule whereWithoutOverlapping($value)
- * @property-read \Modules\Idoteca\Models\Profile|null $creator
- * @property-read \Modules\Idoteca\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class Schedule extends BaseModel
