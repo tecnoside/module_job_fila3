@@ -47,7 +47,6 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property int|null $notifications_count
  * @property Collection<int, \Modules\Job\Models\Result> $results
  * @property int|null $results_count
- *
  * @method static Builder|Task newModelQuery()
  * @method static Builder|Task newQuery()
  * @method static Builder|Task query()
@@ -72,13 +71,12 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @method static Builder|Task whereTimezone($value)
  * @method static Builder|Task whereUpdatedAt($value)
  * @method static Builder|Task whereUpdatedBy($value)
- *
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property string|null $deleted_by
- *
  * @method static Builder|Task whereDeletedAt($value)
  * @method static Builder|Task whereDeletedBy($value)
- *
+ * @property-read \Modules\Idoteca\Models\Profile|null $creator
+ * @property-read \Modules\Idoteca\Models\Profile|null $updater
  * @mixin \Eloquent
  */
 class Task extends BaseModel

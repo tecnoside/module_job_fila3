@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedJob newModelQuery()
  * @method static Builder|FailedJob newQuery()
  * @method static Builder|FailedJob query()
- *
  * @property int $id
  * @property string $uuid
  * @property string $connection
@@ -25,7 +24,6 @@ use Illuminate\Database\Eloquent\Builder;
  * @property array $payload
  * @property string $exception
  * @property string $failed_at
- *
  * @method static Builder|FailedJob whereConnection($value)
  * @method static Builder|FailedJob whereException($value)
  * @method static Builder|FailedJob whereFailedAt($value)
@@ -33,7 +31,8 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|FailedJob wherePayload($value)
  * @method static Builder|FailedJob whereQueue($value)
  * @method static Builder|FailedJob whereUuid($value)
- *
+ * @property-read \Modules\Idoteca\Models\Profile|null $creator
+ * @property-read \Modules\Idoteca\Models\Profile|null $updater
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel
