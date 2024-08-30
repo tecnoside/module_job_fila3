@@ -28,7 +28,6 @@ use function Safe\json_decode;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
- *
  * @method static \Modules\Job\Database\Factories\JobFactory factory($count = null, $state = [])
  * @method static Builder|Job newModelQuery()
  * @method static Builder|Job newQuery()
@@ -43,10 +42,10 @@ use function Safe\json_decode;
  * @method static Builder|Job whereReservedAt($value)
  * @method static Builder|Job whereUpdatedAt($value)
  * @method static Builder|Job whereUpdatedBy($value)
- *
  * @property mixed $display_name
  * @property mixed $status
- *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class Job extends BaseModel

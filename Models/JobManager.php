@@ -22,12 +22,10 @@ use Illuminate\Support\Facades\Hash;
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
- *
  * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager query()
- *
  * @property mixed $status
  * @property string $job_id
  * @property string|null $queue
@@ -36,7 +34,6 @@ use Illuminate\Support\Facades\Hash;
  * @property int|null $progress
  * @property string|null $exception_message
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereAttempt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereExceptionMessage($value)
@@ -49,7 +46,8 @@ use Illuminate\Support\Facades\Hash;
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereQueue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereStartedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereUpdatedAt($value)
- *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel
