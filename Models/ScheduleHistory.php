@@ -60,22 +60,6 @@ class ScheduleHistory extends BaseModel
         'output',
         'options',
     ];
-
-    protected function casts(): array
-    {
-        return [
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
-            'params' => 'array',
-            'options' => 'array',
-        ];
-    }
     /*
          * Creates a new instance of the model.
          *
@@ -95,5 +79,21 @@ class ScheduleHistory extends BaseModel
     public function command(): BelongsTo
     {
         return $this->belongsTo(Schedule::class, 'schedule_id', 'id');
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+            'params' => 'array',
+            'options' => 'array',
+        ];
     }
 }

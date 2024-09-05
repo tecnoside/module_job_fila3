@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\Job;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Job>
+ */
 class JobFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
-     * @var class-string<Model>
+     * @var class-string<Job>
      */
     protected $model = Job::class;
 
@@ -24,12 +27,12 @@ class JobFactory extends Factory
     {
         return [
             // 'id' => $this->faker->randomNumber(5, false),
-            'queue' => $this->faker->word,
-            'payload' => $this->faker->text,
-            'attempts' => $this->faker->boolean,
-            'reserved_at' => $this->faker->randomNumber(5, false),
-            'available_at' => $this->faker->randomNumber(5, false),
-            'created_at' => $this->faker->randomNumber(5, false),
+            'queue' => fake()->word,
+            'payload' => fake()->text,
+            'attempts' => fake()->boolean,
+            'reserved_at' => fake()->randomNumber(5, false),
+            'available_at' => fake()->randomNumber(5, false),
+            'created_at' => fake()->randomNumber(5, false),
         ];
     }
 }

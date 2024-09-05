@@ -68,36 +68,6 @@ class JobManager extends BaseModel
         'exception_message',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
-            'failed' => 'bool',
-            'started_at' => 'datetime',
-            'finished_at' => 'datetime',
-        ];
-    }
-
-    public function status(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                if ($this->isFinished()) {
-                    return $this->failed ? 'failed' : 'succeeded';
-                }
-
-                return 'running';
-            },
-        );
-    }
-
     public static function getJobId(JobContract $job): string|int
     {
         if ($jobId = $job->getJobId()) {
@@ -105,6 +75,19 @@ class JobManager extends BaseModel
         }
 
         return Hash::make($job->getRawBody());
+    }
+
+    public function status(): Attribute
+    {
+        return Attribute::make(
+            get: function (): string {
+                if ($this->isFinished()) {
+                    return $this->failed ? 'failed' : 'succeeded';
+                }
+
+                return 'running';
+            },
+        );
     }
 
     public function isFinished(): bool
@@ -142,5 +125,22 @@ class JobManager extends BaseModel
         }
 
         return static::query();
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+            'failed' => 'bool',
+            'started_at' => 'datetime',
+            'finished_at' => 'datetime',
+        ];
     }
 }

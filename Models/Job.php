@@ -60,25 +60,6 @@ class Job extends BaseModel
         'created_at',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
-            'payload' => 'array',
-
-            // 'updated_at' => 'datetime:Y-m-d H:00',
-            // 'created_at' => 'datetime:Y-m-d',
-            // 'created_at' => 'datetime:d/m/Y H:i'
-        ];
-    }
-
     public function getTable(): string
     {
         Assert::string($res = config('queue.connections.database.table'), '['.__LINE__.']['.__FILE__.']');
@@ -89,7 +70,7 @@ class Job extends BaseModel
     public function status(): Attribute
     {
         return Attribute::make(
-            get: function () {
+            get: function (): string {
                 if ($this->reserved_at) {
                     return 'running';
                 }
@@ -107,5 +88,24 @@ class Job extends BaseModel
         }
 
         return $payload['displayName'] ?? null;
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+            'payload' => 'array',
+
+            // 'updated_at' => 'datetime:Y-m-d H:00',
+            // 'created_at' => 'datetime:Y-m-d',
+            // 'created_at' => 'datetime:d/m/Y H:i'
+        ];
     }
 }

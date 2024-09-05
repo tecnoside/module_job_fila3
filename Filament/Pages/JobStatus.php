@@ -17,11 +17,11 @@ class JobStatus extends Page
 {
     use NavigationLabelTrait;
 
+    public string $out = '';
+
     protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
 
     protected static string $view = 'job::filament.pages.job-status';
-
-    public string $out = '';
 
     public function getHeaderWidgets(): array
     {
@@ -59,7 +59,7 @@ class JobStatus extends Page
 
     public function getActs(): array
     {
-        $acts = [
+        return [
             /*
             (object) [
                 'name' => 'batches-table',
@@ -143,7 +143,5 @@ class JobStatus extends Page
                 'label' => 'Route list',
             ],
         ];
-
-        return $acts;
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -111,7 +112,7 @@ class Task extends BaseModel
      *
      * @var array
      */
-     /** @var list<string> */
+    /** @var list<string> */
     protected $appends = [
         'activated',
         'upcoming',
@@ -130,7 +131,7 @@ class Task extends BaseModel
     /**
      * Upcoming Accessor.
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function getUpcomingAttribute(): string
     {

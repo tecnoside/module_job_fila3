@@ -25,20 +25,20 @@ class ScheduleArguments extends TextColumn
         $tags = $this->getState();
         if (is_array($tags)) {
             if ($this->withValue) {
-                return collect($tags)->filter(static fn ($value) => ! empty($value['value']))->map(static fn ($value, $key) => ($value['name'] ?? $key).'='.$value['value'])->toArray();
+                return collect($tags)->reject(static fn ($value): bool => empty($value['value']))->map(static fn ($value, $key): string => ($value['name'] ?? $key).'='.$value['value'])->toArray();
             }
 
-            return collect($tags)->map(static fn ($value, $key) => $key.'='.$value)->toArray();
+            return collect($tags)->map(static fn ($value, $key): string => $key.'='.$value)->toArray();
         }
 
-        if (! ($separator = $this->getSeparator())) {
+        if (($separator = $this->getSeparator()) === null || ($separator = $this->getSeparator()) === '' || ($separator = $this->getSeparator()) === '0') {
             return [];
         }
 
         Assert::string($tags, '['.__LINE__.']['.__FILE__.']');
         $tags = explode($separator, $tags);
         if (count($tags) === 1 && blank($tags[0])) {
-            $tags = [];
+            return [];
         }
 
         return $tags;

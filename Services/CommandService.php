@@ -31,16 +31,14 @@ class CommandService
         }
 
         return $commands->only($commandsKeys)
-            ->map(function ($command) {
-                return [
-                    'name' => $command->getName(),
-                    'description' => $command->getDescription(),
-                    'signature' => $command->getSynopsis(),
-                    'full_name' => $command->getName().' ('.$command->getDescription().')',
-                    'arguments' => static::getArguments($command),
-                    'options' => static::getOptions($command),
-                ];
-            });
+            ->map(fn($command): array => [
+                'name' => $command->getName(),
+                'description' => $command->getDescription(),
+                'signature' => $command->getSynopsis(),
+                'full_name' => $command->getName().' ('.$command->getDescription().')',
+                'arguments' => static::getArguments($command),
+                'options' => static::getOptions($command),
+            ]);
     }
 
     /**

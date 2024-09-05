@@ -7,6 +7,9 @@ namespace Modules\Job\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\Task;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Task>
+ */
 class TaskFactory extends Factory
 {
     protected $model = Task::class;
@@ -14,7 +17,7 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'description' => $this->faker->sentence,
+            'description' => fake()->sentence,
             'command' => 'Modules\Job\Console\Commands\ListSchedule',
             'expression' => '* * * * *',
         ];

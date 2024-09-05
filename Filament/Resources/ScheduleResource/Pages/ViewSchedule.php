@@ -85,7 +85,7 @@ class ViewSchedule extends Page implements HasTable
                     ->dateTime($date_format),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('job::schedule.fields.expression'))
-                    ->formatStateUsing(static function ($state, $record) {
+                    ->formatStateUsing(static function ($state, $record): string {
                         if ($state === $record->created_at) {
                             return 'Processing...';
                         }
@@ -94,14 +94,10 @@ class ViewSchedule extends Page implements HasTable
                     }),
                 Tables\Columns\TextColumn::make('output')
                     ->label('Output lines')
-                    ->formatStateUsing(static function ($state) {
-                        return (count(explode('<br />', nl2br($state))) - 1).' rows of output';
-                    }),
+                    ->formatStateUsing(static fn($state): string => (count(explode('<br />', nl2br((string) $state))) - 1).' rows of output'),
             ]), Tables\Columns\Layout\Panel::make([
                 Tables\Columns\TextColumn::make('output')->extraAttributes(['class' => '!max-w-max'], true)
-                    ->formatStateUsing(static function ($state) {
-                        return new HtmlString(nl2br($state));
-                    }),
+                    ->formatStateUsing(static fn($state): \Illuminate\Support\HtmlString => new HtmlString(nl2br((string) $state))),
             ])->collapsible()
             // ->collapsed(config('job::history_collapsed'))
             ,

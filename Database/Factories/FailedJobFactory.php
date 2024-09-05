@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\FailedJob;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\FailedJob>
+ */
 class FailedJobFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
-     * @var class-string<Model>
+     * @var class-string<FailedJob>
      */
     protected $model = FailedJob::class;
 
@@ -23,13 +26,13 @@ class FailedJobFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->faker->randomNumber(5, false),
-            'uuid' => $this->faker->uuid,
-            'connection' => $this->faker->text,
-            'queue' => $this->faker->text,
-            'payload' => $this->faker->text,
-            'exception' => $this->faker->text,
-            'failed_at' => $this->faker->dateTime,
+            'id' => fake()->randomNumber(5, false),
+            'uuid' => fake()->uuid,
+            'connection' => fake()->text,
+            'queue' => fake()->text,
+            'payload' => fake()->text,
+            'exception' => fake()->text,
+            'failed_at' => fake()->dateTime,
         ];
     }
 }

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Widgets;
 
+use Exception;
 use Filament\Widgets\Widget;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;
@@ -18,12 +19,12 @@ use function Safe\fopen;
 
 class QueueListenWidget extends Widget
 {
-    protected static string $view = 'job::filament.widgets.queue-listen';
-
     /** @var string */
     public $time = '---';
 
     public bool $run = false;
+
+    protected static string $view = 'job::filament.widgets.queue-listen';
 
     protected int|string|array $columnSpan = 'full';
 
@@ -50,7 +51,7 @@ class QueueListenWidget extends Widget
             $this->time .= $process->latestOutput();
         }
 
-        $result = $process->wait();
+        $process->wait();
     }
 
     public function beginStream(): void
@@ -82,7 +83,7 @@ class QueueListenWidget extends Widget
         */
         $resource = fopen('php://stdout', 'w');
         if ($resource === false) {
-            throw new \Exception('['.__LINE__.']['.__FILE__.']');
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
         $output = new StreamOutput($resource);
         // $output = new StreamOutput(fopen('/path/to/output.log', 'a', false));

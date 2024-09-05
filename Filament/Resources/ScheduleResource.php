@@ -86,7 +86,7 @@ class ScheduleResource extends XotBaseResource
                     ->reactive()
                     ->searchable()
                     ->required()
-                    ->afterStateUpdated(function (Set $set, $state) {
+                    ->afterStateUpdated(function (Set $set, $state): void {
                         Assert::isInstanceOf($command = static::$commands->where('name', $state)->first(), CommandData::class);
                         // $params = static::$commands->firstWhere('name', $state)['arguments'] ?? [];
                         // $options_with_value = static::$commands->firstWhere('name', $state)['options']['withValue'] ?? [];
@@ -100,13 +100,13 @@ class ScheduleResource extends XotBaseResource
                     ->placeholder(static::trans('messages.custom-command-here'))
                     ->label(static::trans('messages.custom'))
                     ->required()
-                    ->visible(fn (Get $get) => $get('command') === 'custom' && config('filament-database-schedule.commands.enable_custom')),
+                    ->visible(fn (Get $get): bool => $get('command') === 'custom' && config('filament-database-schedule.commands.enable_custom')),
                 Repeater::make('params')
                     ->schema([
                         Hidden::make('name'),
                         TextInput::make('value')
-                            ->label(fn (Get $get) => $get('name'))
-                            ->required(fn (Get $get) => $get('required')),
+                            ->label(fn (Get $get): mixed => $get('name'))
+                            ->required(fn (Get $get): mixed => $get('required')),
                     ])
                     ->addable(false)
                     ->deletable(false)
@@ -118,8 +118,8 @@ class ScheduleResource extends XotBaseResource
                         Hidden::make('type')
                             ->default('string'),
                         TextInput::make('value')
-                            ->label(fn (Get $get) => $get('name'))
-                            ->required(fn (Get $get) => $get('required')),
+                            ->label(fn (Get $get): mixed => $get('name'))
+                            ->required(fn (Get $get): mixed => $get('required')),
                     ])
                     ->addable(false)
                     ->deletable(false)
@@ -142,7 +142,7 @@ class ScheduleResource extends XotBaseResource
                     ->rules([new Corn])
                     ->label(static::trans('fields.expression'))
                     ->required()
-                    ->helperText(fn () => config('filament-database-schedule.tool-help-cron-expression.enable') ? new HtmlString(" <a href='".config('filament-database-schedule.tool-help-cron-expression.url')."' target='_blank'>".static::trans('messages.help-cron-expression').' </a>') : null),
+                    ->helperText(fn (): ?\Illuminate\Support\HtmlString => config('filament-database-schedule.tool-help-cron-expression.enable') ? new HtmlString(" <a href='".config('filament-database-schedule.tool-help-cron-expression.url')."' target='_blank'>".static::trans('messages.help-cron-expression').' </a>') : null),
                 TagsInput::make('environments')
                     ->placeholder(null)
                     ->label(static::trans('fields.environments')),

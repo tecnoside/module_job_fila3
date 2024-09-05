@@ -50,21 +50,6 @@ class Result extends BaseModel
         'result',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
-            'ran_at' => 'datetime',
-        ];
-    }
-
     public function task(): BelongsTo
     {
         return $this->belongsTo(Task::class);
@@ -86,5 +71,20 @@ class Result extends BaseModel
             // ->whereColumn('task_id', TOTEM_TABLE_PREFIX.'tasks.id')
             ->whereColumn('task_id', 'tasks.id')
             ->getQuery();
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+            'ran_at' => 'datetime',
+        ];
     }
 }

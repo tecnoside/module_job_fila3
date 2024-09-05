@@ -44,7 +44,7 @@ trait JobProgress
             return null;
         }
 
-        if (! $jobId = JobManager::getJobId($this->job)) {
+        if (($jobId = JobManager::getJobId($this->job)) === '' || ($jobId = JobManager::getJobId($this->job)) === '0' || ($jobId = JobManager::getJobId($this->job)) === 0) {
             return null;
         }
 

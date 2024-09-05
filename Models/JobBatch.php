@@ -67,25 +67,6 @@ class JobBatch extends BaseModel
         'finished_at',
     ];
 
-    /**  @return array<string, string>  */
-    protected function casts(): array
-    {
-        return [
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
-            'options' => 'collection',
-            'failed_jobs' => 'integer',
-            'cancelled_at' => 'datetime',
-            'finished_at' => 'datetime',
-        ];
-    }
-
     /**
      * Get the total number of jobs that have been processed by the batch thus far.
      *
@@ -144,5 +125,24 @@ class JobBatch extends BaseModel
     public function cancelled(): bool
     {
         return $this->cancelled_at instanceof Carbon;
+    }
+
+    /**  @return array<string, string>  */
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+            'options' => 'collection',
+            'failed_jobs' => 'integer',
+            'cancelled_at' => 'datetime',
+            'finished_at' => 'datetime',
+        ];
     }
 }
