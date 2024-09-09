@@ -70,6 +70,8 @@ class Import extends BaseModel
     protected function casts(): array
     {
         return [
+                'id'=>'string',
+                'uuid'=>'string',
             'data' => 'json',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',

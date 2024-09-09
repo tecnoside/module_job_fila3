@@ -68,6 +68,8 @@ class Export extends BaseModel
     protected function casts(): array
     {
         return [
+                'id'=>'string',
+                'uuid'=>'string',
             'data' => 'json',
             'updated_by' => 'string',
             'created_by' => 'string',
