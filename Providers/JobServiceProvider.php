@@ -81,7 +81,7 @@ class JobServiceProvider extends XotBaseServiceProvider
             $tasks->each(
                 function ($task) use ($schedule) {
                     if (! $task instanceof Task) {
-                        throw new \Exception('['.__LINE__.']['.__FILE__.']');
+                        throw new \Exception('['.__LINE__.']['.class_basename($this).']');
                     }
                     //
                     // var \Illuminate\Console\Scheduling\Event

@@ -35,7 +35,7 @@ class ScheduleArguments extends TextColumn
             return [];
         }
 
-        Assert::string($tags, '['.__LINE__.']['.__FILE__.']');
+        Assert::string($tags, '['.__LINE__.']['.class_basename($this).']');
         $tags = explode($separator, $tags);
         if (count($tags) === 1 && blank($tags[0])) {
             return [];

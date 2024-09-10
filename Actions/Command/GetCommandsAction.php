@@ -27,7 +27,7 @@ class GetCommandsAction
         if ($commandsKeys === null) {
             return CommandData::collection([]);
         }
-        Assert::isArray($commandsKeys, '['.__LINE__.']['.__FILE__.']');
+        Assert::isArray($commandsKeys, '['.__LINE__.']['.class_basename($this).']');
 
         $commands = $commands
             ->only($commandsKeys)
