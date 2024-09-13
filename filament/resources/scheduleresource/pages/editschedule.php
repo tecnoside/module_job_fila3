@@ -17,9 +17,20 @@ class EditSchedule extends EditRecord
 {
     use NavigationPageLabelTrait;
 
+    public Collection $commands;
+
     protected static string $resource = ScheduleResource::class;
 
-    public Collection $commands;
+    public function getformSchema(): array
+    {
+        return $this->getResource()::getFormSchema();
+    }
+
+    public function form(Form $form): Form
+    {
+        return $form
+            ->schema($this->getFormSchema());
+    }
 
     protected function getHeaderActions(): array
     {
@@ -39,16 +50,5 @@ class EditSchedule extends EditRecord
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
-    }
-
-    public function getformSchema(): array
-    {
-        return $this->getResource()::getFormSchema();
-    }
-
-    public function form(Form $form): Form
-    {
-        return $form
-            ->schema($this->getFormSchema());
     }
 }

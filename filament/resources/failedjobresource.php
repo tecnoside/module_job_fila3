@@ -84,7 +84,7 @@ class FailedJobResource extends XotBaseResource
                             static function (Collection $collection): void {
                                 foreach ($collection as $record) {
                                     // Cannot access property $uuid on mixed.
-                                    Assert::isInstanceOf($record, FailedJob::class, '['.__LINE__.']['.__FILE__.']');
+                                    Assert::isInstanceOf($record, FailedJob::class, '['.__LINE__.']['.class_basename(__CLASS__).']');
                                     Artisan::call(sprintf('queue:retry %s', $record->uuid));
                                 }
                                 Notification::make()

@@ -17,13 +17,6 @@ class ListJobs extends ListRecords
 {
     protected static string $resource = JobResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            CreateAction::make(),
-        ];
-    }
-
     public function getTableColumns(): array
     {
         return [
@@ -68,5 +61,12 @@ class ListJobs extends ListRecords
             ->filters($this->getTableFilters())
             ->actions($this->getTableActions())
             ->bulkActions($this->getTableBulkActions());
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            CreateAction::make(),
+        ];
     }
 }

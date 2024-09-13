@@ -15,13 +15,6 @@ class ListFailedImportRows extends ListRecords
 {
     protected static string $resource = FailedImportRowResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
-
     public function getTableColumns(): array
     {
         return [
@@ -62,5 +55,12 @@ class ListFailedImportRows extends ListRecords
             ->filters($this->getTableFilters())
             ->actions($this->getTableActions())
             ->bulkActions($this->getTableBulkActions());
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\CreateAction::make(),
+        ];
     }
 }

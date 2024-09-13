@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'breadcrumb' => 'Monitor de Jobs En File',
     'title' => 'Jobs',
