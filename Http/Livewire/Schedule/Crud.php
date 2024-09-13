@@ -31,7 +31,7 @@ class Crud extends Component
             return $res;
         }
 
-        throw new Exception('['.__LINE__.']['.__FILE__.']');
+        throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
     }
 
     public function render(): Renderable

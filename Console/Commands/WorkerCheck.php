@@ -60,7 +60,7 @@ class WorkerCheck extends Command
      */
     private function isQueueListenerRunning(): bool
     {
-        if (! $pid = $this->getLastQueueListenerPID()) {
+        if (($pid = $this->getLastQueueListenerPID()) === '' || ($pid = $this->getLastQueueListenerPID()) === '0' || ($pid = $this->getLastQueueListenerPID()) === false || ($pid = $this->getLastQueueListenerPID()) === null) {
             return false;
         }
 
@@ -71,13 +71,13 @@ class WorkerCheck extends Command
         // $processIsQueueListener = str_contains($process, 'queue:listen'); // 5.1
         // if ($process === false) {
         // DISABILITATO PER SBLOCCARE MODULE JOB
-        // throw new Exception('['.__LINE__.']['.__FILE__.']');
+        // throw new Exception('['.__LINE__.']['.class_basename($this).']');
         // }
 
         $this->comment($process);
 
         // $processIsQueueListener = ! empty($process); // 5.6 - see comments
-        return str_contains($process, substr(base_path(), 0, 30));
+        return str_contains($process, mb_substr(base_path(), 0, 30));
     }
 
     /**
@@ -137,7 +137,7 @@ class WorkerCheck extends Command
 
         $pid = exec($command);
         if ($pid == false) {
-            throw new \Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.class_basename($this).']');
         }
 
         $this->comment($pid);

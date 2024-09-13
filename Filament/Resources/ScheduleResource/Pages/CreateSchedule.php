@@ -16,9 +16,20 @@ class CreateSchedule extends CreateRecord
 {
     use NavigationPageLabelTrait;
 
+    public Collection $commands;
+
     protected static string $resource = ScheduleResource::class;
 
-    public Collection $commands;
+    public function getformSchema(): array
+    {
+        return $this->getResource()::getFormSchema();
+    }
+
+    public function form(Form $form): Form
+    {
+        return $form
+            ->schema($this->getFormSchema());
+    }
 
     protected function onValidationError(ValidationException $exception): void
     {
@@ -31,16 +42,5 @@ class CreateSchedule extends CreateRecord
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
-    }
-
-    public function getformSchema(): array
-    {
-        return $this->getResource()::getFormSchema();
-    }
-
-    public function form(Form $form): Form
-    {
-        return $form
-            ->schema($this->getFormSchema());
     }
 }

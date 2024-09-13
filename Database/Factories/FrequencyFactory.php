@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\Frequency;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Frequency>
+ */
 class FrequencyFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
-     * @var class-string<Model>
+     * @var class-string<Frequency>
      */
     protected $model = Frequency::class;
 
@@ -24,8 +27,8 @@ class FrequencyFactory extends Factory
     {
         return [
             // 'id' => $this->faker->randomNumber(5, false),
-            'label' => $this->faker->word,
-            'interval' => $this->faker->word,
+            'label' => fake()->word,
+            'interval' => fake()->word,
         ];
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Http\Livewire\Job;
 
+use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
@@ -41,7 +42,7 @@ class Status extends Component
         $this->out .= '<br/>['.JobBatchModel::count().'] Job Batch';
         $queue_conn = getenv('QUEUE_CONNECTION');
         if ($queue_conn === false) {
-            throw new \Exception('['.__LINE__.']['.__FILE__.']');
+            throw new Exception('['.__LINE__.']['.class_basename($this).']');
         }
 
         $this->old_value = $queue_conn;
@@ -160,7 +161,7 @@ class Status extends Component
             $env_content
         );
         putenv('QUEUE_CONNECTION='.$this->form_data['conn']);
-        Assert::string($new_content, '['.__LINE__.']['.__FILE__.']');
+        Assert::string($new_content, '['.__LINE__.']['.class_basename($this).']');
         File::put($env_file, $new_content);
         $this->old_value = $this->form_data['conn'];
     }

@@ -28,6 +28,7 @@ use function Safe\json_decode;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
+ *
  * @method static \Modules\Job\Database\Factories\JobFactory factory($count = null, $state = [])
  * @method static Builder|Job newModelQuery()
  * @method static Builder|Job newQuery()
@@ -42,10 +43,12 @@ use function Safe\json_decode;
  * @method static Builder|Job whereReservedAt($value)
  * @method static Builder|Job whereUpdatedAt($value)
  * @method static Builder|Job whereUpdatedBy($value)
+ *
  * @property mixed $display_name
  * @property mixed $status
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @mixin \Eloquent
  */
 class Job extends BaseModel
@@ -60,28 +63,9 @@ class Job extends BaseModel
         'created_at',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
-            'payload' => 'array',
-
-            // 'updated_at' => 'datetime:Y-m-d H:00',
-            // 'created_at' => 'datetime:Y-m-d',
-            // 'created_at' => 'datetime:d/m/Y H:i'
-        ];
-    }
-
     public function getTable(): string
     {
-        Assert::string($res = config('queue.connections.database.table'), '['.__LINE__.']['.__FILE__.']');
+        Assert::string($res = config('queue.connections.database.table'), '['.__LINE__.']['.class_basename($this).']');
 
         return $res;
     }
@@ -89,7 +73,7 @@ class Job extends BaseModel
     public function status(): Attribute
     {
         return Attribute::make(
-            get: function () {
+            get: function (): string {
                 if ($this->reserved_at) {
                     return 'running';
                 }
@@ -107,5 +91,26 @@ class Job extends BaseModel
         }
 
         return $payload['displayName'] ?? null;
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'id' => 'string',
+            'uuid' => 'string',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+            'payload' => 'array',
+
+            // 'updated_at' => 'datetime:Y-m-d H:00',
+            // 'created_at' => 'datetime:Y-m-d',
+            // 'created_at' => 'datetime:d/m/Y H:i'
+        ];
     }
 }

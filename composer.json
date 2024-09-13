@@ -69,7 +69,9 @@
     ],
     "autoload": {
         "psr-4": {
-            "Modules\\Job\\": ""
+            "Modules\\Job\\": "",
+            "Modules\\Job\\Database\\Factories\\": "database/factories/",
+            "Modules\\Job\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "scripts": {

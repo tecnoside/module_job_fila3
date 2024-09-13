@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
 use Carbon\Carbon;
+use Closure;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables;
@@ -23,26 +24,12 @@ class ListSchedules extends ListRecords
 
     protected static string $resource = ScheduleResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
-
-    protected function getTableRecordUrlUsing(): ?\Closure
-    {
-        return static function (): ?string {
-            return null;
-        };
-    }
-
     public function getTableColumns(): array
     {
         return [
             Tables\Columns\TextColumn::make('command')
                 ->getStateUsing(function ($record) {
-                    if ($record->command == 'custom') {
+                    if ($record->command === 'custom') {
                         return $record->command_custom;
                     }
 
@@ -180,5 +167,17 @@ class ListSchedules extends ListRecords
             config('filament-database-schedule.default_ordering_direction')
         )
         */
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\CreateAction::make(),
+        ];
+    }
+
+    protected function getTableRecordUrlUsing(): ?Closure
+    {
+        return static fn (): ?string => null;
     }
 }

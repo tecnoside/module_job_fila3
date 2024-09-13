@@ -28,6 +28,7 @@ use Illuminate\Support\Collection;
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
+ *
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
  * @method static Builder|JobBatch newModelQuery()
  * @method static Builder|JobBatch newQuery()
@@ -42,8 +43,10 @@ use Illuminate\Support\Collection;
  * @method static Builder|JobBatch whereOptions($value)
  * @method static Builder|JobBatch wherePendingJobs($value)
  * @method static Builder|JobBatch whereTotalJobs($value)
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel
@@ -66,25 +69,6 @@ class JobBatch extends BaseModel
         'created_at',
         'finished_at',
     ];
-
-    /**  @return array<string, string>  */
-    protected function casts(): array
-    {
-        return [
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
-            'options' => 'collection',
-            'failed_jobs' => 'integer',
-            'cancelled_at' => 'datetime',
-            'finished_at' => 'datetime',
-        ];
-    }
 
     /**
      * Get the total number of jobs that have been processed by the batch thus far.
@@ -144,5 +128,26 @@ class JobBatch extends BaseModel
     public function cancelled(): bool
     {
         return $this->cancelled_at instanceof Carbon;
+    }
+
+    /**  @return array<string, string>  */
+    protected function casts(): array
+    {
+        return [
+            'id' => 'string',
+            'uuid' => 'string',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+            'options' => 'collection',
+            'failed_jobs' => 'integer',
+            'cancelled_at' => 'datetime',
+            'finished_at' => 'datetime',
+        ];
     }
 }

@@ -15,13 +15,6 @@ class ListImports extends ListRecords
 {
     protected static string $resource = ImportResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
-
     public function getTableColumns(): array
     {
         return [
@@ -68,5 +61,12 @@ class ListImports extends ListRecords
             ->filters($this->getTableFilters())
             ->actions($this->getTableActions())
             ->bulkActions($this->getTableBulkActions());
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\CreateAction::make(),
+        ];
     }
 }

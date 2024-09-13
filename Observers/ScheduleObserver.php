@@ -15,30 +15,24 @@ class ScheduleObserver
 {
     /**
      * Undocumented function.
-     *
-     * @return void
      */
-    public function created()
+    public function created(): void
     {
         $this->clearCache();
     }
 
     /**
      * Undocumented function.
-     *
-     * @return void
      */
-    public function updated(Schedule $schedule)
+    public function updated(Schedule $schedule): void
     {
         $this->clearCache();
     }
 
     /**
      * Undocumented function.
-     *
-     * @return void
      */
-    public function deleted(Schedule $schedule)
+    public function deleted(Schedule $schedule): void
     {
         $schedule->status = Status::Trashed;
         $schedule->saveQuietly();
@@ -47,10 +41,8 @@ class ScheduleObserver
 
     /**
      * Undocumented function.
-     *
-     * @return void
      */
-    public function restored(Schedule $schedule)
+    public function restored(Schedule $schedule): void
     {
         $schedule->status = Status::Inactive;
         $schedule->saveQuietly();
@@ -58,10 +50,8 @@ class ScheduleObserver
 
     /**
      * Undocumented function.
-     *
-     * @return void
      */
-    public function saved(Schedule $schedule)
+    public function saved(Schedule $schedule): void
     {
         $this->clearCache();
     }

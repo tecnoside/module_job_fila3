@@ -17,11 +17,11 @@ class JobStatus extends Page
 {
     use NavigationLabelTrait;
 
+    public string $out = '';
+
     protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
 
     protected static string $view = 'job::filament.pages.job-status';
-
-    public string $out = '';
 
     public function getHeaderWidgets(): array
     {
@@ -34,9 +34,9 @@ class JobStatus extends Page
     {
         $result = Process::run('dir');
         $this->out = '';
-        Assert::string($output = mb_convert_encoding($result->output(), 'UTF-8'), '['.__LINE__.']['.__FILE__.']');
+        Assert::string($output = mb_convert_encoding($result->output(), 'UTF-8'), '['.__LINE__.']['.class_basename($this).']');
         $this->out .= $output;
-        Assert::string($errorOutput = mb_convert_encoding($result->errorOutput(), 'UTF-8'), '['.__LINE__.']['.__FILE__.']');
+        Assert::string($errorOutput = mb_convert_encoding($result->errorOutput(), 'UTF-8'), '['.__LINE__.']['.class_basename($this).']');
         $this->out .= $errorOutput;
         $this->out .= now();
     }
@@ -59,7 +59,7 @@ class JobStatus extends Page
 
     public function getActs(): array
     {
-        $acts = [
+        return [
             /*
             (object) [
                 'name' => 'batches-table',
@@ -143,7 +143,5 @@ class JobStatus extends Page
                 'label' => 'Route list',
             ],
         ];
-
-        return $acts;
     }
 }

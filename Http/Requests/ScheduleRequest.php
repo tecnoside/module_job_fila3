@@ -34,10 +34,10 @@ class ScheduleRequest extends FormRequest
     public function attributes()
     {
         return [
-            'command' => strtolower(trans('schedule::schedule.fields.command')),
-            'arguments' => strtolower(trans('schedule::schedule.fields.arguments')),
-            'options' => strtolower(trans('schedule::schedule.fields.options')),
-            'expression' => strtolower(trans('schedule::schedule.fields.expression')),
+            'command' => mb_strtolower(trans('schedule::schedule.fields.command')),
+            'arguments' => mb_strtolower(trans('schedule::schedule.fields.arguments')),
+            'options' => mb_strtolower(trans('schedule::schedule.fields.options')),
+            'expression' => mb_strtolower(trans('schedule::schedule.fields.expression')),
         ];
     }
 

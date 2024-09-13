@@ -18,6 +18,7 @@ use Modules\Job\Enums\Status;
  * @property array $options
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
  * @property int|null $histories_count
+ *
  * @method static Builder|Schedule active()
  * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
  * @method static Builder|Schedule inactive()
@@ -27,6 +28,7 @@ use Modules\Job\Enums\Status;
  * @method static Builder|Schedule query()
  * @method static Builder|Schedule withTrashed()
  * @method static Builder|Schedule withoutTrashed()
+ *
  * @property int $id
  * @property string $command
  * @property string|null $command_custom
@@ -52,6 +54,7 @@ use Modules\Job\Enums\Status;
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property string|null $deleted_by
+ *
  * @method static Builder|Schedule whereCommand($value)
  * @method static Builder|Schedule whereCommandCustom($value)
  * @method static Builder|Schedule whereCreatedAt($value)
@@ -79,8 +82,10 @@ use Modules\Job\Enums\Status;
  * @method static Builder|Schedule whereWebhookAfter($value)
  * @method static Builder|Schedule whereWebhookBefore($value)
  * @method static Builder|Schedule whereWithoutOverlapping($value)
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @mixin \Eloquent
  */
 class Schedule extends BaseModel
@@ -124,23 +129,12 @@ class Schedule extends BaseModel
         'options_with_value' => '{}',
     ];
 
-    protected function casts(): array
+    public static function getEnvironments(): Collection
     {
-        return [
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
-            'params' => 'array',
-            'options' => 'array',
-            'options_with_value' => 'array',
-            'environments' => 'array',
-            'status' => Status::class,
-        ];
+        return static::whereNotNull('environments')
+            ->groupBy('environments')
+            // ->get('environments')
+            ->pluck('environments', 'environments');
     }
     /*
          * Creates a new instance of the model.
@@ -196,7 +190,7 @@ class Schedule extends BaseModel
             $options = $options->merge($options_with_value);
         }
 
-        return $options->map(static function ($value, $key) {
+        return $options->map(static function ($value, $key): string {
             if (is_array($value)) {
                 return '--'.($value['name'] ?? $key).'='.$value['value'];
             }
@@ -205,11 +199,24 @@ class Schedule extends BaseModel
         })->toArray();
     }
 
-    public static function getEnvironments(): Collection
+    protected function casts(): array
     {
-        return static::whereNotNull('environments')
-            ->groupBy('environments')
-            ->get('environments')
-            ->pluck('environments', 'environments');
+        return [
+            'id' => 'string',
+            'uuid' => 'string',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+            'params' => 'array',
+            'options' => 'array',
+            'options_with_value' => 'array',
+            'environments' => 'array',
+            'status' => Status::class,
+        ];
     }
 }

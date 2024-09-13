@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'breadcrumb' => 'Monitor de Trabajos En Cola',
     'title' => 'Trabajos En Cola',

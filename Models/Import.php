@@ -11,12 +11,11 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * 
- *
  * @method static \Modules\Job\Database\Factories\ImportFactory factory($count = null, $state = [])
  * @method static Builder|Import newModelQuery()
  * @method static Builder|Import newQuery()
  * @method static Builder|Import query()
+ *
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $completed_at
  * @property string $file_name
@@ -32,6 +31,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
+ *
  * @method static Builder|Import whereCompletedAt($value)
  * @method static Builder|Import whereCreatedAt($value)
  * @method static Builder|Import whereCreatedBy($value)
@@ -47,10 +47,14 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|Import whereUpdatedAt($value)
  * @method static Builder|Import whereUpdatedBy($value)
  * @method static Builder|Import whereUserId($value)
+ *
  * @property string|null $user_type
+ *
  * @method static Builder|Import whereUserType($value)
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @mixin \Eloquent
  */
 class Import extends BaseModel
@@ -70,6 +74,8 @@ class Import extends BaseModel
     protected function casts(): array
     {
         return [
+            'id' => 'string',
+            'uuid' => 'string',
             'data' => 'json',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',

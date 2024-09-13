@@ -7,12 +7,15 @@ namespace Modules\Job\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\Schedule;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Schedule>
+ */
 class ScheduleFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
-     * @var class-string<\Illuminate\Database\Eloquent\Model>
+     * @var class-string<Schedule>
      */
     protected $model = Schedule::class;
 

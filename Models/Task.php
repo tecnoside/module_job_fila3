@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -47,6 +48,7 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property int|null $notifications_count
  * @property Collection<int, \Modules\Job\Models\Result> $results
  * @property int|null $results_count
+ *
  * @method static Builder|Task newModelQuery()
  * @method static Builder|Task newQuery()
  * @method static Builder|Task query()
@@ -71,12 +73,16 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @method static Builder|Task whereTimezone($value)
  * @method static Builder|Task whereUpdatedAt($value)
  * @method static Builder|Task whereUpdatedBy($value)
+ *
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property string|null $deleted_by
+ *
  * @method static Builder|Task whereDeletedAt($value)
  * @method static Builder|Task whereDeletedBy($value)
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @mixin \Eloquent
  */
 class Task extends BaseModel
@@ -111,7 +117,7 @@ class Task extends BaseModel
      *
      * @var array
      */
-     /** @var list<string> */
+    /** @var list<string> */
     protected $appends = [
         'activated',
         'upcoming',
@@ -130,7 +136,7 @@ class Task extends BaseModel
     /**
      * Upcoming Accessor.
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function getUpcomingAttribute(): string
     {

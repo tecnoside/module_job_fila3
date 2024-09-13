@@ -7,12 +7,15 @@ namespace Modules\Job\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\JobManager;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\JobManager>
+ */
 class JobManagerFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
-     * @var class-string<\Illuminate\Database\Eloquent\Model>
+     * @var class-string<JobManager>
      */
     protected $model = JobManager::class;
 

@@ -7,12 +7,15 @@ namespace Modules\Job\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\JobsWaiting;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\JobsWaiting>
+ */
 class JobsWaitingFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
-     * @var class-string<\Illuminate\Database\Eloquent\Model>
+     * @var class-string<JobsWaiting>
      */
     protected $model = JobsWaiting::class;
 
@@ -23,9 +26,9 @@ class JobsWaitingFactory extends Factory
     {
         return [
             // 'id' => $this->faker->number(1,5),
-            'queue' => $this->faker->word,
-            'payload' => $this->faker->text,
-            'attempts' => $this->faker->boolean,
+            'queue' => fake()->word,
+            'payload' => fake()->text,
+            'attempts' => fake()->boolean,
             // 'reserved_at' => $this->faker->randomNumber,
             // 'available_at' => $this->faker->randomNumber,
             // 'created_at' => $this->faker->randomNumber

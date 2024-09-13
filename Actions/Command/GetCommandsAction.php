@@ -24,23 +24,21 @@ class GetCommandsAction
         // foreach (config('filament-database-schedule.commands.exclude') as $exclude) {
         //    $commandsKeys = preg_grep("/^$exclude/", $commandsKeys, PREG_GREP_INVERT);
         // }
-        if ($commandsKeys == null) {
+        if ($commandsKeys === null) {
             return CommandData::collection([]);
         }
-        Assert::isArray($commandsKeys, '['.__LINE__.']['.__FILE__.']');
+        Assert::isArray($commandsKeys, '['.__LINE__.']['.class_basename($this).']');
 
         $commands = $commands
             ->only($commandsKeys)
-            ->map(function ($command) {
-                return [
-                    'name' => $command->getName(),
-                    'description' => $command->getDescription(),
-                    'signature' => $command->getSynopsis(),
-                    'full_name' => $command->getName().' - '.$command->getDescription(),
-                    'arguments' => app(GetCommandArgumentsActions::class)->execute($command),
-                    'options' => app(GetCommandOptionsActions::class)->execute($command),
-                ];
-            });
+            ->map(fn ($command): array => [
+                'name' => $command->getName(),
+                'description' => $command->getDescription(),
+                'signature' => $command->getSynopsis(),
+                'full_name' => $command->getName().' - '.$command->getDescription(),
+                'arguments' => app(GetCommandArgumentsActions::class)->execute($command),
+                'options' => app(GetCommandOptionsActions::class)->execute($command),
+            ]);
 
         return CommandData::collection($commands);
     }
