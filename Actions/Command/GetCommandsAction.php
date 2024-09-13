@@ -31,7 +31,7 @@ class GetCommandsAction
 
         $commands = $commands
             ->only($commandsKeys)
-            ->map(fn($command): array => [
+            ->map(fn ($command): array => [
                 'name' => $command->getName(),
                 'description' => $command->getDescription(),
                 'signature' => $command->getSynopsis(),

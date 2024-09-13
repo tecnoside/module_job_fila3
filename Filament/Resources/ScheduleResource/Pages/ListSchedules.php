@@ -178,6 +178,6 @@ class ListSchedules extends ListRecords
 
     protected function getTableRecordUrlUsing(): ?Closure
     {
-        return static fn(): ?string => null;
+        return static fn (): ?string => null;
     }
 }
