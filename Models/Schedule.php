@@ -10,77 +10,43 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Modules\Job\Enums\Status;
+use Modules\Xot\Contracts\ProfileContract;
 
 /**
- * Modules\Job\Models\Result.
+ * Modules\Job\Models\Schedule.
  *
- * @property Status $status
- * @property array $options
+ * @property Status                                                                             $status
+ * @property array                                                                              $options
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
- * @property int|null $histories_count
- * @method static Builder|Schedule active()
- * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
- * @method static Builder|Schedule inactive()
- * @method static Builder|Schedule newModelQuery()
- * @method static Builder|Schedule newQuery()
- * @method static Builder|Schedule onlyTrashed()
- * @method static Builder|Schedule query()
- * @method static Builder|Schedule withTrashed()
- * @method static Builder|Schedule withoutTrashed()
- * @property int $id
- * @property string $command
- * @property string|null $command_custom
- * @property array|null $params
- * @property string $expression
- * @property array|null $environments
- * @property array|null $options_with_value
- * @property string|null $log_filename
- * @property int $even_in_maintenance_mode
- * @property int $without_overlapping
- * @property int $on_one_server
- * @property string|null $webhook_before
- * @property string|null $webhook_after
- * @property string|null $email_output
- * @property int $sendmail_error
- * @property int $log_success
- * @property int $log_error
- * @property int $run_in_background
- * @property int $sendmail_success
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_by
- * @method static Builder|Schedule whereCommand($value)
- * @method static Builder|Schedule whereCommandCustom($value)
- * @method static Builder|Schedule whereCreatedAt($value)
- * @method static Builder|Schedule whereCreatedBy($value)
- * @method static Builder|Schedule whereDeletedAt($value)
- * @method static Builder|Schedule whereDeletedBy($value)
- * @method static Builder|Schedule whereEmailOutput($value)
- * @method static Builder|Schedule whereEnvironments($value)
- * @method static Builder|Schedule whereEvenInMaintenanceMode($value)
- * @method static Builder|Schedule whereExpression($value)
- * @method static Builder|Schedule whereId($value)
- * @method static Builder|Schedule whereLogError($value)
- * @method static Builder|Schedule whereLogFilename($value)
- * @method static Builder|Schedule whereLogSuccess($value)
- * @method static Builder|Schedule whereOnOneServer($value)
- * @method static Builder|Schedule whereOptions($value)
- * @method static Builder|Schedule whereOptionsWithValue($value)
- * @method static Builder|Schedule whereParams($value)
- * @method static Builder|Schedule whereRunInBackground($value)
- * @method static Builder|Schedule whereSendmailError($value)
- * @method static Builder|Schedule whereSendmailSuccess($value)
- * @method static Builder|Schedule whereStatus($value)
- * @method static Builder|Schedule whereUpdatedAt($value)
- * @method static Builder|Schedule whereUpdatedBy($value)
- * @method static Builder|Schedule whereWebhookAfter($value)
- * @method static Builder|Schedule whereWebhookBefore($value)
- * @method static Builder|Schedule whereWithoutOverlapping($value)
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property int|null                                                                           $histories_count
+ * @property int                                                                                $id
+ * @property string                                                                             $command
+ * @property string|null                                                                        $command_custom
+ * @property array|null                                                                         $params
+ * @property string                                                                             $expression
+ * @property array|null                                                                         $environments
+ * @property array|null                                                                         $options_with_value
+ * @property string|null                                                                        $log_filename
+ * @property bool                                                                               $even_in_maintenance_mode
+ * @property bool                                                                               $without_overlapping
+ * @property bool                                                                               $on_one_server
+ * @property string|null                                                                        $webhook_before
+ * @property string|null                                                                        $webhook_after
+ * @property string|null                                                                        $email_output
+ * @property bool                                                                               $sendmail_error
+ * @property bool                                                                               $log_success
+ * @property bool                                                                               $log_error
+ * @property bool                                                                               $run_in_background
+ * @property bool                                                                               $sendmail_success
+ * @property \Illuminate\Support\Carbon|null                                                    $created_at
+ * @property \Illuminate\Support\Carbon|null                                                    $updated_at
+ * @property \Illuminate\Support\Carbon|null                                                    $deleted_at
+ * @property string|null                                                                        $updated_by
+ * @property string|null                                                                        $created_by
+ * @property string|null                                                                        $deleted_by
+ * @property ProfileContract|null                                                               $creator
+ * @property ProfileContract|null                                                               $updater
+ *
  * @mixin \Eloquent
  */
 class Schedule extends BaseModel
@@ -89,9 +55,7 @@ class Schedule extends BaseModel
     use SoftDeletes;
 
     public const STATUS_INACTIVE = 0;
-
     public const STATUS_ACTIVE = 1;
-
     public const STATUS_TRASHED = 2;
 
     protected $fillable = [
@@ -119,99 +83,116 @@ class Schedule extends BaseModel
 
     protected $attributes = [
         'expression' => '* * * * *',
-        'params' => '{}',
-        'options' => '{}',
-        'options_with_value' => '{}',
+        'params' => '[]',
+        'options' => '[]',
+        'options_with_value' => '[]',
     ];
 
-    public static function getEnvironments(): Collection
-    {
-        return static::whereNotNull('environments')
-            ->groupBy('environments')
-            // ->get('environments')
-            ->pluck('environments', 'environments');
-    }
-    /*
-         * Creates a new instance of the model.
-         *
-         * @param array $attributes
-         * @return void
+    protected $casts = [
+        'id' => 'string',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
+        'updated_by' => 'string',
+        'created_by' => 'string',
+        'deleted_by' => 'string',
+        'params' => 'array',
+        'options' => 'array',
+        'options_with_value' => 'array',
+        'environments' => 'array',
+        'status' => Status::class,
+    ];
 
-        public function __construct(array $attributes = [])
-        {
-            parent::__construct($attributes);
-
-            $this->table = Config::get('filament-database-schedule.table.schedules', 'schedules');
-        }
-        */
-
+    /**
+     * Get the related histories.
+     */
     public function histories(): HasMany
     {
         return $this->hasMany(ScheduleHistory::class, 'schedule_id', 'id');
     }
 
+    /**
+     * Scope a query to only include inactive schedules.
+     */
     public function scopeInactive(Builder $query): Builder
     {
-        return $query->where('status', Status::Inactive);
+        return $query->where('status', self::STATUS_INACTIVE);
     }
 
+    /**
+     * Scope a query to only include active schedules.
+     */
     public function scopeActive(Builder $query): Builder
     {
-        return $query->where('status', Status::Active);
+        return $query->where('status', self::STATUS_ACTIVE);
     }
 
+    /**
+     * Get available environments.
+     */
+    public static function getEnvironments(): Collection
+    {
+        return static::whereNotNull('environments')
+            ->groupBy('environments')
+            ->pluck('environments', 'environments');
+    }
+
+    /**
+     * Get arguments from params.
+     */
     public function getArguments(): array
     {
         $arguments = [];
-        foreach (($this->params ?? []) as $argument => $value) {
+
+        foreach ($this->params ?? [] as $argument => $value) {
             if (empty($value['value'])) {
                 continue;
             }
-            if (isset($value['type']) && $value['type'] === 'function') {
-                eval('$arguments[$argument] = (string) '.$value['value']);
+
+            if (isset($value['type']) && 'function' === $value['type']) {
+                // Replace eval with a safer function or an allowed list of callable functions
+                $arguments[$argument] = $this->evaluateFunction($value['value']);
             } else {
-                $arguments[$value['name'] ?? $argument] = $value['value'];
+                $arguments[(string) ($value['name'] ?? $argument)] = (string) $value['value'];
             }
         }
 
         return $arguments;
     }
 
+    /**
+     * Safely evaluate function strings (avoiding eval).
+     */
+    private function evaluateFunction(string $functionString): mixed
+    {
+        // Define a list of allowed functions or implement custom evaluation logic.
+        $allowedFunctions = ['strtolower', 'strtoupper']; // Example allowed functions
+
+        if (in_array($functionString, $allowedFunctions)) {
+            return call_user_func($functionString);
+        }
+
+        throw new \RuntimeException("Invalid function: {$functionString}");
+    }
+
+    /**
+     * Get options as array.
+     */
     public function getOptions(): array
     {
         $options = collect($this->options ?? []);
-        $options_with_value = $this->options_with_value ?? [];
-        if (! empty($options_with_value)) {
-            $options = $options->merge($options_with_value);
+        $optionsWithValues = $this->options_with_value ?? [];
+
+        if (! empty($optionsWithValues)) {
+            $options = $options->merge($optionsWithValues);
         }
 
-        return $options->map(static function ($value, $key): string {
+        return $options->map(function ($value, $key) {
             if (is_array($value)) {
-                return '--'.($value['name'] ?? $key).'='.$value['value'];
+                return '--'.((string) ($value['name'] ?? $key)).'='.((string) $value['value']);
             }
 
             return "--{$value}";
         })->toArray();
-    }
-
-    protected function casts(): array
-    {
-        return [
-            'id' => 'string',
-            'uuid' => 'string',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
-            'params' => 'array',
-            'options' => 'array',
-            'options_with_value' => 'array',
-            'environments' => 'array',
-            'status' => Status::class,
-        ];
     }
 }
