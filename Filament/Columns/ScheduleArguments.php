@@ -13,30 +13,66 @@ class ScheduleArguments extends TextColumn
 
     protected bool $withValue = true;
 
+    /**
+     * Set whether to include values in the output.
+     *
+     * @param bool $withValue
+     * @return static
+     */
     public function withValue(bool $withValue = true): static
     {
         $this->withValue = $withValue;
-
         return $this;
     }
 
+    /**
+     * Get the tags as an array.
+     *
+     * @return array
+     */
     public function getTags(): array
     {
         $tags = $this->getState();
-        if (is_array($tags)) {
-            if ($this->withValue) {
-                return collect($tags)->reject(static fn ($value): bool => empty($value['value']))->map(static fn ($value, $key): string => ($value['name'] ?? $key).'='.$value['value'])->toArray();
-            }
 
-            return collect($tags)->map(static fn ($value, $key): string => $key.'='.$value)->toArray();
+        if (is_array($tags)) {
+            return $this->formatArrayTags($tags);
         }
 
-        if (($separator = $this->getSeparator()) === null || ($separator = $this->getSeparator()) === '' || ($separator = $this->getSeparator()) === '0') {
+        $separator = $this->getSeparator();
+
+        if (empty($separator)) {
             return [];
         }
 
-        Assert::string($tags, '['.__LINE__.']['.class_basename($this).']');
-        $tags = explode($separator, $tags);
+        Assert::string($tags, 'Expected tags to be a string.');
+
+        $tagsArray = explode($separator, $tags);
+
+        return $this->filterEmptyTags($tagsArray);
+    }
+
+    /**
+     * Format tags when they are in array format.
+     *
+     * @param array $tags
+     * @return array
+     */
+    protected function formatArrayTags(array $tags): array
+    {
+        return collect($tags)
+            ->when($this->withValue, fn ($collection) => $collection->reject(fn ($value) => empty($value['value'])))
+            ->map(fn ($value, $key) => ($this->withValue ? ($value['name'] ?? $key) . '=' . $value['value'] : $key . '=' . $value))
+            ->toArray();
+    }
+
+    /**
+     * Filter out empty tags from the array.
+     *
+     * @param array $tags
+     * @return array
+     */
+    protected function filterEmptyTags(array $tags): array
+    {
         if (count($tags) === 1 && blank($tags[0])) {
             return [];
         }

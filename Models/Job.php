@@ -90,7 +90,8 @@ class Job extends BaseModel
             return null;
         }
 
-        return $payload['displayName'] ?? null;
+        Assert::nullOrString($res = $payload['displayName'] ?? null);
+        return $res;
     }
 
     protected function casts(): array

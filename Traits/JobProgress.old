@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * ---.
+ * Trait Modules\Job\Traits\JobProgress is used zero times
  */
 
 namespace Modules\Job\Traits;
