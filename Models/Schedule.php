@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Modules\Job\Enums\Status;
 use Modules\Xot\Contracts\ProfileContract;
+use Webmozart\Assert\Assert;
 
 /**
  * Modules\Job\Models\Schedule.
@@ -46,6 +47,43 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null                                                                        $deleted_by
  * @property ProfileContract|null                                                               $creator
  * @property ProfileContract|null                                                               $updater
+ *
+ * @method static Builder|Schedule                                active()
+ * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
+ * @method static Builder|Schedule                                inactive()
+ * @method static Builder|Schedule                                newModelQuery()
+ * @method static Builder|Schedule                                newQuery()
+ * @method static Builder|Schedule                                onlyTrashed()
+ * @method static Builder|Schedule                                query()
+ * @method static Builder|Schedule                                whereCommand($value)
+ * @method static Builder|Schedule                                whereCommandCustom($value)
+ * @method static Builder|Schedule                                whereCreatedAt($value)
+ * @method static Builder|Schedule                                whereCreatedBy($value)
+ * @method static Builder|Schedule                                whereDeletedAt($value)
+ * @method static Builder|Schedule                                whereDeletedBy($value)
+ * @method static Builder|Schedule                                whereEmailOutput($value)
+ * @method static Builder|Schedule                                whereEnvironments($value)
+ * @method static Builder|Schedule                                whereEvenInMaintenanceMode($value)
+ * @method static Builder|Schedule                                whereExpression($value)
+ * @method static Builder|Schedule                                whereId($value)
+ * @method static Builder|Schedule                                whereLogError($value)
+ * @method static Builder|Schedule                                whereLogFilename($value)
+ * @method static Builder|Schedule                                whereLogSuccess($value)
+ * @method static Builder|Schedule                                whereOnOneServer($value)
+ * @method static Builder|Schedule                                whereOptions($value)
+ * @method static Builder|Schedule                                whereOptionsWithValue($value)
+ * @method static Builder|Schedule                                whereParams($value)
+ * @method static Builder|Schedule                                whereRunInBackground($value)
+ * @method static Builder|Schedule                                whereSendmailError($value)
+ * @method static Builder|Schedule                                whereSendmailSuccess($value)
+ * @method static Builder|Schedule                                whereStatus($value)
+ * @method static Builder|Schedule                                whereUpdatedAt($value)
+ * @method static Builder|Schedule                                whereUpdatedBy($value)
+ * @method static Builder|Schedule                                whereWebhookAfter($value)
+ * @method static Builder|Schedule                                whereWebhookBefore($value)
+ * @method static Builder|Schedule                                whereWithoutOverlapping($value)
+ * @method static Builder|Schedule                                withTrashed()
+ * @method static Builder|Schedule                                withoutTrashed()
  *
  * @mixin \Eloquent
  */
@@ -169,6 +207,10 @@ class Schedule extends BaseModel
         $allowedFunctions = ['strtolower', 'strtoupper']; // Example allowed functions
 
         if (in_array($functionString, $allowedFunctions)) {
+            if (! is_callable($functionString)) {
+                throw new \Exception('['.__LINE__.']['.__CLASS__.']');
+            }
+
             return call_user_func($functionString);
         }
 
@@ -189,6 +231,8 @@ class Schedule extends BaseModel
 
         return $options->map(function ($value, $key) {
             if (is_array($value)) {
+                Assert::nullOrString($value['name']);
+
                 return '--'.((string) ($value['name'] ?? $key)).'='.((string) $value['value']);
             }
 
