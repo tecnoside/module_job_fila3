@@ -15,7 +15,7 @@ enum Status: string implements HasColor, HasIcon, HasLabel
     case Trashed = 'trashed';
     case One = '1';
 
-    public function getColor(): string|array|null
+    public function getColor(): string
     {
         return match ($this) {
             self::Active => 'success',
@@ -25,7 +25,7 @@ enum Status: string implements HasColor, HasIcon, HasLabel
         };
     }
 
-    public function getIcon(): ?string
+    public function getIcon(): string
     {
         return match ($this) {
             self::Active => 'heroicon-o-check-circle',
@@ -35,7 +35,7 @@ enum Status: string implements HasColor, HasIcon, HasLabel
         };
     }
 
-    public function getLabel(): ?string
+    public function getLabel(): string
     {
         return match ($this) {
             self::Active => __('job::schedule.status.active'),
