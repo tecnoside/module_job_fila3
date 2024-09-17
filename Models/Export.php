@@ -11,11 +11,12 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
+ * 
+ *
  * @method static \Modules\Job\Database\Factories\ExportFactory factory($count = null, $state = [])
  * @method static Builder|Export newModelQuery()
  * @method static Builder|Export newQuery()
  * @method static Builder|Export query()
- *
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $completed_at
  * @property string $file_disk
@@ -31,7 +32,6 @@ use Illuminate\Database\Eloquent\Builder;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
- *
  * @method static Builder|Export whereCompletedAt($value)
  * @method static Builder|Export whereCreatedAt($value)
  * @method static Builder|Export whereCreatedBy($value)
@@ -47,10 +47,8 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|Export whereUpdatedAt($value)
  * @method static Builder|Export whereUpdatedBy($value)
  * @method static Builder|Export whereUserId($value)
- *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
- *
  * @mixin \Eloquent
  */
 class Export extends BaseModel

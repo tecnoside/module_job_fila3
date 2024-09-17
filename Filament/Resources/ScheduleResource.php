@@ -100,7 +100,7 @@ class ScheduleResource extends XotBaseResource
                     ->placeholder(static::trans('messages.custom-command-here'))
                     ->label(static::trans('messages.custom'))
                     ->required()
-                    ->visible(fn (Get $get): bool => $get('command') === 'custom' && config('filament-database-schedule.commands.enable_custom')),
+                    ->visible(fn (Get $get): bool => 'custom' === $get('command') && config('filament-database-schedule.commands.enable_custom')),
                 Repeater::make('params')
                     ->schema([
                         Hidden::make('name'),
@@ -139,10 +139,10 @@ class ScheduleResource extends XotBaseResource
                 */
                 TextInput::make('expression')
                     ->placeholder('* * * * *')
-                    ->rules([new Corn])
+                    ->rules([new Corn()])
                     ->label(static::trans('fields.expression'))
-                    ->required()
-                    ->helperText(fn (): ?\Illuminate\Support\HtmlString => config('filament-database-schedule.tool-help-cron-expression.enable') ? new HtmlString(" <a href='".config('filament-database-schedule.tool-help-cron-expression.url')."' target='_blank'>".static::trans('messages.help-cron-expression').' </a>') : null),
+                    // ->helperText(fn (): ?\Illuminate\Support\HtmlString => config('filament-database-schedule.tool-help-cron-expression.enable') ? new HtmlString(" <a href='".config('filament-database-schedule.tool-help-cron-expression.url')."' target='_blank'>".static::trans('messages.help-cron-expression').' </a>') : null)
+                    ->required(),
                 TagsInput::make('environments')
                     ->placeholder(null)
                     ->label(static::trans('fields.environments')),
