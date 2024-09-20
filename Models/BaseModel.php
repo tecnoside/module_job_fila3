@@ -40,6 +40,7 @@ abstract class BaseModel extends Model
 
     /** @var string */
     protected $connection = 'job';
+    protected $prefix = '_';
 
     /** @var list<string> */
     protected $fillable = ['id'];
@@ -54,6 +55,15 @@ abstract class BaseModel extends Model
     protected $hidden = [
         // 'password'
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        if (isset($this->prefix)) {
+            $this->table = $this->prefix.$this->table;
+        }
+
+        parent::__construct($attributes);
+    }
 
     /**
      * ----
