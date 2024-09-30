@@ -22,21 +22,13 @@ return new class () extends XotBaseMigration {
                 $table->unsignedInteger('processed_rows')->default(0);
                 $table->unsignedInteger('total_rows');
                 $table->unsignedInteger('successful_rows')->default(0);
-                // $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-                //$table->string('user_id', 36)->nullable()->index();
                 $table->nullableUuidMorphs('user');
-                // $table->timestamps();
             }
         );
         // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table): void {
-                /*
-                if (! $this->hasColumn('created_by')) {
-                    $table->string('created_by')->nullable();
-                    $table->string('updated_by')->nullable();
-                }
-                */
+
                 if (! $this->hasColumn('user_type')) {
                     $table->string('user_type', 36)->nullable()->index();
                 }
