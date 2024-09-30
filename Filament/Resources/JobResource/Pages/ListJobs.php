@@ -4,17 +4,23 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobResource\Pages;
 
+use Filament\Tables\Table;
 use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Actions\DeleteBulkAction;
+use Modules\UI\Enums\TableLayoutEnum;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
-use Filament\Tables\Table;
+use Filament\Resources\Pages\ListRecords;
+use Modules\Xot\Filament\Traits\TransTrait;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Modules\Job\Filament\Resources\JobResource;
 
 class ListJobs extends ListRecords
 {
+    use TransTrait;
+
+    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
+
     protected static string $resource = JobResource::class;
 
     public function getTableColumns(): array

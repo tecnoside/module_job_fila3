@@ -7,14 +7,26 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobBatchResource\Pages;
 
+use Filament\Tables\Table;
 use Filament\Actions\Action;
-use Filament\Notifications\Notification;
-use Filament\Resources\Pages\ListRecords;
+use Webmozart\Assert\Assert;
+use Modules\UI\Enums\TableLayoutEnum;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Artisan;
+use Filament\Notifications\Notification;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Resources\Pages\ListRecords;
+use Filament\Tables\Enums\ActionsPosition;
+use Modules\Xot\Filament\Traits\TransTrait;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Modules\Job\Filament\Resources\JobBatchResource;
 
 class ListJobBatches extends ListRecords
 {
+    use TransTrait;
+
+    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
+
     protected static string $resource = JobBatchResource::class;
 
     protected function getHeaderActions(): array
@@ -33,6 +45,97 @@ class ListJobBatches extends ListRecords
                             ->send();
                     }
                 ),
+        ];
+    }
+
+    public function table(Table $table): Table
+    {
+        return $table
+            // ->columns($this->getTableColumns())
+            ->columns($this->layoutView->getTableColumns())
+            ->contentGrid($this->layoutView->getTableContentGrid())
+            ->headerActions($this->getTableHeaderActions())
+
+            ->filters($this->getTableFilters())
+            ->filtersLayout(FiltersLayout::AboveContent)
+            ->persistFiltersInSession()
+            ->actions($this->getTableActions())
+            ->bulkActions($this->getTableBulkActions())
+            ->actionsPosition(ActionsPosition::BeforeColumns)
+            ->defaultSort(
+                column: 'created_at',
+                direction: 'DESC',
+            );
+    }
+
+    public function getGridTableColumns(): array
+    {
+        return [
+        ];
+    }
+
+    public function getListTableColumns(): array
+    {
+        Assert::string($date_format = config('app.date_format'), '['.__LINE__.']['.class_basename(__CLASS__).']');
+
+        return [
+            TextColumn::make('created_at')
+                ->dateTime($date_format)
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+            TextColumn::make('id')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+            TextColumn::make('name')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+            TextColumn::make('cancelled_at')
+                ->dateTime($date_format)
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+            TextColumn::make('failed_at')
+                ->dateTime($date_format)
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+            TextColumn::make('finished_at')
+                ->dateTime($date_format)
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+            TextColumn::make('total_jobs')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+            TextColumn::make('pending_jobs')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+            TextColumn::make('failed_jobs')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+            TextColumn::make('failed_job_ids')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+        ];
+    }
+
+    public function getTableActions(): array
+    {
+        return [
+        ];
+    }
+
+    public function getTableBulkActions(): array
+    {
+        return [
+            DeleteBulkAction::make(),
         ];
     }
 }
