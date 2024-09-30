@@ -9,9 +9,10 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Actions\Exports\Models\Export as BaseExport;
 
 /**
- * 
+ *
  *
  * @method static \Modules\Job\Database\Factories\ExportFactory factory($count = null, $state = [])
  * @method static Builder|Export newModelQuery()
@@ -51,8 +52,11 @@ use Illuminate\Database\Eloquent\Builder;
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
  */
-class Export extends BaseModel
+class Export extends BaseExport
 {
+    /** @var string */
+    protected $connection = 'job';
+
     protected $fillable = [
         'id',
         'completed_at',
