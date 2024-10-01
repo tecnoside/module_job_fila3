@@ -78,6 +78,10 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereDeletedBy($value)
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property int $order_column
+ * @property string $status
+ * @method static Builder|Task whereOrderColumn($value)
+ * @method static Builder|Task whereStatus($value)
  * @mixin \Eloquent
  */
 class Task extends BaseModel

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Filament\Actions\Exports\Models\Export as BaseExport;
 
 /**
- *
+ * 
  *
  * @method static \Modules\Job\Database\Factories\ExportFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Export newModelQuery()
@@ -50,6 +50,7 @@ use Filament\Actions\Exports\Models\Export as BaseExport;
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereUserId($value)
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent|null $user
  * @mixin \Eloquent
  */
 class Export extends BaseExport

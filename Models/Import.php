@@ -11,7 +11,7 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- *
+ * 
  *
  * @method static \Modules\Job\Database\Factories\ImportFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Import newModelQuery()
