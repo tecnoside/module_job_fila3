@@ -51,50 +51,50 @@ class JobManagerResource extends XotBaseResource
             );
     }
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->poll('5s')
-            ->deferLoading()
-            ->columns(
-                [
-                    TextColumn::make('status')
-                        ->badge()
-                        ->label(__('jobs::translations.status'))
-                        ->sortable()
-                        ->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
-                        ->color(
-                            static fn (string $state): string => match ($state) {
-                                'running' => 'primary',
-                                'succeeded' => 'success',
-                                'failed' => 'danger',
-                                default => 'secondary',
-                            }
-                        ),
-                    TextColumn::make('name')
-                        ->label(__('jobs::translations.name'))
-                        ->sortable(),
-                    TextColumn::make('queue')
-                        ->label(__('jobs::translations.queue'))
-                        ->sortable(),
-                    TextColumn::make('progress')
-                        ->label(__('jobs::translations.progress'))
-                        ->formatStateUsing(static fn (string $state): string => "{$state}%")
-                        ->sortable(),
-                    // ProgressColumn::make('progress')->label(__('jobs::translations.progress'))->color('warning'),
-                    TextColumn::make('started_at')
-                        ->label(__('jobs::translations.started_at'))
-                        ->since()
-                        ->sortable(),
-                ]
-            )
-            ->defaultSort('id', 'desc')
-            ->bulkActions(
-                [
-                    DeleteBulkAction::make(),
-                ]
-            );
-    }
+    // public static function table(Table $table): Table
+    // {
+    //     return $table
+    //         ->poll('5s')
+    //         ->deferLoading()
+    //         ->columns(
+    //             [
+    //                 TextColumn::make('status')
+    //                     ->badge()
+    //                     ->label(__('jobs::translations.status'))
+    //                     ->sortable()
+    //                     ->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
+    //                     ->color(
+    //                         static fn (string $state): string => match ($state) {
+    //                             'running' => 'primary',
+    //                             'succeeded' => 'success',
+    //                             'failed' => 'danger',
+    //                             default => 'secondary',
+    //                         }
+    //                     ),
+    //                 TextColumn::make('name')
+    //                     ->label(__('jobs::translations.name'))
+    //                     ->sortable(),
+    //                 TextColumn::make('queue')
+    //                     ->label(__('jobs::translations.queue'))
+    //                     ->sortable(),
+    //                 TextColumn::make('progress')
+    //                     ->label(__('jobs::translations.progress'))
+    //                     ->formatStateUsing(static fn (string $state): string => "{$state}%")
+    //                     ->sortable(),
+    //                 // ProgressColumn::make('progress')->label(__('jobs::translations.progress'))->color('warning'),
+    //                 TextColumn::make('started_at')
+    //                     ->label(__('jobs::translations.started_at'))
+    //                     ->since()
+    //                     ->sortable(),
+    //             ]
+    //         )
+    //         ->defaultSort('id', 'desc')
+    //         ->bulkActions(
+    //             [
+    //                 DeleteBulkAction::make(),
+    //             ]
+    //         );
+    // }
 
     public static function getRelations(): array
     {

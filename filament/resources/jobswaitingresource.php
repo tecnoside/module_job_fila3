@@ -53,50 +53,50 @@ class JobsWaitingResource extends XotBaseResource
             );
     }
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns(
-                [
-                    TextColumn::make('status')
-                        ->badge()
-                        ->label(static::trans('fields.status'))
-                        ->sortable()
-                        // ->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
-                        ->color(
-                            static fn (string $state): string => match ($state) {
-                                'running' => 'primary',
-                                'waiting' => 'success',
-                                'failed' => 'danger',
-                                default => 'secondary',
-                            }
-                        ),
-                    TextColumn::make('display_name')
-                        ->label(static::trans('fields.display_name'))
-                        ->sortable(),
-                    TextColumn::make('queue')
-                        ->label(static::trans('fields.queue'))
-                        ->sortable(),
-                    TextColumn::make('attempts')
-                        ->label(static::trans('fields.attempts'))
-                        ->sortable(),
-                    TextColumn::make('reserved_at')
-                        ->label(static::trans('fields.reserved_at'))
-                        ->since()
-                        ->sortable(),
-                    TextColumn::make('created_at')
-                        ->label(static::trans('fields.created_at'))
-                        ->since()
-                        ->sortable(),
-                ]
-            )
-            ->defaultSort('id', 'asc')
-            ->bulkActions(
-                [
-                    DeleteBulkAction::make(),
-                ]
-            );
-    }
+    // public static function table(Table $table): Table
+    // {
+    //     return $table
+    //         ->columns(
+    //             [
+    //                 TextColumn::make('status')
+    //                     ->badge()
+    //                     ->label(static::trans('fields.status'))
+    //                     ->sortable()
+    //                     // ->formatStateUsing(static fn (string $state): string => __("jobs::translations.{$state}"))
+    //                     ->color(
+    //                         static fn (string $state): string => match ($state) {
+    //                             'running' => 'primary',
+    //                             'waiting' => 'success',
+    //                             'failed' => 'danger',
+    //                             default => 'secondary',
+    //                         }
+    //                     ),
+    //                 TextColumn::make('display_name')
+    //                     ->label(static::trans('fields.display_name'))
+    //                     ->sortable(),
+    //                 TextColumn::make('queue')
+    //                     ->label(static::trans('fields.queue'))
+    //                     ->sortable(),
+    //                 TextColumn::make('attempts')
+    //                     ->label(static::trans('fields.attempts'))
+    //                     ->sortable(),
+    //                 TextColumn::make('reserved_at')
+    //                     ->label(static::trans('fields.reserved_at'))
+    //                     ->since()
+    //                     ->sortable(),
+    //                 TextColumn::make('created_at')
+    //                     ->label(static::trans('fields.created_at'))
+    //                     ->since()
+    //                     ->sortable(),
+    //             ]
+    //         )
+    //         ->defaultSort('id', 'asc')
+    //         ->bulkActions(
+    //             [
+    //                 DeleteBulkAction::make(),
+    //             ]
+    //         );
+    // }
 
     public static function getRelations(): array
     {

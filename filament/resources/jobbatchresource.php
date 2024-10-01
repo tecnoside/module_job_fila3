@@ -26,66 +26,66 @@ class JobBatchResource extends XotBaseResource
 
     // protected static ?string $navigationGroup = 'jobs';
 
-    public static function table(Table $table): Table
-    {
-        Assert::string($date_format = config('app.date_format'), '['.__LINE__.']['.class_basename(__CLASS__).']');
+    // public static function table(Table $table): Table
+    // {
+    //     Assert::string($date_format = config('app.date_format'), '['.__LINE__.']['.class_basename(__CLASS__).']');
 
-        return $table
-            ->columns(
-                [
-                    TextColumn::make('created_at')
-                        ->dateTime($date_format)
-                        ->sortable()
-                        ->searchable()
-                        ->toggleable(),
-                    TextColumn::make('id')
-                        ->sortable()
-                        ->searchable()
-                        ->toggleable(),
-                    TextColumn::make('name')
-                        ->sortable()
-                        ->searchable()
-                        ->toggleable(),
-                    TextColumn::make('cancelled_at')
-                        ->dateTime($date_format)
-                        ->sortable()
-                        ->searchable()
-                        ->toggleable(),
-                    TextColumn::make('failed_at')
-                        ->dateTime($date_format)
-                        ->sortable()
-                        ->searchable()
-                        ->toggleable(),
-                    TextColumn::make('finished_at')
-                        ->dateTime($date_format)
-                        ->sortable()
-                        ->searchable()
-                        ->toggleable(),
-                    TextColumn::make('total_jobs')
-                        ->sortable()
-                        ->searchable()
-                        ->toggleable(),
-                    TextColumn::make('pending_jobs')
-                        ->sortable()
-                        ->searchable()
-                        ->toggleable(),
-                    TextColumn::make('failed_jobs')
-                        ->sortable()
-                        ->searchable()
-                        ->toggleable(),
-                    TextColumn::make('failed_job_ids')
-                        ->sortable()
-                        ->searchable()
-                        ->toggleable(),
-                ]
-            )
-            ->actions(
-                [
-                    DeleteAction::make('Delete'),
-                ]
-            )
-            ->defaultSort('created_at', 'desc');
-    }
+    //     return $table
+    //         ->columns(
+    //             [
+    //                 TextColumn::make('created_at')
+    //                     ->dateTime($date_format)
+    //                     ->sortable()
+    //                     ->searchable()
+    //                     ->toggleable(),
+    //                 TextColumn::make('id')
+    //                     ->sortable()
+    //                     ->searchable()
+    //                     ->toggleable(),
+    //                 TextColumn::make('name')
+    //                     ->sortable()
+    //                     ->searchable()
+    //                     ->toggleable(),
+    //                 TextColumn::make('cancelled_at')
+    //                     ->dateTime($date_format)
+    //                     ->sortable()
+    //                     ->searchable()
+    //                     ->toggleable(),
+    //                 TextColumn::make('failed_at')
+    //                     ->dateTime($date_format)
+    //                     ->sortable()
+    //                     ->searchable()
+    //                     ->toggleable(),
+    //                 TextColumn::make('finished_at')
+    //                     ->dateTime($date_format)
+    //                     ->sortable()
+    //                     ->searchable()
+    //                     ->toggleable(),
+    //                 TextColumn::make('total_jobs')
+    //                     ->sortable()
+    //                     ->searchable()
+    //                     ->toggleable(),
+    //                 TextColumn::make('pending_jobs')
+    //                     ->sortable()
+    //                     ->searchable()
+    //                     ->toggleable(),
+    //                 TextColumn::make('failed_jobs')
+    //                     ->sortable()
+    //                     ->searchable()
+    //                     ->toggleable(),
+    //                 TextColumn::make('failed_job_ids')
+    //                     ->sortable()
+    //                     ->searchable()
+    //                     ->toggleable(),
+    //             ]
+    //         )
+    //         ->actions(
+    //             [
+    //                 DeleteAction::make('Delete'),
+    //             ]
+    //         )
+    //         ->defaultSort('created_at', 'desc');
+    // }
 
     public static function getPages(): array
     {
