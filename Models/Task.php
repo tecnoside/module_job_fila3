@@ -80,8 +80,8 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @property int $order_column
  * @property string $status
- * @method static Builder|Task whereOrderColumn($value)
- * @method static Builder|Task whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereOrderColumn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereStatus($value)
  * @mixin \Eloquent
  */
 class Task extends BaseModel
