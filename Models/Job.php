@@ -29,19 +29,19 @@ use function Safe\json_decode;
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
  * @method static \Modules\Job\Database\Factories\JobFactory factory($count = null, $state = [])
- * @method static Builder|Job newModelQuery()
- * @method static Builder|Job newQuery()
- * @method static Builder|Job query()
- * @method static Builder|Job whereAttempts($value)
- * @method static Builder|Job whereAvailableAt($value)
- * @method static Builder|Job whereCreatedAt($value)
- * @method static Builder|Job whereCreatedBy($value)
- * @method static Builder|Job whereId($value)
- * @method static Builder|Job wherePayload($value)
- * @method static Builder|Job whereQueue($value)
- * @method static Builder|Job whereReservedAt($value)
- * @method static Builder|Job whereUpdatedAt($value)
- * @method static Builder|Job whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Job newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Job newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Job query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Job whereAttempts($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Job whereAvailableAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Job whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Job whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Job whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Job wherePayload($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Job whereQueue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Job whereReservedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Job whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Job whereUpdatedBy($value)
  * @property mixed $display_name
  * @property mixed $status
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator

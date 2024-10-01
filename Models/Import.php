@@ -11,12 +11,12 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * 
+ *
  *
  * @method static \Modules\Job\Database\Factories\ImportFactory factory($count = null, $state = [])
- * @method static Builder|Import newModelQuery()
- * @method static Builder|Import newQuery()
- * @method static Builder|Import query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Import newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Import newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Import query()
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $completed_at
  * @property string $file_name
@@ -32,23 +32,23 @@ use Illuminate\Database\Eloquent\Builder;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
- * @method static Builder|Import whereCompletedAt($value)
- * @method static Builder|Import whereCreatedAt($value)
- * @method static Builder|Import whereCreatedBy($value)
- * @method static Builder|Import whereDeletedAt($value)
- * @method static Builder|Import whereDeletedBy($value)
- * @method static Builder|Import whereFileName($value)
- * @method static Builder|Import whereFilePath($value)
- * @method static Builder|Import whereId($value)
- * @method static Builder|Import whereImporter($value)
- * @method static Builder|Import whereProcessedRows($value)
- * @method static Builder|Import whereSuccessfulRows($value)
- * @method static Builder|Import whereTotalRows($value)
- * @method static Builder|Import whereUpdatedAt($value)
- * @method static Builder|Import whereUpdatedBy($value)
- * @method static Builder|Import whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereCompletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereDeletedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereFileName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereFilePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereImporter($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereProcessedRows($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereSuccessfulRows($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereTotalRows($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereUserId($value)
  * @property string|null $user_type
- * @method static Builder|Import whereUserType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Import whereUserType($value)
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent

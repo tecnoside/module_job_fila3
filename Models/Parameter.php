@@ -21,17 +21,17 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $updated_at
  * @property Frequency|null $task
  * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
- * @method static Builder|Parameter newModelQuery()
- * @method static Builder|Parameter newQuery()
- * @method static Builder|Parameter query()
- * @method static Builder|Parameter whereCreatedAt($value)
- * @method static Builder|Parameter whereCreatedBy($value)
- * @method static Builder|Parameter whereFrequencyId($value)
- * @method static Builder|Parameter whereId($value)
- * @method static Builder|Parameter whereName($value)
- * @method static Builder|Parameter whereUpdatedAt($value)
- * @method static Builder|Parameter whereUpdatedBy($value)
- * @method static Builder|Parameter whereValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereFrequencyId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereValue($value)
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent

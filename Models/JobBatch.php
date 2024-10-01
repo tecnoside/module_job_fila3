@@ -29,19 +29,19 @@ use Illuminate\Support\Collection;
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
- * @method static Builder|JobBatch newModelQuery()
- * @method static Builder|JobBatch newQuery()
- * @method static Builder|JobBatch query()
- * @method static Builder|JobBatch whereCancelledAt($value)
- * @method static Builder|JobBatch whereCreatedAt($value)
- * @method static Builder|JobBatch whereFailedJobIds($value)
- * @method static Builder|JobBatch whereFailedJobs($value)
- * @method static Builder|JobBatch whereFinishedAt($value)
- * @method static Builder|JobBatch whereId($value)
- * @method static Builder|JobBatch whereName($value)
- * @method static Builder|JobBatch whereOptions($value)
- * @method static Builder|JobBatch wherePendingJobs($value)
- * @method static Builder|JobBatch whereTotalJobs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch query()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereCancelledAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereFailedJobIds($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereFailedJobs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereFinishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereOptions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch wherePendingJobs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereTotalJobs($value)
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent

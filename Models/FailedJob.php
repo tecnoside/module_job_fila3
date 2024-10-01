@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Builder;
  * Modules\Job\Models\FailedJob.
  *
  * @method static \Modules\Job\Database\Factories\FailedJobFactory factory($count = null, $state = [])
- * @method static Builder|FailedJob newModelQuery()
- * @method static Builder|FailedJob newQuery()
- * @method static Builder|FailedJob query()
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedJob newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedJob newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedJob query()
  * @property int $id
  * @property string $uuid
  * @property string $connection
@@ -24,13 +24,13 @@ use Illuminate\Database\Eloquent\Builder;
  * @property array $payload
  * @property string $exception
  * @property string $failed_at
- * @method static Builder|FailedJob whereConnection($value)
- * @method static Builder|FailedJob whereException($value)
- * @method static Builder|FailedJob whereFailedAt($value)
- * @method static Builder|FailedJob whereId($value)
- * @method static Builder|FailedJob wherePayload($value)
- * @method static Builder|FailedJob whereQueue($value)
- * @method static Builder|FailedJob whereUuid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereConnection($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereException($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereFailedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedJob wherePayload($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereQueue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereUuid($value)
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent

@@ -15,9 +15,9 @@ use Filament\Actions\Exports\Models\Export as BaseExport;
  *
  *
  * @method static \Modules\Job\Database\Factories\ExportFactory factory($count = null, $state = [])
- * @method static Builder|Export newModelQuery()
- * @method static Builder|Export newQuery()
- * @method static Builder|Export query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Export newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Export newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Export query()
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $completed_at
  * @property string $file_disk
@@ -33,21 +33,21 @@ use Filament\Actions\Exports\Models\Export as BaseExport;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
- * @method static Builder|Export whereCompletedAt($value)
- * @method static Builder|Export whereCreatedAt($value)
- * @method static Builder|Export whereCreatedBy($value)
- * @method static Builder|Export whereDeletedAt($value)
- * @method static Builder|Export whereDeletedBy($value)
- * @method static Builder|Export whereExporter($value)
- * @method static Builder|Export whereFileDisk($value)
- * @method static Builder|Export whereFileName($value)
- * @method static Builder|Export whereId($value)
- * @method static Builder|Export whereProcessedRows($value)
- * @method static Builder|Export whereSuccessfulRows($value)
- * @method static Builder|Export whereTotalRows($value)
- * @method static Builder|Export whereUpdatedAt($value)
- * @method static Builder|Export whereUpdatedBy($value)
- * @method static Builder|Export whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereCompletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereDeletedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereExporter($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereFileDisk($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereFileName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereProcessedRows($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereSuccessfulRows($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereTotalRows($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereUserId($value)
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
