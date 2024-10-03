@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\DB;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Task|null $task
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Result newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result query()
@@ -35,8 +36,10 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedBy($value)
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @mixin \Eloquent
  */
 class Result extends BaseModel
