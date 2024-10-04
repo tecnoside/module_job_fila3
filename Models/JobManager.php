@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Hash;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read string $status
+ *
  * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager newQuery()
@@ -42,6 +43,7 @@ use Illuminate\Support\Facades\Hash;
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereQueue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereStartedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel
@@ -90,7 +92,7 @@ class JobManager extends BaseModel
             return true;
         }
 
-        return null !== $this->finished_at;
+        return $this->finished_at !== null;
     }
 
     public function hasFailed(): bool

@@ -136,8 +136,8 @@ class WorkerCheck extends Command
         // dd($command);
 
         $pid = exec($command);
-        if ($pid == false) {
-            throw new \Exception('['.__LINE__.']['.class_basename($this).']');
+        if ($pid === false) {
+            throw new Exception('['.__LINE__.']['.class_basename($this).']');
         }
 
         $this->comment($pid);

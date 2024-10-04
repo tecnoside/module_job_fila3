@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Database\Eloquent\Builder;
-
 /**
  * Modules\Job\Models\FailedJob.
  *
@@ -17,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static \Illuminate\Database\Eloquent\Builder|FailedJob newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|FailedJob newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|FailedJob query()
+ *
  * @property int $id
  * @property string $uuid
  * @property string $connection
@@ -24,6 +23,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @property array $payload
  * @property string $exception
  * @property string $failed_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereConnection($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereException($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereFailedAt($value)
@@ -31,8 +31,10 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static \Illuminate\Database\Eloquent\Builder|FailedJob wherePayload($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereQueue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FailedJob whereUuid($value)
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel

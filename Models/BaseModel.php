@@ -28,22 +28,31 @@ abstract class BaseModel extends Model
      * @var bool
      */
     public static $snakeAttributes = true;
+
     /** @var bool */
     public $incrementing = true;
+
     /** @var bool */
     public $timestamps = true;
+
     /** @var int */
     protected $perPage = 30;
+
     /** @var string */
     protected $connection = 'job';
+
     /** @var string|null */
     protected $prefix = null;
+
     /** @var list<string> */
     protected $fillable = ['id'];
+
     /** @var string */
     protected $primaryKey = 'id';
+
     /** @var string */
     protected $keyType = 'string';
+
     /** @var list<string> */
     protected $hidden = [
         // 'password'

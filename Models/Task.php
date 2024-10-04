@@ -6,7 +6,6 @@ namespace Modules\Job\Models;
 
 use Carbon\Carbon;
 use Exception;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -48,6 +47,7 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property int|null $notifications_count
  * @property Collection<int, \Modules\Job\Models\Result> $results
  * @property int|null $results_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Task newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task query()
@@ -72,16 +72,21 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereTimezone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereUpdatedBy($value)
+ *
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property string|null $deleted_by
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereDeletedBy($value)
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @property int $order_column
  * @property string $status
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereOrderColumn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereStatus($value)
+ *
  * @mixin \Eloquent
  */
 class Task extends BaseModel

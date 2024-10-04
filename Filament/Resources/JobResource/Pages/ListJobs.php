@@ -14,6 +14,8 @@ use Filament\Resources\Pages\ListRecords;
 use Modules\Xot\Filament\Traits\TransTrait;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Modules\Job\Filament\Resources\JobResource;
+use Modules\UI\Enums\TableLayoutEnum;
+use Modules\Xot\Filament\Traits\TransTrait;
 
 class ListJobs extends ListRecords
 {
