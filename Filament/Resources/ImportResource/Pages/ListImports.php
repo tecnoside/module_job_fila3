@@ -12,8 +12,6 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Resources\Pages\ListRecords;
 use Modules\Xot\Filament\Traits\TransTrait;
 use Modules\Job\Filament\Resources\ImportResource;
-use Modules\UI\Enums\TableLayoutEnum;
-use Modules\Xot\Filament\Traits\TransTrait;
 
 class ListImports extends ListRecords
 {
