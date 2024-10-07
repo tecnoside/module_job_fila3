@@ -1,5 +1,7 @@
 <?php
 /**
+ * Class Modules\Job\Providers\JobServiceProvider.
+ *
  * @see https://github.com/mooxphp/jobs/blob/main/src/JobManagerProvider.php
  */
 
