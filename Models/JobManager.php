@@ -13,43 +13,37 @@ use Illuminate\Support\Facades\Hash;
  *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- * @property string $id
- * @property string $job_id
- * @property string|null $name
- * @property string|null $queue
- * @property \Illuminate\Support\Carbon|null $started_at
- * @property \Illuminate\Support\Carbon|null $finished_at
- * @property bool $failed
- * @property int $attempt
- * @property int|null $progress
- * @property string|null $exception_message
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read string $status
-<<<<<<< HEAD
-=======
+ * @property string                                      $id
+ * @property string                                      $job_id
+ * @property string|null                                 $name
+ * @property string|null                                 $queue
+ * @property \Illuminate\Support\Carbon|null             $started_at
+ * @property \Illuminate\Support\Carbon|null             $finished_at
+ * @property bool                                        $failed
+ * @property int                                         $attempt
+ * @property int|null                                    $progress
+ * @property string|null                                 $exception_message
+ * @property \Illuminate\Support\Carbon|null             $created_at
+ * @property \Illuminate\Support\Carbon|null             $updated_at
+ * @property string                                      $status
  *
->>>>>>> origin/dev
  * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager query()
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereAttempt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereExceptionMessage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereFailed($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereFinishedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereJobId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereProgress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereQueue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereStartedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobManager whereUpdatedAt($value)
-<<<<<<< HEAD
-=======
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  query()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereAttempt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereExceptionMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereFailed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereFinishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereJobId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereProgress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereQueue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereStartedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobManager  whereUpdatedAt($value)
  *
->>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel
@@ -98,11 +92,7 @@ class JobManager extends BaseModel
             return true;
         }
 
-<<<<<<< HEAD
         return null !== $this->finished_at;
-=======
-        return $this->finished_at !== null;
->>>>>>> origin/dev
     }
 
     public function hasFailed(): bool

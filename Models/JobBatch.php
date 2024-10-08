@@ -11,53 +11,41 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Builder;
-=======
->>>>>>> origin/dev
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
 /**
  * Modules\Job\Models\JobBatch.
  *
- * @property string $id
- * @property string $name
- * @property int $total_jobs
- * @property int $pending_jobs
- * @property int $failed_jobs
- * @property string $failed_job_ids
+ * @property string          $id
+ * @property string          $name
+ * @property int             $total_jobs
+ * @property int             $pending_jobs
+ * @property int             $failed_jobs
+ * @property string          $failed_job_ids
  * @property Collection|null $options
- * @property Carbon|null $cancelled_at
- * @property Carbon $created_at
- * @property Carbon|null $finished_at
-<<<<<<< HEAD
-=======
+ * @property Carbon|null     $cancelled_at
+ * @property Carbon          $created_at
+ * @property Carbon|null     $finished_at
  *
->>>>>>> origin/dev
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch query()
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereCancelledAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereFailedJobIds($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereFailedJobs($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereFinishedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereOptions($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch wherePendingJobs($value)
- * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereTotalJobs($value)
-<<<<<<< HEAD
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
-=======
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  query()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereCancelledAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereFailedJobIds($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereFailedJobs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereFinishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereOptions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  wherePendingJobs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch  whereTotalJobs($value)
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
->>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel
@@ -161,8 +149,4 @@ class JobBatch extends BaseModel
             'finished_at' => 'datetime',
         ];
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/dev

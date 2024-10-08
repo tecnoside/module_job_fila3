@@ -5,18 +5,6 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\ExportResource\Pages;
 
 use Filament\Actions;
-<<<<<<< HEAD
-use Filament\Tables\Table;
-use Modules\UI\Enums\TableLayoutEnum;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Enums\FiltersLayout;
-use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Enums\ActionsPosition;
-use Modules\Xot\Filament\Traits\TransTrait;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Modules\Job\Filament\Resources\ExportResource;
-=======
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
@@ -27,27 +15,14 @@ use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\ExportResource;
 use Modules\UI\Enums\TableLayoutEnum;
 use Modules\Xot\Filament\Traits\TransTrait;
->>>>>>> origin/dev
 
 class ListExports extends ListRecords
 {
     use TransTrait;
 
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
-<<<<<<< HEAD
-    
-    protected static string $resource = ExportResource::class;
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
-=======
 
     protected static string $resource = ExportResource::class;
->>>>>>> origin/dev
 
     public function table(Table $table): Table
     {
@@ -79,11 +54,7 @@ class ListExports extends ListRecords
     {
         return [
             TextColumn::make('file_name'),
-<<<<<<< HEAD
-            TextColumn::make('created_at')
-=======
             TextColumn::make('created_at'),
->>>>>>> origin/dev
         ];
     }
 
@@ -101,9 +72,6 @@ class ListExports extends ListRecords
             DeleteBulkAction::make(),
         ];
     }
-<<<<<<< HEAD
-}
-=======
 
     protected function getHeaderActions(): array
     {
@@ -112,4 +80,3 @@ class ListExports extends ListRecords
         ];
     }
 }
->>>>>>> origin/dev

@@ -8,46 +8,30 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Builder;
 use Filament\Actions\Exports\Models\Export as BaseExport;
 
 /**
- * 
- *
-=======
-use Eloquent;
-use Filament\Actions\Exports\Models\Export as BaseExport;
-
-/**
->>>>>>> origin/dev
  * @method static \Modules\Job\Database\Factories\ExportFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Export newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Export newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Export query()
-<<<<<<< HEAD
-=======
+ * @method static \Illuminate\Database\Eloquent\Builder|Export  newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Export  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Export  query()
  *
->>>>>>> origin/dev
- * @property int $id
+ * @property int                             $id
  * @property \Illuminate\Support\Carbon|null $completed_at
- * @property string $file_disk
- * @property string|null $file_name
- * @property string $exporter
- * @property int $processed_rows
- * @property int $total_rows
- * @property int $successful_rows
- * @property string|null $user_id
+ * @property string                          $file_disk
+ * @property string|null                     $file_name
+ * @property string                          $exporter
+ * @property int                             $processed_rows
+ * @property int                             $total_rows
+ * @property int                             $successful_rows
+ * @property string|null                     $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_at
- * @property string|null $deleted_by
-<<<<<<< HEAD
-=======
+ * @property string|null                     $updated_by
+ * @property string|null                     $created_by
+ * @property string|null                     $deleted_at
+ * @property string|null                     $deleted_by
  *
->>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereCompletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereCreatedBy($value)
@@ -63,17 +47,11 @@ use Filament\Actions\Exports\Models\Export as BaseExport;
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereUserId($value)
-<<<<<<< HEAD
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
- * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent|null $user
-=======
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
- * @property-read \Illuminate\Database\Eloquent\Model|Eloquent|null $user
+ * @property \Modules\Xot\Contracts\ProfileContract|null        $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null        $updater
+ * @property \Illuminate\Database\Eloquent\Model|\Eloquent|null $user
  *
->>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class Export extends BaseExport
@@ -112,8 +90,4 @@ class Export extends BaseExport
             // 'created_at' => 'datetime:d/m/Y H:i'
         ];
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/dev

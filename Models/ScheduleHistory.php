@@ -14,33 +14,24 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * Modules\Job\Models\ScheduleHistory.
  *
  * @property Schedule|null $command
-<<<<<<< HEAD
-=======
  *
->>>>>>> origin/dev
  * @method static \Modules\Job\Database\Factories\ScheduleHistoryFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory query()
-<<<<<<< HEAD
-=======
+ * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory  query()
  *
->>>>>>> origin/dev
- * @property int $id
- * @property array|null $params
- * @property string $output
- * @property array|null $options
+ * @property int                             $id
+ * @property array|null                      $params
+ * @property string                          $output
+ * @property array|null                      $options
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property int|null $schedule_id
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_at
- * @property string|null $deleted_by
-<<<<<<< HEAD
-=======
+ * @property int|null                        $schedule_id
+ * @property string|null                     $updated_by
+ * @property string|null                     $created_by
+ * @property string|null                     $deleted_at
+ * @property string|null                     $deleted_by
  *
->>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereCommand($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereCreatedBy($value)
@@ -53,15 +44,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereScheduleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleHistory whereUpdatedBy($value)
-<<<<<<< HEAD
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
-=======
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
->>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class ScheduleHistory extends BaseModel

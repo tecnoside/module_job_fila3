@@ -15,30 +15,16 @@ class ScheduleArguments extends TextColumn
 
     /**
      * Set whether to include values in the output.
-<<<<<<< HEAD
-     *
-     * @param bool $withValue
-     * @return static
-=======
->>>>>>> origin/dev
      */
     public function withValue(bool $withValue = true): static
     {
         $this->withValue = $withValue;
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/dev
         return $this;
     }
 
     /**
      * Get the tags as an array.
-<<<<<<< HEAD
-     *
-     * @return array
-=======
->>>>>>> origin/dev
      */
     public function getTags(): array
     {
@@ -63,37 +49,21 @@ class ScheduleArguments extends TextColumn
 
     /**
      * Format tags when they are in array format.
-<<<<<<< HEAD
-     *
-     * @param array $tags
-     * @return array
-=======
->>>>>>> origin/dev
      */
     protected function formatArrayTags(array $tags): array
     {
         return collect($tags)
             ->when($this->withValue, fn ($collection) => $collection->reject(fn ($value) => empty($value['value'])))
-<<<<<<< HEAD
-            ->map(fn ($value, $key) => ($this->withValue ? ($value['name'] ?? $key) . '=' . $value['value'] : $key . '=' . $value))
-=======
             ->map(fn ($value, $key) => ($this->withValue ? ($value['name'] ?? $key).'='.$value['value'] : $key.'='.$value))
->>>>>>> origin/dev
             ->toArray();
     }
 
     /**
      * Filter out empty tags from the array.
-<<<<<<< HEAD
-     *
-     * @param array $tags
-     * @return array
-=======
->>>>>>> origin/dev
      */
     protected function filterEmptyTags(array $tags): array
     {
-        if (count($tags) === 1 && blank($tags[0])) {
+        if (1 === count($tags) && blank($tags[0])) {
             return [];
         }
 

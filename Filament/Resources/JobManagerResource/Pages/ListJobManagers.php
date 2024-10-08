@@ -9,17 +9,6 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\JobManagerResource\Pages;
 
 use Filament\Actions;
-<<<<<<< HEAD
-use Filament\Tables\Table;
-use Modules\UI\Enums\TableLayoutEnum;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Enums\FiltersLayout;
-use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Enums\ActionsPosition;
-use Modules\Xot\Filament\Traits\TransTrait;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Modules\Job\Filament\Resources\JobManagerResource;
-=======
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
@@ -29,7 +18,6 @@ use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobManagerResource;
 use Modules\UI\Enums\TableLayoutEnum;
 use Modules\Xot\Filament\Traits\TransTrait;
->>>>>>> origin/dev
 
 class ListJobManagers extends ListRecords
 {
@@ -39,16 +27,6 @@ class ListJobManagers extends ListRecords
 
     protected static string $resource = JobManagerResource::class;
 
-<<<<<<< HEAD
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
-
-=======
->>>>>>> origin/dev
     public function table(Table $table): Table
     {
         return $table
@@ -121,9 +99,6 @@ class ListJobManagers extends ListRecords
             DeleteBulkAction::make(),
         ];
     }
-<<<<<<< HEAD
-}
-=======
 
     protected function getHeaderActions(): array
     {
@@ -132,4 +107,3 @@ class ListJobManagers extends ListRecords
         ];
     }
 }
->>>>>>> origin/dev
