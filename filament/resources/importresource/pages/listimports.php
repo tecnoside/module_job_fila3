@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ImportResource\Pages;
 
-use Filament\Tables;
 use Filament\Actions;
-use Filament\Tables\Table;
-use Modules\UI\Enums\TableLayoutEnum;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Resources\Pages\ListRecords;
-use Modules\Xot\Filament\Traits\TransTrait;
+use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\ImportResource;
+use Modules\UI\Enums\TableLayoutEnum;
+use Modules\Xot\Filament\Traits\TransTrait;
 
 class ListImports extends ListRecords
 {
