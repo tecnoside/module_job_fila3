@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
+=======
+>>>>>>> origin/dev
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -25,6 +28,10 @@ use Illuminate\Support\Carbon;
  * @property Collection<int, \Modules\Job\Models\Parameter> $parameters
  * @property int|null $parameters_count
  * @property Task|null $task
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> origin/dev
  * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Frequency newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Frequency newQuery()
@@ -37,8 +44,15 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereUpdatedBy($value)
+<<<<<<< HEAD
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+=======
+ *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
+>>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class Frequency extends BaseModel
@@ -62,4 +76,8 @@ class Frequency extends BaseModel
     {
         return $this->hasMany(Parameter::class);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/dev

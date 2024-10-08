@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
+=======
+>>>>>>> origin/dev
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Carbon;
 use Webmozart\Assert\Assert;
@@ -28,6 +31,10 @@ use function Safe\json_decode;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> origin/dev
  * @method static \Modules\Job\Database\Factories\JobFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Job newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Job newQuery()
@@ -42,10 +49,18 @@ use function Safe\json_decode;
  * @method static \Illuminate\Database\Eloquent\Builder|Job whereReservedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Job whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Job whereUpdatedBy($value)
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> origin/dev
  * @property mixed $display_name
  * @property mixed $status
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class Job extends BaseModel
@@ -88,6 +103,10 @@ class Job extends BaseModel
         }
 
         Assert::nullOrString($res = $payload['displayName'] ?? null);
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
         return $res;
     }
 
@@ -111,4 +130,8 @@ class Job extends BaseModel
             // 'created_at' => 'datetime:d/m/Y H:i'
         ];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/dev

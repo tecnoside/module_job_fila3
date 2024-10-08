@@ -1,5 +1,10 @@
 <?php
 /**
+<<<<<<< HEAD
+=======
+ * Class Modules\Job\Providers\JobServiceProvider.
+ *
+>>>>>>> origin/dev
  * @see https://github.com/mooxphp/jobs/blob/main/src/JobManagerProvider.php
  */
 
@@ -7,8 +12,13 @@ declare(strict_types=1);
 
 namespace Modules\Job\Providers;
 
+<<<<<<< HEAD
 use Filament\Actions\Imports\Models\Import;
 use Filament\Actions\Exports\Models\Export;
+=======
+use Filament\Actions\Exports\Models\Export;
+use Filament\Actions\Imports\Models\Import;
+>>>>>>> origin/dev
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Queue\Events\JobExceptionOccurred;
 use Illuminate\Queue\Events\JobFailed;

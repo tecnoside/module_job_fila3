@@ -8,15 +8,23 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
 
 /**
  * 
  *
+=======
+/**
+>>>>>>> origin/dev
  * @method static \Modules\Job\Database\Factories\FailedImportRowFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow query()
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> origin/dev
  * @property int $id
  * @property array $data
  * @property int $import_id
@@ -25,6 +33,10 @@ use Illuminate\Database\Eloquent\Builder;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow whereCreatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow whereData($value)
@@ -33,8 +45,15 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow whereValidationError($value)
+<<<<<<< HEAD
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+=======
+ *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
+>>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class FailedImportRow extends BaseModel
@@ -67,4 +86,8 @@ class FailedImportRow extends BaseModel
             // 'created_at' => 'datetime:d/m/Y H:i'
         ];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/dev

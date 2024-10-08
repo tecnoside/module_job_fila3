@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobBatchResource\Pages;
 
+<<<<<<< HEAD
 use Filament\Tables\Table;
 use Filament\Actions\Action;
 use Webmozart\Assert\Assert;
@@ -20,6 +21,21 @@ use Filament\Tables\Enums\ActionsPosition;
 use Modules\Xot\Filament\Traits\TransTrait;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Modules\Job\Filament\Resources\JobBatchResource;
+=======
+use Filament\Actions\Action;
+use Filament\Notifications\Notification;
+use Filament\Resources\Pages\ListRecords;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Enums\ActionsPosition;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Table;
+use Illuminate\Support\Facades\Artisan;
+use Modules\Job\Filament\Resources\JobBatchResource;
+use Modules\UI\Enums\TableLayoutEnum;
+use Modules\Xot\Filament\Traits\TransTrait;
+use Webmozart\Assert\Assert;
+>>>>>>> origin/dev
 
 class ListJobBatches extends ListRecords
 {
@@ -29,6 +45,7 @@ class ListJobBatches extends ListRecords
 
     protected static string $resource = JobBatchResource::class;
 
+<<<<<<< HEAD
     protected function getHeaderActions(): array
     {
         return [
@@ -48,6 +65,8 @@ class ListJobBatches extends ListRecords
         ];
     }
 
+=======
+>>>>>>> origin/dev
     public function table(Table $table): Table
     {
         return $table
@@ -138,4 +157,27 @@ class ListJobBatches extends ListRecords
             DeleteBulkAction::make(),
         ];
     }
+<<<<<<< HEAD
 }
+=======
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Action::make('prune_batches')
+                ->label('Prune all batches')
+                ->requiresConfirmation()
+                ->color('danger')
+                ->action(
+                    static function (): void {
+                        Artisan::call('queue:prune-batches');
+                        Notification::make()
+                            ->title('All batches have been pruned.')
+                            ->success()
+                            ->send();
+                    }
+                ),
+        ];
+    }
+}
+>>>>>>> origin/dev
