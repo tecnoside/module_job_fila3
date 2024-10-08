@@ -7,9 +7,10 @@ namespace Modules\Job\Services;
 use App\Console\Kernel;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use Webmozart\Assert\Assert;
 
 use function Safe\preg_grep;
+
+use Webmozart\Assert\Assert;
 
 class CommandService
 {
@@ -17,36 +18,35 @@ class CommandService
     {
         $commands = collect(app(Kernel::class)->all())->sortKeys();
         $commandsKeys = $commands->keys()->toArray();
-        if (config('job::commands.show_supported_only')) {
-            Assert::isArray($commands_supported = config('job::commands.supported'));
 
-            foreach ($commands_supported as $supported) {
+        if (config('job::commands.show_supported_only')) {
+            Assert::isArray($commandsSupported = config('job::commands.supported'));
+
+            foreach ($commandsSupported as $supported) {
                 $commandsKeys = preg_grep("/^$supported/", $commandsKeys);
             }
         } else {
-            Assert::isArray($commands_exlude = config('job::commands.exclude'));
-            foreach ($commands_exlude as $exclude) {
+            Assert::isArray($commandsExclude = config('job::commands.exclude'));
+            foreach ($commandsExclude as $exclude) {
                 $commandsKeys = preg_grep("/^$exclude/", $commandsKeys, PREG_GREP_INVERT);
             }
         }
 
         return $commands->only($commandsKeys)
-            ->map(fn ($command): array => [
+            ->map(fn (Command $command): array => [
                 'name' => $command->getName(),
                 'description' => $command->getDescription(),
                 'signature' => $command->getSynopsis(),
                 'full_name' => $command->getName().' ('.$command->getDescription().')',
-                'arguments' => static::getArguments($command),
-                'options' => static::getOptions($command),
+                'arguments' => self::getArguments($command),
+                'options' => self::getOptions($command),
             ]);
     }
 
     /**
-     * Undocumented function.
-     *
-     * @param  Command  $command
+     * Get the arguments of a command.
      */
-    protected static function getArguments($command): array
+    protected static function getArguments(Command $command): array
     {
         $arguments = [];
         foreach ($command->getDefinition()->getArguments() as $argument) {
@@ -61,11 +61,9 @@ class CommandService
     }
 
     /**
-     * Undocumented function.
-     *
-     * @param  Command  $command
+     * Get the options of a command.
      */
-    protected static function getOptions($command): array
+    protected static function getOptions(Command $command): array
     {
         $options = [
             'withValue' => [],
