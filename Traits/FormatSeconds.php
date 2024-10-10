@@ -34,7 +34,7 @@ trait FormatSeconds
             $formattedSeconds .= "$minutes m ";
         }
 
-        if ($days === 0 && ($seconds > 0 || $minutes > 0 || $hours > 0)) {
+        if ($days < 1 && ($seconds > 0 || $minutes > 0 || $hours > 0)) {
             $formattedSeconds .= "$seconds s";
         }
 
