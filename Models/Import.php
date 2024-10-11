@@ -10,25 +10,25 @@ namespace Modules\Job\Models;
 
 /**
  * @method static \Modules\Job\Database\Factories\ImportFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Import newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Import newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Import query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Import  newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Import  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Import  query()
  *
- * @property int $id
+ * @property int                             $id
  * @property \Illuminate\Support\Carbon|null $completed_at
- * @property string $file_name
- * @property string $file_path
- * @property string $importer
- * @property int $processed_rows
- * @property int $total_rows
- * @property int $successful_rows
- * @property string|null $user_id
+ * @property string                          $file_name
+ * @property string                          $file_path
+ * @property string                          $importer
+ * @property int                             $processed_rows
+ * @property int                             $total_rows
+ * @property int                             $successful_rows
+ * @property string|null                     $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_at
- * @property string|null $deleted_by
+ * @property string|null                     $updated_by
+ * @property string|null                     $created_by
+ * @property string|null                     $deleted_at
+ * @property string|null                     $deleted_by
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Import whereCompletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Import whereCreatedAt($value)
@@ -50,8 +50,8 @@ namespace Modules\Job\Models;
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Import whereUserType($value)
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
  * @mixin \Eloquent
  */

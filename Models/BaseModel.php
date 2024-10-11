@@ -42,7 +42,7 @@ abstract class BaseModel extends Model
     protected $connection = 'job';
 
     /** @var string|null */
-    protected $prefix = null;
+    protected $prefix;
 
     /** @var list<string> */
     protected $fillable = ['id'];

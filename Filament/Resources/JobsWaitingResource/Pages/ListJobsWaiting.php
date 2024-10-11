@@ -67,7 +67,6 @@ class ListJobsWaiting extends ListRecords
     public function getTableActions(): array
     {
         return [
-
             // ViewAction::make()
             //     ->label(''),
             // EditAction::make()

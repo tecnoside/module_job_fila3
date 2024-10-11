@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Exception;
 use Illuminate\Console\Scheduling\ManagesFrequencies;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -12,80 +11,79 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Modules\Job\Enums\Status;
 use Modules\Xot\Contracts\ProfileContract;
-use RuntimeException;
 use Webmozart\Assert\Assert;
 
 /**
  * Modules\Job\Models\Schedule.
  *
- * @property Status $status
- * @property array $options
+ * @property Status                                                                             $status
+ * @property array                                                                              $options
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
- * @property int|null $histories_count
- * @property int $id
- * @property string $command
- * @property string|null $command_custom
- * @property array|null $params
- * @property string $expression
- * @property array|null $environments
- * @property array|null $options_with_value
- * @property string|null $log_filename
- * @property bool $even_in_maintenance_mode
- * @property bool $without_overlapping
- * @property bool $on_one_server
- * @property string|null $webhook_before
- * @property string|null $webhook_after
- * @property string|null $email_output
- * @property bool $sendmail_error
- * @property bool $log_success
- * @property bool $log_error
- * @property bool $run_in_background
- * @property bool $sendmail_success
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_by
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
+ * @property int|null                                                                           $histories_count
+ * @property int                                                                                $id
+ * @property string                                                                             $command
+ * @property string|null                                                                        $command_custom
+ * @property array|null                                                                         $params
+ * @property string                                                                             $expression
+ * @property array|null                                                                         $environments
+ * @property array|null                                                                         $options_with_value
+ * @property string|null                                                                        $log_filename
+ * @property bool                                                                               $even_in_maintenance_mode
+ * @property bool                                                                               $without_overlapping
+ * @property bool                                                                               $on_one_server
+ * @property string|null                                                                        $webhook_before
+ * @property string|null                                                                        $webhook_after
+ * @property string|null                                                                        $email_output
+ * @property bool                                                                               $sendmail_error
+ * @property bool                                                                               $log_success
+ * @property bool                                                                               $log_error
+ * @property bool                                                                               $run_in_background
+ * @property bool                                                                               $sendmail_success
+ * @property \Illuminate\Support\Carbon|null                                                    $created_at
+ * @property \Illuminate\Support\Carbon|null                                                    $updated_at
+ * @property \Illuminate\Support\Carbon|null                                                    $deleted_at
+ * @property string|null                                                                        $updated_by
+ * @property string|null                                                                        $created_by
+ * @property string|null                                                                        $deleted_by
+ * @property ProfileContract|null                                                               $creator
+ * @property ProfileContract|null                                                               $updater
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule active()
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  active()
  * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule inactive()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule query()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereCommand($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereCommandCustom($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereDeletedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereEmailOutput($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereEnvironments($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereEvenInMaintenanceMode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereExpression($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereLogError($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereLogFilename($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereLogSuccess($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereOnOneServer($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereOptions($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereOptionsWithValue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereParams($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereRunInBackground($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereSendmailError($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereSendmailSuccess($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereUpdatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereWebhookAfter($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereWebhookBefore($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereWithoutOverlapping($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  inactive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereCommand($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereCommandCustom($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereDeletedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereEmailOutput($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereEnvironments($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereEvenInMaintenanceMode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereExpression($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereLogError($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereLogFilename($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereLogSuccess($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereOnOneServer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereOptions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereOptionsWithValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereParams($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereRunInBackground($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereSendmailError($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereSendmailSuccess($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereWebhookAfter($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereWebhookBefore($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  whereWithoutOverlapping($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Schedule  withoutTrashed()
  *
  * @mixin \Eloquent
  */
@@ -191,7 +189,7 @@ class Schedule extends BaseModel
                 continue;
             }
 
-            if (isset($value['type']) && $value['type'] === 'function') {
+            if (isset($value['type']) && 'function' === $value['type']) {
                 // Replace eval with a safer function or an allowed list of callable functions
                 $arguments[$argument] = $this->evaluateFunction($value['value']);
             } else {
@@ -235,12 +233,12 @@ class Schedule extends BaseModel
 
         if (in_array($functionString, $allowedFunctions)) {
             if (! is_callable($functionString)) {
-                throw new Exception('['.__LINE__.']['.__CLASS__.']');
+                throw new \Exception('['.__LINE__.']['.__CLASS__.']');
             }
 
             return call_user_func($functionString);
         }
 
-        throw new RuntimeException("Invalid function: {$functionString}");
+        throw new \RuntimeException("Invalid function: {$functionString}");
     }
 }

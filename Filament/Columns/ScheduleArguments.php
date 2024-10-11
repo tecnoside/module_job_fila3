@@ -63,7 +63,7 @@ class ScheduleArguments extends TextColumn
      */
     protected function filterEmptyTags(array $tags): array
     {
-        if (count($tags) === 1 && blank($tags[0])) {
+        if (1 === count($tags) && blank($tags[0])) {
             return [];
         }
 

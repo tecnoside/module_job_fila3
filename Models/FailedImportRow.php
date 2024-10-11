@@ -10,18 +10,18 @@ namespace Modules\Job\Models;
 
 /**
  * @method static \Modules\Job\Database\Factories\FailedImportRowFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow query()
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow  newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow  query()
  *
- * @property int $id
- * @property array $data
- * @property int $import_id
- * @property string|null $validation_error
+ * @property int                             $id
+ * @property array                           $data
+ * @property int                             $import_id
+ * @property string|null                     $validation_error
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
+ * @property string|null                     $updated_by
+ * @property string|null                     $created_by
  *
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow whereCreatedBy($value)
@@ -32,8 +32,8 @@ namespace Modules\Job\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FailedImportRow whereValidationError($value)
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
  * @mixin \Eloquent
  */
