@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
+use Closure;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables;
@@ -28,7 +29,7 @@ class ListSchedules extends ListRecords
         return [
             Tables\Columns\TextColumn::make('command')
                 ->getStateUsing(function ($record) {
-                    if ('custom' === $record->command) {
+                    if ($record->command === 'custom') {
                         return $record->command_custom;
                     }
 
@@ -175,7 +176,7 @@ class ListSchedules extends ListRecords
         ];
     }
 
-    protected function getTableRecordUrlUsing(): ?\Closure
+    protected function getTableRecordUrlUsing(): ?Closure
     {
         return static fn (): ?string => null;
     }
