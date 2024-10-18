@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
-use Carbon\Carbon;
-use Closure;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Table;
+use Illuminate\Support\Carbon;
 use Modules\Job\Filament\Columns\ActionGroup;
 use Modules\Job\Filament\Columns\ScheduleArguments;
 use Modules\Job\Filament\Columns\ScheduleOptions;
@@ -29,7 +28,7 @@ class ListSchedules extends ListRecords
         return [
             Tables\Columns\TextColumn::make('command')
                 ->getStateUsing(function ($record) {
-                    if ($record->command === 'custom') {
+                    if ('custom' === $record->command) {
                         return $record->command_custom;
                     }
 
@@ -176,7 +175,7 @@ class ListSchedules extends ListRecords
         ];
     }
 
-    protected function getTableRecordUrlUsing(): ?Closure
+    protected function getTableRecordUrlUsing(): ?\Closure
     {
         return static fn (): ?string => null;
     }

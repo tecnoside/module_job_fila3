@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 use Modules\Job\Models\Traits\FrontendSortable;
 
 /**
@@ -34,8 +34,8 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property int                                                       $run_in_background
  * @property string|null                                               $created_by
  * @property string|null                                               $updated_by
- * @property \Illuminate\Support\Carbon|null                           $created_at
- * @property \Illuminate\Support\Carbon|null                           $updated_at
+ * @property Carbon|null                                               $created_at
+ * @property Carbon|null                                               $updated_at
  * @property Collection<int, \Modules\Job\Models\Frequency>            $frequencies
  * @property int|null                                                  $frequencies_count
  * @property bool                                                      $activated
@@ -46,6 +46,7 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @property int|null                                                  $notifications_count
  * @property Collection<int, \Modules\Job\Models\Result>               $results
  * @property int|null                                                  $results_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Task newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task query()
@@ -70,16 +71,21 @@ use Modules\Job\Models\Traits\FrontendSortable;
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereTimezone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereUpdatedBy($value)
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property string|null                     $deleted_by
+ *
+ * @property Carbon|null $deleted_at
+ * @property string|null $deleted_by
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereDeletedBy($value)
+ *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  * @property int                                         $order_column
  * @property string                                      $status
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereOrderColumn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereStatus($value)
+ *
  * @mixin \Eloquent
  */
 class Task extends BaseModel
