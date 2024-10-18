@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Exception;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -16,36 +17,36 @@ use Modules\Job\Models\Traits\FrontendSortable;
 /**
  * Modules\Job\Models\Task.
  *
- * @property int                                                       $id
- * @property string                                                    $description
- * @property string                                                    $command
- * @property string|null                                               $parameters
- * @property string|null                                               $expression
- * @property string                                                    $timezone
- * @property int                                                       $is_active
- * @property int                                                       $dont_overlap
- * @property int                                                       $run_in_maintenance
- * @property string|null                                               $notification_email_address
- * @property string|null                                               $notification_phone_number
- * @property string                                                    $notification_slack_webhook
- * @property int                                                       $auto_cleanup_num
- * @property string|null                                               $auto_cleanup_type
- * @property int                                                       $run_on_one_server
- * @property int                                                       $run_in_background
- * @property string|null                                               $created_by
- * @property string|null                                               $updated_by
- * @property Carbon|null                                               $created_at
- * @property Carbon|null                                               $updated_at
- * @property Collection<int, \Modules\Job\Models\Frequency>            $frequencies
- * @property int|null                                                  $frequencies_count
- * @property bool                                                      $activated
- * @property float                                                     $average_runtime
- * @property Result|null                                               $last_result
- * @property string                                                    $upcoming
+ * @property int $id
+ * @property string $description
+ * @property string $command
+ * @property string|null $parameters
+ * @property string|null $expression
+ * @property string $timezone
+ * @property int $is_active
+ * @property int $dont_overlap
+ * @property int $run_in_maintenance
+ * @property string|null $notification_email_address
+ * @property string|null $notification_phone_number
+ * @property string $notification_slack_webhook
+ * @property int $auto_cleanup_num
+ * @property string|null $auto_cleanup_type
+ * @property int $run_on_one_server
+ * @property int $run_in_background
+ * @property string|null $created_by
+ * @property string|null $updated_by
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Collection<int, \Modules\Job\Models\Frequency> $frequencies
+ * @property int|null $frequencies_count
+ * @property bool $activated
+ * @property float $average_runtime
+ * @property Result|null $last_result
+ * @property string $upcoming
  * @property DatabaseNotificationCollection<int, DatabaseNotification> $notifications
- * @property int|null                                                  $notifications_count
- * @property Collection<int, \Modules\Job\Models\Result>               $results
- * @property int|null                                                  $results_count
+ * @property int|null $notifications_count
+ * @property Collection<int, \Modules\Job\Models\Result> $results
+ * @property int|null $results_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Task newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task newQuery()
@@ -80,8 +81,8 @@ use Modules\Job\Models\Traits\FrontendSortable;
  *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- * @property int                                         $order_column
- * @property string                                      $status
+ * @property int $order_column
+ * @property string $status
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereOrderColumn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereStatus($value)
@@ -139,7 +140,7 @@ class Task extends BaseModel
     /**
      * Upcoming Accessor.
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function getUpcomingAttribute(): string
     {
@@ -211,7 +212,7 @@ class Task extends BaseModel
     public function autoCleanup(): void
     {
         if ($this->auto_cleanup_num > 0) {
-            if ('results' === $this->auto_cleanup_type) {
+            if ($this->auto_cleanup_type === 'results') {
                 $oldest_id = $this->results()
                     ->orderBy('ran_at', 'desc')
                     ->limit($this->auto_cleanup_num)
