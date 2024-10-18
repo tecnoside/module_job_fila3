@@ -68,20 +68,24 @@ class ScheduleResource extends XotBaseResource
 
     public static function getFormSchema(): array
     {
+        // --- occorre aggiornare getCOmmandsAction per laravel 11 che ah rimosso il kernel
+        return [];
+        /*
         static::$commands = app(GetCommandsAction::class)->execute();
+
         $commands_opts = static::$commands->toCollection()->pluck('full_name', 'name')->toArray();
 
         return [
             Section::make([
                 Select::make('command')
                     ->label(static::trans('fields.command'))
-                    /*
-                    ->options(
-                        fn () => config('filament-database-schedule.commands.enable_custom') ?
-                            static::$commands->pluck('full_name', 'name')
-                            ->prepend(static::trans('messages.custom'), 'custom') : static::$commands->pluck('full_name', 'name')
-                    )
-                    */
+
+                    // ->options(
+                    //     fn () => config('filament-database-schedule.commands.enable_custom') ?
+                    //         static::$commands->pluck('full_name', 'name')
+                    //         ->prepend(static::trans('messages.custom'), 'custom') : static::$commands->pluck('full_name', 'name')
+                    // )
+
                     ->options(fn () => $commands_opts)
                     ->reactive()
                     ->searchable()
@@ -124,19 +128,19 @@ class ScheduleResource extends XotBaseResource
                     ->addable(false)
                     ->deletable(false)
                     ->reorderable(false),
-                /*
-                CheckboxList::make('options')
-                 ->label(static::trans('fields.options'))
-                    ->options(
-                        fn (Get $get) => collect(static::$commands->firstWhere('name', $get('command'))['options']['withoutValue'] ?? [])
-                            ->mapWithKeys(function ($value) {
-                                return [$value => $value];
-                            }),
-                    )
-                 ->columns(3)
-                 ->columnSpanFull()
-                 ->visible(fn (CheckboxList $component) => ! empty($component->getOptions())),
-                */
+
+                // CheckboxList::make('options')
+                //  ->label(static::trans('fields.options'))
+                //     ->options(
+                //         fn (Get $get) => collect(static::$commands->firstWhere('name', $get('command'))['options']['withoutValue'] ?? [])
+                //             ->mapWithKeys(function ($value) {
+                //                 return [$value => $value];
+                //             }),
+                //     )
+                //  ->columns(3)
+                //  ->columnSpanFull()
+                //  ->visible(fn (CheckboxList $component) => ! empty($component->getOptions())),
+
                 TextInput::make('expression')
                     ->placeholder('* * * * *')
                     ->rules([new Corn()])
@@ -176,5 +180,6 @@ class ScheduleResource extends XotBaseResource
             ])
                 ->inlineLabel(false),
         ];
+        */
     }
 }
