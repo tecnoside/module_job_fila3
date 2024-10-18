@@ -11,11 +11,12 @@ namespace Modules\Job\Models;
 use Filament\Actions\Exports\Models\Export as BaseExport;
 
 /**
+ * 
+ *
  * @method static \Modules\Job\Database\Factories\ExportFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Export  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Export  newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Export  query()
- *
  * @property int                             $id
  * @property \Illuminate\Support\Carbon|null $completed_at
  * @property string                          $file_disk
@@ -31,7 +32,6 @@ use Filament\Actions\Exports\Models\Export as BaseExport;
  * @property string|null                     $created_by
  * @property string|null                     $deleted_at
  * @property string|null                     $deleted_by
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereCompletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereCreatedBy($value)
@@ -47,11 +47,11 @@ use Filament\Actions\Exports\Models\Export as BaseExport;
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Export whereUserId($value)
- *
  * @property \Modules\Xot\Contracts\ProfileContract|null        $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null        $updater
  * @property \Illuminate\Database\Eloquent\Model|\Eloquent|null $user
- *
+ * @property string|null $user_type
+ * @method static \Illuminate\Database\Eloquent\Builder|Export whereUserType($value)
  * @mixin \Eloquent
  */
 class Export extends BaseExport

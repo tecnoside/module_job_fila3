@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Services;
 
-use App\Console\Kernel;
 use Illuminate\Console\Command;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\App;
 
 use function Safe\preg_grep;
 
@@ -16,9 +17,14 @@ class CommandService
 {
     public static function get(): Collection
     {
-        $commands = collect(app(Kernel::class)->all())->sortKeys();
-        $commandsKeys = $commands->keys()->toArray();
+        // Access commands directly from the application instance
+        // $commands = collect(app()->allCommands())->sortKeys();
+        // $commandsKeys = $commands->keys()->toArray();
+        // $commands = app()->allCommands();
+        $commands = App::make('Illuminate\Console\Application')->all();
+        $commandsKeys = array_keys($commands);
 
+        // Show only supported commands based on the configuration
         if (config('job::commands.show_supported_only')) {
             Assert::isArray($commandsSupported = config('job::commands.supported'));
 
@@ -49,11 +55,11 @@ class CommandService
     protected static function getArguments(Command $command): array
     {
         $arguments = [];
-        foreach ($command->getDefinition()->getArguments() as $argument) {
+        foreach ($command->getArguments() as $argument) { // Updated method to get arguments
             $arguments[] = [
-                'name' => $argument->getName(),
-                'default' => $argument->getDefault(),
-                'required' => $argument->isRequired(),
+                'name' => $argument['name'], // Access argument name directly
+                'default' => $argument['default'] ?? null, // Handle default values
+                'required' => $argument['required'] ?? false, // Handle required flag
             ];
         }
 
@@ -71,15 +77,16 @@ class CommandService
                 'verbose', 'quiet', 'ansi', 'no-ansi',
             ],
         ];
-        foreach ($command->getDefinition()->getOptions() as $option) {
-            if ($option->acceptValue()) {
+
+        foreach ($command->getOptions() as $option) { // Updated method to get options
+            if ($option['accepts_value']) { // Check if the option accepts a value
                 $options['withValue'][] = (object) [
-                    'name' => $option->getName(),
-                    'default' => $option->getDefault(),
-                    'required' => $option->isValueRequired(),
+                    'name' => $option['name'],
+                    'default' => $option['default'] ?? null, // Handle default values
+                    'required' => $option['value_required'] ?? false, // Handle required flag
                 ];
             } else {
-                $options['withoutValue'][] = $option->getName();
+                $options['withoutValue'][] = $option['name'];
             }
         }
 

@@ -84,8 +84,8 @@ class Status extends Component
         if (app()->runningInConsole()) {
             return collect([]);
         }
-
-        new Kernel(app(), new Dispatcher);
+        // Kernel removed in laravel 11
+        // new Kernel(app(), new Dispatcher);
         $schedule = app(Schedule::class);
 
         return collect($schedule->events());
