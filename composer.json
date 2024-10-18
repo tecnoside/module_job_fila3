@@ -25,33 +25,7 @@
         "php": "^8.2",
         "filament/filament": "^3.2",
         "invaders-xx/filament-jsoneditor": "*",
-        "mhmiton/laravel-modules-livewire": "*",
-        "thecodingmachine/safe": "*"
-    },
-    "require_comment":{
-        "laraxot/module_user_fila3": "*",
-        "laraxot/module_xot_fila3": "*"
-    },
-    "require-dev_comment": {
-        "driftingly/rector-laravel": "*",
-        "enlightn/enlightn": "*",
-        "larastan/larastan": "*",
-        "laravel/pint": "*",
-        "nunomaduro/collision": "*",
-        "nunomaduro/phpinsights": "*",
-        "orchestra/pest-plugin-testbench": "*",
-        "orchestra/testbench": "^9.4",
-        "pestphp/pest": "*",
-        "pestphp/pest-plugin-arch": "*",
-        "pestphp/pest-plugin-laravel": "*",
-        "phpstan/phpstan-deprecation-rules": "*",
-        "phpstan/phpstan-phpunit": "*",
-        "rector/rector": "*",
-        "spatie/laravel-ray": "*",
-        "symplify/phpstan-rules": "*",
-        "thecodingmachine/phpstan-safe-rule": "*",
-        "tightenco/duster": "^2.2",
-        "vimeo/psalm": "*"
+        "mhmiton/laravel-modules-livewire": "*"
     },
     "repositories": [
         {
