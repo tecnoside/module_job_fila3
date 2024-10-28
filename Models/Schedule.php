@@ -130,7 +130,10 @@ class Schedule extends BaseModel
         'options_with_value' => '[]',
     ];
 
-    protected $casts = [
+   public function casts(): array
+    {
+        return [
+                  
         'id' => 'string',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
@@ -143,7 +146,9 @@ class Schedule extends BaseModel
         'options_with_value' => 'array',
         'environments' => 'array',
         'status' => Status::class,
-    ];
+    
+       ];
+    }
 
     /**
      * Get available environments.
