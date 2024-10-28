@@ -49,7 +49,7 @@ class FailedJob extends BaseModel
         'failed_at',
     ];
 
-    protected function casts(): array
+    public function casts(): array
     {
         return [
             'id' => 'string',

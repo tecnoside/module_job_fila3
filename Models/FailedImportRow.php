@@ -46,7 +46,7 @@ class FailedImportRow extends BaseModel
         'validation_error',
     ];
 
-    protected function casts(): array
+    public function casts(): array
     {
         return [
             'id' => 'string',

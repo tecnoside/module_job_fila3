@@ -123,7 +123,7 @@ class JobManager extends BaseModel
         return static::query();
     }
 
-    protected function casts(): array
+    public function casts(): array
     {
         return [
             'id' => 'string',

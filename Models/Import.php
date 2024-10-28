@@ -69,7 +69,7 @@ class Import extends BaseModel
         'user_id',
     ];
 
-    protected function casts(): array
+    public function casts(): array
     {
         return [
             'id' => 'string',
