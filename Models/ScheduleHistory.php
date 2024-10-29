@@ -86,7 +86,7 @@ class ScheduleHistory extends BaseModel
         return $this->belongsTo(Schedule::class, 'schedule_id', 'id');
     }
 
-    public function casts(): array
+    protected function casts(): array
     {
         return [
             'id' => 'string',

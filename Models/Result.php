@@ -76,7 +76,7 @@ class Result extends BaseModel
             ->getQuery();
     }
 
-    public function casts(): array
+    protected function casts(): array
     {
         return [
             'id' => 'string',

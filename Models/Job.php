@@ -94,7 +94,7 @@ class Job extends BaseModel
         return $res;
     }
 
-    public function casts(): array
+    protected function casts(): array
     {
         return [
             'id' => 'string',
