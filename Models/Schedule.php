@@ -45,8 +45,8 @@ use Webmozart\Assert\Assert;
  * @property string|null                                                                        $updated_by
  * @property string|null                                                                        $created_by
  * @property string|null                                                                        $deleted_by
- * @property ProfileContract|null                                                               $creator
- * @property ProfileContract|null                                                               $updater
+ * @property \Modules\Xot\Contracts\ProfileContract|null                                                               $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null                                                               $updater
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Schedule  active()
  * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
