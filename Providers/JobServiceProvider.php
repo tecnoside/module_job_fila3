@@ -31,8 +31,9 @@ class JobServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
-    public function bootCallback(): void
+    public function boot(): void
     {
+        parent::boot();
         /*
         $this->app->resolving(Schedule::class, function ($schedule) {
             dddx($schedule);
