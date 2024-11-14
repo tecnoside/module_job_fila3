@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\FailedImportRowResource\Pages;
 
-use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
 use Filament\Tables;
-use Filament\Tables\Columns\TextColumn;
+use Filament\Actions;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Resources\Pages\ListRecords;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
 use Modules\Job\Filament\Resources\FailedImportRowResource;
 
-class ListFailedImportRows extends ListRecords
+class ListFailedImportRows extends XotBaseListRecords
 {
     protected static string $resource = FailedImportRowResource::class;
 

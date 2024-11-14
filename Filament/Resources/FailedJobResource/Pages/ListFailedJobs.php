@@ -8,13 +8,14 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\FailedJobResource\Pages;
 
 use Filament\Actions\Action;
+use Modules\Job\Models\FailedJob;
+use Illuminate\Support\Facades\Artisan;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
-use Illuminate\Support\Facades\Artisan;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
 use Modules\Job\Filament\Resources\FailedJobResource;
-use Modules\Job\Models\FailedJob;
 
-class ListFailedJobs extends ListRecords
+class ListFailedJobs extends XotBaseListRecords
 {
     protected static string $resource = FailedJobResource::class;
 
