@@ -5,23 +5,23 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
 use Closure;
-use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
 use Filament\Tables;
-use Filament\Tables\Columns\Column;
+use Filament\Actions;
 use Filament\Tables\Table;
 use Illuminate\Support\Carbon;
-use Modules\Job\Filament\Columns\ActionGroup;
-use Modules\Job\Filament\Columns\ScheduleArguments;
-use Modules\Job\Filament\Columns\ScheduleOptions;
-use Modules\Job\Filament\Resources\ScheduleResource;
 use Modules\Job\Models\Schedule;
+use Filament\Tables\Columns\Column;
+use Filament\Resources\Pages\ListRecords;
+use Modules\Job\Filament\Columns\ActionGroup;
+use Modules\Job\Filament\Columns\ScheduleOptions;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\Job\Filament\Columns\ScheduleArguments;
+use Modules\Job\Filament\Resources\ScheduleResource;
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 
-class ListSchedules extends ListRecords
+class ListSchedules extends XotBaseListRecords
 {
-    use NavigationPageLabelTrait;
-
+    
     protected static string $resource = ScheduleResource::class;
 
     public function getTableColumns(): array
