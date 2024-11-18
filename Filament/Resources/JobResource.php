@@ -12,13 +12,8 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class JobResource extends XotBaseResource
 {
-    // //
-    // protected static ?string $model = Job::class;
-
+    protected static ?string $model = Job::class;
     protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
-
-    // protected static ?string $navigationGroup = 'jobs';
-
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
@@ -53,13 +48,9 @@ class JobResource extends XotBaseResource
         ];
     }
 
-    // public static function getNavigationBadge(): ?string
-    // {
-    //    return (string) Job::query()->count();
-    // }
-
     public static function getNavigationBadge(): ?string
     {
+        //    return (string) Job::query()->count();
         return number_format(static::getModel()::count());
     }
 }
