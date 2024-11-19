@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class Modules\Job\Providers\JobServiceProvider.
  *
@@ -26,15 +27,12 @@ use Modules\Xot\Providers\XotBaseServiceProvider;
 class JobServiceProvider extends XotBaseServiceProvider
 {
     public string $module_name = 'job';
-
     protected string $module_dir = __DIR__;
-
     protected string $module_ns = __NAMESPACE__;
-
     public function boot(): void
     {
         parent::boot();
-        /*
+    /*
         $this->app->resolving(Schedule::class, function ($schedule) {
             dddx($schedule);
             //

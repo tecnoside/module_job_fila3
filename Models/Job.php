@@ -64,7 +64,7 @@ class Job extends BaseModel
 
     public function getTable(): string
     {
-        Assert::string($res = config('queue.connections.database.table'), '['.__LINE__.']['.class_basename($this).']');
+        Assert::string($res = config('queue.connections.database.table'), '[' . __LINE__ . '][' . class_basename($this) . ']');
 
         return $res;
     }

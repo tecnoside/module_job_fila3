@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /**
  * @see HusamTariq\FilamentDatabaseSchedule
  */
@@ -19,7 +20,7 @@ class Corn implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (! is_string($value)) {
-            $msg = 'value is not a string ['.__LINE__.']['.class_basename($this).']';
+            $msg = 'value is not a string [' . __LINE__ . '][' . class_basename($this) . ']';
             $fail($msg);
 
             return;
@@ -27,7 +28,7 @@ class Corn implements ValidationRule
         if (! CronExpression::isValidExpression($value)) {
             $msg = trans('job::schedule.validation.cron');
             if (! is_string($msg)) {
-                $msg = 'WIP ['.__LINE__.']['.class_basename($this).']';
+                $msg = 'WIP [' . __LINE__ . '][' . class_basename($this) . ']';
             }
             $fail($msg);
         }

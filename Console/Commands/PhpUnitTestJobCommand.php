@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @see https://github.com/husam-tariq/filament-database-schedule/blob/v2.0.0/src/Console/Commands/PhpUnitTestJobCommand.php
  */
@@ -17,15 +18,13 @@ class PhpUnitTestJobCommand extends Command
      * @var string
      */
     protected $signature = 'phpunit:test {argument} {argumentWithDefault=Default value} {optionalArgument?}';
-
-    /**
+/**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'Command for testing the phpunit feature.';
-
-    /**
+/**
      * Execute the console command.
      */
     public function handle(): int
