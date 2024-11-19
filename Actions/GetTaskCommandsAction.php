@@ -38,7 +38,7 @@ class GetTaskCommandsAction
             static function (Command $command): string {
                 $name = (string) $command->getName();
                 if (mb_strpos($name, ':') === false) {
-                    return ':'.$name;
+                    return ':' . $name;
                 }
 
                 return $name;

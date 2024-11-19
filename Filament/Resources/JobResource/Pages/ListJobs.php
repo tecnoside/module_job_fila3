@@ -5,28 +5,24 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\JobResource\Pages;
 
 use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\ListRecords;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobResource;
-use Modules\UI\Enums\TableLayoutEnum;
-use Modules\Xot\Filament\Traits\TransTrait;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
 
-class ListJobs extends ListRecords
+class ListJobs extends XotBaseListRecords
 {
-    use TransTrait;
-
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
-
     protected static string $resource = JobResource::class;
 
     public function getTableColumns(): array
     {
         return [
-            TextColumn::make('id')->sortable()->searchable()->toggleable(),
+            TextColumn::make('id')
+                ->sortable()
+                ->searchable(),
             TextColumn::make('queue'),
 
             // Tables\Columns\TextColumn::make('payload'),
@@ -37,7 +33,8 @@ class ListJobs extends ListRecords
             // Tables\Columns\TextColumn::make('created_by'),
             // Tables\Columns\TextColumn::make('updated_by'),
             // Tables\Columns\TextColumn::make('updated_at'),
-            ViewColumn::make('payload')->view('job::filament.tables.columns.array'),
+            ViewColumn::make('payload')
+                ->view('job::filament.tables.columns.array'),
         ];
     }
 

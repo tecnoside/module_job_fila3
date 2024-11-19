@@ -4,21 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ImportResource\Pages;
 
-use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
 use Filament\Tables;
-use Filament\Tables\Columns\TextColumn;
+use Filament\Actions;
 use Filament\Tables\Table;
-use Modules\Job\Filament\Resources\ImportResource;
 use Modules\UI\Enums\TableLayoutEnum;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Resources\Pages\ListRecords;
 use Modules\Xot\Filament\Traits\TransTrait;
+use Modules\Job\Filament\Resources\ImportResource;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
 
-class ListImports extends ListRecords
+class ListImports extends XotBaseListRecords
 {
-    use TransTrait;
-
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
-
+    
     protected static string $resource = ImportResource::class;
 
     public function getTableColumns(): array
