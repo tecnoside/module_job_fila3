@@ -220,7 +220,7 @@ class Schedule extends BaseModel
             if (is_array($value)) {
                 Assert::nullOrString($value['name']);
 
-                return '--'.((string) ($value['name'] ?? $key)).'='.((string) $value['value']);
+                return '--' . ((string) ($value['name'] ?? $key)) . '=' . ((string) $value['value']);
             }
 
             return "--{$value}";
@@ -237,7 +237,7 @@ class Schedule extends BaseModel
 
         if (in_array($functionString, $allowedFunctions)) {
             if (! is_callable($functionString)) {
-                throw new \Exception('['.__LINE__.']['.__CLASS__.']');
+                throw new \Exception('[' . __LINE__ . '][' . __CLASS__ . ']');
             }
 
             return call_user_func($functionString);

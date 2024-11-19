@@ -44,4 +44,6 @@ namespace Modules\Job\Models;
  *
  * @mixin \Eloquent
  */
-class JobsWaiting extends Job {}
+class JobsWaiting extends Job
+{
+}
